@@ -24,3 +24,16 @@ docker container run -d -p 8010:80 --name sitecore-nuget-preview --network nat -
 
 # Restore dotnet tool for sitecore login and serialization
 dotnet tool restore
+
+# Build all containers in the Sitecore instance, forcing a pull of latest base containers
+docker-compose build
+if ($LASTEXITCODE -ne 0)
+{
+    Write-Error "Container build failed, see errors above."
+}
+
+# Override .env variables in current session
+$env:HOST_LICENSE_FOLDER = $LicenseXmlPath
+
+# Start the Sitecore instance
+docker-compose up -d
