@@ -25,10 +25,12 @@ services:
       - cm
 
   redis:
+    container_name: mvp-redis
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}${REDIS_IMAGE}
 
   mssql:
+    container_name: mvp-sql
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}${SQL_IMAGE}
     environment:
@@ -39,6 +41,7 @@ services:
       - "14331:1433"
 
   solr:
+    container_name: mvp-solr
     isolation: ${ISOLATION}
     ports:
       - "8985:8983"
@@ -48,7 +51,7 @@ services:
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}${ID_IMAGE}
     environment:
-      Sitecore_Sitecore__IdentityServer__SitecoreMemberShipOptions__ConnectionString: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
+      Sitecore_Sitecore__IdentityServer__SitecoreMemberShipOptions__ConnectionString: Data Source=mvp-sql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_Sitecore__IdentityServer__AccountOptions__PasswordRecoveryUrl: https://${CM_HOST}/sitecore/login?rc=1
       Sitecore_Sitecore__IdentityServer__Clients__PasswordClient__ClientSecrets__ClientSecret1: ${SITECORE_IDSECRET}
       Sitecore_Sitecore__IdentityServer__Clients__DefaultClient__AllowedCorsOrigins__AllowedCorsOriginsGroup1: https://${CM_HOST}
@@ -84,11 +87,11 @@ services:
         condition: service_started
     environment:
       Sitecore_AppSettings_instanceNameMode:define: default
-      Sitecore_ConnectionStrings_Security: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
-      Sitecore_ConnectionStrings_Web: Data Source=mssql;Initial Catalog=Sitecore.Web;User ID=sa;Password=${SQL_SA_PASSWORD}
-      Sitecore_ConnectionStrings_ExperienceForms: Data Source=mssql;Initial Catalog=Sitecore.ExperienceForms;User ID=sa;Password=${SQL_SA_PASSWORD}
-      Sitecore_ConnectionStrings_Solr.Search: http://solr:8983/solr
-      Sitecore_ConnectionStrings_Redis.Sessions: redis:6379,ssl=False,abortConnect=False
+      Sitecore_ConnectionStrings_Security: Data Source=mvp-sql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
+      Sitecore_ConnectionStrings_Web: Data Source=mvp-sql;Initial Catalog=Sitecore.Web;User ID=sa;Password=${SQL_SA_PASSWORD}
+      Sitecore_ConnectionStrings_ExperienceForms: Data Source=mvp-sql;Initial Catalog=Sitecore.ExperienceForms;User ID=sa;Password=${SQL_SA_PASSWORD}
+      Sitecore_ConnectionStrings_Solr.Search: http://mvp-solr:8983/solr
+      Sitecore_ConnectionStrings_Redis.Sessions: mvp-redis:6379,ssl=False,abortConnect=False
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
     healthcheck:
       test: ["CMD", "powershell", "-command", "C:/Healthchecks/Healthcheck.ps1"]
@@ -112,12 +115,12 @@ services:
         condition: service_started
     environment:
       Sitecore_AppSettings_instanceNameMode:define: default
-      Sitecore_ConnectionStrings_Core: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
-      Sitecore_ConnectionStrings_Security: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
-      Sitecore_ConnectionStrings_Master: Data Source=mssql;Initial Catalog=Sitecore.Master;User ID=sa;Password=${SQL_SA_PASSWORD}
-      Sitecore_ConnectionStrings_Web: Data Source=mssql;Initial Catalog=Sitecore.Web;User ID=sa;Password=${SQL_SA_PASSWORD}
-      Sitecore_ConnectionStrings_ExperienceForms: Data Source=mssql;Initial Catalog=Sitecore.ExperienceForms;User ID=sa;Password=${SQL_SA_PASSWORD}
-      Sitecore_ConnectionStrings_Solr.Search: http://solr:8983/solr
+      Sitecore_ConnectionStrings_Core: Data Source=mvp-sql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
+      Sitecore_ConnectionStrings_Security: Data Source=mvp-sql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
+      Sitecore_ConnectionStrings_Master: Data Source=mvp-sql;Initial Catalog=Sitecore.Master;User ID=sa;Password=${SQL_SA_PASSWORD}
+      Sitecore_ConnectionStrings_Web: Data Source=mvp-sql;Initial Catalog=Sitecore.Web;User ID=sa;Password=${SQL_SA_PASSWORD}
+      Sitecore_ConnectionStrings_ExperienceForms: Data Source=mvp-sql;Initial Catalog=Sitecore.ExperienceForms;User ID=sa;Password=${SQL_SA_PASSWORD}
+      Sitecore_ConnectionStrings_Solr.Search: http://mvp-solr:8983/solr
       Sitecore_ConnectionStrings_Sitecoreidentity.secret: ${SITECORE_IDSECRET}
       Sitecore_AppSettings_Telerik.AsyncUpload.ConfigurationEncryptionKey: ${TELERIK_ENCRYPTION_KEY}
       Sitecore_AppSettings_Telerik.Upload.ConfigurationHashKey: ${TELERIK_ENCRYPTION_KEY}
