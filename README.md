@@ -56,3 +56,13 @@ error: Unable to load the service index for source https://api.nuget.org/v3/inde
 See [this issue comment](https://github.com/docker/for-win/issues/2760#issuecomment-430889666) for suggestions on resolving this issue.
 
 If that fix doesn't work, then disabling all of your network devices except for your active one will also work (The nuclear option 😊)
+
+# Running Side-by-side with the NewDevEx solution
+
+To run this solution at the same time as the NewDevEx solution follow the steps below. We don't want two instances of Traefik running, so this will make the MVP site piggyback off the NewDevEx Traefik instance.
+
+
+1. Configure & run the NewDevEx solution according to the instructions on that repo
+2. Uncomment the `Network` setion at the bottom of the `docker-compose.yml` in the root of this repo
+3. Run the MVP site in same way as above, but include the -RunWithoutTreafik toggle.
+4. Wait a couple of mins for Traefik to connect the new containers

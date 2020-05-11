@@ -2,7 +2,10 @@
 param(
     [Parameter(Mandatory = $true)]
     [ValidateNotNullOrEmpty()]
-    [string]$LicenseXmlPath
+    [string]$LicenseXmlPath,
+
+    [Parameter()]
+    [switch]$RunWithoutTreafik
 )
 
 $ErrorActionPreference = "Stop";
@@ -35,5 +38,13 @@ if ($LASTEXITCODE -ne 0)
 # Override .env variables in current session
 $env:HOST_LICENSE_FOLDER = $LicenseXmlPath
 
-# Start the Sitecore instance
-docker-compose up -d
+if ($RunWithoutTreafik)
+{
+    # Start container instances without traefik
+    docker-compose up -d redis mssql solr id cd cm
+}
+else
+{
+    # Start all container 
+    docker-compose up -d
+}

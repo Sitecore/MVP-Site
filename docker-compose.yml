@@ -36,12 +36,12 @@ services:
       SITECORE_ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
       ACCEPT_EULA: "Y"
     ports:
-      - "14330:1433"
+      - "14331:1433"
 
   solr:
     isolation: ${ISOLATION}
     ports:
-      - "8984:8983"
+      - "8985:8983"
     image: ${SITECORE_DOCKER_REGISTRY}${SOLR_IMAGE}
 
   id:
@@ -64,9 +64,9 @@ services:
         condition: service_healthy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.id-secure.entrypoints=websecure"
-      - "traefik.http.routers.id-secure.rule=Host(`${ID_HOST}`)"
-      - "traefik.http.routers.id-secure.tls=true"
+      - "traefik.http.routers.mvp-id-secure.entrypoints=websecure"
+      - "traefik.http.routers.mvp-id-secure.rule=Host(`${ID_HOST}`)"
+      - "traefik.http.routers.mvp-id-secure.tls=true"
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
 
@@ -95,8 +95,8 @@ services:
       timeout: 300s
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.cd.entrypoints=web"
-      - "traefik.http.routers.cd.rule=Host(`${CD_HOST}`)"
+      - "traefik.http.routers.mvp-cd.entrypoints=web"
+      - "traefik.http.routers.mvp-cd.rule=Host(`${CD_HOST}`)"
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
 
@@ -134,9 +134,14 @@ services:
       - "traefik.enable=true"
       - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
       - "traefik.http.middlewares.force-STS-Header.headers.stsSeconds=31536000"
-      - "traefik.http.routers.cm-secure.entrypoints=websecure"
-      - "traefik.http.routers.cm-secure.rule=Host(`${CM_HOST}`)"
-      - "traefik.http.routers.cm-secure.tls=true"
-      - "traefik.http.routers.cm-secure.middlewares=force-STS-Header"
+      - "traefik.http.routers.mvp-cm-secure.entrypoints=websecure"
+      - "traefik.http.routers.mvp-cm-secure.rule=Host(`${CM_HOST}`)"
+      - "traefik.http.routers.mvp-cm-secure.tls=true"
+      - "traefik.http.routers.mvp-cm-secure.middlewares=force-STS-Header"
     volumes:
-    - ${HOST_LICENSE_FOLDER}:c:\license
+      - ${HOST_LICENSE_FOLDER}:c:\license
+
+networks:
+  default:
+    external:
+      name: devex-mvp-preview
