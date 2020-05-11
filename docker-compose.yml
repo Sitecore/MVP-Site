@@ -147,4 +147,4 @@ services:
 networks:
   default:
     external:
-      name: devex-mvp-preview
+      name: nat

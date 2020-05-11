@@ -63,6 +63,5 @@ To run this solution at the same time as the NewDevEx solution follow the steps 
 
 
 1. Configure & run the NewDevEx solution according to the instructions on that repo
-2. Uncomment the `Network` setion at the bottom of the `docker-compose.yml` in the root of this repo
-3. Run the MVP site in same way as above, but include the -RunWithoutTreafik toggle.
-4. Wait a couple of mins for Traefik to connect the new containers
+2. Run the MVP site in same way as above, but include the -RunWithoutTreafik toggle.
+3. Wait a couple of mins for Traefik to connect the new containers (Check they're listed in Traefik by hitting http://localhost:8079/dashboard)
