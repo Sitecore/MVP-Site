@@ -1,0 +1,23 @@
+﻿---
+ID: "82f4d9da-4f7b-4355-9d78-926e142cf254"
+Parent: "a43c6692-60f4-4743-a1be-6424de611dfa"
+Template: "b65d91e4-b863-41a7-ba61-3953621f6e23"
+Path: /sitecore/content/MvpSite/Home
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200512T053838Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8abc1064-5c04-4b77-864f-cc4228c34a19"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200512T053838Z
