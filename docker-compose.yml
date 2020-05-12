@@ -75,7 +75,12 @@ services:
 
   cd:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}${CD_IMAGE}
+    image: ${SITECORE_DOCKER_REGISTRY}mvp-cd:latest
+    build:
+      context: ./docker/build/cd
+      args:
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}${CD_IMAGE}
+        TOOLING_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-docker-tools:latest
     depends_on:
       mssql:
         condition: service_healthy
@@ -101,11 +106,18 @@ services:
       - "traefik.http.routers.mvp-cd.entrypoints=web"
       - "traefik.http.routers.mvp-cd.rule=Host(`${CD_HOST}`)"
     volumes:
+      - ${LOCAL_DEPLOY_PATH}:C:\src
       - ${HOST_LICENSE_FOLDER}:c:\license
+    entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1"
 
   cm:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}${CM_IMAGE}
+    image: ${SITECORE_DOCKER_REGISTRY}mvp-cm:latest
+    build:
+      context: ./docker/build/cm
+      args:
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-cm-jss-devex-layouteditor:latest
+        TOOLING_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-docker-tools:latest    
     depends_on:
       mssql:
         condition: service_healthy
@@ -142,7 +154,9 @@ services:
       - "traefik.http.routers.mvp-cm-secure.tls=true"
       - "traefik.http.routers.mvp-cm-secure.middlewares=force-STS-Header"
     volumes:
+      - ${LOCAL_DEPLOY_PATH}:C:\src
       - ${HOST_LICENSE_FOLDER}:c:\license
+    entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1"
 
 networks:
   default:
