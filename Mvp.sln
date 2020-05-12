@@ -43,7 +43,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cm", "cm", "{C3047BDB-95AB-
 		docker\build\cm\Dockerfile = docker\build\cm\Dockerfile
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Environment.Sitecore", "src\Environment\sitecore\Mvp.Environment.Sitecore.csproj", "{2424E8B4-0111-4306-9603-0D2702EA60C5}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2424E8B4-0111-4306-9603-0D2702EA60C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2424E8B4-0111-4306-9603-0D2702EA60C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2424E8B4-0111-4306-9603-0D2702EA60C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2424E8B4-0111-4306-9603-0D2702EA60C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
@@ -53,6 +65,7 @@ Global
 		{0CD77201-5A3D-430A-A40F-C0343435359B} = {C2A09BF2-FE3E-4A2D-8FB0-CDD281AC568A}
 		{D00E084E-C02B-4F44-B1B5-09F44A3F0084} = {0CD77201-5A3D-430A-A40F-C0343435359B}
 		{C3047BDB-95AB-461D-A5F6-E337D606A2CD} = {0CD77201-5A3D-430A-A40F-C0343435359B}
+		{2424E8B4-0111-4306-9603-0D2702EA60C5} = {B04642CD-8FAB-4282-8C7E-E79942FC3ABB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3377439-FD7A-4F3E-8011-06175E0E3100}
