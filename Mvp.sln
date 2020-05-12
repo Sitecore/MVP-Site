@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".SolutionItems", ".Solution
 		nuget.config = nuget.config
 		README.md = README.md
 		setup.ps1 = setup.ps1
+		sitecore.json = sitecore.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Environment", "Environment", "{B04642CD-8FAB-4282-8C7E-E79942FC3ABB}"
@@ -21,9 +22,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{94C8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feature", "Feature", "{F1800335-D16A-4FB6-B213-1885963E283D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Multisite", "Multisite", "{C498C9DC-F441-45E5-A238-DC2E0D1CB486}"
+	ProjectSection(SolutionItems) = preProject
+		src\Foundation\Multisite\Multisite.module.json = src\Foundation\Multisite\Multisite.module.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C498C9DC-F441-45E5-A238-DC2E0D1CB486} = {324D4FE7-86EF-43A2-A466-21198CB856AD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3377439-FD7A-4F3E-8011-06175E0E3100}

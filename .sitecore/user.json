@@ -1,0 +1,16 @@
+{
+  "endpoints": {
+    "default": {
+      "allowWrite": true,
+      "host": "https://mvp-cm.sc.localhost/",
+      "sicHost": "https://mvp-cm.sc.localhost/",
+      "authority": "https://mvp-id.sc.localhost/",
+      "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IkJCN0ExMzRDOUUyQjQ0NjQ1ODFERUQ0QTI3NDdFNUIwRkE4NzM2NUEiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJ1M29UVEo0clJHUllIZTFLSjBmbHNQcUhObG8ifQ.eyJuYmYiOjE1ODkyNTA1MTAsImV4cCI6MTU4OTI1MjMxMCwiaXNzIjoiaHR0cHM6Ly9tdnAtaWQuc2MubG9jYWxob3N0IiwiYXVkIjpbImh0dHBzOi8vbXZwLWlkLnNjLmxvY2FsaG9zdC9yZXNvdXJjZXMiLCJzaXRlY29yZS5wcm9maWxlLmFwaSJdLCJjbGllbnRfaWQiOiJTaXRlY29yZUNMSSIsInN1YiI6IjJiODFjNWQ1YjM5YjRjNWI5MDc3MDU4ZjgxZjZmMTJjIiwiYXV0aF90aW1lIjoxNTg5MjUwMjE4LCJpZHAiOiJsb2NhbCIsIm5hbWUiOiJzaXRlY29yZVxcQWRtaW4iLCJlbWFpbCI6IiIsImh0dHA6Ly93d3cuc2l0ZWNvcmUubmV0L2lkZW50aXR5L2NsYWltcy9pc0FkbWluIjoiVHJ1ZSIsInNjb3BlIjpbIm9wZW5pZCIsInNpdGVjb3JlLnByb2ZpbGUiLCJzaXRlY29yZS5wcm9maWxlLmFwaSIsIm9mZmxpbmVfYWNjZXNzIl0sImFtciI6WyJwd2QiXX0.Vd-IpHSotxdz05I4B6d964446n7QQbonjUaTL15zPtkzCtXNvdLC3Lh1OB5WmEVpgtHQaTYhAfn6WF1mSkClZKXM-3_37y4TaDqf1DGdf1ebCCJjOjqJDn8eHV-WLcSLu8odzDmoD8O2Xz5Rrl9kg9ZMY9z6hU3NNiP42_iv2nR5mS7TQySgCradTHsFCIQE-MDnE-X98OPAYbGXzSuFtpVOr1hD15jUUd9eexmtr2hXTiWVYpm-4lYbF8XiiazkEuRXF7XR1cNKU7GnDkyl-2R6GUMgfNKotpOrU8XRcpuSXQb0xxJwPTt0v1vKohkKE3k2YLOpx8y01bn2ldFfyg",
+      "refreshToken": "32c53a726820cdb897c7a28290e9416c590eba6653bb22e38996596779308386",
+      "clientId": "SitecoreCLI",
+      "authParameters": "",
+      "variables": {}
+    }
+  },
+  "$schema": "./schemas/UserConfiguration.schema.json"
+}

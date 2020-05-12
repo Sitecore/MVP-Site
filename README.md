@@ -41,11 +41,6 @@ This is the new Sitecore MVP site - build against Sitecore 10 utillising the new
     * Launch a Nuget Server container with preview packages
     * Build the solution containers
     * Launch the solution containers  (The last container may take a minute to create/start, as it waits for CM and ID to be *healthy*.)
-    * Open a browser tab to login the `sitecore` CLI (use admin/b)
-    * Sync items via `sitecore` CLI
-    * Publish items via `sitecore` CLI
-    * Open a browser tab to the CM Launchpad
-    * Open a browser tab with the running rendering host site
 
 ## Troubleshooting
 
