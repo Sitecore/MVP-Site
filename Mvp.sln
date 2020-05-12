@@ -5,9 +5,7 @@ VisualStudioVersion = 16.0.30105.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".SolutionItems", ".SolutionItems", "{FE951C1D-8EC7-419E-A7A2-A0175125BCBB}"
 	ProjectSection(SolutionItems) = preProject
-		.env = .env
 		.gitignore = .gitignore
-		docker-compose.yml = docker-compose.yml
 		nuget.config = nuget.config
 		README.md = README.md
 		setup.ps1 = setup.ps1
@@ -27,12 +25,34 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Multisite", "Multisite", "{
 		src\Foundation\Multisite\Multisite.module.json = src\Foundation\Multisite\Multisite.module.json
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{C2A09BF2-FE3E-4A2D-8FB0-CDD281AC568A}"
+	ProjectSection(SolutionItems) = preProject
+		.env = .env
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{0CD77201-5A3D-430A-A40F-C0343435359B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cd", "cd", "{D00E084E-C02B-4F44-B1B5-09F44A3F0084}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\cd\Dockerfile = docker\build\cd\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cm", "cm", "{C3047BDB-95AB-461D-A5F6-E337D606A2CD}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\cm\Dockerfile = docker\build\cm\Dockerfile
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C498C9DC-F441-45E5-A238-DC2E0D1CB486} = {324D4FE7-86EF-43A2-A466-21198CB856AD}
+		{C2A09BF2-FE3E-4A2D-8FB0-CDD281AC568A} = {FE951C1D-8EC7-419E-A7A2-A0175125BCBB}
+		{0CD77201-5A3D-430A-A40F-C0343435359B} = {C2A09BF2-FE3E-4A2D-8FB0-CDD281AC568A}
+		{D00E084E-C02B-4F44-B1B5-09F44A3F0084} = {0CD77201-5A3D-430A-A40F-C0343435359B}
+		{C3047BDB-95AB-461D-A5F6-E337D606A2CD} = {0CD77201-5A3D-430A-A40F-C0343435359B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3377439-FD7A-4F3E-8011-06175E0E3100}
