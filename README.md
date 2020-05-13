@@ -33,7 +33,7 @@ This is the new Sitecore MVP site - build against Sitecore 10 utillising the new
     "7Z8HffSJJtz=pLdfMTXHLcLMn4WAgyH5" | docker login -u sitecore-mvps --password-stdin devexmvp.azurecr.io
     ```
 
-6. Run `setup.ps1`, passing in your Sitecore license key as an argument. From the solution root:
+5. Run `setup.ps1`, passing in your Sitecore license key as an argument. From the solution root:
     ```ps1
     .\setup.ps1 -LicenseXmlPath "C:\path\to\license.xml"
     ```
@@ -41,6 +41,16 @@ This is the new Sitecore MVP site - build against Sitecore 10 utillising the new
     * Launch a Nuget Server container with preview packages
     * Build the solution containers
     * Launch the solution containers  (The last container may take a minute to create/start, as it waits for CM and ID to be *healthy*.)
+
+    The sites can take a few mins to come up. Check they're listed in Traefik by hitting http://localhost:8079/dashboard
+
+6. Run `dotnet sitecore login` to have your CLI authenticated with the MVP Sitecore instance
+
+7. Run `dotnet sitecore ser push` to push the content items to Sitecore
+
+8. Run `dotnet sitecore publish` to publish the content items
+
+9. Browse the the rendering host URL in your browser
 
 ## Troubleshooting
 
@@ -54,9 +64,10 @@ If that fix doesn't work, then disabling all of your network devices except for 
 
 # Running Side-by-side with the NewDevEx solution
 
-To run this solution at the same time as the NewDevEx solution follow the steps below. We don't want two instances of Traefik running, so this will make the MVP site piggyback off the NewDevEx Traefik instance.
+Currently there is an issue attempting to run New Dev Ex & MVP solutions at the same time as the rendering hosts clash in Treafik and neither of them will resolve.
 
+~~To run this solution at the same time as the NewDevEx solution follow the steps below. We don't want two instances of Traefik running, so this will make the MVP site piggyback off the NewDevEx Traefik instance.~~
 
-1. Configure & run the NewDevEx solution according to the instructions on that repo
-2. Run the MVP site in same way as above, but include the -RunWithoutTreafik toggle.
-3. Wait a couple of mins for Traefik to connect the new containers (Check they're listed in Traefik by hitting http://localhost:8079/dashboard)
+1. ~~Configure & run the NewDevEx solution according to the instructions on that repo~~
+2. ~~Run the MVP site in same way as above, but include the -RunWithoutTreafik toggle.~~
+3. ~~Wait a couple of mins for Traefik to connect the new containers (Check they're listed in Traefik by hitting http://localhost:8079/dashboard)~~
