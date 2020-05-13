@@ -1,0 +1,28 @@
+﻿# Do not commit this file to source control or modify it. It is safe to delete; it will recreate itself.
+---
+File: |
+  C:\Solutions\MVP-Site\src\Project\MvpSite\items\templates\MvpSite\Homepage\__Standard Values.yml
+ID: "c51665ec-6662-4bef-8a04-be941861bef7"
+Parent: "9c1e30a0-8691-4ad4-bef0-e1f446eef8f3"
+Template: "9c1e30a0-8691-4ad4-bef0-e1f446eef8f3"
+Path: /sitecore/templates/Project/MvpSite/Homepage/__Standard Values
+Signature: 8dNR5sQzpTSd/okV0LMEOsVycQy1v4kz3UK1Rx2IrZc=
+Modified: 637249427238401133
+---
+File: |
+  C:\Solutions\MVP-Site\src\Project\MvpSite\items\templates\MvpSite.yml
+ID: "b864b451-cfb3-4ec1-9f08-8cdc38bad006"
+Parent: "825b30b4-b40b-422e-9920-23a1b6bda89c"
+Template: "0437fee2-44c9-46a6-abe9-28858d9fee8c"
+Path: /sitecore/templates/Project/MvpSite
+Signature: wOJxZJP5GSP+UaNx7gxq54MGeWOM4+dFZZRArdwpGt8=
+Modified: 637249425344889796
+---
+File: |
+  C:\Solutions\MVP-Site\src\Project\MvpSite\items\templates\MvpSite\Homepage.yml
+ID: "9c1e30a0-8691-4ad4-bef0-e1f446eef8f3"
+Parent: "b864b451-cfb3-4ec1-9f08-8cdc38bad006"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Project/MvpSite/Homepage
+Signature: 564aIPHR37zIpQYD0CcnaY8rKMNGFgiIoQ8qMSv3a0Y=
+Modified: 637249427238365164

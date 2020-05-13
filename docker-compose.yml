@@ -1,6 +1,37 @@
 version: "2.4"
 services:
 
+  solutionBuildOutput:
+    image: ${SITECORE_DOCKER_REGISTRY}mvp-solution-build-output:latest
+    build:
+      context: ./
+      dockerfile: ./docker/build/solution/Dockerfile
+      args:
+        BASE_IMAGE: ${SOLUTION_BASE_IMAGE}
+        BUILD_IMAGE: ${SOLUTION_BUILD_IMAGE}
+        NETCORE_BUILD_IMAGE: ${NETCORE_BUILD_IMAGE}
+        NETCORE_VERSION: ${NETCORE_VERSION}
+        NUGET_PREVIEW_SOURCE: ${NUGET_PREVIEW_SOURCE}
+    scale: 0
+
+  rendering:
+    image: ${SITECORE_DOCKER_REGISTRY}mvp-rendering:latest
+    build:
+      context: ./docker/build/rendering
+      args:
+        SOLUTION_IMAGE: ${SITECORE_DOCKER_REGISTRY}mvp-solution-build-output:latest
+        NETCORE_RUNTIME_IMAGE: ${NETCORE_RUNTIME_IMAGE}
+    ports:
+      - "8091:80"
+    depends_on:
+      - solutionBuildOutput
+      - cd
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.rendering-secure.entrypoints=websecure"
+      - "traefik.http.routers.rendering-secure.rule=Host(`${RENDERING_HOST}`)"
+      - "traefik.http.routers.rendering-secure.tls=true"   
+
   traefik:
     isolation: ${ISOLATION}
     image: ${TRAEFIK_IMAGE}
@@ -81,6 +112,7 @@ services:
       args:
         BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}${CD_IMAGE}
         TOOLING_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-docker-tools:latest
+        SOLUTION_IMAGE: ${SITECORE_DOCKER_REGISTRY}mvp-solution-build-output:latest
     depends_on:
       mssql:
         condition: service_healthy
@@ -89,6 +121,8 @@ services:
       id:
         condition: service_started
       redis:
+        condition: service_started
+      solutionBuildOutput:
         condition: service_started
     environment:
       Sitecore_AppSettings_instanceNameMode:define: default
@@ -118,12 +152,15 @@ services:
       args:
         BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-cm-jss-devex-layouteditor:latest
         TOOLING_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-docker-tools:latest    
+        SOLUTION_IMAGE: ${SITECORE_DOCKER_REGISTRY}mvp-solution-build-output:latest
     depends_on:
       mssql:
         condition: service_healthy
       solr:
         condition: service_started
       id:
+        condition: service_started
+      solutionBuildOutput:
         condition: service_started
     environment:
       Sitecore_AppSettings_instanceNameMode:define: default

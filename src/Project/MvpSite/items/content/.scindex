@@ -8,3 +8,12 @@ Template: "c39978e9-c0d2-4d72-bf8b-b121e35bde91"
 Path: /sitecore/content/MvpSite
 Signature: otHjTPuB/VH2mModmdSMo8NGJEmjrFTjl6yfDxzjoIQ=
 Modified: 637248585427421155
+---
+File: |
+  C:\Solutions\MVP-Site\src\Project\MvpSite\items\content\MvpSite\Home.yml
+ID: "94de9ac3-a9f7-40ab-ae90-acda364b9c40"
+Parent: "a43c6692-60f4-4743-a1be-6424de611dfa"
+Template: "9c1e30a0-8691-4ad4-bef0-e1f446eef8f3"
+Path: /sitecore/content/MvpSite/Home
+Signature: CctZi4W+Z/k2UeZbQPeDz9sNFqK2h15gf7rcLTBduYE=
+Modified: 637249487338575516

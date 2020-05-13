@@ -2,7 +2,9 @@
 
 ARG BASE_IMAGE
 ARG TOOLING_IMAGE
+ARG SOLUTION_IMAGE
 
+FROM ${SOLUTION_IMAGE} as solution
 FROM ${TOOLING_IMAGE} as tooling
 FROM ${BASE_IMAGE}
 
@@ -12,3 +14,6 @@ WORKDIR C:\inetpub\wwwroot
 
 # Copy tools
 COPY --from=tooling /tools/ /tools/
+
+# Copy built website files
+COPY --from=solution /artifacts/sitecore/ ./

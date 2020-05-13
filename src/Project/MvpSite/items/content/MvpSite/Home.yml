@@ -1,8 +1,30 @@
 ﻿---
-ID: "82f4d9da-4f7b-4355-9d78-926e142cf254"
+ID: "94de9ac3-a9f7-40ab-ae90-acda364b9c40"
 Parent: "a43c6692-60f4-4743-a1be-6424de611dfa"
-Template: "b65d91e4-b863-41a7-ba61-3953621f6e23"
+Template: "9c1e30a0-8691-4ad4-bef0-e1f446eef8f3"
 Path: /sitecore/content/MvpSite/Home
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{1AE49D12-8DA1-4FBD-92FF-887B01C02BB5}">
+        <p
+          uid="{2E9F53E5-219A-4E52-95FA-802439F321CF}"
+          key="footer"
+          md="{40E386A6-C647-4069-93AB-4ABD1F87CFB9}" />
+        <p
+          uid="{55237C6B-781F-4335-AFBF-E34D1F23CF34}"
+          key="header"
+          md="{9AED7A3B-5823-4566-828E-B6A799DBCA3D}" />
+        <p
+          uid="{3BDBFD4A-EED5-4A57-8BC5-6EF79ACA1131}"
+          key="main"
+          md="{4C14AEC2-35C5-4A40-98D1-7A75A8452521}" />
+      </d>
+    </r>
 Languages:
 - Language: en
   Versions:
@@ -10,14 +32,14 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200512T053838Z
+      Value: 20200513T045800Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8abc1064-5c04-4b77-864f-cc4228c34a19"
+      Value: "3bd19e53-67ad-4bfb-97fe-0d988221f109"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200512T053838Z
+      Value: 20200513T063746Z

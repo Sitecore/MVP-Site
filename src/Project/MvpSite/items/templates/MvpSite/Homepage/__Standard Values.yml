@@ -1,8 +1,8 @@
 ﻿---
-ID: "97698d96-4447-4338-ab00-5561aece6023"
-Parent: "b65d91e4-b863-41a7-ba61-3953621f6e23"
-Template: "b65d91e4-b863-41a7-ba61-3953621f6e23"
-Path: /sitecore/templates/Project/MvpSite/Home Page/__Standard Values
+ID: "c51665ec-6662-4bef-8a04-be941861bef7"
+Parent: "9c1e30a0-8691-4ad4-bef0-e1f446eef8f3"
+Template: "9c1e30a0-8691-4ad4-bef0-e1f446eef8f3"
+Path: /sitecore/templates/Project/MvpSite/Homepage/__Standard Values
 Languages:
 - Language: en
   Versions:
@@ -10,7 +10,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200512T053801Z
+      Value: 20200513T045748Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -21,11 +21,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "64923de6-dd5a-4ee8-9117-00c5677c5033"
+      Value: "7b214b16-1577-442f-9d94-ab277be0e12b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200512T053801Z
+      Value: 20200513T045748Z

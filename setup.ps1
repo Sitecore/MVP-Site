@@ -41,7 +41,7 @@ $env:HOST_LICENSE_FOLDER = $LicenseXmlPath
 if ($RunWithoutTreafik)
 {
     # Start container instances without traefik
-    docker-compose up -d redis mssql solr id cd cm
+    docker-compose up -d solutionBuildOutput redis mssql solr id cd cm rendering
 }
 else
 {

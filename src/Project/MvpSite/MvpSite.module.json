@@ -1,27 +1,40 @@
 {
-    "namespace": "Project.MvpSite",
-    "items": {
-      "includes": [
-        {
-          "name": "content",
-          "path": "/sitecore/content/MvpSite"
-        },
-        {
-          "name": "media",
-          "path": "/sitecore/media library/MvpSite"
-        },
-        {
-          "name": "forms",
-          "path": "/sitecore/Forms/MvpSite"
-        },
-        {
-          "name": "dictionary",
-          "path": "/sitecore/system/Dictionary/MvpSite"
-        },
-        {
-          "name": "templates",
-          "path": "/sitecore/templates/Project/MvpSite"
-        }
-      ]
-    }
+  "namespace": "Project.MvpSite",
+  "items": {
+    "includes": [
+      {
+        "name": "layouts",
+        "path": "/sitecore/layout/Layouts/Project/MvpSite"
+      },
+      {
+        "name": "placeholders",
+        "path": "/sitecore/layout/Placeholder Settings/Project/MvpSite"
+      },
+      {
+        "name": "media",
+        "path": "/sitecore/media library/MvpSite"
+      },
+      {
+        "name": "forms",
+        "path": "/sitecore/Forms/MvpSite"
+      },
+      {
+        "name": "dictionary",
+        "path": "/sitecore/system/Dictionary/MvpSite"
+      },
+      {
+        "name": "templates",
+        "path": "/sitecore/templates/Project/MvpSite"
+      },
+      {
+        "name": "content",
+        "path": "/sitecore/content/MvpSite"
+      },
+      {
+        "name": "apikey",
+        "path": "/sitecore/system/Settings/Services/API Keys/MvpSite"
+      }
+    ]
+  }
 }
+
