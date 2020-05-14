@@ -66,8 +66,6 @@ If that fix doesn't work, then disabling all of your network devices except for 
 
 Currently there is an issue attempting to run New Dev Ex & MVP solutions at the same time as the rendering hosts clash in Treafik and neither of them will resolve.
 
-~~To run this solution at the same time as the NewDevEx solution follow the steps below. We don't want two instances of Traefik running, so this will make the MVP site piggyback off the NewDevEx Traefik instance.~~
-
-1. ~~Configure & run the NewDevEx solution according to the instructions on that repo~~
-2. ~~Run the MVP site in same way as above, but include the -RunWithoutTreafik toggle.~~
-3. ~~Wait a couple of mins for Traefik to connect the new containers (Check they're listed in Traefik by hitting http://localhost:8079/dashboard)~~
+1. Configure & run the NewDevEx solution according to the instructions on that repo
+2. Run the MVP site in same way as above, but include the -RunWithoutTreafik toggle.
+3. Wait a couple of mins for Traefik to connect the new containers (Check they're listed in Traefik by hitting http://localhost:8079/dashboard)

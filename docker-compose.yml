@@ -28,9 +28,9 @@ services:
       - cd
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.rendering-secure.entrypoints=websecure"
-      - "traefik.http.routers.rendering-secure.rule=Host(`${RENDERING_HOST}`)"
-      - "traefik.http.routers.rendering-secure.tls=true"   
+      - "traefik.http.routers.mvp-rendering-secure.entrypoints=websecure"
+      - "traefik.http.routers.mvp-rendering-secure.rule=Host(`${RENDERING_HOST}`)"
+      - "traefik.http.routers.mvp-rendering-secure.tls=true"   
 
   traefik:
     isolation: ${ISOLATION}
@@ -199,3 +199,7 @@ networks:
   default:
     external:
       name: nat
+
+volumes:
+    data-sql:
+    data-solr:
