@@ -1,13 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Mvp.Feature.Navigation.Extensions;
 using Sitecore.AspNet.RenderingEngine.Extensions;
 using Sitecore.LayoutService.Client.Extensions;
 using Sitecore.LayoutService.Client.Newtonsoft.Extensions;
@@ -64,9 +61,12 @@ namespace Mvp.Project.MvpSite.Rendering
                     {
                         layoutRequest.Add(PROTOCOL_HEADER, httpRequest.Headers[PROTOCOL_HEADER].ToString());
                     })
-                   // TODO: register your components here
+
+                    // TODO: register your components here
+                   .AddFeatureNavigation()
                    .AddDefaultPartialView("_ComponentNotFound");
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

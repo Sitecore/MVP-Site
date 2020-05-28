@@ -4,6 +4,14 @@
     ViewData["Title"] = Model.ReadField<TextField>("NavigationTitle")?.Value ?? Model.ReadField<TextField>("Title")?.Value ?? "Untitled";
 }
 
-<sc-placeholder name="header"></sc-placeholder>
-<sc-placeholder name="main"></sc-placeholder>
-<sc-placeholder name="footer"></sc-placeholder>
+<header>
+    <sc-placeholder name="header"></sc-placeholder>
+</header>
+
+<main>
+    <sc-placeholder name="main"></sc-placeholder>
+</main>
+
+<footer class="fixed-footer">
+    <sc-placeholder name="footer"></sc-placeholder>
+</footer>

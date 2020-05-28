@@ -18,4 +18,8 @@
 		<PackageReference Include="Sitecore.AspNet.RenderingEngine" Version="0.1.0-*" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\Feature\Navigation\rendering\Mvp.Feature.Navigation.Rendering.csproj" />
+	</ItemGroup>
+
 </Project>

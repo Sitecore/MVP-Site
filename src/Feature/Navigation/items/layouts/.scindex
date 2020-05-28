@@ -1,0 +1,37 @@
+﻿# Do not commit this file to source control or modify it. It is safe to delete; it will recreate itself.
+---
+File: |
+  C:\Solutions\MVP-Site\src\Feature\Navigation\items\layouts\Navigation.yml
+ID: "c7f7df35-991e-432a-bbdd-0ed848bca04a"
+Parent: "da61ad50-8fdb-4252-a68f-b4470b1c9fe8"
+Template: "7ee0975b-0698-493e-b3a2-0b2ef33d0522"
+Path: /sitecore/layout/Renderings/Feature/Navigation
+Signature: ixhU+jNA9g3pMBEMqW+OtdvSmdEB3QmuCmvVesDGzR0=
+Modified: 637262387748279310
+---
+File: |
+  C:\Solutions\MVP-Site\src\Feature\Navigation\items\layouts\Navigation\Top Links.yml
+ID: "a4f28b31-5d18-4158-92ab-f4d2eca6d2be"
+Parent: "c7f7df35-991e-432a-bbdd-0ed848bca04a"
+Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
+Path: /sitecore/layout/Renderings/Feature/Navigation/Top Links
+Signature: bl1RHZBNjzhNdrppFt3iYTlcpvE0DcJkzmCkuN5tU/4=
+Modified: 637262387748489237
+---
+File: |
+  C:\Solutions\MVP-Site\src\Feature\Navigation\items\layouts\Navigation\Footer.yml
+ID: "437ccc09-ab5d-47b3-96d7-2b05bdff5324"
+Parent: "c7f7df35-991e-432a-bbdd-0ed848bca04a"
+Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
+Path: /sitecore/layout/Renderings/Feature/Navigation/Footer
+Signature: RpwljU+iVdd7YnHJ6Lz4a6LJQH1QxRLoyvGd2XY5oqI=
+Modified: 637262387748409230
+---
+File: |
+  C:\Solutions\MVP-Site\src\Feature\Navigation\items\layouts\Navigation\Main Nav.yml
+ID: "c9593ff9-14ac-4c8e-b217-d85c05adead7"
+Parent: "c7f7df35-991e-432a-bbdd-0ed848bca04a"
+Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
+Path: /sitecore/layout/Renderings/Feature/Navigation/Main Nav
+Signature: /VUPb0eGAJD0GSGV3ESCBr0AldVneT27vi6Dt9MJzYs=
+Modified: 637262387748459232

@@ -1,0 +1,11 @@
+{
+  "namespace": "Feature.Navigation",
+  "items": {
+    "includes": [
+      {
+        "name": "layouts",
+        "path": "/sitecore/layout/Renderings/Feature/Navigation"
+      }
+    ]
+  }
+}
