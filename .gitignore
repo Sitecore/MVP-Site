@@ -360,3 +360,6 @@ FodyWeavers.xsd
 
 /docker/deploy/*
 !/docker/deploy/.gitkeep
+
+# may contain OAuth secrets, do not commit
+.sitecore/user.json
