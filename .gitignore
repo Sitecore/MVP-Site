@@ -363,3 +363,6 @@ FodyWeavers.xsd
 
 # may contain OAuth secrets, do not commit
 .sitecore/user.json
+
+#vscode user settings
+.vscode/

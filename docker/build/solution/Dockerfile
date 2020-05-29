@@ -53,7 +53,7 @@ RUN dotnet restore
 COPY src/ ./src/
 
 # Build the Sitecore main platform artifacts
-RUN msbuild .\src\Environment\sitecore\Mvp.Environment.Sitecore.csproj /p:Configuration=Release /restore /m /p:DeployOnBuild=true /p:PublishProfile=Local
+RUN msbuild .\src\Environment\sitecore\Mvp.Environment.Sitecore.csproj /p:Configuration=Debug /restore /m /p:DeployOnBuild=true /p:PublishProfile=Local
 
 # Build the rendering host
 WORKDIR .\src\Project\MvpSite\rendering\

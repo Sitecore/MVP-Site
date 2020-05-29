@@ -3,8 +3,16 @@
   "items": {
     "includes": [
       {
+        "name": "templates",
+        "path": "/sitecore/templates/Feature/Navigation"
+      },
+      {
         "name": "layouts",
         "path": "/sitecore/layout/Renderings/Feature/Navigation"
+      },
+      {
+        "name": "Content Resolvers",
+        "path": "/sitecore/system/Modules/Layout Service/Rendering Contents Resolvers/Navigation"
       }
     ]
   }

@@ -1,0 +1,100 @@
+﻿# Do not commit this file to source control or modify it. It is safe to delete; it will recreate itself.
+---
+File: |
+  C:\Solutions\MVP-Site\src\Feature\Navigation\items\templates\Navigation\Top Links\Top Links Collection.yml
+ID: "e454a4e3-f69a-4d46-8601-eda00669d470"
+Parent: "92e8927e-dfd2-49be-9913-568d330f6ef7"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Feature/Navigation/Top Links/Top Links Collection
+Signature: 7IBlZ0kPdVdxEBgEHwHjDGOcL5/seLwGJkxmkJIxLaE=
+Modified: 637263038091422336
+---
+File: |
+  C:\Solutions\MVP-Site\src\Feature\Navigation\items\templates\Navigation\Top Links\Top Link\Link Data.yml
+ID: "b3b6138d-580b-4913-bff1-602a9d92248b"
+Parent: "e4986869-e4b1-4990-8669-52abf69cd9cf"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/Feature/Navigation/Top Links/Top Link/Link Data
+Signature: 1lUJ7LXNAdMaGqzpGxKrPZeSPlgOcMRShmm7bqeJ9h4=
+Modified: 637263038091482328
+---
+File: |
+  C:\Solutions\MVP-Site\src\Feature\Navigation\items\templates\Navigation\Top Links\Top Link\__Standard Values.yml
+ID: "7041c38c-73db-4a18-8337-3fc669a855af"
+Parent: "e4986869-e4b1-4990-8669-52abf69cd9cf"
+Template: "e4986869-e4b1-4990-8669-52abf69cd9cf"
+Path: /sitecore/templates/Feature/Navigation/Top Links/Top Link/__Standard Values
+Signature: wbv/UWxvDxeoXE95IcovgSqQ6ZntgKAVYX2cbEOhR9o=
+Modified: 637263038091512319
+---
+File: |
+  C:\Solutions\MVP-Site\src\Feature\Navigation\items\templates\Navigation\Top Links\Top Links Folder\__Standard Values.yml
+ID: "9f3b91ce-bc2c-49ff-ba28-fe98b3fa63da"
+Parent: "da4e3ec4-5133-42d7-a5a0-36be30dcf187"
+Template: "da4e3ec4-5133-42d7-a5a0-36be30dcf187"
+Path: /sitecore/templates/Feature/Navigation/Top Links/Top Links Folder/__Standard Values
+Signature: LVZUN/ZRZpFAjhEhOaAjDcMI53kifiOtEJF0x+g0BaE=
+Modified: 637263038091592312
+---
+File: |
+  C:\Solutions\MVP-Site\src\Feature\Navigation\items\templates\Navigation\Top Links\Top Link\Link Data\Link.yml
+ID: "aff6fd57-80bd-4b53-adb9-164b922d5763"
+Parent: "b3b6138d-580b-4913-bff1-602a9d92248b"
+Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
+Path: /sitecore/templates/Feature/Navigation/Top Links/Top Link/Link Data/Link
+Signature: jNAWoY05w22poORXx/NIxmQ7gjqgBPJIbj2wiGENvho=
+Modified: 637263038091662325
+---
+File: |
+  C:\Solutions\MVP-Site\src\Feature\Navigation\items\templates\Navigation\Top Links\Top Link.yml
+ID: "e4986869-e4b1-4990-8669-52abf69cd9cf"
+Parent: "92e8927e-dfd2-49be-9913-568d330f6ef7"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Feature/Navigation/Top Links/Top Link
+Signature: DP91I6B6hwfbASxaTa0MrpmpjsBTHy7wWZxuE1zkgaI=
+Modified: 637263038091392312
+---
+File: |
+  C:\Solutions\MVP-Site\src\Feature\Navigation\items\templates\Navigation\Top Links\Top Links Folder.yml
+ID: "da4e3ec4-5133-42d7-a5a0-36be30dcf187"
+Parent: "92e8927e-dfd2-49be-9913-568d330f6ef7"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Feature/Navigation/Top Links/Top Links Folder
+Signature: tQYKWG6xE4ZYb6wCE+Dk9cvVoqllqETrhVnI19dHpyk=
+Modified: 637263038091442320
+---
+File: |
+  C:\Solutions\MVP-Site\src\Feature\Navigation\items\templates\Navigation.yml
+ID: "9d7d9c8c-caa6-48ff-a3f9-403782fa0811"
+Parent: "8f343079-3cc5-4ef7-bc27-32addb46f45e"
+Template: "0437fee2-44c9-46a6-abe9-28858d9fee8c"
+Path: /sitecore/templates/Feature/Navigation
+Signature: jjpDuDBwQs73lHcgeGUas/Vp33caP9tuNH8sFc33p/s=
+Modified: 637263034890456091
+---
+File: |
+  C:\Solutions\MVP-Site\src\Feature\Navigation\items\templates\Navigation\Top Links\Top Links Collection\__Standard Values.yml
+ID: "e2b28a3c-45a2-45cf-a7b6-ddd768fc4e58"
+Parent: "e454a4e3-f69a-4d46-8601-eda00669d470"
+Template: "e454a4e3-f69a-4d46-8601-eda00669d470"
+Path: /sitecore/templates/Feature/Navigation/Top Links/Top Links Collection/__Standard Values
+Signature: XHtT+gzvT+Eot5aPNdFM6Slz4gnPF+mW/56gW4aDH0o=
+Modified: 637263038091552327
+---
+File: |
+  C:\Solutions\MVP-Site\src\Feature\Navigation\items\templates\Navigation\Top Links.yml
+ID: "92e8927e-dfd2-49be-9913-568d330f6ef7"
+Parent: "9d7d9c8c-caa6-48ff-a3f9-403782fa0811"
+Template: "0437fee2-44c9-46a6-abe9-28858d9fee8c"
+Path: /sitecore/templates/Feature/Navigation/Top Links
+Signature: TirvTPhvfm5dZHZ570pGmwsvMuXQaWNMXxzYHbHOwEE=
+Modified: 637263038091322302
+---
+File: |
+  C:\Solutions\MVP-Site\src\Feature\Navigation\items\templates\Navigation\Top Links\Top Link\Link Data\Title.yml
+ID: "6c56021b-a574-441e-a19a-e49864c4cb72"
+Parent: "b3b6138d-580b-4913-bff1-602a9d92248b"
+Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
+Path: /sitecore/templates/Feature/Navigation/Top Links/Top Link/Link Data/Title
+Signature: 6AWSgrGcA2kU6OaL9G1bL5aeToeqJAqpbFpZYPSIjxo=
+Modified: 637263038091632572
