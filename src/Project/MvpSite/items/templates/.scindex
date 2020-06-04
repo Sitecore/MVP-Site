@@ -1,13 +1,31 @@
 ﻿# Do not commit this file to source control or modify it. It is safe to delete; it will recreate itself.
 ---
 File: |
+  C:\Solutions\MVP-Site\src\Project\MvpSite\items\templates\MvpSite\Page.yml
+ID: "a054184c-3b20-4c2b-ab04-c8a03acd5522"
+Parent: "b864b451-cfb3-4ec1-9f08-8cdc38bad006"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Project/MvpSite/Page
+Signature: oH94fS2P6OTvqiX/qpwlh/XMUyBHyO2o1joK7cs0t9s=
+Modified: 637268415842459610
+---
+File: |
   C:\Solutions\MVP-Site\src\Project\MvpSite\items\templates\MvpSite\Homepage\__Standard Values.yml
 ID: "c51665ec-6662-4bef-8a04-be941861bef7"
 Parent: "9c1e30a0-8691-4ad4-bef0-e1f446eef8f3"
 Template: "9c1e30a0-8691-4ad4-bef0-e1f446eef8f3"
 Path: /sitecore/templates/Project/MvpSite/Homepage/__Standard Values
-Signature: 8dNR5sQzpTSd/okV0LMEOsVycQy1v4kz3UK1Rx2IrZc=
-Modified: 637249427238401133
+Signature: cc3dApwdwO+w8mTfEXYCKVHzeFj6KTBEzWDaU968fZ4=
+Modified: 637268415842489613
+---
+File: |
+  C:\Solutions\MVP-Site\src\Project\MvpSite\items\templates\MvpSite\Page\__Standard Values.yml
+ID: "9c05e623-3031-4a61-b75f-34e5edb92da0"
+Parent: "a054184c-3b20-4c2b-ab04-c8a03acd5522"
+Template: "a054184c-3b20-4c2b-ab04-c8a03acd5522"
+Path: /sitecore/templates/Project/MvpSite/Page/__Standard Values
+Signature: IIiSsKy8dpi+0KcnVOdsqg+dJI12NODB1ld/+RMHRBM=
+Modified: 637268415842529617
 ---
 File: |
   C:\Solutions\MVP-Site\src\Project\MvpSite\items\templates\MvpSite.yml
@@ -24,5 +42,5 @@ ID: "9c1e30a0-8691-4ad4-bef0-e1f446eef8f3"
 Parent: "b864b451-cfb3-4ec1-9f08-8cdc38bad006"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
 Path: /sitecore/templates/Project/MvpSite/Homepage
-Signature: 564aIPHR37zIpQYD0CcnaY8rKMNGFgiIoQ8qMSv3a0Y=
-Modified: 637249427238365164
+Signature: C43rMXaey+/YGPt9ACN2/aIvd+Xi6CejcTNKAStGHPc=
+Modified: 637268415842429622

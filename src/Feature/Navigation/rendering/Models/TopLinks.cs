@@ -5,6 +5,6 @@ namespace Mvp.Feature.Navigation.Models
     public class TopLinks
     {
         [SitecoreComponentField]
-        public TopLink[] Links { get; set; }
+        public Link[] Links { get; set; }
     }
 }

@@ -61,11 +61,14 @@
   <ItemGroup>
     <Content Include="App_Config\Include\Feature\Feature.Navigation.config" />
     <Compile Include="Constants.cs" />
+    <Compile Include="LayoutService\MainNavContentResolver.cs" />
     <Compile Include="LayoutService\TopLinksContentResolver.cs" />
-    <Compile Include="Models\TopLink.cs" />
+    <Compile Include="Models\Link.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicesConfigurator.cs" />
+    <Compile Include="Services\INavigationBuilder.cs" />
     <Compile Include="Services\ITopLinksBuilder.cs" />
+    <Compile Include="Services\NavigationBuilder.cs" />
     <Compile Include="Services\TopLinksBuilder.cs" />
   </ItemGroup>
   <ItemGroup>

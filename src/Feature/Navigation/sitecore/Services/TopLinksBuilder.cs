@@ -10,7 +10,7 @@ namespace Mvp.Feature.Navigation.Services
 {
     public class TopLinksBuilder : ITopLinksBuilder
     {
-        public IList<TopLink> GetTopLinks(Item contextItem, Rendering rendering)
+        public IList<Link> GetTopLinks(Item contextItem, Rendering rendering)
         {
             var dataSourceItem = contextItem?.Database?.GetItem(rendering.DataSource);
             if (dataSourceItem == null)
@@ -18,10 +18,10 @@ namespace Mvp.Feature.Navigation.Services
                 throw new NullReferenceException();
             }
 
-            var links = new List<TopLink>();
+            var links = new List<Link>();
             foreach (var child in GetValidTopLinkItems(dataSourceItem))
             {
-                links.Add(new TopLink
+                links.Add(new Link
                 {
                     Title = ((LinkField)child.Fields[Constants.FieldNames.Link]).Title,
                     Url = ((LinkField)child.Fields[Constants.FieldNames.Link]).Url

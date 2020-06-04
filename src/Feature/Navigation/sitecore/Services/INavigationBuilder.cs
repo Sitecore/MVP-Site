@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 namespace Mvp.Feature.Navigation.Services
 {
-    public interface ITopLinksBuilder
+    public interface INavigationBuilder
     {
-        IList<Link> GetTopLinks(Item contextItem, Rendering rendering);
+        IList<Link> GetNavigationLinks(Item contextItem, Rendering rendering);
     }
 }

@@ -10,6 +10,9 @@ SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: Office/32x32/elements_cascade.png
+- ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
+  Hint: Rendering Contents Resolver
+  Value: "{F0C9AA0B-7AEC-4862-8E40-AD49E6AE6AF2}"
 Languages:
 - Language: en
   Versions:
@@ -20,11 +23,11 @@ Languages:
       Value: 20200528T045829Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c9acaf4c-8583-4b79-a2fe-87e1597fa287"
+      Value: "98f75ae9-866b-4c23-b650-13297486f57f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200528T045858Z
+      Value: 20200604T050426Z

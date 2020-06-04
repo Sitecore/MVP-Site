@@ -44,16 +44,20 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "0fe8dc75-b7a3-4a47-b84b-f0c04b7493e2"
+      Hint: Logo
+      Value: |
+        <image mediaid="{2D7FB4CE-987A-4CF1-AA42-13B9BE66EDE8}" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20200513T045800Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "91aa86fe-3d6d-4a8b-83ea-7a833027c906"
+      Value: "aae7c5f2-ff74-42ac-8e16-616f8cebc9ec"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200529T015310Z
+      Value: 20200604T042555Z

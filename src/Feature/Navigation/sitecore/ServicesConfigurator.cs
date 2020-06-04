@@ -9,6 +9,7 @@ namespace Mvp.Feature.Navigation
         public void Configure(IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<ITopLinksBuilder, TopLinksBuilder>();
+            serviceCollection.AddTransient<INavigationBuilder, NavigationBuilder>();
         }
     }
 }
