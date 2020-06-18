@@ -19,9 +19,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{94C82DDA-FE0D-4EBF-AEAA-81E13CB07FE5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feature", "Feature", "{F1800335-D16A-4FB6-B213-1885963E283D}"
-	ProjectSection(SolutionItems) = preProject
-		src\Feature\Navigation\Navigation.module.json = src\Feature\Navigation\Navigation.module.json
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Multisite", "Multisite", "{C498C9DC-F441-45E5-A238-DC2E0D1CB486}"
 	ProjectSection(SolutionItems) = preProject
