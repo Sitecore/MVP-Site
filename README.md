@@ -18,7 +18,7 @@ This is the new Sitecore MVP site - build against Sitecore 10 utillising the new
     127.0.0.1 mvp-cd.sc.localhost
     127.0.0.1 mvp-cm.sc.localhost
     127.0.0.1 mvp-id.sc.localhost
-    127.0.0.1 mvp-site.sc.localhost
+    127.0.0.1 mvp.sc.localhost
     ```
 
 3. Create a wildcard cert for the solution. Run this PowerShell script from the solution root:
@@ -51,7 +51,7 @@ This is the new Sitecore MVP site - build against Sitecore 10 utillising the new
 
 8. Run `dotnet sitecore publish` to publish the content items
 
-9. Browse the the rendering host URL in your browser
+ 9. Browse the the rendering host URL in your browser (https://mvp.sc.localhost)
 
 ## Troubleshooting
 
