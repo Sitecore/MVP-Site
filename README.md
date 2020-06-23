@@ -44,7 +44,8 @@ This is the new Sitecore MVP site - build against Sitecore 10 utillising the new
 
     The sites can take a few mins to come up. Check they're listed in Traefik by hitting http://localhost:8079/dashboard
 
-6. Run `dotnet sitecore login` to have your CLI authenticated with the MVP Sitecore instance
+6. Run `dotnet sitecore login -a https://mvp-id.sc.localhost -h https://mvp-cm.sc.localhost --allow-write true` to have your CLI authenticated with the MVP Sitecore instance.
+    NOTE: The first time you run you need to set the auth host and the CM host to set the environment, and the "allow-write" to make sure your user.json gets created so that serialization pushes will work.
 
 7. Run `dotnet sitecore ser push` to push the content items to Sitecore
 
