@@ -18,7 +18,7 @@ This is the new Sitecore MVP site - build against Sitecore 10 utillising the new
     127.0.0.1 mvp-cd.sc.localhost
     127.0.0.1 mvp-cm.sc.localhost
     127.0.0.1 mvp-id.sc.localhost
-    127.0.0.1 mvp-site.sc.localhost
+    127.0.0.1 mvp.sc.localhost
     ```
 
 3. Create a wildcard cert for the solution. Run this PowerShell script from the solution root:
@@ -44,19 +44,14 @@ This is the new Sitecore MVP site - build against Sitecore 10 utillising the new
 
     The sites can take a few mins to come up. Check they're listed in Traefik by hitting http://localhost:8079/dashboard
 
-6. If this is the first time you want to login using the CLI run:
-   ```ps1
-   dotnet sitecore login -h https://mvp-cm.sc.localhost/ -a https://mvp-id.sc.localhost/ --allow-write true`
-   ```   
-   This will make sure the CLI knows to which host (-h) it needs to connect and which identity authority (-a) it needs to use.
+6. Run `dotnet sitecore login -a https://mvp-id.sc.localhost -h https://mvp-cm.sc.localhost --allow-write true` to have your CLI authenticated with the MVP Sitecore instance.
+    NOTE: The first time you run you need to set the auth host and the CM host to set the environment, and the "allow-write" to make sure your user.json gets created so that serialization pushes will work.
 
-7. Run `dotnet sitecore login` to have your CLI authenticated with the MVP Sitecore instance
+7. Run `dotnet sitecore ser push` to push the content items to Sitecore
 
-8. Run `dotnet sitecore ser push` to push the content items to Sitecore
+8. Run `dotnet sitecore publish` to publish the content items
 
-9. Run `dotnet sitecore publish` to publish the content items
-
-10. Browse the the rendering host URL in your browser
+ 9. Browse the the rendering host URL in your browser (https://mvp.sc.localhost)
 
 ## Troubleshooting
 
