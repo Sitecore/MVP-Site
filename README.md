@@ -2,7 +2,7 @@
 This is the new Sitecore MVP site - build against Sitecore 10 utillising the new .NET Core development experience.
 
 # PreRequisites
-- [.NET Core (>= v 3.1)](https://dotnet.microsoft.com/download)
+- [.NET Core (>= v 3.1) and .NET Framework 4.8](https://dotnet.microsoft.com/download)
 - [MKCert](https://github.com/FiloSottile/mkcert)
 - Approx 40gb HD space
 
