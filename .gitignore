@@ -366,3 +366,6 @@ FodyWeavers.xsd
 
 #vscode user settings
 .vscode/
+
+# Sitecore specific user files
+.scindex
