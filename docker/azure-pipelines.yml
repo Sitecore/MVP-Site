@@ -16,7 +16,7 @@ variables:
   dockerRegistryServiceConnection: 'f43220e9-b1d1-434d-a463-5a3a55c77760'
   imageRepository: 'mvp-solution-build-output'
   containerRegistry: 'mvpsitev2.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/docker/build/solution/Dockerfile'
+  dockerfilePath: '$(Build.SourcesDirectory)/docker/images/windows/solution/Dockerfile'
   tag: '$(Build.BuildId)'
   
   # Agent VM image name
