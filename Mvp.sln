@@ -73,6 +73,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Navigation", "Navigation", 
 		src\Feature\Navigation\Navigation.module.json = src\Feature\Navigation\Navigation.module.json
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hero", "Hero", "{17BD7D19-AD78-4D67-9087-65F0047B67F5}"
+	ProjectSection(SolutionItems) = preProject
+		src\Feature\Hero\Hero.module.json = src\Feature\Hero\Hero.module.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.Hero.Rendering", "src\Feature\Hero\rendering\Mvp.Feature.Hero.Rendering.csproj", "{C635C132-79EE-4E73-8215-493D6FC20E5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +106,10 @@ Global
 		{DE98D5C9-5350-4457-AC65-63BC6A3BA0E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE98D5C9-5350-4457-AC65-63BC6A3BA0E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE98D5C9-5350-4457-AC65-63BC6A3BA0E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C635C132-79EE-4E73-8215-493D6FC20E5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C635C132-79EE-4E73-8215-493D6FC20E5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C635C132-79EE-4E73-8215-493D6FC20E5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C635C132-79EE-4E73-8215-493D6FC20E5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -118,6 +129,8 @@ Global
 		{3B79ADFB-5EEF-4892-A4DE-CAAF6EA5141D} = {8DE4BCBC-3DDF-402C-BE7A-DFE00CC3FF58}
 		{DE98D5C9-5350-4457-AC65-63BC6A3BA0E9} = {8DE4BCBC-3DDF-402C-BE7A-DFE00CC3FF58}
 		{8DE4BCBC-3DDF-402C-BE7A-DFE00CC3FF58} = {F1800335-D16A-4FB6-B213-1885963E283D}
+		{17BD7D19-AD78-4D67-9087-65F0047B67F5} = {F1800335-D16A-4FB6-B213-1885963E283D}
+		{C635C132-79EE-4E73-8215-493D6FC20E5D} = {17BD7D19-AD78-4D67-9087-65F0047B67F5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3377439-FD7A-4F3E-8011-06175E0E3100}

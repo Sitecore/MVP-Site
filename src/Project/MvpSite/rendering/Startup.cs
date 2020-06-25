@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Mvp.Feature.Navigation.Extensions;
+using Mvp.Feature.Hero.Extensions;
 using Sitecore.AspNet.RenderingEngine.Extensions;
 using Sitecore.LayoutService.Client.Extensions;
 using Sitecore.LayoutService.Client.Newtonsoft.Extensions;
@@ -64,6 +65,7 @@ namespace Mvp.Project.MvpSite.Rendering
 
                     // TODO: register your components here
                    .AddFeatureNavigation()
+                   .AddFeatureHero()
                    .AddDefaultPartialView("_ComponentNotFound");
             });
 

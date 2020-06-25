@@ -3,6 +3,36 @@ ID: "fa048086-14bc-4e7d-9987-59f8b4adc286"
 Parent: "94de9ac3-a9f7-40ab-ae90-acda364b9c40"
 Template: "a054184c-3b20-4c2b-ab04-c8a03acd5522"
 Path: "/sitecore/content/MvpSite/Home/Become-an-mvp"
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{1AE49D12-8DA1-4FBD-92FF-887B01C02BB5}">
+        <r
+          ds="{C4DADD5E-1521-4C6D-AFCE-39D237751541}"
+          id="{A4F28B31-5D18-4158-92AB-F4D2ECA6D2BE}"
+          par=""
+          ph="header"
+          uid="{19CCAD6A-4C17-48CC-B78A-5CE8415E279F}" />
+        <r
+          id="{C9593FF9-14AC-4C8E-B217-D85C05ADEAD7}"
+          ph="header"
+          uid="{D842E8EB-450E-4348-A54A-E60CF16E9E52}" />
+        <r
+          ds="{75982F95-92CE-4C19-826F-C56A021A4C22}"
+          id="{248BDE7D-D010-4D02-95E8-2578A03A2D2D}"
+          par=""
+          ph="main"
+          uid="{45EC9237-4FFB-4F7B-A137-AFFA1DCEE899}" />
+        <r
+          id="{437CCC09-AB5D-47B3-96D7-2B05BDFF5324}"
+          ph="footer"
+          uid="{64CD74AD-6939-48FB-ABB9-33F2403ED031}" />
+      </d>
+    </r>
 Languages:
 - Language: en
   Versions:
@@ -13,7 +43,7 @@ Languages:
       Value: 20200604T042242Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "db0a745d-847b-4e00-af16-de7b27b95a6c"
+      Value: "80b8211b-51a9-4a76-b729-168dd40286ca"
     - ID: "b1ece12f-b2c9-44e6-92a3-c5dfd6514b59"
       Hint: Menu Title
       Value: Become an MVP
@@ -23,4 +53,4 @@ Languages:
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200604T042252Z
+      Value: 20200625T215959Z
