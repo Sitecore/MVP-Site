@@ -137,8 +137,9 @@ services:
       timeout: 300s
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.mvp-cd.entrypoints=web"
+      - "traefik.http.routers.mvp-cd.entrypoints=websecure"
       - "traefik.http.routers.mvp-cd.rule=Host(`${CD_HOST}`)"
+      - "traefik.http.routers.mvp-cd.tls=true"
     volumes:
       - ${LOCAL_DEPLOY_PATH}:C:\src
       - ${HOST_LICENSE_FOLDER}:c:\license
