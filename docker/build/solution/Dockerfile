@@ -1,5 +1,4 @@
 ﻿# escape=`
-
 ARG BASE_IMAGE
 ARG BUILD_IMAGE
 ARG NETCORE_BUILD_IMAGE
@@ -7,14 +6,14 @@ ARG NETCORE_BUILD_IMAGE
 FROM ${NETCORE_BUILD_IMAGE} as netcore-sdk
 
 FROM ${BUILD_IMAGE} AS nuget-prep
+
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 # Gather only artifacts necessary for NuGet restore, retaining directory structure
 COPY *.sln nuget.config /nuget/
 COPY src/ /temp/
 RUN Invoke-Expression 'robocopy C:/temp C:/nuget/src /s /ndl /njh /njs *.csproj *.scproj packages.config'
 
 FROM ${BUILD_IMAGE} AS builder
-ARG NETCORE_VERSION
-ARG NUGET_PREVIEW_SOURCE
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 ## Install netcore onto SDK image
@@ -43,8 +42,15 @@ WORKDIR /build
 # Copy prepped NuGet artifacts, and restore as distinct layer to take better advantage of caching
 COPY --from=nuget-prep ./nuget ./
 
-### Update Nuget source from environment variable (the running nuget preview container)
-RUN dotnet nuget update source SitecorePreview -s $env:NUGET_PREVIEW_SOURCE
+# Install Azure Credential Provider
+RUN Invoke-WebRequest 'https://raw.githubusercontent.com/microsoft/artifacts-credprovider/master/helpers/installcredprovider.ps1' -OutFile installcredprovider.ps1;
+RUN .\installcredprovider.ps1 -Force 
+RUN Remove-Item .\installcredprovider.ps1;
+
+# Configure VSS Nuget endpoint
+ARG NUGET_PREVIEW_SOURCE
+ARG AZURE_PAT
+ENV VSS_NUGET_EXTERNAL_FEED_ENDPOINTS='{ "endpointCredentials": [{"endpoint": "'$NUGET_PREVIEW_SOURCE'", "username":"NA", "password":"'$AZURE_PAT'"}]}'
 
 # Restore NuGet packages
 RUN dotnet restore
