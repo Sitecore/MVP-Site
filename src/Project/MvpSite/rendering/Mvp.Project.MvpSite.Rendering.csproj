@@ -19,6 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\..\..\Feature\BasicContent\rendering\MVP.Feature.BasicContent.Rendering.csproj" />
 	  <ProjectReference Include="..\..\..\Feature\Hero\rendering\Mvp.Feature.Hero.Rendering.csproj" />
 	  <ProjectReference Include="..\..\..\Feature\Navigation\rendering\Mvp.Feature.Navigation.Rendering.csproj" />
 	</ItemGroup>

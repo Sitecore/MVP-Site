@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Mvp.Feature.BasicContent</AssemblyName>
+    <RootNamespace>Mvp.Feature.BasicContent</RootNamespace>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Sitecore.LayoutService.Client" Version="0.1.0-*" />
+    <PackageReference Include="Sitecore.AspNet.RenderingEngine" Version="0.1.0-*" />
+  </ItemGroup>
+
+</Project>

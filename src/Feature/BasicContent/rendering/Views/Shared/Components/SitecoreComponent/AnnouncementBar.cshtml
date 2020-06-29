@@ -1,0 +1,21 @@
+﻿@model Mvp.Feature.BasicContent.Models.AnnouncementBar
+
+<section class="announcement-bar" style="background-color: rgb(102, 102, 102); display: block;" data-module="announcement-bar">
+    <div class="row">
+        <div class="col-12">
+            <div class="container white">
+                <div class="row">
+                    <div class="col-md-7 col-lg-8">
+                        <p class="content"><sc-text asp-for="@Model.AnnouncementText"></sc-text></p>
+                    </div>
+                    <div class="col-auto cta-container">
+                        <sc-link asp-for="@Model.AnnouncementLink" data-module="cta-button" class="link-arrow" aria-label="@Model.AnnouncementLink.Value.Title">
+                            @Model.AnnouncementLink.Value.Text
+                            <img alt="Stay informed" src="images/icon-arrow.png?v=6372550647600000001203266326">
+                        </sc-link>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
