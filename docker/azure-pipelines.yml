@@ -25,10 +25,19 @@ stages:
       vmImage: $(vmImageName)
     steps:
     - task: DockerCompose@0
+      displayName: "Build Images"
       inputs:
         containerregistrytype: 'Container Registry'
         dockerRegistryEndpoint: 'DevEx MVP ACR'
         dockerComposeFile: '**/docker-compose.yml'
         qualifyImageNames: false
         action: 'Build services'
-    
+    - task: DockerCompose@0
+      displayName: "Push Images"
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: 'MK-EMEA-PM-IND-INT-PIB-1000(41c1a79f-2b76-4e4a-8caa-79ed75d2e440)'
+        azureContainerRegistry: '{"loginServer":"mvpsitev2.azurecr.io", "id" : "/subscriptions/41c1a79f-2b76-4e4a-8caa-79ed75d2e440/resourceGroups/MVP-Site-v2/providers/Microsoft.ContainerRegistry/registries/MVPSiteV2"}'
+        dockerComposeFile: '**/docker-compose.yml'
+        qualifyImageNames: false
+        action: 'Push services'
