@@ -241,7 +241,8 @@
     padding-top: 0; }
   .feature-panel-text.with-background {
     background-color: #fff;
-    padding: 80px 70px; }
+    padding: 80px 70px;
+    margin-bottom: 30px; }
     .feature-panel-text.with-background p.counter {
       top: -121px; }
   .feature-panel-text h2 {

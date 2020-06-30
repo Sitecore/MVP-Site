@@ -1514,7 +1514,8 @@ main .feature-panel-text {
     padding-top: 0; }
   main .feature-panel-text.with-background {
     background-color: #fff;
-    padding: 80px 70px; }
+    padding: 80px 70px;
+    margin-bottom: 30px; }
     main .feature-panel-text.with-background p.counter {
       top: -121px; }
   main .feature-panel-text h2 {

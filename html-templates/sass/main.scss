@@ -1,4 +1,4 @@
-@import 'fonts/AvenirNext';
+@import 'fonts/AvenirNext.scss';
 
 
 /* Brand Colors */
@@ -157,16 +157,16 @@ main {
     #content {
         background-color: $sc-content-bg;
     }
-    @import 'components/hero';
-    @import 'components/cta';
-    @import 'components/announcement-bar';
-    @import 'components/thee-column-info';
-    @import 'components/half-width-banner';
-    @import 'components/cta-overlapped-image';
-    @import 'components/column-container'; 
-    @import 'components/feature-panel'; 
-    @import 'components/page-overview-panel'; 
-    @import 'components/video'; 
+    @import 'components/hero.scss';
+    @import 'components/cta.scss';
+    @import 'components/announcement-bar.scss';
+    @import 'components/thee-column-info.scss';
+    @import 'components/half-width-banner.scss';
+    @import 'components/cta-overlapped-image.scss';
+    @import 'components/column-container.scss'; 
+    @import 'components/feature-panel.scss'; 
+    @import 'components/page-overview-panel.scss'; 
+    @import 'components/video.scss'; 
     
 }
 
