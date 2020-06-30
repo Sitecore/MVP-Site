@@ -24,6 +24,10 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'DevEx MVP ACR'
+        command: 'login'
     - task: DockerCompose@0
       inputs:
         containerregistrytype: 'Azure Container Registry'
