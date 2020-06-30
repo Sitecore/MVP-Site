@@ -15,7 +15,7 @@ SharedFields:
   Value: /sitecore/templates/Feature/BasicContent/Announcement
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: /sitecore/content/MvpSite/Shared Content/Announcements
+  Value: "query:./ancestor-or-self::*[@@templatename='Site']/Shared Content/Announcements"
 Languages:
 - Language: en
   Fields:
@@ -30,11 +30,11 @@ Languages:
       Value: 20200625T231057Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "67eba08f-d763-432d-9352-b862d9f05091"
+      Value: "aaced9c1-eb59-49e1-9c96-bc4c51b1103f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200625T231216Z
+      Value: 20200629T083328Z

@@ -1,0 +1,39 @@
+﻿---
+ID: "a7cc481a-b6c8-4604-b19f-50844263ee3e"
+Parent: "996d6757-e987-4167-86dc-0660953f36d6"
+Template: "778f1f91-5252-4036-b186-570e8e5860ea"
+Path: /sitecore/content/MvpSite/Shared Content/CTA Content/Sitecore Most Valuable Professional
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200629T083003Z
+    - ID: "3ed40dd5-482c-4ef4-893d-417c5fb3e08b"
+      Hint: CtaLink
+      Value: |
+        <link text="Learn more" anchor="" linktype="internal" class="" title="Learn more about the Sitecore MVP benefits"  querystring="" id="{F96C13C3-E71B-4DA2-881F-17F4DCAFE56F}" />
+    - ID: "40121670-6b02-4e60-a247-38f810c5364a"
+      Hint: CtaImage
+      Value: |
+        <image mediaid="{1023987B-1EAD-49A0-BF57-9A1C90A0F88A}" alt="Sitecore MVP" height="" width="" hspace="" vspace="" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8b3bbc78-5173-40cf-a787-c95d5dccf6a8"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "c7cc5931-bef0-4afa-babc-c15dbd071efd"
+      Hint: CtaText
+      Value: |
+        <p>The Sitecore MVP Award celebrates the most active Sitecore community members from around the world who provide valuable online and offline expertise that enriches the community experience and makes a difference.</p>
+        <p>Each year, the Sitecore Most Valuable Professional (MVP) Awards recognize individuals with a passion for sharing their knowledge and expertise through active participation in online and offline Sitecore communities.</p>
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200629T084018Z
+    - ID: "eb26ca15-e792-4098-9401-0af2fbe9bd31"
+      Hint: CtaTitle
+      Value: Sitecore Most Valuable Professional

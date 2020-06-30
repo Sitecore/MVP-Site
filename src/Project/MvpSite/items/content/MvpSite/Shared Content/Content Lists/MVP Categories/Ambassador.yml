@@ -1,0 +1,33 @@
+﻿---
+ID: "6770cee3-d0a6-4f68-94ec-9c8d0b23f8ad"
+Parent: "5e3a3f5b-cbf7-4d13-8a39-2bc9d5fd3f22"
+Template: "ab41e387-f300-470c-88d1-6fcd5e12c5d8"
+Path: /sitecore/content/MvpSite/Shared Content/Content Lists/MVP Categories/Ambassador
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0953b42d-91ac-4644-9a4e-38fd3fc91eb7"
+      Hint: ItemTitle
+      Value: Ambassador
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200629T111550Z
+    - ID: "8948fc61-e65e-4215-8365-ed0951155ec5"
+      Hint: ItemLink
+      Value: |
+        <link text="Learn more" linktype="external" url="https://www.sitecore.com" anchor="" target="" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "bddf1081-06d6-4d60-8502-8053e4ec2cde"
+    - ID: "aeb48911-54fc-479c-966d-1808cbba333c"
+      Hint: ItemText
+      Value: An individual with solid knowledge of the latest Sitecore offering who provide value for Sitecore, by influencing partners, industry, customers and decision makers and who provides product feedback, supplies references and case studies.
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200630T195108Z

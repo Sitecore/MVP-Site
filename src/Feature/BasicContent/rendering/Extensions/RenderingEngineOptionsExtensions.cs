@@ -8,7 +8,11 @@ namespace Mvp.Feature.BasicContent.Extensions
     {
         public static RenderingEngineOptions AddFeatureBasicContent(this RenderingEngineOptions options)
         {
-            options.AddModelBoundView<AnnouncementBar>("AnnouncementBar");
+            options.AddModelBoundView<AnnouncementBar>("AnnouncementBar")
+                   .AddPartialView("ColumnContainer")
+                   .AddModelBoundView<HalfWidthBanner>("HalfWidthBanner")
+                   .AddModelBoundView<ContentList>("ContentList");
+
             return options;
         }
     }

@@ -8,8 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\FeaturePanel.cs" />
+    <Compile Remove="Models\FeaturePanelItem.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Shared\Components\SitecoreComponent\FeaturePanel.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Sitecore.LayoutService.Client" Version="0.1.0-*" />
     <PackageReference Include="Sitecore.AspNet.RenderingEngine" Version="0.1.0-*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\shared\Mvp.Feature.BasicContent.Shared.csproj" />
   </ItemGroup>
 
 </Project>

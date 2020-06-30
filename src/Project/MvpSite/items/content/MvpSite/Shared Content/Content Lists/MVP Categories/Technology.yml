@@ -1,0 +1,33 @@
+﻿---
+ID: "fcd0eb59-694c-46d8-83ed-81c814015eae"
+Parent: "5e3a3f5b-cbf7-4d13-8a39-2bc9d5fd3f22"
+Template: "ab41e387-f300-470c-88d1-6fcd5e12c5d8"
+Path: /sitecore/content/MvpSite/Shared Content/Content Lists/MVP Categories/Technology
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0953b42d-91ac-4644-9a4e-38fd3fc91eb7"
+      Hint: FeatureTitle
+      Value: Technology
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200629T111550Z
+    - ID: "8948fc61-e65e-4215-8365-ed0951155ec5"
+      Hint: FeatureLink
+      Value: |
+        <link text="Learn more" anchor="" linktype="internal" class="" title=""  querystring="" id="{FA048086-14BC-4E7D-9987-59F8B4ADC286}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "bbe15375-8823-4d9a-a664-0f9a32655b62"
+    - ID: "aeb48911-54fc-479c-966d-1808cbba333c"
+      Hint: FeatureText
+      Value: An individual with seasoned technical experience who actively participates in online and offline communities to share their knowledge and expertise with developers, marketers, strategists, Sitecore partners and customers.
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200629T111623Z

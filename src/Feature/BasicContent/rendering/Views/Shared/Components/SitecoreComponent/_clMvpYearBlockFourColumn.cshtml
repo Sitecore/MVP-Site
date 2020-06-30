@@ -1,0 +1,10 @@
+﻿@model Mvp.Feature.BasicContent.Shared.Models.ContentListItem
+
+<div class="col-12 col-lg-3">
+    <div class="feature-panel-text">
+        <p class="counter number">@Model.ItemSubtitle</p>
+        <h2>@Model.ItemTitle</h2>
+        <p>@Model.ItemText</p>
+        <a href="@Model.ItemLinkUrl" data-module="cta-button" data-goals="" class="cta primary" aria-label="@Model.ItemLinkDescription" target="">@Model.ItemLinkDescription</a>
+    </div>
+</div>

@@ -47,13 +47,9 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Sitecore.Kernel" Version="10.0.0-r003912" />
-    <PackageReference Include="Sitecore.LayoutService">
-      <Version>10.0.0-r00133</Version>
-    </PackageReference>
-    <PackageReference Include="Sitecore.Mvc">
-      <Version>10.0.0-r003912</Version>
-    </PackageReference>
+    <PackageReference Include="Sitecore.Kernel" Version="10.0.0-*" />
+    <PackageReference Include="Sitecore.LayoutService" Version="10.0.0-*" />
+    <PackageReference Include="Sitecore.Mvc" Version="10.0.0-*" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.config" />

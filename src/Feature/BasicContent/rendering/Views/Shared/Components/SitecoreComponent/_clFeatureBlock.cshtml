@@ -1,0 +1,13 @@
+﻿@model Mvp.Feature.BasicContent.Shared.Models.ContentListItem
+
+<div class="col-12 col-lg-6">
+    <div class="feature-panel-text with-background no-number">
+        <h2>@Model.ItemTitle</h2>
+        <p>@Model.ItemText</p>
+
+        <a href="@Model.ItemLinkUrl" data-module="cta-button" data-goals="" class="link-arrow" aria-label="Learn more" target="">
+            @Model.ItemLinkDescription
+            <img alt="Learn more" src="images/icon-arrow.png">
+        </a>
+    </div>
+</div>
