@@ -25,6 +25,7 @@ stages:
       vmImage: $(vmImageName)
     steps:
     - task: Docker@2
+      displayName: "Login to New Dev Ex ACR"
       inputs:
         containerRegistry: 'DevEx MVP ACR'
         command: 'login'
