@@ -24,16 +24,11 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-    - task: Docker@2
-      displayName: "Login to New Dev Ex ACR"
-      inputs:
-        containerRegistry: 'DevEx MVP ACR'
-        command: 'login'
     - task: DockerCompose@0
       inputs:
-        containerregistrytype: 'Azure Container Registry'
-        azureSubscription: 'MK-EMEA-PM-IND-INT-PIB-1000(41c1a79f-2b76-4e4a-8caa-79ed75d2e440)'
-        azureContainerRegistry: '{"loginServer":"mvpsitev2.azurecr.io", "id" : "/subscriptions/41c1a79f-2b76-4e4a-8caa-79ed75d2e440/resourceGroups/MVP-Site-v2/providers/Microsoft.ContainerRegistry/registries/MVPSiteV2"}'
+        containerregistrytype: 'Container Registry'
+        dockerRegistryEndpoint: 'DevEx MVP ACR'
         dockerComposeFile: '**/docker-compose.yml'
         qualifyImageNames: false
         action: 'Build services'
+    
