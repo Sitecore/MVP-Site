@@ -33,7 +33,7 @@ stages:
         dockerComposeFileArgs: 'MVP_DOCKER_REGISTRY=mvpsitev2.azurecr.io/'
         qualifyImageNames: false
         action: 'Build services'
-        additionalImageTags: '$(Build.BuildId)'
+        additionalImageTags: '$(Build.BuildNumber)'
     - task: DockerCompose@0
       displayName: "Push Images"
       inputs:
@@ -44,5 +44,5 @@ stages:
         dockerComposeFileArgs: 'MVP_DOCKER_REGISTRY=mvpsitev2.azurecr.io/'
         qualifyImageNames: false
         action: 'Push services'
-        additionalImageTags: '$(Build.BuildId)'
+        additionalImageTags: '$(Build.BuildNumber)'
         includeLatestTag: true
