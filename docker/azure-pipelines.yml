@@ -30,8 +30,10 @@ stages:
         containerregistrytype: 'Container Registry'
         dockerRegistryEndpoint: 'DevEx MVP ACR'
         dockerComposeFile: '**/docker-compose.yml'
+        dockerComposeFileArgs: 'MVP_DOCKER_REGISTRY=mvpsitev2.azurecr.io/'
         qualifyImageNames: false
         action: 'Build services'
+        additionalImageTags: '$(Build.BuildId)'
     - task: DockerCompose@0
       displayName: "Push Images"
       inputs:
