@@ -1,3 +1,4 @@
+
 # MVP Site 2020
 This is the new Sitecore MVP site - build against Sitecore 10 utillising the new .NET Core development experience.
 
@@ -5,6 +6,9 @@ This is the new Sitecore MVP site - build against Sitecore 10 utillising the new
 - [.NET Core (>= v 3.1) and .NET Framework 4.8](https://dotnet.microsoft.com/download)
 - [MKCert](https://github.com/FiloSottile/mkcert)
 - Approx 40gb HD space
+
+### Azure Personal Access Token (Temporary step till launch)
+Generate an Azure Personal Access Token (PAT) to authenticate with the private nuget feed, by following the steps [here](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)
 
 # Initial Setup
 
@@ -35,12 +39,13 @@ This is the new Sitecore MVP site - build against Sitecore 10 utillising the new
 
 5. Run `setup.ps1`, passing in your Sitecore license key as an argument. From the solution root:
     ```ps1
-    .\setup.ps1 -LicenseXmlPath "C:\path\to\license.xml"
+    .\setup.ps1 -LicenseXmlPath "C:\path\to\license.xml" -AzurePAT "<<INSERT_PAT>>"
     ```
     The `setup.ps1` script will do the following for you:
     * Launch a Nuget Server container with preview packages
     * Build the solution containers
     * Launch the solution containers  (The last container may take a minute to create/start, as it waits for CM and ID to be *healthy*.)
+    * Install the Sitecore CLI
 
     The sites can take a few mins to come up. Check they're listed in Traefik by hitting http://localhost:8079/dashboard
 

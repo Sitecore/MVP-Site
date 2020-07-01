@@ -4,6 +4,10 @@ param(
     [ValidateNotNullOrEmpty()]
     [string]$LicenseXmlPath,
 
+    [Parameter(Mandatory = $true)]
+    [ValidateNotNullOrEmpty()]
+    [string]$AzurePAT,
+
     [Parameter()]
     [switch]$RunWithoutTreafik
 )
@@ -21,9 +25,9 @@ if (Test-Path $LicenseXmlPath -PathType Leaf)
     $LicenseXmlPath = (Get-Item $LicenseXmlPath).Directory.FullName
 }
 
-# Start up the preview nuget server. You wouldn't have this in a "real" solution.
-docker container ps -q -f name=sitecore-nuget-preview | ForEach-Object { docker container rm --force $_ }
-docker container run -d -p 8010:80 --name sitecore-nuget-preview --network nat --rm devexmvp.azurecr.io/sitecore-nuget-preview:latest
+# Override .env variables in current session
+$env:HOST_LICENSE_FOLDER = $LicenseXmlPath
+$env:AZURE_PAT = $AzurePAT
 
 # Restore dotnet tool for sitecore login and serialization
 dotnet tool restore
@@ -34,9 +38,6 @@ if ($LASTEXITCODE -ne 0)
 {
     Write-Error "Container build failed, see errors above."
 }
-
-# Override .env variables in current session
-$env:HOST_LICENSE_FOLDER = $LicenseXmlPath
 
 if ($RunWithoutTreafik)
 {
