@@ -5,7 +5,7 @@
 trigger:
   branches:
     include:
-    - ci-cd
+    - master
 
 resources:
 - repo: self
