@@ -2,7 +2,7 @@ version: "2.4"
 services:
 
   solutionBuildOutput:
-    image: ${SITECORE_DOCKER_REGISTRY}mvp-solution-build-output:latest
+    image: ${MVP_DOCKER_REGISTRY}mvp-solution-build-output:latest
     build:
       context: ./
       dockerfile: ./docker/build/solution/Dockerfile
@@ -15,11 +15,11 @@ services:
     scale: 0
 
   rendering:
-    image: ${SITECORE_DOCKER_REGISTRY}mvp-rendering:latest
+    image: ${MVP_DOCKER_REGISTRY}mvp-rendering:latest
     build:
       context: ./docker/build/rendering
       args:
-        SOLUTION_IMAGE: ${SITECORE_DOCKER_REGISTRY}mvp-solution-build-output:latest
+        SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution-build-output:latest
         NETCORE_RUNTIME_IMAGE: ${NETCORE_RUNTIME_IMAGE}
     ports:
       - "8091:80"
@@ -58,12 +58,12 @@ services:
   redis:
     container_name: mvp-redis
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}${REDIS_IMAGE}
+    image: ${DEVEX_PREVIEW_DOCKER_REGISTRY}${REDIS_IMAGE}
 
   mssql:
     container_name: mvp-sql
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}${SQL_IMAGE}
+    image: ${DEVEX_PREVIEW_DOCKER_REGISTRY}${SQL_IMAGE}
     environment:
       SA_PASSWORD: ${SQL_SA_PASSWORD}
       SITECORE_ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
@@ -76,11 +76,11 @@ services:
     isolation: ${ISOLATION}
     ports:
       - "8985:8983"
-    image: ${SITECORE_DOCKER_REGISTRY}${SOLR_IMAGE}
+    image: ${DEVEX_PREVIEW_DOCKER_REGISTRY}${SOLR_IMAGE}
 
   id:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}${ID_IMAGE}
+    image: ${DEVEX_PREVIEW_DOCKER_REGISTRY}${ID_IMAGE}
     environment:
       Sitecore_Sitecore__IdentityServer__SitecoreMemberShipOptions__ConnectionString: Data Source=mvp-sql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_Sitecore__IdentityServer__AccountOptions__PasswordRecoveryUrl: https://${CM_HOST}/sitecore/login?rc=1
@@ -106,13 +106,13 @@ services:
 
   cd:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}mvp-cd:latest
+    image: ${MVP_DOCKER_REGISTRY}mvp-cd:latest
     build:
       context: ./docker/build/cd
       args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}${CD_IMAGE}
-        TOOLING_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-docker-tools:latest
-        SOLUTION_IMAGE: ${SITECORE_DOCKER_REGISTRY}mvp-solution-build-output:latest
+        BASE_IMAGE: ${DEVEX_PREVIEW_DOCKER_REGISTRY}${CD_IMAGE}
+        TOOLING_IMAGE: ${DEVEX_PREVIEW_DOCKER_REGISTRY}sitecore-docker-tools:latest
+        SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution-build-output:latest
     depends_on:
       mssql:
         condition: service_healthy
@@ -147,13 +147,13 @@ services:
 
   cm:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}mvp-cm:latest
+    image: ${MVP_DOCKER_REGISTRY}mvp-cm:latest
     build:
       context: ./docker/build/cm
       args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-cm-jss-devex-layouteditor:latest
-        TOOLING_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-docker-tools:latest    
-        SOLUTION_IMAGE: ${SITECORE_DOCKER_REGISTRY}mvp-solution-build-output:latest
+        BASE_IMAGE: ${DEVEX_PREVIEW_DOCKER_REGISTRY}sitecore-cm-jss-devex-layouteditor:latest
+        TOOLING_IMAGE: ${DEVEX_PREVIEW_DOCKER_REGISTRY}sitecore-docker-tools:latest    
+        SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution-build-output:latest
     depends_on:
       mssql:
         condition: service_healthy
