@@ -29,11 +29,11 @@ spec:
         kubernetes.io/os: windows
       containers:
       - name: solr
-        image: ideftdevacr.azurecr.io/platform/nonproduction/solr:8.4.0-10.0.0.004237.286-10.0.17763.1282-ltsc2019
+        image: devexmvp.azurecr.io/sitecore-solr-devex:latest
         ports:
         - containerPort: 8983
         env:
         - name: SOLR_MODE
           value: solrcloud
       imagePullSecrets:
-      - name: sitecore-docker-registry
+      - name: regcred

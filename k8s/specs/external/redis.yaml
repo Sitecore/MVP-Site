@@ -29,8 +29,8 @@ spec:
         kubernetes.io/os: windows
       containers:
       - name: sitecore-redis
-        image: ideftdevacr.azurecr.io/platform/sitecore-redis:10.0.0.004237.286-10.0.17763.1282-ltsc2019
+        image: devexmvp.azurecr.io/sitecore-redis-devex:latest
         ports:
         - containerPort: 6379
       imagePullSecrets:
-      - name: sitecore-docker-registry
+      - name: regcred

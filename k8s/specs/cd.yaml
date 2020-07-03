@@ -29,7 +29,7 @@ spec:
         kubernetes.io/os: windows
       containers:
       - name: sitecore-xm1-cd
-        image: ideftdevacr.azurecr.io/platform/sitecore-xm1-cd:10.0.0.004237.286-10.0.17763.1282-ltsc2019
+        image: devexmvp.azurecr.io/sitecore-cd-jss:latest
         ports:
         - containerPort: 80
         env:
@@ -111,4 +111,4 @@ spec:
           periodSeconds: 30
           failureThreshold: 10
       imagePullSecrets:
-      - name: sitecore-docker-registry
+      - name: regcred

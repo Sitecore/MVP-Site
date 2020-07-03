@@ -29,7 +29,7 @@ spec:
         kubernetes.io/os: windows
       containers:
       - name: mssql
-        image: ideftdevacr.azurecr.io/platform/nonproduction/mssql-developer:2017-10.0.0.004237.286-10.0.17763.1282-ltsc2019
+        image: devexmvp.azurecr.io/sitecore-sql-devex:latest
         ports:
         - containerPort: 1433
         env:
@@ -40,5 +40,11 @@ spec:
               key: sitecore-databasepassword.txt
         - name: ACCEPT_EULA
           value: "Y"
+        - name: SITECORE_ADMIN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-admin
+              key: sitecore-adminpassword.txt  
       imagePullSecrets:
-      - name: sitecore-docker-registry
+      - name: regcred 
+
