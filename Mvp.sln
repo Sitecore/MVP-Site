@@ -91,6 +91,56 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.BasicContent.Sh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Feature.BasicContent.Sitecore", "src\Feature\BasicContent\sitecore\Mvp.Feature.BasicContent.Sitecore.csproj", "{E878C143-E4D5-4BA9-AA69-D7FE0772C92C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{F09E0330-CC9A-4E60-9223-E5B7C1CEB12B}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\CreateAKS.ps1 = k8s\CreateAKS.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "specs", "specs", "{E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\specs\cd.yaml = k8s\specs\cd.yaml
+		k8s\specs\cm.yaml = k8s\specs\cm.yaml
+		k8s\specs\id.yaml = k8s\specs\id.yaml
+		k8s\specs\ingress.yaml = k8s\specs\ingress.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "external", "external", "{C2633568-EA07-40C8-8379-77DE08167622}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\specs\external\mssql.yaml = k8s\specs\external\mssql.yaml
+		k8s\specs\external\redis.yaml = k8s\specs\external\redis.yaml
+		k8s\specs\external\solr.yaml = k8s\specs\external\solr.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "init", "init", "{CDB28CD0-7203-48E2-B334-F88B82CE560B}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\specs\init\mssql-init.yaml = k8s\specs\init\mssql-init.yaml
+		k8s\specs\init\solr-init.yaml = k8s\specs\init\solr-init.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "secrets", "secrets", "{41F529C9-3A73-49E6-B4B0-63C58DC7058C}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\specs\secrets\kustomization.yaml = k8s\specs\secrets\kustomization.yaml
+		k8s\specs\secrets\sitecore-adminpassword.txt = k8s\specs\secrets\sitecore-adminpassword.txt
+		k8s\specs\secrets\sitecore-core-database-password.txt = k8s\specs\secrets\sitecore-core-database-password.txt
+		k8s\specs\secrets\sitecore-core-database-username.txt = k8s\specs\secrets\sitecore-core-database-username.txt
+		k8s\specs\secrets\sitecore-database-elastic-pool-name.txt = k8s\specs\secrets\sitecore-database-elastic-pool-name.txt
+		k8s\specs\secrets\sitecore-databasepassword.txt = k8s\specs\secrets\sitecore-databasepassword.txt
+		k8s\specs\secrets\sitecore-databaseservername.txt = k8s\specs\secrets\sitecore-databaseservername.txt
+		k8s\specs\secrets\sitecore-databaseusername.txt = k8s\specs\secrets\sitecore-databaseusername.txt
+		k8s\specs\secrets\sitecore-forms-database-password.txt = k8s\specs\secrets\sitecore-forms-database-password.txt
+		k8s\specs\secrets\sitecore-forms-database-username.txt = k8s\specs\secrets\sitecore-forms-database-username.txt
+		k8s\specs\secrets\sitecore-identitycertificate.txt = k8s\specs\secrets\sitecore-identitycertificate.txt
+		k8s\specs\secrets\sitecore-identitycertificatepassword.txt = k8s\specs\secrets\sitecore-identitycertificatepassword.txt
+		k8s\specs\secrets\sitecore-identitysecret.txt = k8s\specs\secrets\sitecore-identitysecret.txt
+		k8s\specs\secrets\sitecore-license.txt = k8s\specs\secrets\sitecore-license.txt
+		k8s\specs\secrets\sitecore-master-database-password.txt = k8s\specs\secrets\sitecore-master-database-password.txt
+		k8s\specs\secrets\sitecore-master-database-username.txt = k8s\specs\secrets\sitecore-master-database-username.txt
+		k8s\specs\secrets\sitecore-solr-connection-string.txt = k8s\specs\secrets\sitecore-solr-connection-string.txt
+		k8s\specs\secrets\sitecore-telerikencryptionkey.txt = k8s\specs\secrets\sitecore-telerikencryptionkey.txt
+		k8s\specs\secrets\sitecore-web-database-password.txt = k8s\specs\secrets\sitecore-web-database-password.txt
+		k8s\specs\secrets\sitecore-web-database-username.txt = k8s\specs\secrets\sitecore-web-database-username.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -158,6 +208,11 @@ Global
 		{FB7AC742-AE9A-4CD4-A279-C0A546495823} = {7C3FF05D-1EDE-48E2-9B07-3119D8433291}
 		{EAB0A752-8515-42F2-B21B-8D63ADAAF461} = {7C3FF05D-1EDE-48E2-9B07-3119D8433291}
 		{E878C143-E4D5-4BA9-AA69-D7FE0772C92C} = {7C3FF05D-1EDE-48E2-9B07-3119D8433291}
+		{F09E0330-CC9A-4E60-9223-E5B7C1CEB12B} = {FE951C1D-8EC7-419E-A7A2-A0175125BCBB}
+		{E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2} = {F09E0330-CC9A-4E60-9223-E5B7C1CEB12B}
+		{C2633568-EA07-40C8-8379-77DE08167622} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
+		{CDB28CD0-7203-48E2-B334-F88B82CE560B} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
+		{41F529C9-3A73-49E6-B4B0-63C58DC7058C} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3377439-FD7A-4F3E-8011-06175E0E3100}

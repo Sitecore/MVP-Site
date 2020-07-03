@@ -370,3 +370,7 @@ FodyWeavers.xsd
 # Sitecore specific user files
 .scindex
 *.scindex
+
+# Don't commit k8s secret files
+/k8s/specs/secrets/*
+!/k8s/specs/secrets/kustomization.yaml

@@ -20,7 +20,6 @@ param(
     [string]$AzureWindowsPassword
 )
 
-
 # Setup Parameters for AKS creation
 Write-Host "--- Setting up Params ---" -ForegroundColor Blue
 $aksVersion = $(az aks get-versions -l $Region --query 'orchestrators[-1].orchestratorVersion' -o tsv)
@@ -35,6 +34,7 @@ az aks create --resource-group $ResourceGroup `
     --windows-admin-password $AzureWindowsPassword `
     --windows-admin-username azureuser `
     --vm-set-type VirtualMachineScaleSets `
+    --node-count 1 `
     --generate-ssh-keys `
     --network-plugin azure `
     --enable-addons monitoring,kube-dashboard
@@ -55,6 +55,7 @@ az aks nodepool add --resource-group $ResourceGroup `
     --cluster-name $AksName `
     --os-type Windows `
     --name npwin `
+    --node-vm-size Standard_D8s_v3 `
     --node-count 1
 Write-Host "--- Complete: Windows Server Node Pool Created ---" -ForegroundColor Green
 
