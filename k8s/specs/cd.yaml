@@ -29,7 +29,7 @@ spec:
         kubernetes.io/os: windows
       containers:
       - name: sitecore-xm1-cd
-        image: devexmvp.azurecr.io/sitecore-cd-jss:latest
+        image: mvpsitev2.azurecr.io/mvp-cd:latest
         ports:
         - containerPort: 80
         env:

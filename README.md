@@ -1,4 +1,6 @@
 
+
+
 # MVP Site 2020
 This is the new Sitecore MVP site - build against Sitecore 10 utillising the new .NET Core development experience.
 
@@ -75,3 +77,82 @@ Currently there is an issue attempting to run New Dev Ex & MVP solutions at the 
 1. Configure & run the NewDevEx solution according to the instructions on that repo
 2. Run the MVP site in same way as above, but include the -RunWithoutTreafik toggle.
 3. Wait a couple of mins for Traefik to connect the new containers (Check they're listed in Traefik by hitting http://localhost:8079/dashboard)
+
+# AKS
+
+## Creating an AKS Instance
+
+There is a script to create and AKS instance with the required windows node pool, to perform this action you can call
+
+1. az login
+2. az account set --subscription "<<CHOSEN_SUBSCRIPTION>>"
+3. `./k8s/CreateAKS.ps1 -AzureWindowsPassword "<<CHOSEN_PASSWORD>>"` (Note, there are other params you can update to change from the default values - this will take 10-15 mins to complete)
+
+## Starting K8s Dashboard
+
+Once the AKS instance is up and running you can start the K8s dashboard pointing to the AKS instance using the following command
+
+`az aks browse --resource-group MVP-Site-v2 --name MVP-Site-v2`
+
+(If you changed from default values when creating AKS instance this command will need to be changed accordingly.)
+
+## Deploying MVP Site to AKS
+### Deploy Private Registry Secrets
+Our Images are stored in a private registry so we need to authenticate our AKS instance with that private registry. Details of how this is achieved can be seen [here](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/).
+
+Ensure your authentication details are stored in your docker config by following this [GitHub issue](https://github.com/docker/for-mac/issues/4100). - You will need to re-authenticate with the registry after performing this action.
+
+Once all of that is setup, you can run the following command to push your auth to AKS as a secret:
+- `kubectl create secret generic regcred --from-file=.dockerconfigjson="<<PATH_TO_DOCKER_CONFIG>>" --type=kubernetes.io/dockerconfigjson`
+
+### Configuring Helm
+You need to setup the Helm ServiceAccount by running the following commands:
+
+- `kubectl create serviceaccount --namespace kube-system tiller`
+- `kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller`  
+- `kubectl patch deploy --namespace kube-system tiller-deploy -p '{\"spec\":{\"template\":{\"spec\":{\"serviceAccount\":\"tiller\"}}}}'`
+
+You need to ensure that Tiller is deployed to the Linux NodePool, not the Windows NodePool, you can do this using 
+
+`helm init --service-account tiller --node-selectors "beta.kubernetes.io/os=linux" `
+
+(You can verify this has been actioned successfully in the K8s Dashboard by changing to the `kube-system` namespace and ensuring that the `tiller-deploy` deployment is green)
+
+### Deploy Ingress
+
+You can install the NGINX Ingress using the following commands.
+
+- `helm repo add stable https://kubernetes-charts.storage.googleapis.com/`
+- `kubectl create namespace ingress-basic`
+- `helm install --name nginx-ingress stable/nginx-ingress --namespace ingress-basic --set controller.replicaCount=2 --set controller.nodeSelector."beta\.kubernetes\.io/os=linux" --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os=linux" --set-string controller.config.proxy-body-size=10m`
+
+(You can verify this is correct in the K8s dashboard by changing to the `ingress-basic` namespace and checking that the two deployments (`nginx-ingress-controller` & `nginx-ingress-default-backend`) are both green.
+
+### Deploy Secrets
+The secrets are not included in this repo, extract the secrets from the official k8s specification download and drop them into the `/k8s/secrets` folder. Ensure they are all populated with the correct values.
+
+`kubectl apply -k .\k8s\specs\secrets\`
+
+### Deploy External Services (Non production only)
+Data storage containers (SQL, SOLR, Redis) are only supported in Non-Production.
+
+`kubectl apply -f .\k8s\specs\external\`
+
+(Wait for all deployments to show 'green' in the dashboard)
+
+### Deploy Sitecore application instances
+
+`kubectl apply -f .\k8s\specs\`
+
+(Wait for all deployments to show 'green' in the dashboard)
+
+### Update local hosts file
+Get the external IP assigned by the ingress with the following command
+
+`kubectl get service -l app=nginx-ingress --namespace ingress-basic`
+
+Update your hosts file for the external IP for the following Host  names
+
+- cm.globalhost
+- cd.globalhost
+- id.globalhost
