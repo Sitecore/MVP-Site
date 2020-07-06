@@ -80,12 +80,14 @@ Currently there is an issue attempting to run New Dev Ex & MVP solutions at the 
 
 # AKS
 
+(These instructions are pretty high level, probably a good candidate to be expanded and moved to a GitHub Wiki?)
+
 ## Creating an AKS Instance
 
 There is a script to create and AKS instance with the required windows node pool, to perform this action you can call
 
-1. az login
-2. az account set --subscription "<<CHOSEN_SUBSCRIPTION>>"
+1. `az login`
+2. `az account set --subscription "<<CHOSEN_SUBSCRIPTION>>"`
 3. `./k8s/CreateAKS.ps1 -AzureWindowsPassword "<<CHOSEN_PASSWORD>>"` (Note, there are other params you can update to change from the default values - this will take 10-15 mins to complete)
 
 ## Starting K8s Dashboard
@@ -129,12 +131,12 @@ You can install the NGINX Ingress using the following commands.
 (You can verify this is correct in the K8s dashboard by changing to the `ingress-basic` namespace and checking that the two deployments (`nginx-ingress-controller` & `nginx-ingress-default-backend`) are both green.
 
 ### Deploy Secrets
-The secrets are not included in this repo, extract the secrets from the official k8s specification download and drop them into the `/k8s/secrets` folder. Ensure they are all populated with the correct values.
+The secrets are not included in this repo, extract the secrets from the official k8s specification download and drop them into the `/k8s/specs/secrets` folder. Ensure they are all populated with the correct values, the run the following command to push all of the secrets into AKS.
 
 `kubectl apply -k .\k8s\specs\secrets\`
 
 ### Deploy External Services (Non production only)
-Data storage containers (SQL, SOLR, Redis) are only supported in Non-Production.
+Data storage containers (SQL, SOLR, Redis) are only supported in Non-Production. To install these containers run the following command:
 
 `kubectl apply -f .\k8s\specs\external\`
 
@@ -142,17 +144,19 @@ Data storage containers (SQL, SOLR, Redis) are only supported in Non-Production.
 
 ### Deploy Sitecore application instances
 
+Deploy the Sitecore application instances using the following command.
+
 `kubectl apply -f .\k8s\specs\`
 
 (Wait for all deployments to show 'green' in the dashboard)
 
 ### Update local hosts file
-Get the external IP assigned by the ingress with the following command
+Finally we ca get the external IP assigned by the ingress with the following command
 
 `kubectl get service -l app=nginx-ingress --namespace ingress-basic`
 
 Update your hosts file for the external IP for the following Host  names
 
-- cm.globalhost
-- cd.globalhost
-- id.globalhost
+- <<EXTERNAL_IP>> cm.globalhost
+- <<EXTERNAL_IP>> cd.globalhost
+- <<EXTERNAL_IP>> id.globalhost
