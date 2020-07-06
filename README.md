@@ -1,6 +1,7 @@
 
 
 
+
 # MVP Site 2020
 This is the new Sitecore MVP site - build against Sitecore 10 utillising the new .NET Core development experience.
 
@@ -82,6 +83,17 @@ Currently there is an issue attempting to run New Dev Ex & MVP solutions at the 
 
 (These instructions are pretty high level, probably a good candidate to be expanded and moved to a GitHub Wiki?)
 
+## Generate Certs
+
+Setup `mkcert` as per instructions for local installation above. Generate certs for all 4 application instances using the following commands:
+
+- `mkcert -cert-file k8s\specs\secrets\tls\global-cm\tls.crt -key-file k8s\specs\secrets\tls\global-cm\tls.key "cm.globalhost"`
+- `mkcert -cert-file k8s\specs\secrets\tls\global-cd\tls.crt -key-file k8s\specs\secrets\tls\global-cd\tls.key "cd.globalhost"`
+- `mkcert -cert-file k8s\specs\secrets\tls\global-id\tls.crt -key-file k8s\specs\secrets\tls\global-id\tls.key "id.globalhost"`
+- `mkcert -cert-file k8s\specs\secrets\tls\global-rendering\tls.crt -key-file k8s\specs\secrets\tls\global-rendering\tls.key "rendering.globalhost"`
+
+You then need to add them to you Machine -> Personal & Trusted Root certificate stores.
+
 ## Creating an AKS Instance
 
 There is a script to create and AKS instance with the required windows node pool, to perform this action you can call
@@ -108,15 +120,12 @@ Once all of that is setup, you can run the following command to push your auth t
 - `kubectl create secret generic regcred --from-file=.dockerconfigjson="<<PATH_TO_DOCKER_CONFIG>>" --type=kubernetes.io/dockerconfigjson`
 
 ### Configuring Helm
-You need to setup the Helm ServiceAccount by running the following commands:
+You need to setup the Helm ServiceAccount & deploy tiller by running the following commands:
 
 - `kubectl create serviceaccount --namespace kube-system tiller`
 - `kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller`  
+- `helm init --service-account tiller --node-selectors "beta.kubernetes.io/os=linux" `
 - `kubectl patch deploy --namespace kube-system tiller-deploy -p '{\"spec\":{\"template\":{\"spec\":{\"serviceAccount\":\"tiller\"}}}}'`
-
-You need to ensure that Tiller is deployed to the Linux NodePool, not the Windows NodePool, you can do this using 
-
-`helm init --service-account tiller --node-selectors "beta.kubernetes.io/os=linux" `
 
 (You can verify this has been actioned successfully in the K8s Dashboard by changing to the `kube-system` namespace and ensuring that the `tiller-deploy` deployment is green)
 
@@ -140,7 +149,7 @@ Data storage containers (SQL, SOLR, Redis) are only supported in Non-Production.
 
 `kubectl apply -f .\k8s\specs\external\`
 
-(Wait for all deployments to show 'green' in the dashboard)
+(Wait for all deployments to show 'green' in the dashboard - this can take a while!)
 
 ### Deploy Sitecore application instances
 
@@ -148,7 +157,7 @@ Deploy the Sitecore application instances using the following command.
 
 `kubectl apply -f .\k8s\specs\`
 
-(Wait for all deployments to show 'green' in the dashboard)
+(Wait for all deployments to show 'green' in the dashboard - this can take a while!)
 
 ### Update local hosts file
 Finally we ca get the external IP assigned by the ingress with the following command
@@ -160,3 +169,10 @@ Update your hosts file for the external IP for the following Host  names
 - <<EXTERNAL_IP>> cm.globalhost
 - <<EXTERNAL_IP>> cd.globalhost
 - <<EXTERNAL_IP>> id.globalhost
+- <<EXTERNAL_IP>> rendering.globalhost
+
+### Serialisation 
+- Run `dotnet sitecore login -a https://id.globalhost -h https://cm.globalhost --allow-write true` to authenticate your CLI with Id Server
+- Run `dotnet sitecore ser push` to push the content items to Sitecore
+- Run `dotnet sitecore publish` to publish the content items
+- Browse the the rendering host URL in your browser (https://rendering.globalhost)

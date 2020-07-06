@@ -29,6 +29,14 @@ spec:
         backend:
           serviceName: id
           servicePort: 80
+  - host: rendering.globalhost
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: rendering
+          servicePort: 80
+
   tls:
   - secretName: global-cd-tls
     hosts:
@@ -39,3 +47,6 @@ spec:
   - secretName: global-id-tls
     hosts:
     - id.globalhost
+  - secretName: global-rendering-tls
+    hosts:
+    - rendering.globalhost

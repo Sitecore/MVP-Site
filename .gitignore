@@ -371,6 +371,6 @@ FodyWeavers.xsd
 .scindex
 *.scindex
 
-# Don't commit k8s secret files
-/k8s/specs/secrets/*
-!/k8s/specs/secrets/kustomization.yaml
+# Don't commit k8s secret or certs, but keep the folder structure
+/k8s/specs/secrets/**/*.*
+!k8s/specs/secrets/**/.gitkeep

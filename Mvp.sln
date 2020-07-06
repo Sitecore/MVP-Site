@@ -102,6 +102,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "specs", "specs", "{E76884C3
 		k8s\specs\cm.yaml = k8s\specs\cm.yaml
 		k8s\specs\id.yaml = k8s\specs\id.yaml
 		k8s\specs\ingress.yaml = k8s\specs\ingress.yaml
+		k8s\specs\rendering.yaml = k8s\specs\rendering.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "external", "external", "{C2633568-EA07-40C8-8379-77DE08167622}"
@@ -109,12 +110,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "external", "external", "{C2
 		k8s\specs\external\mssql.yaml = k8s\specs\external\mssql.yaml
 		k8s\specs\external\redis.yaml = k8s\specs\external\redis.yaml
 		k8s\specs\external\solr.yaml = k8s\specs\external\solr.yaml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "init", "init", "{CDB28CD0-7203-48E2-B334-F88B82CE560B}"
-	ProjectSection(SolutionItems) = preProject
-		k8s\specs\init\mssql-init.yaml = k8s\specs\init\mssql-init.yaml
-		k8s\specs\init\solr-init.yaml = k8s\specs\init\solr-init.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "secrets", "secrets", "{41F529C9-3A73-49E6-B4B0-63C58DC7058C}"
@@ -211,7 +206,6 @@ Global
 		{F09E0330-CC9A-4E60-9223-E5B7C1CEB12B} = {FE951C1D-8EC7-419E-A7A2-A0175125BCBB}
 		{E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2} = {F09E0330-CC9A-4E60-9223-E5B7C1CEB12B}
 		{C2633568-EA07-40C8-8379-77DE08167622} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
-		{CDB28CD0-7203-48E2-B334-F88B82CE560B} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
 		{41F529C9-3A73-49E6-B4B0-63C58DC7058C} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
