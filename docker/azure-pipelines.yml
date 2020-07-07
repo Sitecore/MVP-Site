@@ -35,15 +35,25 @@ stages:
         action: 'Build services'
         additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
     - task: DockerCompose@0
-      displayName: "Push Images"
+      displayName: "Push Images with Latest Tag"
       inputs:
         containerregistrytype: 'Azure Container Registry'
         azureSubscription: '$(AZURE_SUBSCRIPTION)'
         azureContainerRegistry: '$(AZURE_CONTAINER_REGISTRY)'
         dockerComposeFile: '**/docker-compose.yml'
         dockerComposeFileArgs: '$(DOCKER_COMPOSE_ARGS)'
-        qualifyImageNames: false
         action: 'Push services'
         additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
         includeLatestTag: true
       condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    - task: DockerCompose@0
+      displayName: "Push Images without Latest Tag"
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: '$(AZURE_SUBSCRIPTION)'
+        azureContainerRegistry: '$(AZURE_CONTAINER_REGISTRY)'
+        dockerComposeFile: '**/docker-compose.yml'
+        dockerComposeFileArgs: '$(DOCKER_COMPOSE_ARGS)'
+        action: 'Push services'
+        additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
+      condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/master'))
