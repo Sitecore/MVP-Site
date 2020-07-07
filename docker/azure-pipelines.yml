@@ -33,7 +33,7 @@ stages:
         dockerComposeFileArgs: '$(DOCKER_COMPOSE_ARGS)'
         qualifyImageNames: false
         action: 'Build services'
-        additionalImageTags: '$(Build.SourceBranchName)-$(Build.BuildNumber)'
+        additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
     - task: DockerCompose@0
       displayName: "Push Images"
       inputs:
@@ -44,6 +44,6 @@ stages:
         dockerComposeFileArgs: '$(DOCKER_COMPOSE_ARGS)'
         qualifyImageNames: false
         action: 'Push services'
-        additionalImageTags: '$(Build.SourceBranchName)-$(Build.BuildNumber)'
+        additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
         includeLatestTag: true
       condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
