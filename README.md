@@ -87,10 +87,10 @@ Currently there is an issue attempting to run New Dev Ex & MVP solutions at the 
 
 Setup `mkcert` as per instructions for local installation above. Generate certs for all 4 application instances using the following commands:
 
-- `mkcert -cert-file k8s\specs\secrets\tls\global-cm\tls.crt -key-file k8s\specs\secrets\tls\global-cm\tls.key "cm.globalhost"`
-- `mkcert -cert-file k8s\specs\secrets\tls\global-cd\tls.crt -key-file k8s\specs\secrets\tls\global-cd\tls.key "cd.globalhost"`
-- `mkcert -cert-file k8s\specs\secrets\tls\global-id\tls.crt -key-file k8s\specs\secrets\tls\global-id\tls.key "id.globalhost"`
-- `mkcert -cert-file k8s\specs\secrets\tls\global-rendering\tls.crt -key-file k8s\specs\secrets\tls\global-rendering\tls.key "rendering.globalhost"`
+- `mkcert -cert-file k8s\specs\secrets\tls\mvp-cm\tls.crt -key-file k8s\specs\secrets\tls\mvp-cm\tls.key "cm.mvp"`
+- `mkcert -cert-file k8s\specs\secrets\tls\mvp-cd\tls.crt -key-file k8s\specs\secrets\tls\mvp-cd\tls.key "cd.mvp"`
+- `mkcert -cert-file k8s\specs\secrets\tls\mvp-id\tls.crt -key-file k8s\specs\secrets\tls\mvp-id\tls.key "id.mvp"`
+- `mkcert -cert-file k8s\specs\secrets\tls\mvp-rendering\tls.crt -key-file k8s\specs\secrets\tls\mvp-rendering\tls.key "rendering.mvp"`
 
 You then need to add them to you Machine -> Personal & Trusted Root certificate stores.
 
@@ -166,13 +166,13 @@ Finally we ca get the external IP assigned by the ingress with the following com
 
 Update your hosts file for the external IP for the following Host  names
 
-- <<EXTERNAL_IP>> cm.globalhost
-- <<EXTERNAL_IP>> cd.globalhost
-- <<EXTERNAL_IP>> id.globalhost
-- <<EXTERNAL_IP>> rendering.globalhost
+- <<EXTERNAL_IP>> cm.mvp
+- <<EXTERNAL_IP>> cd.mvp
+- <<EXTERNAL_IP>> id.mvp
+- <<EXTERNAL_IP>> rendering.mvp
 
 ### Serialisation 
-- Run `dotnet sitecore login -a https://id.globalhost -h https://cm.globalhost --allow-write true` to authenticate your CLI with Id Server
+- Run `dotnet sitecore login -a https://id.mvp -h https://cm.mvp --allow-write true` to authenticate your CLI with Id Server
 - Run `dotnet sitecore ser push` to push the content items to Sitecore
 - Run `dotnet sitecore publish` to publish the content items
-- Browse the the rendering host URL in your browser (https://rendering.globalhost)
+- Browse the the rendering host URL in your browser (https://rendering.mvp)

@@ -8,28 +8,28 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: cd.globalhost
+  - host: cd.mvp
     http:
       paths:
       - path: /
         backend:
           serviceName: cd
           servicePort: 80
-  - host: cm.globalhost
+  - host: cm.mvp
     http:
       paths:
       - path: /
         backend:
           serviceName: cm
           servicePort: 80
-  - host: id.globalhost
+  - host: id.mvp
     http:
       paths:
       - path: /
         backend:
           serviceName: id
           servicePort: 80
-  - host: rendering.globalhost
+  - host: rendering.mvp
     http:
       paths:
       - path: /
@@ -38,15 +38,15 @@ spec:
           servicePort: 80
 
   tls:
-  - secretName: global-cd-tls
+  - secretName: mvp-cd-tls
     hosts:
-    - cd.globalhost
-  - secretName: global-cm-tls
+    - cd.mvp
+  - secretName: mvp-cm-tls
     hosts:
-    - cm.globalhost
-  - secretName: global-id-tls
+    - cm.mvp
+  - secretName: mvp-id-tls
     hosts:
-    - id.globalhost
-  - secretName: global-rendering-tls
+    - id.mvp
+  - secretName: mvp-rendering-tls
     hosts:
-    - rendering.globalhost
+    - rendering.mvp

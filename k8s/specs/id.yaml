@@ -71,11 +71,11 @@ spec:
         - name: Sitecore_Sitecore__IdentityServer__SitecoreMemberShipOptions__ConnectionString
           value: Data Source=$(Database_Server);Initial Catalog=Sitecore.Core;User ID=$(Core_Database_Username);Password=$(Core_Database_Password);
         - name: Sitecore_Sitecore__IdentityServer__AccountOptions__PasswordRecoveryUrl
-          value: https://cm.globalhost/sitecore/login?rc=1
+          value: https://cm.mvp/sitecore/login?rc=1
         - name: Sitecore_Sitecore__IdentityServer__Clients__DefaultClient__AllowedCorsOrigins__AllowedCorsOriginsGroup1
-          value: https://cm.globalhost
+          value: https://cm.mvp
         - name: Sitecore_Sitecore__IdentityServer__PublicOrigin
-          value: https://id.globalhost
+          value: https://id.mvp
         livenessProbe:
           httpGet:
             path: /healthz/live
