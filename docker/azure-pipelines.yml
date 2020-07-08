@@ -34,6 +34,7 @@ stages:
         qualifyImageNames: false
         action: 'Build services'
         additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
+        includeLatestTag: true
     - task: DockerCompose@0
       displayName: "Push Images with Latest Tag"
       inputs:
