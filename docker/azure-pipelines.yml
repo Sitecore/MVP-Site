@@ -58,3 +58,9 @@ stages:
         action: 'Push services'
         additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
       condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/master'))
+    - task: PublishBuildArtifacts@1
+      displayName: "Publish Artifact containing K8s specifications"
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'deploy'
+        publishLocation: 'Container'
