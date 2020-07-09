@@ -63,7 +63,7 @@ stages:
       inputs:
         SourceFolder: 'k8s/specs'
         Contents: '**'
-        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/specs'
         CleanTargetFolder: true
     - task: PublishBuildArtifacts@1
       displayName: "Publish Artifact containing K8s specifications"
