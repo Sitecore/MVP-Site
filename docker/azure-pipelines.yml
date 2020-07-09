@@ -63,14 +63,24 @@ stages:
       inputs:
         SourceFolder: 'k8s/specs'
         Contents: '**'
-        TargetFolder: '$(Build.ArtifactStagingDirectory)/specs'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/k8s-specs'
         CleanTargetFolder: true
     - task: CopyFiles@2
-      displayName: "Copy Sitecore CLI definition staging directory"
+      displayName: "Copy Sitecore CLI definition to staging directory"
       inputs:
         SourceFolder: '.config'
         Contents: '**'
-        TargetFolder: '$(Build.ArtifactStagingDirectory)/.config'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/sitecore-cli'
+        CleanTargetFolder: true
+    - task: CopyFiles@2
+      displayName: "Copy Serialisation assets to staging directory"
+      inputs:
+        SourceFolder: './'
+        Contents: |
+          sitecore.json
+          src/**/*.module.json
+          src/**/items/**
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/serialization'
         CleanTargetFolder: true
     - task: PublishBuildArtifacts@1
       displayName: "Publish Artifact containing K8s specifications"
