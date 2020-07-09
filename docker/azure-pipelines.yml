@@ -65,6 +65,13 @@ stages:
         Contents: '**'
         TargetFolder: '$(Build.ArtifactStagingDirectory)/specs'
         CleanTargetFolder: true
+    - task: CopyFiles@2
+      displayName: "Copy Sitecore CLI definition staging directory"
+      inputs:
+        SourceFolder: '.config'
+        Contents: '**'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/.config'
+        CleanTargetFolder: true
     - task: PublishBuildArtifacts@1
       displayName: "Publish Artifact containing K8s specifications"
       inputs:
