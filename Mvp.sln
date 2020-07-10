@@ -139,6 +139,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "secrets", "secrets", "{41F5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Environment.Identity", "src\Environment\identity\Mvp.Environment.Identity.csproj", "{F8DD20AE-80CA-4958-9467-E24AA81AB2BA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "id", "id", "{2147C0EA-2D89-42EA-AE8A-0716AF345394}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\id\Dockerfile = docker\build\id\Dockerfile
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -215,6 +220,7 @@ Global
 		{C2633568-EA07-40C8-8379-77DE08167622} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
 		{41F529C9-3A73-49E6-B4B0-63C58DC7058C} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
 		{F8DD20AE-80CA-4958-9467-E24AA81AB2BA} = {B04642CD-8FAB-4282-8C7E-E79942FC3ABB}
+		{2147C0EA-2D89-42EA-AE8A-0716AF345394} = {0CD77201-5A3D-430A-A40F-C0343435359B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3377439-FD7A-4F3E-8011-06175E0E3100}
