@@ -58,8 +58,32 @@ stages:
         action: 'Push services'
         additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
       condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/master'))
+    - task: CopyFiles@2
+      displayName: "Copy K8s specifications to staging directory"
+      inputs:
+        SourceFolder: 'k8s/specs'
+        Contents: '**'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/k8s-specs'
+        CleanTargetFolder: true
+    - task: CopyFiles@2
+      displayName: "Copy Sitecore CLI definition to staging directory"
+      inputs:
+        SourceFolder: '.config'
+        Contents: '**'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/sitecore-cli'
+        CleanTargetFolder: true
+    - task: CopyFiles@2
+      displayName: "Copy Serialisation assets to staging directory"
+      inputs:
+        SourceFolder: './'
+        Contents: |
+          sitecore.json
+          src/**/*.module.json
+          src/**/items/**
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/serialization'
+        CleanTargetFolder: true
     - task: PublishBuildArtifacts@1
-      displayName: "Publish Artifact containing K8s specifications"
+      displayName: "Publish Artifact containing Staging Directory Items"
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'deploy'
