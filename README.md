@@ -45,7 +45,6 @@ Generate an Azure Personal Access Token (PAT) to authenticate with the private n
     .\setup.ps1 -LicenseXmlPath "C:\path\to\license.xml" -AzurePAT "<<INSERT_PAT>>"
     ```
     The `setup.ps1` script will do the following for you:
-    * Launch a Nuget Server container with preview packages
     * Build the solution containers
     * Launch the solution containers  (The last container may take a minute to create/start, as it waits for CM and ID to be *healthy*.)
     * Install the Sitecore CLI

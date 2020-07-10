@@ -137,6 +137,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "secrets", "secrets", "{41F5
 		k8s\specs\secrets\sitecore-web-database-username.txt = k8s\specs\secrets\sitecore-web-database-username.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Environment.Identity", "src\Environment\identity\Mvp.Environment.Identity.csproj", "{F8DD20AE-80CA-4958-9467-E24AA81AB2BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -179,6 +181,10 @@ Global
 		{E878C143-E4D5-4BA9-AA69-D7FE0772C92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E878C143-E4D5-4BA9-AA69-D7FE0772C92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E878C143-E4D5-4BA9-AA69-D7FE0772C92C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8DD20AE-80CA-4958-9467-E24AA81AB2BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8DD20AE-80CA-4958-9467-E24AA81AB2BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8DD20AE-80CA-4958-9467-E24AA81AB2BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8DD20AE-80CA-4958-9467-E24AA81AB2BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -208,6 +214,7 @@ Global
 		{E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2} = {F09E0330-CC9A-4E60-9223-E5B7C1CEB12B}
 		{C2633568-EA07-40C8-8379-77DE08167622} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
 		{41F529C9-3A73-49E6-B4B0-63C58DC7058C} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
+		{F8DD20AE-80CA-4958-9467-E24AA81AB2BA} = {B04642CD-8FAB-4282-8C7E-E79942FC3ABB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3377439-FD7A-4F3E-8011-06175E0E3100}

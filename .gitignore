@@ -358,8 +358,8 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-/docker/deploy/*
-!/docker/deploy/.gitkeep
+/docker/deploy/**/*.*
+!/docker/deploy/**/.gitkeep
 
 # may contain OAuth secrets, do not commit
 .sitecore/user.json

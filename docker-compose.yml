@@ -80,7 +80,12 @@ services:
 
   id:
     isolation: ${ISOLATION}
-    image: ${DEVEX_PREVIEW_DOCKER_REGISTRY}${ID_IMAGE}
+    image: ${MVP_DOCKER_REGISTRY}mvp-id:${SITECORE_VERSION}-framework-${ASPNET_VERSION}
+    build:
+      context: ./docker/build/id
+      args:
+        BASE_IMAGE: ${DEVEX_PREVIEW_DOCKER_REGISTRY}${ID_IMAGE}
+        SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution-build-output:${SITECORE_VERSION}-nanoserver-${WINDOWS_SERVER_VERSION}
     environment:
       Sitecore_Sitecore__IdentityServer__SitecoreMemberShipOptions__ConnectionString: Data Source=mvp-sql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_Sitecore__IdentityServer__AccountOptions__PasswordRecoveryUrl: https://${CM_HOST}/sitecore/login?rc=1

@@ -58,15 +58,19 @@ RUN dotnet restore
 # Copy remaining source code
 COPY src/ ./src/
 
-# Build the Sitecore main platform artifacts
+# Publish the Sitecore & Identity Artifacts
 RUN msbuild .\src\Environment\sitecore\Mvp.Environment.Sitecore.csproj /p:Configuration=Debug /restore /m /p:DeployOnBuild=true /p:PublishProfile=Local
+RUN msbuild .\src\Environment\identity\Mvp.Environment.Identity.csproj /p:Configuration=Debug /restore /m /p:DeployOnBuild=true /p:PublishProfile=Local
 
-# Build the rendering host
+# Publish the Rendering Host Artifacts
 WORKDIR .\src\Project\MvpSite\rendering\
 RUN dotnet publish -c Release -o /build/rendering
 
+# Start new Stage
 FROM ${BASE_IMAGE}
-
 WORKDIR /artifacts
-COPY --from=builder /build/docker/deploy  ./sitecore/
+
+# Copy in all artifacts for sitecore, identity & rendering host
+COPY --from=builder /build/docker/deploy/sitecore ./sitecore/
+COPY --from=builder /build/docker/deploy/identity/Config ./identity/Config
 COPY --from=builder /build/rendering ./rendering/
