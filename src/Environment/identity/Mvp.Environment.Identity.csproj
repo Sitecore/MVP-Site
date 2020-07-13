@@ -82,7 +82,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Config\Sitecore.IdenityServer.Mvp.xml" />
+    <Content Include="Config\Sitecore.IdentityServer.Mvp.xml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

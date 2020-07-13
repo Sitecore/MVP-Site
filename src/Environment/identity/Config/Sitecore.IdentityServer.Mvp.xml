@@ -5,8 +5,8 @@
 			<Clients>
 				<!-- used to authenticate servers with client id and client secret -->
 				<CliServerClient>
-					<ClientId>SitecoreCLIServer</ClientId>
-					<ClientName>SitecoreCLIServer</ClientName>
+					<ClientId>MVP_Automation</ClientId>
+					<ClientName>MVP_Automation</ClientName>
 					<AccessTokenType>0</AccessTokenType>
 					<AccessTokenLifetimeInSeconds>3600</AccessTokenLifetimeInSeconds>
 					<IdentityTokenLifetimeInSeconds>3600</IdentityTokenLifetimeInSeconds>
@@ -21,11 +21,11 @@
 						<AllowedGrantType1>client_credentials</AllowedGrantType1>
 					</AllowedGrantTypes>
 					<ClientSecrets>
-						<!--<ClientSecret1>SUPERLONGSECRETHERE</ClientSecret1>-->
+						<ClientSecret1>THIS_IS_A_LONG_STRING_THAT_IS_used_for_THE_SECRET_12345!!</ClientSecret1>
 					</ClientSecrets>
 					<AllowedScopes>
 						<!-- this is required even if not a 'user' for Sitecore to like us -->
-						<AllowedScope1>sitecore.profile.api</AllowedScope1>
+						<AllowedScope3>sitecore.profile.api</AllowedScope3>
 					</AllowedScopes>
 				</CliServerClient>
 			</Clients>

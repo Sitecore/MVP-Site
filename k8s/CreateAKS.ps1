@@ -20,10 +20,11 @@ param(
     [string]$AzureWindowsPassword
 )
 
-# Setup Parameters for AKS creation
-Write-Host "--- Setting up Params ---" -ForegroundColor Blue
+# Setup CLI & Parameters for AKS creation
+Write-Host "--- Setting up CLI & Params ---" -ForegroundColor Blue
+az extension add --name aks-preview
 $aksVersion = $(az aks get-versions -l $Region --query 'orchestrators[-1].orchestratorVersion' -o tsv)
-Write-Host "--- Complete: Params Configured ---" -ForegroundColor Green
+Write-Host "--- Complete: CLI & Params Configured ---" -ForegroundColor Green
 
 # create AKS instance
 Write-Host "--- Creating AKS Instance ---" -ForegroundColor Blue
@@ -37,7 +38,8 @@ az aks create --resource-group $ResourceGroup `
     --node-count 1 `
     --generate-ssh-keys `
     --network-plugin azure `
-    --enable-addons monitoring,kube-dashboard
+    --enable-addons monitoring,kube-dashboard `
+    --node-resource-group "$($ResourceGroup)_AKS_BackEnd"
 Write-Host "--- Complete: AKS Created ---" -ForegroundColor Green
 
 # link AKS to ACR
