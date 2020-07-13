@@ -32,6 +32,7 @@ spec:
         image: mvpsitev2.azurecr.io/mvp-rendering:latest
         ports:
         - containerPort: 80
+        imagePullPolicy: Always
         livenessProbe:
           httpGet:
             path: /healthz/live

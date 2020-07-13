@@ -29,9 +29,10 @@ spec:
         kubernetes.io/os: windows
       containers:
       - name: sitecore-xm1-id
-        image: devexmvp.azurecr.io/sitecore-identityserver-devex:latest
+        image: mvpsitev2.azurecr.io/mvp-id:latest
         ports:
         - containerPort: 80
+        imagePullPolicy: Always
         env:
         - name: Database_Server
           valueFrom:

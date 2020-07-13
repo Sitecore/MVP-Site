@@ -32,6 +32,7 @@ spec:
         image: mvpsitev2.azurecr.io/mvp-cm:latest
         ports:
         - containerPort: 80
+        imagePullPolicy: Always
         env:
         - name: Sitecore_InstanceName
           valueFrom:
