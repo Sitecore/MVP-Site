@@ -110,6 +110,15 @@ Once the AKS instance is up and running you can start the K8s dashboard pointing
 (If you changed from default values when creating AKS instance this command will need to be changed accordingly.)
 
 ## Deploying MVP Site to AKS
+
+### Choose namespace (staging or prod), create and set context
+
+- `kubectl apply -f .\k8s\specs\namespaces\namespace-staging.yaml`
+- `kubectl config set-context --current --namespace=mvp-staging`
+or
+- `kubectl apply -f .\k8s\specs\namespaces\namespace-prod.yaml`
+- `kubectl config set-context --current --namespace=mvp-prod`
+
 ### Deploy Private Registry Secrets
 Our Images are stored in a private registry so we need to authenticate our AKS instance with that private registry. Details of how this is achieved can be seen [here](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/).
 
