@@ -47,4 +47,3 @@ spec:
               key: sitecore-adminpassword.txt  
       imagePullSecrets:
       - name: regcred 
-
