@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: solr-init
+spec:
+  template:
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+      - name: solr-init
+        image: ideftdevacr.azurecr.io/platform/sitecore-xm1-solr-init:10.0.0.004237.286-10.0.17763.1282-ltsc2019
+        env:
+        - name: SITECORE_SOLR_CONNECTION_STRING
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-solr
+              key: sitecore-solr-connection-string.txt
+      restartPolicy: Never
+  backoffLimit: 5

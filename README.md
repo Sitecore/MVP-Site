@@ -159,6 +159,10 @@ Data storage containers (SQL, SOLR, Redis) are only supported in Non-Production.
 
 (Wait for all deployments to show 'green' in the dashboard - this can take a while!)
 
+`kubectl apply -f .\k8s\specs\init\`
+
+(Wait for all jobs to show 'dark green' in the dashboard - this can take a while!)
+
 ### Deploy Sitecore application instances
 
 Deploy the Sitecore application instances using the following command.
