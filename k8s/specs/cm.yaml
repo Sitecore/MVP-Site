@@ -124,9 +124,9 @@ spec:
               name: sitecore-solr
               key: sitecore-solr-connection-string.txt
         - name: Sitecore_Identity_Server_Authority
-          value: https://id.mvp
+          value: https://mvp-id.robearlam.com
         - name: Sitecore_Identity_Server_CallbackAuthority
-          value: https://cm.mvp
+          value: https://mvp-cm.robearlam.com
         - name: Sitecore_Identity_Server_InternalAuthority
           value: http://id
         - name: Sitecore_Identity_Server_Require_Https

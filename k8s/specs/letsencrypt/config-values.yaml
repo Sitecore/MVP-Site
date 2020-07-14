@@ -1,0 +1,8 @@
+nodeSelector:
+  "beta.kubernetes.io/os": linux
+webhook:
+  nodeSelector:
+    "beta.kubernetes.io/os": linux
+cainjector:
+  nodeSelector:
+    "beta.kubernetes.io/os": linux

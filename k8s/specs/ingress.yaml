@@ -6,30 +6,31 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-buffer-size: "32k"
     nginx.ingress.kubernetes.io/affinity: "cookie"
     nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   rules:
-  - host: cd.mvp
+  - host: mvp-cd.robearlam.com
     http:
       paths:
       - path: /
         backend:
           serviceName: cd
           servicePort: 80
-  - host: cm.mvp
+  - host: mvp-cm.robearlam.com
     http:
       paths:
       - path: /
         backend:
           serviceName: cm
           servicePort: 80
-  - host: id.mvp
+  - host: mvp-id.robearlam.com
     http:
       paths:
       - path: /
         backend:
           serviceName: id
           servicePort: 80
-  - host: rendering.mvp
+  - host: mvp.robearlam.com
     http:
       paths:
       - path: /
@@ -38,15 +39,15 @@ spec:
           servicePort: 80
 
   tls:
-  - secretName: mvp-cd-tls
+  - secretName: mvp-cd-robearlam-tls
     hosts:
-    - cd.mvp
-  - secretName: mvp-cm-tls
+    - mvp-cd.robearlam.com
+  - secretName: mvp-cm-robearlam-tls
     hosts:
-    - cm.mvp
-  - secretName: mvp-id-tls
+    - mvp-cm.robearlam.com
+  - secretName: mvp-id-robearlam-tls
     hosts:
-    - id.mvp
-  - secretName: mvp-rendering-tls
+    - mvp-id.robearlam.com
+  - secretName: mvp-robearlam-tls
     hosts:
-    - rendering.mvp
+    - mvp.robearlam.com

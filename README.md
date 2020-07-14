@@ -147,6 +147,13 @@ You can install the NGINX Ingress using the following commands.
 
 (You can verify this is correct in the K8s dashboard by changing to the `ingress-basic` namespace and checking that the two deployments (`nginx-ingress-controller` & `nginx-ingress-default-backend`) are both green.
 
+### Install Cert-Manager to the ingress namespace (Temporary step to issue certs)
+- `kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.13/deploy/manifests/00-crds.yaml`
+- `kubectl label namespace ingress-basic cert-manager.io/disable-validation=true`
+- `helm repo add jetstack https://charts.jetstack.io`
+- `helm repo update`
+- `helm install --name cert-manager jetstack/cert-manager --namespace ingress-basic --version v0.13.0 --values ./k8s/specs/letsencrypt/config-values.yaml`
+
 ### Deploy Secrets
 The secrets are not included in this repo, extract the secrets from the official k8s specification download and drop them into the `/k8s/specs/secrets` folder. Ensure they are all populated with the correct values, the run the following command to push all of the secrets into AKS.
 
