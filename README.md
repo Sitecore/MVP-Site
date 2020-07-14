@@ -82,17 +82,6 @@ Currently there is an issue attempting to run New Dev Ex & MVP solutions at the 
 
 (These instructions are pretty high level, probably a good candidate to be expanded and moved to a GitHub Wiki?)
 
-## Generate Certs
-
-Setup `mkcert` as per instructions for local installation above. Generate certs for all 4 application instances using the following commands:
-
-- `mkcert -cert-file k8s\specs\secrets\tls\mvp-cm\tls.crt -key-file k8s\specs\secrets\tls\mvp-cm\tls.key "cm.mvp"`
-- `mkcert -cert-file k8s\specs\secrets\tls\mvp-cd\tls.crt -key-file k8s\specs\secrets\tls\mvp-cd\tls.key "cd.mvp"`
-- `mkcert -cert-file k8s\specs\secrets\tls\mvp-id\tls.crt -key-file k8s\specs\secrets\tls\mvp-id\tls.key "id.mvp"`
-- `mkcert -cert-file k8s\specs\secrets\tls\mvp-rendering\tls.crt -key-file k8s\specs\secrets\tls\mvp-rendering\tls.key "rendering.mvp"`
-
-You then need to add them to you Machine -> Personal & Trusted Root certificate stores.
-
 ## Creating an AKS Instance
 
 There is a script to create and AKS instance with the required windows node pool, to perform this action you can call
@@ -153,6 +142,7 @@ You can install the NGINX Ingress using the following commands.
 - `helm repo add jetstack https://charts.jetstack.io`
 - `helm repo update`
 - `helm install --name cert-manager jetstack/cert-manager --namespace ingress-basic --version v0.13.0 --values ./k8s/specs/letsencrypt/config-values.yaml`
+- `kubectl apply -f .\k8s\specs\letsencrypt\letsencrypt.yaml`
 
 ### Deploy Secrets
 The secrets are not included in this repo, extract the secrets from the official k8s specification download and drop them into the `/k8s/specs/secrets` folder. Ensure they are all populated with the correct values, the run the following command to push all of the secrets into AKS.
@@ -178,20 +168,8 @@ Deploy the Sitecore application instances using the following command.
 
 (Wait for all deployments to show 'green' in the dashboard - this can take a while!)
 
-### Update local hosts file
-Finally we ca get the external IP assigned by the ingress with the following command
-
-`kubectl get service -l app=nginx-ingress --namespace ingress-basic`
-
-Update your hosts file for the external IP for the following Host  names
-
-- <<EXTERNAL_IP>> cm.mvp
-- <<EXTERNAL_IP>> cd.mvp
-- <<EXTERNAL_IP>> id.mvp
-- <<EXTERNAL_IP>> rendering.mvp
-
 ### Serialisation 
-- Run `dotnet sitecore login -a https://id.mvp -h https://cm.mvp --allow-write true` to authenticate your CLI with Id Server
+- Run `dotnet sitecore login -a https://mvp-id.robearlam.com -h https://mvp-cm.robearlam.com --allow-write true` to authenticate your CLI with Id Server
 - Run `dotnet sitecore ser push` to push the content items to Sitecore
 - Run `dotnet sitecore publish` to publish the content items
-- Browse the the rendering host URL in your browser (https://rendering.mvp)
+- Browse the the rendering host URL in your browser (https://mvp.robearlam.com)
