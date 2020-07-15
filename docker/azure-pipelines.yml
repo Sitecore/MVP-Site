@@ -18,7 +18,7 @@ variables:
 stages:
 
 - stage: Build
-  displayName: Build and push stage
+  displayName: Build Images + Push to ACR
   jobs:  
   - job: Build
     displayName: Build
@@ -92,9 +92,9 @@ stages:
 
 - stage: Deploy
   dependsOn: Build
-  displayName: Deploy images to AKS Environments
+  displayName: Deploy to Staging
   jobs:
-  - deployment: 'Deploy_to_Staging_AKS'
+  - deployment: 'Deploy_Specs_to_Staging_AKS'
     pool:
       vmImage: $(vmImageName)
     environment: Staging
