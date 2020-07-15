@@ -189,6 +189,7 @@ stages:
               secretType: 'dockerRegistry'
               containerRegistryType: 'Azure Container Registry'
   - deployment: 'Deserialize_Content_to_Staging'
+    dependsOn: 'Deploy_Specs_to_Staging_AKS'
     pool:
       vmImage: $(vmImageName)
     environment: Staging
