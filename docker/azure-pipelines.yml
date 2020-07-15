@@ -86,7 +86,7 @@ stages:
     - task: PublishPipelineArtifact@1
       inputs:
         targetPath: '$(System.ArtifactsDirectory)'
-        artifact: 'Artifact-$(Build.BuildNumber)'
+        artifact: 'Sitecore.MVP-$(Build.BuildNumber)'
 
 - stage: Deploy
   dependsOn: Build
@@ -100,10 +100,10 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: DownloadPipelineArtifact@1
+          - task: DownloadPipelineArtifact@2
             displayName: "Download Build Artifact"
             inputs:
-              buildType: 'current'
+              artifact: Sitecore.MVP-$(Build.BuildNumber)
               targetPath: '$(System.ArtifactsDirectory)'
           - task: Kubernetes@1
             displayName: Create MVP-Staging Namespace
