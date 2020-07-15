@@ -211,16 +211,16 @@ stages:
                 Invoke-WebRequest 'https://raw.githubusercontent.com/microsoft/artifacts-credprovider/master/helpers/installcredprovider.ps1' -OutFile installcredprovider.ps1
                 .\installcredprovider.ps1 -Force 
                 Remove-Item .\installcredprovider.ps1;
-                $env:VSS_NUGET_EXTERNAL_FEED_ENDPOINTS='{ "endpointCredentials": [{"endpoint": "https://pkgs.dev.azure.com/Technical-Marketing/MVP-Site/_packaging/MVP-Preview%40Release/nuget/v3/index.json", "username":"NA", "password":"fuic3v54vtufaco3qpt5wukg4w7jlnltg4vk7l4xyy5mqtouttqa"}]}'
+                $env:VSS_NUGET_EXTERNAL_FEED_ENDPOINTS='{ "endpointCredentials": [{"endpoint": "${NUGET_PREVIEW_SOURCE}", "username":"NA", "password":"${AZURE_PAT}"}]}'
                 
                 # Add nuget source & install Sitecore CLI
-                dotnet nuget add source https://pkgs.dev.azure.com/Technical-Marketing/MVP-Site/_packaging/MVP-Preview%40Release/nuget/v3/index.json --name "MVP-Preview@Release"
-                dotnet tool install -g --add-source=https://pkgs.dev.azure.com/Technical-Marketing/MVP-Site/_packaging/MVP-Preview%40Release/nuget/v3/index.json sitecore.cli
+                dotnet nuget add source ${NUGET_PREVIEW_SOURCE} --name "MVP-Preview@Release"
+                dotnet tool install -g --add-source=${NUGET_PREVIEW_SOURCE} sitecore.cli
           - task: PowerShell@2
             displayName: Login to Sitecore Instance
             inputs:
               targetType: 'inline'
-              script: 'sitecore login --client-credentials true -a https://mvp-id.robearlam.com -h https://mvp-cm.robearlam.com --allow-write true --client-id "MVP_Automation" --client-secret "THIS_IS_A_LONG_STRING_THAT_IS_used_for_THE_SECRET_12345!!"'
+              script: 'sitecore login --client-credentials true -a https://mvp-id.robearlam.com -h https://mvp-cm.robearlam.com --allow-write true --client-id "MVP_Automation" --client-secret "${SITECORE_CLIENT_SECRET}"'
               workingDirectory: '$(System.ArtifactsDirectory)/serialization'
           - task: PowerShell@2
             displayName: Deserialize Sitecore Content
