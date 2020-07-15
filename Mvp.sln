@@ -150,6 +150,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "namespaces", "namespaces", 
 		k8s\specs\namespaces\namespace-staging.yaml = k8s\specs\namespaces\namespace-staging.yaml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "init", "init", "{CDFC71FE-D7C2-4B53-861D-B8D7E011D0A5}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\specs\init\solr-init.yaml = k8s\specs\init\solr-init.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "letsencrypt", "letsencrypt", "{A535B8F1-AB69-4EC5-8E79-B7A126959989}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\specs\letsencrypt\config-values.yaml = k8s\specs\letsencrypt\config-values.yaml
+		k8s\specs\letsencrypt\letsencrypt.yaml = k8s\specs\letsencrypt\letsencrypt.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -228,6 +239,8 @@ Global
 		{F8DD20AE-80CA-4958-9467-E24AA81AB2BA} = {B04642CD-8FAB-4282-8C7E-E79942FC3ABB}
 		{2147C0EA-2D89-42EA-AE8A-0716AF345394} = {0CD77201-5A3D-430A-A40F-C0343435359B}
 		{DAAAE2CB-BBBA-49BE-BD13-42A65C452F7F} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
+		{CDFC71FE-D7C2-4B53-861D-B8D7E011D0A5} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
+		{A535B8F1-AB69-4EC5-8E79-B7A126959989} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3377439-FD7A-4F3E-8011-06175E0E3100}

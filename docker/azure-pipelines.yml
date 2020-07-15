@@ -94,7 +94,7 @@ stages:
   dependsOn: Build
   displayName: Deploy images to AKS Environments
   jobs:
-  - deployment: 'Deploy to Staging AKS'
+  - deployment: 'Deploy_to_Staging_AKS'
     pool:
       vmImage: $(vmImageName)
     environment: Staging
@@ -190,7 +190,7 @@ stages:
               arguments: 'image deployments/rendering sitecore-xm1-rendering=mvpsitev2.azurecr.io/mvp-rendering:$(Build.BuildNumber)-$(Build.SourceBranchName)'
               secretType: 'dockerRegistry'
               containerRegistryType: 'Azure Container Registry'
-  - deployment: 'Deserialize Content to Staging'
+  - deployment: 'Deserialize_Content_to_Staging'
     pool:
       vmImage: $(vmImageName)
     environment: Staging
