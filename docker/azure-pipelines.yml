@@ -211,17 +211,17 @@ stages:
                 Invoke-WebRequest 'https://raw.githubusercontent.com/microsoft/artifacts-credprovider/master/helpers/installcredprovider.ps1' -OutFile installcredprovider.ps1
                 .\installcredprovider.ps1 -Force 
                 Remove-Item .\installcredprovider.ps1;
-                $env:VSS_NUGET_EXTERNAL_FEED_ENDPOINTS='{ "endpointCredentials": [{"endpoint": "${{variables.NUGET_PREVIEW_SOURCE}}", "username":"NA", "password":"${{variables.AZURE_PAT}}"}]}'
+                $env:VSS_NUGET_EXTERNAL_FEED_ENDPOINTS='{ "endpointCredentials": [{"endpoint": "${{NUGET_PREVIEW_SOURCE}}", "username":"NA", "password":"${{AZURE_PAT}}"}]}'
                 Write-Host $env:VSS_NUGET_EXTERNAL_FEED_ENDPOINTS
                 
                 # Add nuget source & install Sitecore CLI
-                dotnet nuget add source ${{variables.NUGET_PREVIEW_SOURCE}} --name "MVP-Preview@Release"
-                dotnet tool install -g --add-source=${{variables.NUGET_PREVIEW_SOURCE}} sitecore.cli
+                dotnet nuget add source ${{NUGET_PREVIEW_SOURCE}} --name "MVP-Preview@Release"
+                dotnet tool install -g --add-source=${{NUGET_PREVIEW_SOURCE}} sitecore.cli
           - task: PowerShell@2
             displayName: Login to Sitecore Instance
             inputs:
               targetType: 'inline'
-              script: 'sitecore login --client-credentials true -a https://mvp-id.robearlam.com -h https://mvp-cm.robearlam.com --allow-write true --client-id "MVP_Automation" --client-secret "${{variables.SITECORE_CLIENT_SECRET}}"'
+              script: 'sitecore login --client-credentials true -a https://mvp-id.robearlam.com -h https://mvp-cm.robearlam.com --allow-write true --client-id "MVP_Automation" --client-secret "${{SITECORE_CLIENT_SECRET}}"'
               workingDirectory: '$(System.ArtifactsDirectory)/serialization'
           - task: PowerShell@2
             displayName: Deserialize Sitecore Content
