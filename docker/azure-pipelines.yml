@@ -16,6 +16,7 @@ variables:
   vmImageName: 'windows-latest'
 
 stages:
+
 - stage: Build
   displayName: Build and push stage
   jobs:  
@@ -88,3 +89,144 @@ stages:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'deploy'
         publishLocation: 'Container'
+
+- stage: Deploy
+  dependsOn: Build
+  displayName: Deploy images to AKS Environments
+  jobs:
+  - deployment: 'Deploy to Staging AKS'
+    pool:
+      vmImage: $(vmImageName)
+    environment: Staging
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: DownloadPipelineArtifact@1
+            displayName: "Download Build Artifact"
+            inputs:
+              buildType: 'current'
+              targetPath: '$(System.ArtifactsDirectory)'
+          - task: Kubernetes@1
+            displayName: Create MVP-Staging Namespace
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: 'Staging-MVP-Site-v2-mvp-staging-1594770370465'
+              command: 'apply'
+              useConfigurationFile: true
+              configuration: '$(Build.ArtifactStagingDirectory)/k8s-specs/namespaces/namespace-staging.yaml'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+          - task: Kubernetes@1
+            displayName: Deploy External Specifications
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: 'Staging-MVP-Site-v2-mvp-staging-1594770370465'
+              namespace: 'mvp-staging'
+              command: 'apply'
+              useConfigurationFile: true
+              configuration: '$(Build.ArtifactStagingDirectory)/k8s-specs/external'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+          - task: Kubernetes@1
+            displayName: Deploy Init Specifications
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: 'Staging-MVP-Site-v2-mvp-staging-1594770370465'
+              namespace: 'mvp-staging'
+              command: 'apply'
+              useConfigurationFile: true
+              configuration: '$(Build.ArtifactStagingDirectory)/k8s-specs/init'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+          - task: Kubernetes@1
+            displayName: Deploy Application Specifications
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: 'Staging-MVP-Site-v2-mvp-staging-1594770370465'
+              namespace: 'mvp-staging'
+              command: 'apply'
+              useConfigurationFile: true
+              configuration: '$(Build.ArtifactStagingDirectory)/k8s-specs'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+          - task: Kubernetes@1
+            displayName: Update ID Image version
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: 'Staging-MVP-Site-v2-mvp-staging-1594770370465'
+              namespace: 'mvp-staging'
+              command: 'set'
+              arguments: 'image deployments/id sitecore-xm1-id=mvpsitev2.azurecr.io/mvp-id:$(Build.BuildNumber)-$(Build.SourceBranchName)'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+          - task: Kubernetes@1
+            displayName: Update CM Image version
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: 'Staging-MVP-Site-v2-mvp-staging-1594770370465'
+              namespace: 'mvp-staging'
+              command: 'set'
+              arguments: 'image deployments/cm sitecore-xm1-cm=mvpsitev2.azurecr.io/mvp-cm:$(Build.BuildNumber)-$(Build.SourceBranchName)'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+          - task: Kubernetes@1
+            displayName: Update CD Image version
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: 'Staging-MVP-Site-v2-mvp-staging-1594770370465'
+              namespace: 'mvp-staging'
+              command: 'set'
+              arguments: 'image deployments/cd sitecore-xm1-cd=mvpsitev2.azurecr.io/mvp-cd:$(Build.BuildNumber)-$(Build.SourceBranchName)'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+          - task: Kubernetes@1
+            displayName: Update CD Image version
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: 'Staging-MVP-Site-v2-mvp-staging-1594770370465'
+              namespace: 'mvp-staging'
+              command: 'set'
+              arguments: 'image deployments/rendering sitecore-xm1-rendering=mvpsitev2.azurecr.io/mvp-rendering:$(Build.BuildNumber)-$(Build.SourceBranchName)'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+  - deployment: 'Deserialize Content to Staging'
+    pool:
+      vmImage: $(vmImageName)
+    environment: Staging
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: PowerShell@2
+            displayName: Register Build Agent with Private Nuget Feed
+            inputs:
+              targetType: 'inline'
+              script: |
+                #Setup Credential Provider
+                Invoke-WebRequest 'https://raw.githubusercontent.com/microsoft/artifacts-credprovider/master/helpers/installcredprovider.ps1' -OutFile installcredprovider.ps1
+                .\installcredprovider.ps1 -Force 
+                Remove-Item .\installcredprovider.ps1;
+                $env:VSS_NUGET_EXTERNAL_FEED_ENDPOINTS='{ "endpointCredentials": [{"endpoint": "https://pkgs.dev.azure.com/Technical-Marketing/MVP-Site/_packaging/MVP-Preview%40Release/nuget/v3/index.json", "username":"NA", "password":"fuic3v54vtufaco3qpt5wukg4w7jlnltg4vk7l4xyy5mqtouttqa"}]}'
+                
+                # Add nuget source & install Sitecore CLI
+                dotnet nuget add source https://pkgs.dev.azure.com/Technical-Marketing/MVP-Site/_packaging/MVP-Preview%40Release/nuget/v3/index.json --name "MVP-Preview@Release"
+                dotnet tool install -g --add-source=https://pkgs.dev.azure.com/Technical-Marketing/MVP-Site/_packaging/MVP-Preview%40Release/nuget/v3/index.json sitecore.cli
+          - task: PowerShell@2
+            displayName: Login to Sitecore Instance
+            inputs:
+              targetType: 'inline'
+              script: 'sitecore login --client-credentials true -a https://mvp-id.robearlam.com -h https://mvp-cm.robearlam.com --allow-write true --client-id "MVP_Automation" --client-secret "THIS_IS_A_LONG_STRING_THAT_IS_used_for_THE_SECRET_12345!!"'
+              workingDirectory: '$(Build.ArtifactStagingDirectory)/serialization'
+          - task: PowerShell@2
+            displayName: Deserialize Sitecore Content
+            inputs:
+              targetType: 'inline'
+              script: 'sitecore ser push'
+              workingDirectory: '$(Build.ArtifactStagingDirectory)/serialization'
+          - task: PowerShell@2
+            displayName: Perform Full Sitecore Publish
+            inputs:
+              targetType: 'inline'
+              script: 'sitecore publish'
+              workingDirectory: '$(Build.ArtifactStagingDirectory)/serialization'
