@@ -196,6 +196,11 @@ stages:
       runOnce:
         deploy:
           steps:
+          - task: DownloadPipelineArtifact@2
+            displayName: "Download Build Artifact"
+            inputs:
+              artifact: Sitecore.MVP-$(Build.BuildNumber)
+              targetPath: '$(System.ArtifactsDirectory)'
           - task: PowerShell@2
             displayName: Register Build Agent with Private Nuget Feed
             inputs:
