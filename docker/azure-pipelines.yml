@@ -216,7 +216,7 @@ stages:
                 
                 # Add nuget source & install Sitecore CLI
                 dotnet nuget add source "$(NUGET_PREVIEW_SOURCE) --name "MVP-Preview@Release"
-                dotnet tool install -g --add-source="$(NUGET_PREVIEW_SOURCE)" sitecore.cli
+                dotnet tool install -g --add-source=$(NUGET_PREVIEW_SOURCE) sitecore.cli
           - task: PowerShell@2
             displayName: Login to Sitecore Instance
             inputs:
