@@ -14,9 +14,10 @@
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.1" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="3.1.1" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
-		<PackageReference Include="Sitecore.LayoutService.Client" Version="0.1.0-*" />
-		<PackageReference Include="Sitecore.AspNet.RenderingEngine" Version="0.1.0-*" />
-	</ItemGroup>
+    <PackageReference Include="Sitecore.LayoutService.Client" Version="14.0.0-r00155" />
+    <PackageReference Include="Sitecore.AspNet.RenderingEngine" Version="14.0.0-r00155" />
+    <PackageReference Include="Sitecore.AspNet.ExperienceEditor" Version="14.0.0-r00155" />
+  </ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\Feature\BasicContent\rendering\Mvp.Feature.BasicContent.Rendering.csproj" />

@@ -11,6 +11,12 @@ namespace Mvp.Project.MvpSite.Controllers
 {
     public class DefaultController : Controller
     {
+
+        public DefaultController()
+        {
+
+        }
+
         // Inject Sitecore rendering middleware for this controller action
         // (enables model binding to Sitecore objects such as Route,
         // and causes requests to the Sitecore Layout Service for controller actions)
