@@ -148,6 +148,16 @@ stages:
               configuration: '$(System.ArtifactsDirectory)/k8s-specs'
               secretType: 'dockerRegistry'
               containerRegistryType: 'Azure Container Registry'
+          - task: KubernetesManifest@0
+            displayName: Patch IP-Whitelist Values into Ingress
+            inputs:
+              action: 'patch'
+              kubernetesServiceConnection: 'Staging-MVP-Site-v2-mvp-staging-1594770370465'
+              namespace: 'mvp-staging'
+              resourceToPatch: 'file'
+              resourceFileToPatch: '$(System.ArtifactsDirectory)/k8s-specs/spec/ingress.yaml'
+              mergeStrategy: 'merge'
+              patch: '{"metadata": { "annotations": { "nginx.ingress.kubernetes.io/whitelist-source-range": "0.0.0.0" }}}'
           - task: Kubernetes@1
             displayName: Update ID Image version
             inputs:
