@@ -155,7 +155,7 @@ stages:
               kubernetesServiceConnection: 'Staging-MVP-Site-v2-mvp-staging-1594770370465'
               namespace: 'mvp-staging'
               resourceToPatch: 'file'
-              resourceFileToPatch: '$(System.ArtifactsDirectory)/k8s-specs/specs/ingress.yaml'
+              resourceFileToPatch: '$(System.ArtifactsDirectory)/k8s-specs/ingress.yaml'
               mergeStrategy: 'merge'
               patch: '{"metadata": { "annotations": { "nginx.ingress.kubernetes.io/whitelist-source-range": "0.0.0.0" }}}'
           - task: Kubernetes@1
