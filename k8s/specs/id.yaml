@@ -69,6 +69,11 @@ spec:
             secretKeyRef:
               name: sitecore-license
               key: sitecore-license.txt
+        - name: ID_SERVER_MVP_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-identity
+              key: sitecore-identitysecret_mvp.txt
         - name: Sitecore_Sitecore__IdentityServer__SitecoreMemberShipOptions__ConnectionString
           value: Data Source=$(Database_Server);Initial Catalog=Sitecore.Core;User ID=$(Core_Database_Username);Password=$(Core_Database_Password);
         - name: Sitecore_Sitecore__IdentityServer__AccountOptions__PasswordRecoveryUrl

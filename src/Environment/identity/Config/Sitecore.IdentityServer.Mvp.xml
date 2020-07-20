@@ -21,7 +21,7 @@
 						<AllowedGrantType1>client_credentials</AllowedGrantType1>
 					</AllowedGrantTypes>
 					<ClientSecrets>
-						<ClientSecret1>THIS_IS_A_LONG_STRING_THAT_IS_used_for_THE_SECRET_12345!!</ClientSecret1>
+						<ClientSecret1>$(env:ID_SERVER_MVP_CLIENT_SECRET)</ClientSecret1>
 					</ClientSecrets>
 					<AllowedScopes>
 						<!-- this is required even if not a 'user' for Sitecore to like us -->

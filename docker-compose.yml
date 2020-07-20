@@ -95,6 +95,7 @@ services:
       Sitecore_Sitecore__IdentityServer__PublicOrigin: https://${ID_HOST}
       Sitecore_Sitecore__IdentityServer__CertificateRawDataPassword: ${SITECORE_ID_CERTIFICATE_PASSWORD}
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      ID_SERVER_MVP_CLIENT_SECRET: ${ID_SERVER_MVP_CLIENT_SECRET}
     healthcheck:
       test: ["CMD", "powershell", "-command", "C:/Healthchecks/Healthcheck.ps1"]
       timeout: 300s
