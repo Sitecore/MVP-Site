@@ -157,7 +157,7 @@ stages:
               resourceToPatch: 'file'
               resourceFileToPatch: '$(System.ArtifactsDirectory)/k8s-specs/ingress.yaml'
               mergeStrategy: 'merge'
-              patch: '{"metadata": { "annotations": { "nginx.ingress.kubernetes.io/whitelist-source-range": "0.0.0.0" }}}'
+              patch: '{"metadata": { "annotations": { "nginx.ingress.kubernetes.io/whitelist-source-range": "$(IP_WHITELIST)" }}}'
           - task: Kubernetes@1
             displayName: Update ID Image version
             inputs:
