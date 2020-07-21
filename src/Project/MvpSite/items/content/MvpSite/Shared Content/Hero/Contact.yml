@@ -17,7 +17,7 @@ Languages:
     - ID: "3489c7a2-efe1-49e0-a3d7-271183c4f255"
       Hint: HeroImage
       Value: |
-        <image mediaid="{44B87C6F-6603-46FA-8872-0E953553CF3D}" />
+        <image mediaid="{F26BBBB9-9B2A-4AA7-BA41-1DBB7557DD13}" />
     - ID: "53ee3e16-ba10-4013-959e-9a652a533845"
       Hint: HeroSubtitle
       Value: How to find us
@@ -26,11 +26,11 @@ Languages:
       Value: There are a variety of ways to learn more about Sitecore's Most Valuable Professional program
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "30320a50-56dc-4128-afc6-32a19a32833e"
+      Value: "b295f219-4176-44c6-b8af-24bdbf357027"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200625T220253Z
+      Value: 20200721T081831Z

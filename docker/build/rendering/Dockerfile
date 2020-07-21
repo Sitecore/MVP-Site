@@ -10,6 +10,17 @@ ARG RELEASE_BASE_IMAGE
 ARG SOLUTION_IMAGE
 
 FROM ${DEBUG_BASE_IMAGE} as debug
+
+# Install Azure Credential Provider
+RUN Invoke-WebRequest 'https://raw.githubusercontent.com/microsoft/artifacts-credprovider/master/helpers/installcredprovider.ps1' -OutFile installcredprovider.ps1;
+RUN .\installcredprovider.ps1 -Force 
+RUN Remove-Item .\installcredprovider.ps1;
+
+# Configure VSS Nuget endpoint
+ARG NUGET_PREVIEW_SOURCE
+ARG AZURE_PAT
+ENV VSS_NUGET_EXTERNAL_FEED_ENDPOINTS='{ "endpointCredentials": [{"endpoint": "'$NUGET_PREVIEW_SOURCE'", "username":"NA", "password":"'$AZURE_PAT'"}]}'
+
 WORKDIR /solution/src
 ENTRYPOINT ["dotnet", "watch", "-v", "--project", ".\\Project\\MvpSite\\rendering", "run", "--no-launch-profile"]
 
