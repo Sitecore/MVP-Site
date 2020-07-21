@@ -14,6 +14,7 @@ namespace Mvp.Feature.BasicContent.Models
 
         [SitecoreComponentField] 
         public string listType { get; set; }
+        [SitecoreComponentField]
         public int limit { get; set; }
     }
 }

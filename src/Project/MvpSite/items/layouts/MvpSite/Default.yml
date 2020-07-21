@@ -12,7 +12,7 @@ SharedFields:
     {40E386A6-C647-4069-93AB-4ABD1F87CFB9}
 - ID: "a036b2bc-ba04-44f6-a75f-bae6cd242abf"
   Hint: Path
-  Value: /Views/JssApp.cshtml
+  Value: /Views/Default/Index.cshtml
 Languages:
 - Language: en
   Versions:
@@ -23,11 +23,11 @@ Languages:
       Value: 20200513T063313Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8d734e73-abe8-40ec-983f-71405de3a720"
+      Value: "b88626ac-82bd-42cb-b3b9-4bea83fcaeae"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200721T004349Z
+      Value: 20200721T144851Z

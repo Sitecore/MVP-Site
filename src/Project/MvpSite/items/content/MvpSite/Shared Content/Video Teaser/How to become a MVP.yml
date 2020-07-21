@@ -1,0 +1,33 @@
+﻿---
+ID: "0330cf77-dcdd-45ca-8d47-9370a3902bc1"
+Parent: "102b3423-90ec-461d-bf8e-3a932204aea4"
+Template: "a94acaec-6552-47d1-90b7-f54283868b3f"
+Path: /sitecore/content/MvpSite/Shared Content/Video Teaser/How to become a MVP
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200721T141229Z
+    - ID: "87d60910-c481-42a7-8eb6-68e96b0f7cba"
+      Hint: TeaserEmbed
+      Value: |
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ApGPTUDndgU?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "b0768d2b-0fb3-43a9-b97b-b724140dbb11"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200721T141309Z
+    - ID: "efc256c0-d388-4966-9340-a4508104de04"
+      Hint: TeaserTitle
+      Value: How to become a MVP
+    - ID: "f4d03e52-cb74-4aba-8969-3c49e2541ac2"
+      Hint: TeaserText
+      Value: Hear from Tamas Varga, MVP Program Manager at Sitecore, on how you can become a MVP.

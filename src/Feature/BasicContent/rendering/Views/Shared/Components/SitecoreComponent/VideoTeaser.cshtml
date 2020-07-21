@@ -1,0 +1,25 @@
+﻿@model Mvp.Feature.BasicContent.Models.VideoTeaser
+
+    <section class="autoplay-video">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="text col-lg-6 col-md-12 order-md-2 order-lg-1  order-1" style="opacity: 1; top: -70px;">
+                    <div class="col-md-6 overlap"></div>
+                    <h2><sc-text asp-for="@Model.TeaserTitle"></sc-text></h2>
+                    <p><sc-text asp-for="@Model.TeaserText"></sc-text></p>
+
+                    @if (!string.IsNullOrEmpty(Model.TeaserLink.Value.Href))
+                    {
+                        <sc-link asp-for="@Model.TeaserLink" data-module="cta-button" class="link-arrow" aria-label="@Model.TeaserLink.Value.Title" target="@Model.TeaserLink.Value.Target">
+                            @Model.TeaserLink.Value.Text
+                            <img alt="Learn more" src="images/icon-arrow.png">
+                        </sc-link>
+                    }
+                </div>
+                <div class="col-12 col-lg-6 video  order-md-1 order-lg-2 ">
+                    @Html.Raw(Model.TeaserEmbed.Value)
+                </div>
+
+            </div>
+        </div>
+    </section>

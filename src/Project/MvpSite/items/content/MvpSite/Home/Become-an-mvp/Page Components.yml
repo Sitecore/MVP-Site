@@ -1,0 +1,23 @@
+﻿---
+ID: "1e192541-f2ee-4421-88bd-66c409a84f4e"
+Parent: "fa048086-14bc-4e7d-9987-59f8b4adc286"
+Template: "6aec120a-7222-42c6-a8e8-53f9354aef53"
+Path: "/sitecore/content/MvpSite/Home/Become-an-mvp/Page Components"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200721T123222Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9bbebb19-4394-4405-8055-0efcd26a26b1"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200721T123222Z
