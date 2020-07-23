@@ -1,5 +1,63 @@
 version: "2.4"
 services:
+
+  dotnetsdk:
+    container_name: mvp-dotnetsdk
+    image: ${MVP_DOCKER_REGISTRY}mvp-dotnetsdk:${VERSION:-latest}
+    build:
+      context: ./docker/build/dotnetsdk
+      args:
+        BUILD_IMAGE: ${SOLUTION_BUILD_IMAGE}
+        NETCORE_BUILD_IMAGE: ${NETCORE_BUILD_IMAGE}
+    scale: 0
+
+  solutionBuildOutput:
+    container_name: mvp-solution
+    image: ${MVP_DOCKER_REGISTRY}mvp-solution:${VERSION:-latest}
+    build:
+      context: ./
+      dockerfile: ./docker/build/solution/Dockerfile
+      args:
+        BUILD_CONFIGURATION: ${BUILD_CONFIGURATION}
+        BASE_IMAGE: ${SOLUTION_BASE_IMAGE}
+        BUILD_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-dotnetsdk:${VERSION:-latest}
+        NUGET_PREVIEW_SOURCE: ${NUGET_PREVIEW_SOURCE}
+        AZURE_PAT: ${AZURE_PAT}        
+    depends_on:
+      - dotnetsdk
+    scale: 0
+
+  rendering:
+    container_name: mvp-rendering
+    image: ${MVP_DOCKER_REGISTRY}mvp-rendering:${VERSION:-latest}
+    build:
+      context: ./docker/build/rendering
+      target: ${BUILD_CONFIGURATION}
+      args:
+        DEBUG_BASE_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-dotnetsdk:${VERSION:-latest}
+        RELEASE_BASE_IMAGE: mcr.microsoft.com/dotnet/core/aspnet:3.1
+        SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution:${VERSION:-latest}
+        NUGET_PREVIEW_SOURCE: ${NUGET_PREVIEW_SOURCE}
+        AZURE_PAT: ${AZURE_PAT}        
+    ports:
+      - "8091:80"
+    volumes:
+      - .\:C:\solution
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://*:80"
+      Sitecore__InstanceUri: "http://mvp-cm"
+      Sitecore__RenderingHostUri: "https://${RENDERING_HOST}"
+      Sitecore__EnableExperienceEditor: "true"
+    depends_on:
+      - solutionBuildOutput
+      - cm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.rendering-secure.entrypoints=websecure"
+      - "traefik.http.routers.rendering-secure.rule=Host(`${RENDERING_HOST}`)"
+      - "traefik.http.routers.rendering-secure.tls=true"
+
   traefik:
     isolation: ${TRAEFIK_ISOLATION}
     image: ${TRAEFIK_IMAGE}
@@ -19,15 +77,29 @@ services:
       - source: \\.\pipe\docker_engine
         target: \\.\pipe\docker_engine
         type: npipe
-      - ./traefik:C:/etc/traefik
+      - ./docker/traefik:C:/etc/traefik
     depends_on:
+      rendering:
+        condition: service_started
       cm:
         condition: service_healthy
       id:
         condition: service_healthy
-  mssql:
+
+  redis:
+    container_name: mvp-redis
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}${SQL_IMAGE}:${SITECORE_VERSION}
+    image: ${SITECORE_DOCKER_REGISTRY}${REDIS_IMAGE}:${SITECORE_VERSION}
+
+  mssql:
+    container_name: mvp-mssql
+    isolation: ${ISOLATION}
+    image: ${MVP_DOCKER_REGISTRY}mvp-mssql:${VERSION:-latest}
+    build:
+      context: ./docker/build/mssql
+      args:
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}${SQL_IMAGE}:${SITECORE_VERSION}
+        JSS_RESOURCES_IMAGE: ${JSS_RESOURCES_IMAGE}
     environment:
       SA_PASSWORD: ${SQL_SA_PASSWORD}
       SITECORE_ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
@@ -37,20 +109,29 @@ services:
       - "14331:1433"
     volumes:
       - type: bind
-        source: .\mssql-data
+        source: .\docker\data\sql
         target: c:\data
+  
   solr:
+    container_name: mvp-solr
     isolation: ${ISOLATION}
+    image: ${SITECORE_DOCKER_REGISTRY}${SOLR_IMAGE}:${SITECORE_VERSION}
     ports:
       - "8985:8983"
-    image: ${SITECORE_DOCKER_REGISTRY}${SOLR_IMAGE}:${SITECORE_VERSION}
     volumes:
       - type: bind
-        source: .\solr-data
+        source: .\docker\data\solr
         target: c:\data
+
   id:
+    container_name: mvp-id
+    image: ${MVP_DOCKER_REGISTRY}mvp-id:${VERSION:-latest}
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}${ID_IMAGE}:${SITECORE_VERSION}
+    build:
+      context: ./docker/build/id
+      args:
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}${ID_IMAGE}:${SITECORE_VERSION}
+        SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution:${VERSION:-latest}
     environment:
       Sitecore_Sitecore__IdentityServer__SitecoreMemberShipOptions__ConnectionString: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_Sitecore__IdentityServer__AccountOptions__PasswordRecoveryUrl: https://${CM_HOST}/sitecore/login?rc=1
@@ -59,10 +140,12 @@ services:
       Sitecore_Sitecore__IdentityServer__CertificateRawData: ${SITECORE_ID_CERTIFICATE}
       Sitecore_Sitecore__IdentityServer__PublicOrigin: https://${ID_HOST}
       Sitecore_Sitecore__IdentityServer__CertificateRawDataPassword: ${SITECORE_ID_CERTIFICATE_PASSWORD}
-      Sitecore_License: ${SITECORE_LICENSE}
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
     healthcheck:
       test: ["CMD", "powershell", "-command", "C:/Healthchecks/Healthcheck.ps1"]
       timeout: 300s
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
     depends_on:
       mssql:
         condition: service_healthy
@@ -71,12 +154,26 @@ services:
       - "traefik.http.routers.id-secure.entrypoints=websecure"
       - "traefik.http.routers.id-secure.rule=Host(`${ID_HOST}`)"
       - "traefik.http.routers.id-secure.tls=true"
+
   cm:
+    container_name: mvp-cm
+    image: ${MVP_DOCKER_REGISTRY}mvp-cm:${VERSION:-latest}
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}${CM_IMAGE}:${SITECORE_VERSION}
+    build:
+      context: ./docker/build/cm
+      args:
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}${CM_IMAGE}:${SITECORE_VERSION}
+        SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution:${VERSION:-latest}
+        TOOLS_RESOURCES_IMAGE: ${TOOLS_RESOURCES_IMAGE}
+        DEVEX_RESOURCES_IMAGE: ${DEVEX_RESOURCES_IMAGE}
+        JSS_RESOURCES_IMAGE: ${JSS_RESOURCES_IMAGE}
     depends_on:
-      id:
+      solutionBuildOutput:
         condition: service_started
+    volumes:
+      - ${LOCAL_DEPLOY_PATH}\sitecore:C:\deploy
+      - ${LOCAL_DATA_PATH}\cm:C:\inetpub\wwwroot\App_Data\logs
+      - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
       Sitecore_AppSettings_instanceNameMode:define: default
       Sitecore_ConnectionStrings_Core: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
@@ -89,11 +186,15 @@ services:
       Sitecore_AppSettings_Telerik.AsyncUpload.ConfigurationEncryptionKey: ${TELERIK_ENCRYPTION_KEY}
       Sitecore_AppSettings_Telerik.Upload.ConfigurationHashKey: ${TELERIK_ENCRYPTION_KEY}
       Sitecore_AppSettings_Telerik.Web.UI.DialogParametersEncryptionKey: ${TELERIK_ENCRYPTION_KEY}
-      Sitecore_License: ${SITECORE_LICENSE}
       Sitecore_Identity_Server_Authority: https://${ID_HOST}
       Sitecore_Identity_Server_InternalAuthority: http://mvp-id
       Sitecore_Identity_Server_CallbackAuthority: https://${CM_HOST}
       Sitecore_Identity_Server_Require_Https: "false"
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+    entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
+    depends_on:
+      id:
+        condition: service_started
     healthcheck:
       test: ["CMD", "powershell", "-command", "C:/Healthchecks/Healthcheck.ps1"]
       timeout: 300s
@@ -105,12 +206,27 @@ services:
       - "traefik.http.routers.cm-secure.rule=Host(`${CM_HOST}`)"
       - "traefik.http.routers.cm-secure.tls=true"
       - "traefik.http.routers.cm-secure.middlewares=force-STS-Header"
+
   cd:
+    container_name: mvp-cd
+    image: ${MVP_DOCKER_REGISTRY}mvp-cd:${VERSION:-latest}
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}${CD_IMAGE}:${SITECORE_VERSION}
+    build:
+      context: ./docker/build/cd
+      args:
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}${CD_IMAGE}:${SITECORE_VERSION}
+        SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution:${VERSION:-latest}
+        TOOLS_RESOURCES_IMAGE: ${TOOLS_RESOURCES_IMAGE}
+        JSS_RESOURCES_IMAGE: ${JSS_RESOURCES_IMAGE}
     depends_on:
-      id:
+      solutionBuildOutput:
         condition: service_started
+      redis:
+        condition: service_started
+    volumes:
+      - ${LOCAL_DEPLOY_PATH}\sitecore:C:\deploy
+      - ${LOCAL_DATA_PATH}\cm:C:\inetpub\wwwroot\App_Data\logs
+      - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
       Sitecore_ConnectionStrings_Core: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_ConnectionStrings_Security: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
@@ -119,7 +235,12 @@ services:
       Sitecore_ConnectionStrings_ExperienceForms: Data Source=mssql;Initial Catalog=Sitecore.ExperienceForms;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_ConnectionStrings_Solr.Search: http://mvp-solr:8983/solr
       Sitecore_ConnectionStrings_Redis.Sessions: mvp-redis:6379,ssl=False,abortConnect=False
-      Sitecore_License: ${SITECORE_LICENSE}
+      Sitecore_ConnectionStrings_Redis.Sessions: mvp-redis:6379,ssl=False,abortConnect=False
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+    entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
+    depends_on:
+      id:
+        condition: service_started
     healthcheck:
       test: ["CMD", "powershell", "-command", "C:/Healthchecks/Healthcheck.ps1"]
       timeout: 300s
@@ -131,4 +252,9 @@ services:
       - "traefik.http.routers.cd-secure.rule=Host(`${CD_HOST}`)"
       - "traefik.http.routers.cd-secure.tls=true"
       - "traefik.http.routers.cd-secure.middlewares=force-STS-Header"
+
   
+networks:
+  default:
+    external:
+      name: nat

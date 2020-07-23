@@ -47,9 +47,6 @@ RUN msbuild .\src\Environment\identity\Mvp.Environment.Identity.csproj /p:Config
 WORKDIR .\src\Project\MvpSite\rendering\
 RUN dotnet publish -c Release -o /build/rendering
 
-#WORKDIR /build/src/Project/MvpSite/rendering/
-#RUN dotnet publish -c Release -o /build/rendering --no-restore
-
 # Start new Stage
 FROM ${BASE_IMAGE}
 WORKDIR /artifacts
