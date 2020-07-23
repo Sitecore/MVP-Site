@@ -29,7 +29,7 @@ spec:
         kubernetes.io/os: windows
       containers:
       - name: mssql
-        image: devexmvp.azurecr.io/sitecore-sql-devex:latest
+        image: mvpsitev2.azurecr.io/mvp-mssql:latest
         ports:
         - containerPort: 1433
         env:
