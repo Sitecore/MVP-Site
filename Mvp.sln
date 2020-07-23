@@ -29,7 +29,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{C2A09B
 	ProjectSection(SolutionItems) = preProject
 		.env = .env
 		docker\azure-pipelines.yml = docker\azure-pipelines.yml
-		docker-compose.override.yml = docker-compose.override.yml
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
@@ -162,11 +161,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mssql", "mssql", "{D4200606
 		docker\build\mssql\Dockerfile = docker\build\mssql\Dockerfile
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solr", "solr", "{F7A02272-15C7-4768-9C55-6FD42D387263}"
-	ProjectSection(SolutionItems) = preProject
-		docker\build\solr\Dockerfile = docker\build\solr\Dockerfile
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnetsdk", "dotnetsdk", "{51ACAC11-AC43-4221-964D-3DEC4895B161}"
 	ProjectSection(SolutionItems) = preProject
 		docker\build\dotnetsdk\Dockerfile = docker\build\dotnetsdk\Dockerfile
@@ -252,7 +246,6 @@ Global
 		{DAAAE2CB-BBBA-49BE-BD13-42A65C452F7F} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
 		{CDFC71FE-D7C2-4B53-861D-B8D7E011D0A5} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
 		{D4200606-3DE2-49E3-8EA4-D6C9EF5ADCCF} = {0CD77201-5A3D-430A-A40F-C0343435359B}
-		{F7A02272-15C7-4768-9C55-6FD42D387263} = {0CD77201-5A3D-430A-A40F-C0343435359B}
 		{51ACAC11-AC43-4221-964D-3DEC4895B161} = {0CD77201-5A3D-430A-A40F-C0343435359B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
