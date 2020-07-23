@@ -132,7 +132,7 @@ You can install the NGINX Ingress using the following commands.
 
 - `helm repo add stable https://kubernetes-charts.storage.googleapis.com/`
 - `kubectl create namespace ingress-basic`
-- `helm install --name nginx-ingress stable/nginx-ingress --namespace ingress-basic --set controller.replicaCount=2 --set controller.nodeSelector."beta\.kubernetes\.io/os=linux" --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os=linux" --set-string controller.config.proxy-body-size=10m`
+- `helm install --name nginx-ingress stable/nginx-ingress --namespace ingress-basic --set controller.replicaCount=2 --set controller.nodeSelector."beta\.kubernetes\.io/os=linux" --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os=linux" --set-string controller.config.proxy-body-size=10m --set controller.service.externalTrafficPolicy=Local`
 
 (You can verify this is correct in the K8s dashboard by changing to the `ingress-basic` namespace and checking that the two deployments (`nginx-ingress-controller` & `nginx-ingress-default-backend`) are both green.
 

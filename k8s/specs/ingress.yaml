@@ -1,36 +1,35 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: sitecore-ingress
+  name: mvp-ingress
   annotations:
     nginx.ingress.kubernetes.io/proxy-buffer-size: "32k"
     nginx.ingress.kubernetes.io/affinity: "cookie"
     nginx.ingress.kubernetes.io/rewrite-target: /
-    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   rules:
-  - host: mvp-cd.robearlam.com
+  - host: mvp-cd.sitecoredemo.com
     http:
       paths:
       - path: /
         backend:
           serviceName: cd
           servicePort: 80
-  - host: mvp-cm.robearlam.com
+  - host: mvp-cm.sitecoredemo.com
     http:
       paths:
       - path: /
         backend:
           serviceName: cm
           servicePort: 80
-  - host: mvp-id.robearlam.com
+  - host: mvp-id.sitecoredemo.com
     http:
       paths:
       - path: /
         backend:
           serviceName: id
           servicePort: 80
-  - host: mvp.robearlam.com
+  - host: mvp.sitecoredemo.com
     http:
       paths:
       - path: /
@@ -39,15 +38,9 @@ spec:
           servicePort: 80
 
   tls:
-  - secretName: mvp-cd-robearlam-tls
+  - secretName: sitecoredemo-tls
     hosts:
-    - mvp-cd.robearlam.com
-  - secretName: mvp-cm-robearlam-tls
-    hosts:
-    - mvp-cm.robearlam.com
-  - secretName: mvp-id-robearlam-tls
-    hosts:
-    - mvp-id.robearlam.com
-  - secretName: mvp-robearlam-tls
-    hosts:
-    - mvp.robearlam.com
+    - mvp.sitecoredemo.com
+    - mvp-id.sitecoredemo.com
+    - mvp-cm.sitecoredemo.com
+    - mvp-cd.sitecoredemo.com

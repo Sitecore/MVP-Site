@@ -69,14 +69,19 @@ spec:
             secretKeyRef:
               name: sitecore-license
               key: sitecore-license.txt
+        - name: ID_SERVER_MVP_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-identity
+              key: sitecore-identitysecret_mvp.txt
         - name: Sitecore_Sitecore__IdentityServer__SitecoreMemberShipOptions__ConnectionString
           value: Data Source=$(Database_Server);Initial Catalog=Sitecore.Core;User ID=$(Core_Database_Username);Password=$(Core_Database_Password);
         - name: Sitecore_Sitecore__IdentityServer__AccountOptions__PasswordRecoveryUrl
-          value: https://mvp-cm.robearlam.com/sitecore/login?rc=1
+          value: https://mvp-cm.sitecoredemo.com/sitecore/login?rc=1
         - name: Sitecore_Sitecore__IdentityServer__Clients__DefaultClient__AllowedCorsOrigins__AllowedCorsOriginsGroup1
-          value: https://mvp-cm.robearlam.com
+          value: https://mvp-cm.sitecoredemo.com
         - name: Sitecore_Sitecore__IdentityServer__PublicOrigin
-          value: https://mvp-id.robearlam.com
+          value: https://mvp-id.sitecoredemo.com
         livenessProbe:
           httpGet:
             path: /healthz/live
