@@ -89,6 +89,7 @@ stages:
         artifact: 'Sitecore.MVP-$(Build.BuildNumber)'
 
 - stage: Deploy
+  condition:  $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
   dependsOn: Build
   displayName: Deploy to Staging
   jobs:
