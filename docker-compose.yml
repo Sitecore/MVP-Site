@@ -3,7 +3,7 @@ services:
 
   dotnetsdk:
     container_name: mvp-dotnetsdk
-    image: ${MVP_DOCKER_REGISTRY}mvp-dotnetsdk:${VERSION:-latest}
+    image: ${MVP_DOCKER_REGISTRY}mvp-dotnetsdk:${SITECORE_VERSION}
     build:
       context: ./docker/build/dotnetsdk
       args:
@@ -13,7 +13,7 @@ services:
 
   solutionBuildOutput:
     container_name: mvp-solution
-    image: ${MVP_DOCKER_REGISTRY}mvp-solution:${VERSION:-latest}
+    image: ${MVP_DOCKER_REGISTRY}mvp-solution:${SITECORE_VERSION}
     build:
       context: ./
       dockerfile: ./docker/build/solution/Dockerfile
@@ -29,7 +29,7 @@ services:
 
   rendering:
     container_name: mvp-rendering
-    image: ${MVP_DOCKER_REGISTRY}mvp-rendering:${VERSION:-latest}
+    image: ${MVP_DOCKER_REGISTRY}mvp-rendering:${SITECORE_VERSION}
     build:
       context: ./docker/build/rendering
       target: ${BUILD_CONFIGURATION}
@@ -94,7 +94,7 @@ services:
   mssql:
     container_name: mvp-mssql
     isolation: ${ISOLATION}
-    image: ${MVP_DOCKER_REGISTRY}mvp-mssql:${VERSION:-latest}
+    image: ${MVP_DOCKER_REGISTRY}mvp-mssql:${SITECORE_VERSION}
     build:
       context: ./docker/build/mssql
       args:
@@ -125,7 +125,7 @@ services:
 
   id:
     container_name: mvp-id
-    image: ${MVP_DOCKER_REGISTRY}mvp-id:${VERSION:-latest}
+    image: ${MVP_DOCKER_REGISTRY}mvp-id:${SITECORE_VERSION}
     isolation: ${ISOLATION}
     build:
       context: ./docker/build/id
@@ -157,7 +157,7 @@ services:
 
   cm:
     container_name: mvp-cm
-    image: ${MVP_DOCKER_REGISTRY}mvp-cm:${VERSION:-latest}
+    image: ${MVP_DOCKER_REGISTRY}mvp-cm:${SITECORE_VERSION}
     isolation: ${ISOLATION}
     build:
       context: ./docker/build/cm
@@ -209,7 +209,7 @@ services:
 
   cd:
     container_name: mvp-cd
-    image: ${MVP_DOCKER_REGISTRY}mvp-cd:${VERSION:-latest}
+    image: ${MVP_DOCKER_REGISTRY}mvp-cd:${SITECORE_VERSION}
     isolation: ${ISOLATION}
     build:
       context: ./docker/build/cd
