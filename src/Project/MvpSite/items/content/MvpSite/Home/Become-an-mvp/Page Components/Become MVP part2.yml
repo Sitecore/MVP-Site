@@ -1,0 +1,37 @@
+﻿---
+ID: "4df3f6c5-9b3e-4b99-8a45-d146d139f3e3"
+Parent: "1e192541-f2ee-4421-88bd-66c409a84f4e"
+Template: "64ad1284-23fb-4b76-85b3-c6dfb1b322bf"
+Path: "/sitecore/content/MvpSite/Home/Become-an-mvp/Page Components/Become MVP part2"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200721T123127Z
+    - ID: "5098b799-31dd-4c1b-9955-3e8598caa21f"
+      Hint: Content
+      Value: |
+        <h3>How do I invite or recommend someone?</h3>
+        <p>If you are a current Sitecore MVP you have been invited to create an account on our site. Please log in and fill in the details about the person you want to nominate and write your recommendation. If the person is already invited we will save your recommendation. If you invite someone new we will send an invitation email describing the process.</p>
+        <p>&nbsp;</p>
+        <h3>What is the timeline of the selection process?</h3>
+        <p>The nomination is open during November, for the exact dates please follow <a rel="noopener noreferrer" href="https://twitter.com/SitecoreMVP" target="_blank">https://twitter.com/SitecoreMVP</a>. We will review all the nominations and recommendations during December and we will finalize the award winners early January. The announcement of the Sitecore MVP Awards will be by the end of January.</p>
+        <p>&nbsp;</p>
+        <h3>What if I have additional questions?</h3>
+        <p>If you have any additional questions about the MVP Program or nominations please create a topic on the&nbsp;<a rel="noopener noreferrer" href="https://community.sitecore.net/general/f/11" target="_blank">General Discussion forums</a>&nbsp;or ask a question on <a rel="noopener noreferrer" href="https://sitecore.stackexchange.com/questions/tagged/mvp" target="_blank">Sitecore StackExchange</a>.</p>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f1f5677b-df62-4df2-8a31-1e91870eac73"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200721T123233Z

@@ -1,0 +1,41 @@
+﻿---
+ID: "5568a458-a32d-47f1-97ba-238f85b25c68"
+Parent: "1e192541-f2ee-4421-88bd-66c409a84f4e"
+Template: "64ad1284-23fb-4b76-85b3-c6dfb1b322bf"
+Path: "/sitecore/content/MvpSite/Home/Become-an-mvp/Page Components/Become MVP part 1"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200721T123014Z
+    - ID: "5098b799-31dd-4c1b-9955-3e8598caa21f"
+      Hint: Content
+      Value: |
+        <h3>Can I become an MVP?</h3>
+        <p>The MVP Program is open for all individuals who work with the Sitecore platform. The key to be nominated is to share your expertise through online and offline channels. This could be by writing blog posts, giving presentations or webinars, and/or simply being active on our community platform or other channels.</p>
+        
+        <p>&nbsp;</p>
+        <h3>How do I get invited?</h3>
+        <p>Individuals can only get nominated by existing Sitecore MVPs or by Sitecore employees. They need to fill in a form that highlights why you should be considered for the MVP status.</p>
+        <p>&nbsp;</p>
+        <h3>How do I fill in my application?</h3>
+        <p>After you are invited you need to create an account and you can start by completing the MVP application form on the MVP website:&nbsp;<a href="https://mvp.sitecore.com/application">https://mvp.sitecore.com/application</a><br />
+        <br />
+        Make sure you fill in the form as completely and detailed as possible. All information will be used to review your nomination.</p>
+        <p>&nbsp;</p>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "0655aac8-a0e3-4cfe-a1be-a9c5628e0cfa"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200721T123228Z

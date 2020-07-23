@@ -10,11 +10,14 @@ SharedFields:
 - ID: "e391b526-d0c5-439d-803e-17512eae6222"
   Hint: Allowed Controls
   Value: |
-    {68F22BBE-C24B-49A2-BB72-CF330D26BC69}
     {475CBA5E-EE80-4275-9758-D280F0781942}
     {DB83F81C-40A4-45C1-9D66-91A99368B6C6}
     {DF79486F-2E7B-4EC8-8EFC-C9E6DFE813B7}
     {248BDE7D-D010-4D02-95E8-2578A03A2D2D}
+    {32566F0E-7686-45F1-A12F-D7260BD78BC3}
+    {DF26CA0D-A60B-4349-8908-E7A62F7E7272}
+    {2E2630AE-5DB0-4FDF-81B6-47DBC3365C36}
+    {8ECDA376-8717-4626-A30A-83A93EC24CC3}
 Languages:
 - Language: en
   Versions:
@@ -25,11 +28,11 @@ Languages:
       Value: 20200513T063543Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "dfe6c212-56b6-472f-8cf9-eb2c5967e357"
+      Value: "883cd6f4-d487-4434-9494-bb2413bda15c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200629T090800Z
+      Value: 20200721T141652Z

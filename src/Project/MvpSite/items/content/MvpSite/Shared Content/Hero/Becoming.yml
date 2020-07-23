@@ -17,7 +17,7 @@ Languages:
     - ID: "3489c7a2-efe1-49e0-a3d7-271183c4f255"
       Hint: HeroImage
       Value: |
-        <image mediaid="{44B87C6F-6603-46FA-8872-0E953553CF3D}" />
+        <image mediaid="{F26BBBB9-9B2A-4AA7-BA41-1DBB7557DD13}" />
     - ID: "53ee3e16-ba10-4013-959e-9a652a533845"
       Hint: HeroSubtitle
       Value: Learn what it takes to become a MVP
@@ -26,11 +26,11 @@ Languages:
       Value: Each year, professionals from all over the world are recognized by Sitecore as Most Valuable Professionals (MVP). A Sitecore MVP is an individual with expertise in Sitecore who actively participates in online and offline communities to share their knowledge and expertise with other Sitecore partners and customers.
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "52814ddc-09cd-4e14-aa2e-eb199ce25274"
+      Value: "ec0593f9-e18a-4221-a15a-f71eb7a694e7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200625T215537Z
+      Value: 20200721T081825Z

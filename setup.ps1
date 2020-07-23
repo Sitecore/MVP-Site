@@ -42,7 +42,7 @@ if ($LASTEXITCODE -ne 0)
 if ($RunWithoutTreafik)
 {
     # Start container instances without traefik
-    docker-compose up -d solutionBuildOutput redis mssql solr id cd cm rendering
+    docker-compose up -d dotnetsdk solutionBuildOutput redis mssql solr id cd cm rendering 
 }
 else
 {

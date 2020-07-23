@@ -162,12 +162,14 @@
           "x-enumNames": [
             "SingleItem",
             "ItemAndChildren",
-            "ItemAndDescendants"
+            "ItemAndDescendants",
+            "DescendantsOnly"
           ],
           "enum": [
             "singleItem",
             "itemAndChildren",
-            "itemAndDescendants"
+            "itemAndDescendants",
+            "descendantsOnly"
           ]
         },
         "AllowedPushOperations": {
