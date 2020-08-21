@@ -1,0 +1,33 @@
+﻿---
+ID: "2867e282-1fde-4dbb-81eb-ce51a0cd0cec"
+Parent: "473676dc-e1f1-4a93-8187-6ea0c61f9a2b"
+Template: "5c547d4e-7111-4995-95b0-6b561751bf2e"
+Path: /sitecore/layout/Placeholder Settings/Project/MvpSite/Page Overview Panel
+SharedFields:
+- ID: "7256bdab-1fd2-49dd-b205-cb4873d2917c"
+  Hint: Placeholder Key
+  Value: "page-overview-panel"
+- ID: "e391b526-d0c5-439d-803e-17512eae6222"
+  Hint: Allowed Controls
+  Value: |
+    {AA449EA4-0695-4D4C-9CD3-E582738A355E}
+    {A921AEC7-5DF7-4F8E-835A-6A5111CF94CF}
+    {71EE190C-5286-425C-B7F2-0E14F3829043}
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200629T090829Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1645b01d-803f-45fd-842a-d1dd3dfa9227"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200728T133309Z

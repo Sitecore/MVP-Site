@@ -1,0 +1,18 @@
+﻿@model Mvp.Feature.Social.Models.Rss
+
+    <div class="col-12 panel">
+        
+        <h1 asp-for="Title"></h1>
+        
+        <p asp-for="Description"></p>
+
+
+        <h2>Latest episodes</h2>
+
+        @foreach (var item in Model.FeedItems)
+        {
+            <h3><a href="@item.Url">@item.Title</a></h3>
+            <p>@item.Description</p>
+        }
+
+    </div>

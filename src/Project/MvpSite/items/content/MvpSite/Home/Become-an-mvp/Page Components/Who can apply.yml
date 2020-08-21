@@ -1,0 +1,43 @@
+﻿---
+ID: "bb242858-af8d-4de3-8865-b85f240da1af"
+Parent: "1e192541-f2ee-4421-88bd-66c409a84f4e"
+Template: "bdf1a02f-ce53-4de8-8fe4-e25d6ca65b7c"
+Path: "/sitecore/content/MvpSite/Home/Become-an-mvp/Page Components/Who can apply"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200721T133327Z
+    - ID: "3e1619ab-4eef-47b1-a801-13440d0098a6"
+      Hint: TeaserTitle
+      Value: "Who can apply?"
+    - ID: "5e0174e0-52ca-4cc1-a6d5-1ae75954b019"
+      Hint: TeaserLink
+      Value: |
+        <link text="Link" linktype="external" url="https://www.google.com" anchor="" target="" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8cead6fa-0bce-4d18-8829-41ff0e0ac3ca"
+    - ID: "9b1f902b-cfcf-4965-b4d0-3880f610272d"
+      Hint: TeaserImage
+      Value: |
+        <image mediaid="{27598A1B-CD28-445E-B784-5337BE020B73}" ></image>
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200721T134234Z
+    - ID: "fa7c2f07-7f57-49f9-9f94-d5e9631d110d"
+      Hint: TeaserText
+      Value: |
+        <p>The MVP Program is open for all individuals who work with the Sitecore platform.</p>
+        <p>The key to be nominated is to share your expertise through online and offline channels.</p>
+        

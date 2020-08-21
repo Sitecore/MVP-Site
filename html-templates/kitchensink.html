@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Kitchensink</title>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link rel="stylesheet" href="style/main.css" />
+	</head>
+
+	<body>
+		<header>
+			<nav class="navbar navbar-expand p-0 d-none d-md-block" id="topbar">
+				<div class="container justify-content-end">
+					<div class="nav navbar-nav">
+						<!-- Optional 
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            English
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Dansk</a>
+                            <a class="dropdown-item" href="#">Deutsch (Deutschland)</a>
+                            <a class="dropdown-item" href="#">Français (France)</a>
+                            <a class="dropdown-item" href="#">Français (France)</a>
+                            <a class="dropdown-item" href="#">日本語 (日本)</a>
+                            <a class="dropdown-item" href="#">中文(中国)</a>
+                        </div>
+                    </li>
+                    -->
+						<a class="nav-item nav-link" href="#">Downloads</a>
+						<a class="nav-item nav-link" href="#">Documentation</a>
+						<a class="nav-item nav-link" href="#">Sitecore Community</a>
+						<a class="nav-item nav-link" href="#">Marketplace</a>
+						<a class="nav-item nav-link" href="#">Knowledge Base</a>
+						<!--
+                    <a class="nav-item nav-link" href="#">Stack Exchange</a>
+                    <a class="nav-item nav-link" href="#">Master Sitecore</a>
+                    <a class="nav-item nav-link" href="#">Sitecore Chat / Slack</a>
+                    -->
+					</div>
+				</div>
+			</nav>
+
+			<div class="main-nav">
+				<div class="container" id="main-menu">
+					<nav class="navbar navbar-expand-lg navbar-light">
+						<img src="images/sitecore.svg" height="48" class="d-inline-block align-top" alt="" />
+						<button
+							class="navbar-toggler"
+							type="button"
+							data-toggle="collapse"
+							data-target="#navbarNavDropdown"
+							aria-controls="navbarNavDropdown"
+							aria-expanded="false"
+							aria-label="Toggle navigation"
+						>
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+							<ul class="navbar-nav">
+								<li class="nav-item mx-2">
+									<a class="nav-link" href="#">About</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a
+										class="nav-link dropdown-toggle"
+										href="#"
+										id="navbarDropdown"
+										role="button"
+										data-toggle="dropdown"
+										aria-haspopup="true"
+										aria-expanded="false"
+									>
+										Dropdown
+									</a>
+									<div class="dropdown-menu shadow rounded-0 border-0" aria-labelledby="navbarDropdown">
+										<a class="dropdown-item" href="#">Example 1</a>
+										<a class="dropdown-item" href="#">Example 2</a>
+										<a class="dropdown-item" href="#">Example 3</a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" href="#">Another Example</a>
+									</div>
+								</li>
+								<li class="nav-item mx-2">
+									<a class="nav-link" href="#">Become an MVP</a>
+								</li>
+								<li class="nav-item mx-2">
+									<a class="nav-link" href="#">Benefits</a>
+								</li>
+								<li class="nav-item mx-2">
+									<a class="nav-link" href="#">Contact</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<div id="content">
+				<!--
+        <section class="hero background-white medium">
+        <div class="background-image" min_desktop_width="1199.98px" min_tablet_width="767.98px" desktop_src=""
+             tablet_src="" mobile_src="" data-module="image-src"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <p class="top">Connecting brands and their customers</p>
+              <h1 class="static">Company: Our purpose</h1>
+              <p>
+                Sitecore creates human connections between brands and their customers with rich end-to-end content,
+                seamless commerce, and always-on
+                personalization so brands can thrive in a world where, without a digital experience, there is no
+                product.
+              </p>
+            </div>
+
+            <div class="col-12 col-md-6 image">
+              <div class="outer">
+                <div class="wrapper">
+                  <picture>
+                    <source media="(min-width:  1199.98px)" srcset="
+													https://sitecorecdn.azureedge.net/-/media/sitecoresite/images/home/company/_/hero-banner-medium-gettyimages-496604076-504x476.jpg?mw=800&amp;hash=A00A37D5CACB5078A92DF0912F664AAE
+												" />
+                    <source media="(min-width: 767.98px)" srcset="
+													https://sitecorecdn.azureedge.net/-/media/sitecoresite/images/home/company/_/hero-banner-medium-gettyimages-496604076-354x334.jpg?mw=600&amp;hash=97441CC4A18CC8899013F42CD3FD6DB4
+												" />
+                    <img
+                         src="https://sitecorecdn.azureedge.net/-/media/sitecoresite/images/home/company/_/hero-banner-medium-gettyimages-496604076-272x155.jpg?mw=600&amp;hash=8FBD2BC33C0573325C8210149323A807" />
+                  </picture>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      -->
+
+				<section class="hero background-white">
+					<div
+						class="background-image"
+						min_desktop_width="1199.98px"
+						min_tablet_width="767.98px"
+						desktop_src="url('images/home-hero-large-banner-gettyimages-1073717662-041520.jpg')"
+						tablet_src="url('images/home-hero-tablet-banner-gettyimages-1073717662-041520.jpg')"
+						mobile_src="url('images/home-hero-mobile-banner-gettyimages-1073717662-041520.jpg')"
+						data-module="image-src"
+						style="background-image: url('images/home-hero-large-banner-gettyimages-1073717662-041520.jpg');"
+					></div>
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<p class="top">RECOGNITION</p>
+
+								<h1 class="static">Sitecore MVP Program</h1>
+								<h1 class="animated">
+									<span
+										class="text-animation"
+										data-module="text-animation"
+										data-words="is now a priority, provides resilience, creates an advantage"
+										style="opacity: 1;"
+										>technology</span
+									>
+								</h1>
+
+								<p>Celebrate the most active Sitecore Community members from around the world who provide valuable expertise to the Sitecore ecosystem.</p>
+								<a href="#" data-module="cta-button" data-goals="" class="cta primary" aria-label="Sitecore MVP's 2020 announced!" target="">
+									Sitecore MVP's 2020 announced!
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="announcement-bar" style="background-color: rgb(102, 102, 102); display: block;" data-module="announcement-bar">
+					<div class="row">
+						<div class="col-12">
+							<div class="container white">
+								<div class="row">
+									<div class="col-md-7 col-lg-8">
+										<p class="content"><strong>Sitecore MVP Summit 2020</strong> is October 29-30! This year’s summit will be digital.</p>
+									</div>
+									<div class="col-auto cta-container">
+										<a
+											href="https://symposium.sitecore.com/"
+											data-module="cta-button"
+											data-goals=""
+											class="link-arrow"
+											aria-label="Stay informed"
+											target="_blank"
+										>
+											Stay informed
+											<img alt="Stay informed" src="images/icon-arrow.png?v=6372550647600000001203266326" />
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="column-container one-column background-grey">
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-lg-12">
+								<h2>Maximize your success with Sitecore</h2>
+								<p>
+									Sitecore Services drive customer and partner success through a thoughtful range of complementary professional and platform services. Each
+									service line focuses on advancing user knowledge, skills, capacity, and functionality at key points in the Sitecore customer experience.
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="three-column-info" data-module="three-column-info">
+					<div class="container">
+						<h2>Personalize with precision</h2>
+						<p>Customers in today’s digital era recognize mass-marketing tactics.&nbsp;</p>
+						<div class="row">
+							<div class="col-12 col-md-4">
+								<div class="item" style="height: 400px;">
+									<div class="image">
+										<img
+											src="https://sitecorecdn.azureedge.net/-/media/sitecoresite/images/icons/_new/01-multichannel-072819.svg?h=100&amp;w=100&amp;la=en&amp;hash=DE927939F2BC332512C4132A7D754B0A"
+											alt=""
+										/>
+									</div>
+									<h3>Be at customers’ fingertips</h3>
+									<p>Engage with your customers on their terms by delivering omnichannel experiences across mobile, web, social, and email.&nbsp;</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="item" style="height: 400px;">
+									<div class="image">
+										<img
+											src="https://sitecorecdn.azureedge.net/-/media/sitecoresite/images/icons/_new/01-exp-platform-072819.svg?h=100&amp;w=100&amp;la=en&amp;hash=38406D05A9133B315FE702B77C95391C"
+											alt=""
+										/>
+									</div>
+									<h3>Deliver digital experiences</h3>
+									<p>
+										Give every customer preferred treatment with the ability to connect customer interactions and tailor content using a unified marketing
+										platform.
+									</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="item" style="height: 400px;">
+									<div class="image">
+										<img
+											src="https://sitecorecdn.azureedge.net/-/media/sitecoresite/images/icons/_new/01-personalization-072819.svg?h=100&amp;w=100&amp;la=en&amp;hash=98C1FB1D02501950BA3A47FD1711EC5F"
+											alt=""
+										/>
+									</div>
+									<h3>Know your customers</h3>
+									<p>Fine-tune your personalization and empower your marketing organization to make business decisions with customer behavior data.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="column-container two-column-equal background-grey ">
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-lg-6">
+								<div class="feature-panel-text">
+									<p class="counter number">02</p>
+									<h2>Increasing online sales</h2>
+									<p>Nestlé Purina launched their e-commerce website and personalized communications with Sitecore Experience Commerce (XC).</p>
+									<a href="/products/sitecore-commerce" data-module="cta-button" data-goals="" class="cta primary" aria-label="Discover Sitecore XC" target="">Discover Sitecore XC</a>
+								</div>
+							</div>
+							<div class="col-12 col-lg-6">
+								<div class="feature-panel-text">
+									<p class="counter number">03</p>
+									<h2>Personalizing with precision</h2>
+									<p>Rabobank improved dwell time by 19%, 30%, and 128% across 3 main sites thanks to personalization.</p>
+									<a href="/products/sitecore-experience-platform/personalization" data-module="cta-button" data-goals="" class="cta primary" aria-label="Discover personalization" target="">Discover personalization</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="half-width-banner background-white">
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-md-6 order-2 order-md-2 text">
+								<p class="eyebrow"></p>
+								<h2>See how our always-on personalization works by following a customer’s journey</h2>
+								<p></p>
+								<a
+									href="/products/sitecore-experience-platform/personalization?utm_websource=solutions"
+									data-module="cta-button"
+									data-goals=""
+									class="link-arrow"
+									aria-label="Learn more"
+									target=""
+								>
+									Learn more
+									<img alt="Learn more" src="https://sitecorecdn.azureedge.net/assets/images/icon-arrow.png?v=6372550647600000001203266326" />
+								</a>
+							</div>
+							<div class="col-12 col-md-6 order-1 order-md-1 image">
+								<img
+									alt="Personalization"
+									src="https://sitecorecdn.azureedge.net/-/media/sitecoresite/images/home/solutions/_/half-width-banner-gettyimages-953156928-564x475.jpg"
+									loading="lazy"
+								/>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="three-column-info" data-module="three-column-info">
+					<div class="container">
+						<h2>Solve the content crisis</h2>
+						<p>Customers expect content that adds value to their buyer experience.</p>
+						<div class="row">
+							<div class="col-12 col-md-4">
+								<div class="item" style="height: 392px;">
+									<div class="image">
+										<img
+											src="https://sitecorecdn.azureedge.net/-/media/sitecoresite/images/icons/_new/01-roi-072819.svg?h=100&amp;w=100&amp;la=en&amp;hash=A27FC4351C26A8B29B7401DF229D1EA5"
+											alt=""
+										/>
+									</div>
+									<h3>Know your content’s ROI</h3>
+									<p>Boost your bottom line with the ability to test content and pinpoint campaign performance successesand failures.&nbsp;</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="item" style="height: 392px;">
+									<div class="image">
+										<img
+											src="https://sitecorecdn.azureedge.net/-/media/sitecoresite/images/icons/_new/01-crosschannel-072819.svg?h=100&amp;w=100&amp;la=en&amp;hash=46B28D44587E05010551D716DBA05B0A"
+											alt=""
+										/>
+									</div>
+
+									<h3>Skip the back-and-forth</h3>
+
+									<p>
+										Optimize your marketing workflows and eliminate silos by managing and tracking your content in a single environment.&nbsp; &nbsp;
+									</p>
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="item" style="height: 392px;">
+									<div class="image">
+										<img
+											src="https://sitecorecdn.azureedge.net/-/media/sitecoresite/images/icons/_new/01-automation-072819.svg?h=100&amp;w=100&amp;la=en&amp;hash=81D1DA86A43D023D5B978D445EFA07D7"
+											alt=""
+										/>
+									</div>
+									<h3>Automate content personalization</h3>
+									<p>
+										Orchestrate automated digital experiences based on how, when, where, and why customers are interacting with your brand.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="cta-overlapped-image" id="overlap47828908">
+					<div class="container">
+						<div class="row justify-content-end">
+							<div class="col-12 col-lg-7">
+								<div class="text">
+									<p class="eyebrow"></p>
+									<h3>
+										Nestle Purina created a seamless, personalized digital shopping experience
+									</h3>
+									<p></p>
+
+									<a
+										href="/customers/consumer-goods/nestle-purina?utm_websource=solutions"
+										data-module="cta-button"
+										data-goals=""
+										class="link-arrow"
+										aria-label="Nestle Purina created a seamless, personalized digital shopping experience? Read the case study"
+										target=""
+									>
+										Read the case study
+										<img
+											alt="Nestle Purina created a seamless, personalized digital shopping experience? Read the case study"
+											src="https://sitecorecdn.azureedge.net/assets/images/icon-arrow.png?v=6372550647600000001203266326"
+										/>
+									</a>
+								</div>
+							</div>
+							<div class="floated" style="opacity: 1; top: 0px;">
+								<img
+									src="https://sitecorecdn.azureedge.net/-/media/sitecoresite/images/global/case-study-overlap-cta-teasers-img-left/nestle-purina_web__cta-overlapped-image_707x392.jpg?h=392&amp;w=707&amp;la=en&amp;hash=7DA3542B372C38FC1C014B979FF7DC0C"
+									loading="lazy"
+									alt=""
+								/>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="feature-panel-video  " data-module="feature-panel-video" data-interval="10">
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-lg-6 order-2 order-lg-1">
+								<div class="text with-background">
+									<p class="counter number">01</p>
+									<h2>Managing content efficiently</h2>
+									<p>L’Oréal consolidated 10+ technologies into one and reduced costs and administration time with Sitecore Experience Platform (XP).</p>
+									<a href="/products/sitecore-experience-platform" data-module="cta-button" data-goals="" class="cta primary" aria-label="Discover Sitecore XP" target="">
+										Discover Sitecore XP
+									</a>
+								</div>
+							</div>
+							<div class="col-12 col-lg-6 order-1 order-lg-2">
+								<div class="media-wrapper">
+									<div class="video shown" data-id="1">
+										<div>
+											<div class="image">
+												<img src="https://sitecorecdn.azureedge.net/-/media/sitecoresite/images/home/_/feature-panel/feature-panel-image-gettyimages-496441318-570x480.jpg?h=480&amp;w=570&amp;la=en&amp;hash=FC840D6A19760F1F89EDA4D3C3B48707" alt="">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="avatar-list">
+									<div class="link">	</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="cta-overlapped-image  background-grey" id="overlap54630191">
+					<div class="container">
+						<div class="row justify-content-end">
+							<div class="col-12 col-lg-7">
+								<div class="text ">
+									<p class="eyebrow">Our take on the latest digital trends</p>
+									<h3>You need modular content creation for better omnichannel reach</h3>
+									<p>The perfect storm of content is upon us, and there is no shelter.</p>
+									<a href="/knowledge-center/blog/2019/06/prepare-for-the-perfect-storm-of-content" data-module="cta-button" data-goals="" class="link-arrow" aria-label="You need modular content creation for better omnichannel reach? Read article" target="">
+										Read article
+										<img alt="You need modular content creation for better omnichannel reach? Read article" src="https://sitecorecdn.azureedge.net/assets/images/icon-arrow.png?v=6372550647600000001203266326">
+									</a>
+								</div>
+							</div>
+							<div class="floated" style="opacity: 1; top: 0px;">
+								<img src="https://sitecorecdn.azureedge.net/-/media/sitecoresite/images/home/_/overlapping-image/cta-overlapped-image-left-gettyimages-909605194-707x392.jpg?h=392&amp;w=707&amp;la=en&amp;hash=1AA51D35FEC832FBFCC464329E1AB035" loading="lazy" alt="">
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="column-container two-column-equal background-grey">
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-lg-6">
+								<div class="feature-panel-text with-background no-number">
+									<h2>Technical support</h2>
+
+									<p>
+										All Sitecore maintenance agreements and subscriptions come with standard support and a rich ecosystem of open-source support and insights.
+										Premium support is available for upgrading any time to faster response times and a 24/7 SLA.
+									</p>
+
+									<a
+										href="/knowledge-center/getting-started/support?utm_websource=solutions.services"
+										data-module="cta-button"
+										data-goals=""
+										class="link-arrow"
+										aria-label="View technical support options"
+										target=""
+									>
+										View technical support options
+										<img
+											alt="View technical support options"
+											src="https://sitecorecdn.azureedge.net/assets/images/icon-arrow.png?v=6372550647600000001203266326"
+										/>
+									</a>
+								</div>
+							</div>
+							<div class="col-12 col-lg-6">
+								<div class="feature-panel-text with-background no-number">
+									<h2>Technical consulting</h2>
+
+									<p>
+										Maximize your investment in Sitecore by adding experts to your team. Our technical consultants play an advisory role, helping to ensure
+										success during implementation and ongoing operations through best practices, technical guidance, and knowledge transfer.
+									</p>
+
+									<a
+										href="/knowledge-center/getting-started/technical-consulting?utm_websource=solutions.services"
+										data-module="cta-button"
+										data-goals=""
+										class="link-arrow"
+										aria-label="Discover Sitecore technical consulting"
+										target=""
+									>
+										Discover Sitecore technical consulting
+										<img
+											alt="Discover Sitecore technical consulting"
+											src="https://sitecorecdn.azureedge.net/assets/images/icon-arrow.png?v=6372550647600000001203266326"
+										/>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="half-width-banner background-white">
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-md-6 order-2 order-md-1 text">
+								<p class="eyebrow"></p>
+								<h2>
+									See how our always-on personalization works by following a customer’s journey
+								</h2>
+								<p></p>
+								<a
+									href="/products/sitecore-experience-platform/personalization?utm_websource=solutions"
+									data-module="cta-button"
+									data-goals=""
+									class="link-arrow"
+									aria-label="Learn more"
+									target=""
+								>
+									Learn more
+									<img alt="Learn more" src="https://sitecorecdn.azureedge.net/assets/images/icon-arrow.png?v=6372550647600000001203266326" />
+								</a>
+							</div>
+							<div class="col-12 col-md-6 order-1 order-md-2 image">
+								<img
+									alt="Personalization"
+									src="https://sitecorecdn.azureedge.net/-/media/sitecoresite/images/home/solutions/_/half-width-banner-gettyimages-953156928-564x475.jpg"
+									loading="lazy"
+								/>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!--
+            
+    -->
+			</div>
+		</main>
+
+		<footer>
+			<div class="container-fluid bg-gray4 py-3">
+				<div class="container">
+					<div class="row">
+						<div class="footer-copyright col-9">
+							&copy; Copyright 2020, Sitecore. All Rights Reserved &nbsp;|
+							<a rel="noopener noreferrer" href="https://www.sitecore.com/trust" target="_blank">Legal</a>
+							|
+							<a rel="noopener noreferrer" href="https://www.sitecore.com/trust/privacy-policy" target="_blank">Privacy</a>&nbsp;|
+							<a rel="noopener noreferrer" href="https://www.sitecore.com/own-the-experience" target="_blank">Own the Experience</a>
+							|
+							<a href="mailto:mvp-program@sitecore.com">mvp-program@sitecore.com</a>
+						</div>
+						<div class="footer-social col-3">
+							<a class="footer-social-link" href="https://twitter.com/SitecoreMVP" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+							<a class="footer-social-link" href="https://www.facebook.com/Sitecore" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+							<a class="footer-social-link" href="https://plus.google.com/+sitecore/posts" target="_blank"
+								><i class="fa fa-google plus" aria-hidden="true"></i
+							></a>
+							<a class="footer-social-link" href="https://www.youtube.com/user/mastersitecore" target="_blank"
+								><i class="fa fa-youtube" aria-hidden="true"></i
+							></a>
+							<a class="footer-social-link" href="https://www.linkedin.com/company/sitecore/" target="_blank"
+								><i class="fa fa-linkedin" aria-hidden="true"></i
+							></a>
+							<a class="footer-social-link" href="https://www.instagram.com/sitecore/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+	</body>
+</html>

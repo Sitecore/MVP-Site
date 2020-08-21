@@ -1,0 +1,36 @@
+﻿---
+ID: "d1807ab8-f8db-4f3d-9fa6-aea9590076b5"
+Parent: "9dbaf3a9-a176-4d64-ba9f-3f81741f124c"
+Template: "86864760-3b8b-4e79-927e-0addcd14055d"
+Path: /sitecore/content/MvpSite/Home/Benefits/Page Components/Benefits
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "00f0228c-aff3-4ab7-ac98-e4175a53bf32"
+      Hint: HeroTitle
+      Value: Benefits
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200625T215552Z
+    - ID: "3489c7a2-efe1-49e0-a3d7-271183c4f255"
+      Hint: HeroImage
+      Value: |
+        <image mediaid="{F26BBBB9-9B2A-4AA7-BA41-1DBB7557DD13}" />
+    - ID: "53ee3e16-ba10-4013-959e-9a652a533845"
+      Hint: HeroSubtitle
+      Value: "What's in it for you?"
+    - ID: "69db2d7e-db5e-4a02-8580-0bcfb77b5482"
+      Hint: HeroDescription
+      Value: Learn about the added benefits that come as part of your MVP distinction
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d43548d1-a998-4f97-88e8-4281069f5eb4"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200728T081126Z

@@ -1,0 +1,39 @@
+﻿---
+ID: "faff75ec-fcce-4ff8-b0cf-7dc54fa40244"
+Parent: "f04a6c79-ad64-46c0-9589-3e714831e94f"
+Template: "86864760-3b8b-4e79-927e-0addcd14055d"
+Path: /sitecore/content/MvpSite/Home/About/Page Components/About
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "00f0228c-aff3-4ab7-ac98-e4175a53bf32"
+      Hint: HeroTitle
+      Value: About
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200625T215240Z
+    - ID: "3489c7a2-efe1-49e0-a3d7-271183c4f255"
+      Hint: HeroImage
+      Value: |
+        <image mediaid="{F26BBBB9-9B2A-4AA7-BA41-1DBB7557DD13}" />
+    - ID: "53ee3e16-ba10-4013-959e-9a652a533845"
+      Hint: HeroSubtitle
+      Value: About the MVP Award
+    - ID: "69db2d7e-db5e-4a02-8580-0bcfb77b5482"
+      Hint: HeroDescription
+      Value: "A Sitecore MVP is an individual with expertise in Sitecore who actively participate in online and offline communities to share their knowledge and expertise with other Sitecore partners and customers. The increasing amount of individuals that are sharing expertise and knowledge is reflected in the Sitecore community that is growing at a mind-blowing speed."
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "0eec01f9-7abb-4ca1-b60c-2d2e63e036e3"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200721T081816Z

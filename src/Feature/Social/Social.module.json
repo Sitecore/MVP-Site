@@ -1,0 +1,25 @@
+{
+  "namespace": "Feature.Social",
+  "items": {
+    "includes": [
+      {
+        "name": "templates",
+        "path": "/sitecore/templates/Feature/Social",
+        "allowedPushOperations": "createUpdateAndDelete",
+        "scope": "itemAndDescendants"
+      },
+      {
+        "name": "layouts",
+        "path": "/sitecore/layout/Renderings/Feature/Social",
+        "allowedPushOperations": "createUpdateAndDelete",
+        "scope": "itemAndDescendants"
+      },
+      {
+        "name": "content resolvers",
+        "path": "/sitecore/system/Modules/Layout Service/Rendering Contents Resolvers/Social",
+        "allowedPushOperations": "createUpdateAndDelete",
+        "scope": "itemAndDescendants"
+      }
+    ]
+  }
+}

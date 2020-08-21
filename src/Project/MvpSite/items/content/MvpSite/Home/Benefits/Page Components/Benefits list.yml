@@ -1,0 +1,38 @@
+﻿---
+ID: "f86e1aa2-b5d9-4557-b060-cd8ef009c754"
+Parent: "9dbaf3a9-a176-4d64-ba9f-3f81741f124c"
+Template: "64ad1284-23fb-4b76-85b3-c6dfb1b322bf"
+Path: /sitecore/content/MvpSite/Home/Benefits/Page Components/Benefits list
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200721T134736Z
+    - ID: "5098b799-31dd-4c1b-9955-3e8598caa21f"
+      Hint: Content
+      Value: |
+        <p>Becoming an Sitecore MVP has a lot of benefits for you. Here are some highlights:</p>
+                                        <ul>
+                                            <li>Recognition as a global Sitecore expert and community leader</li>
+                                            <li>Access to early product releases and privileged resources, including direct access to product teams and kick-off webinars</li>
+                                            <li>Exclusive invitations to MVP discussion forums.</li>
+                                            <li>Meet your regional Sitecore team and peers during regional MVP meetings</li>
+                                            <li>Exclusive Invitation to the MVP Summit. The Summit is executive insight to product and company strategy with lots of networking and fun activities.</li>
+                                            <li>Discount at Sitecore events SUGCON, Symposium</li>
+                                        </ul>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "678b9373-7a58-46ae-a78f-a20e8bc664d2"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200728T081122Z

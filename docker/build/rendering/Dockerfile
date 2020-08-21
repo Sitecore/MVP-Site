@@ -1,0 +1,22 @@
+# escape=`
+
+# This is an example Dockerfile for an ASP.NET Core Rendering Host.
+# We use build stages to enable 'dotnet watch' during development, so
+# that changes to your rendering code can be quickly tested, including in
+# the Experience Editor. Be sure to watch the container logs in case of build errors.
+
+ARG DEBUG_BASE_IMAGE
+ARG RELEASE_BASE_IMAGE
+ARG SOLUTION_IMAGE
+
+FROM ${DEBUG_BASE_IMAGE} as debug
+WORKDIR /solution/src
+ENTRYPOINT ["dotnet", "watch", "-v", "--project", ".\\Project\\MvpSite\\rendering", "run", "--no-launch-profile"]
+
+FROM ${SOLUTION_IMAGE} as solution
+FROM ${RELEASE_BASE_IMAGE} as release
+WORKDIR /app
+COPY --from=solution /artifacts/rendering/ ./
+EXPOSE 80
+EXPOSE 443
+ENTRYPOINT ["dotnet", "Mvp.Project.MvpSite.dll"]

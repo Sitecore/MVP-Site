@@ -1,0 +1,101 @@
+﻿---
+ID: "8fb6ba7c-84d4-44f3-8ff1-d4e6c210418e"
+Parent: "f04a6c79-ad64-46c0-9589-3e714831e94f"
+Template: "64ad1284-23fb-4b76-85b3-c6dfb1b322bf"
+Path: /sitecore/content/MvpSite/Home/About/Page Components/MVP Types
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200721T120848Z
+    - ID: "5098b799-31dd-4c1b-9955-3e8598caa21f"
+      Hint: Content
+      Value: |
+        <h2>Types of MVPs</h2>
+                                        <p>Each year, the Sitecore Most Valuable Professional (MVP) Awards recognize individuals with a passion for sharing their knowledge and expertise through active participation in online and offline Sitecore communities.</p>
+                                        <p>We recognize the following types of MVPs annually:</p>
+                                        <h3>Technology MVP</h3>
+                                        <p>An individual with seasoned technical experience who actively participates in online and offline communities to share their knowledge and expertise with developers, marketers, strategists, Sitecore partners and customers.</p>
+                                        <p><strong>Qualities we are considering when selecting a Technology MVP:</strong></p>
+                                        <ul>
+                                            <li> Original quality content e.g.: blog posts, podcasts, videos</li>
+                                            <li> <a title="Community.sitecore.net" href="https://community.sitecore.net/" target="_blank" rel="noopener noreferrer">Community.sitecore.net</a> Forum answers</li>
+                                            <li> Active at the <a title="Sitecore Slack" href="https://sitecorechat.slack.com/" target="_blank" rel="noopener noreferrer">Sitecore Slack</a> channels</li>
+                                            <li> Involvement at the <a title="Sitecore Stack Exchange" href="https://sitecore.stackexchange.com/" target="_blank" rel="noopener noreferrer">Sitecore Stack Exchange</a></li>
+                                            <li> Contribution to an open source module</li>
+                                            <li> Speaking at events like User Groups or Symposium</li>
+                                            <li> Participate in conversations on Social Media</li>
+                                            <li> Provide regular product feedback</li>
+                                        </ul>
+                                        <p><strong>What you can expect when hiring a Technology MVP?</strong></p>
+                                        <p>As in this category mostly community contribution matters you will hire someone, who is a quality blogger, exceptional presenter, enthusiast user group organizer, valuable forum member. Please note strong developers and architects may receive the Technology MVP title, but the award recognizes individuals for their community contributions, not their development skills.</p>
+                                        <p>&nbsp;</p>
+                                        <h3>Commerce MVP</h3>
+                                        <p>An individual who actively participates in online and offline communities to share their Sitecore Experience Commerce knowledge and expertise with developers, other Sitecore partners and customers.</p>
+                                        <p><strong>Qualities we are considering when selecting a Commerce MVP:</strong></p>
+                                        <ul>
+                                            <li>Original quality content e.g.: blog posts, podcasts, videos</li>
+                                            <li> <a title="Community.sitecore.net" href="https://community.sitecore.net/" target="_blank" rel="noopener noreferrer">Community.sitecore.net</a> Forum answers</li>
+                                            <li> Active at the <a title="Sitecore Slack" href="https://sitecorechat.slack.com/" target="_blank" rel="noopener noreferrer">Sitecore Slack</a> channels</li>
+                                            <li> Involvement at the <a title="Sitecore Stack Exchange" href="https://sitecore.stackexchange.com/" target="_blank" rel="noopener noreferrer">Sitecore Stack Exchange</a></li>
+                                            <li> Contribution to an open source module</li>
+                                            <li> Speaking at events like User Groups or Symposium</li>
+                                            <li> Participate in conversations on Social Media</li>
+                                            <li> Provide regular product feedback</li>
+                                        </ul>
+                                        <p><strong>What you can expect when hiring a Commerce MVP?</strong></p>
+                                        <p>As in this category mostly community contribution matters you will hire someone, who is a quality blogger, exceptional presenter, enthusiast user group organizer, valuable forum member. Please note strong developers and architects may receive the Commerce MVP title, but the award recognizes individuals for their community contributions, not their development skills.</p>
+                                        <p>&nbsp;</p>
+                                        <h3>Strategy MVP</h3>
+                                        <p>An individual with strong understanding with data driven context marketing and use of the Sitecore Experience Cloud to drive business results and who love to share his/her knowledge and experience with customers, users and implementation teams.</p>
+                                        <p><strong>Qualities we are considering when selecting a Strategy MVP:</strong></p>
+                                        <ul>
+                                            <li> Strong experience with data driven marketing</li>
+                                            <li> Great knowledge of <a title="Sitecore Experience Cloud" href="https://www.sitecore.net/products/experience-cloud" target="_blank" rel="noopener noreferrer">Sitecore Experience Cloud</a></li>
+                                            <li> Thought leadership on context marketing</li>
+                                            <li> Provides customer value and references</li>
+                                        </ul>
+                                        <p><strong>What you can expect when hiring a Strategy MVP?</strong></p>
+                                        <ul>
+                                            <li> Strong Experience on how to use Sitecore Experience Cloud to drive business results</li>
+                                            <li> Strong experience with personalization strategies and tactics</li>
+                                            <li> Can advise about architecting the connected customer experience, including what data is needed and customer data integration and triggers in the marketing architecture</li>
+                                            <li> Share knowledge and experience with customers, users and implementation teams</li>
+                                        </ul>
+                                        <p>&nbsp;</p>
+                                        <h3>Ambassador MVP</h3>
+                                        <p>An individual with solid knowledge of the latest Sitecore offering who provide value for Sitecore, by influencing partners, industry, customers and decision makers and who provides product feedback, supplies references and case studies.</p>
+                                        <p><strong>Qualities we are considering when selecting an Ambassador MVP:</strong></p>
+                                        <ul>
+                                            <li> Knows the latest Sitecore offering</li>
+                                            <li> Drives business to Sitecore and ecosystem</li>
+                                            <li> Actively participates in the Sitecore Advisory Councils</li>
+                                            <li> Internal or external Ambassador of Sitecore</li>
+                                            <li> Provides product feedback</li>
+                                            <li> Supplies references and case studies</li>
+                                        </ul>
+                                        <p><strong>What you can expect when hiring an Ambassador MVP?</strong></p>
+                                        <ul>
+                                            <li> Solid knowledge of the latest <a title="Sitecore" href="https://www.sitecore.net/" target="_blank" rel="noopener noreferrer">Sitecore</a> offering</li>
+                                            <li> Working for a partner or customer that works closely with Sitecore; e.g. providing product feedback, participating in Sitecore counsels, supplies references and case studies</li>
+                                            <li> Someone that has big influence on Sitecore's execution within his/her company</li>
+                                        </ul>
+                                        <h2><br />Honorary MVP Award</h2>
+                                        <p>The Honorary MVP award is exclusively given at the discretion of Sitecore’s CEO to a Sitecorian for recognizing outstanding achievements during their career.</p><p><br /></p>        
+        
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8656b70e-ccb5-4472-a997-c9733d10f680"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200721T120859Z

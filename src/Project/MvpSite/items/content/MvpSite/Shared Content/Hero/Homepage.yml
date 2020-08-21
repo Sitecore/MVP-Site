@@ -1,0 +1,40 @@
+﻿---
+ID: "537def5c-b38f-4356-8fcc-24e4838c2319"
+Parent: "ba07af03-314b-49dd-92f7-1ee330bd63e0"
+Template: "86864760-3b8b-4e79-927e-0addcd14055d"
+Path: /sitecore/content/MvpSite/Shared Content/Hero/Homepage
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "00f0228c-aff3-4ab7-ac98-e4175a53bf32"
+      Hint: HeroTitle
+      Value: Sitecore MVP Program
+    - ID: "066f7e92-30ad-4198-b138-b40ccaec6d20"
+      Hint: HeroLink
+      Value: |
+        <link text="Sitecore MVPs 2020 Announced" linktype="external" url="http://www.sitecore.com" anchor="" target="_blank" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200624T085353Z
+    - ID: "3489c7a2-efe1-49e0-a3d7-271183c4f255"
+      Hint: HeroImage
+      Value: |
+        <image mediaid="{75E92DFC-F50D-40C7-824F-EEEB8D58B5D6}" />
+    - ID: "53ee3e16-ba10-4013-959e-9a652a533845"
+      Hint: HeroSubtitle
+      Value: Recognition
+    - ID: "69db2d7e-db5e-4a02-8580-0bcfb77b5482"
+      Hint: HeroDescription
+      Value: Celebrate the most active Sitecore Community members from around the world who provide valuable expertise to the Sitecore ecosystem.
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "b6db6ade-6a25-4fab-8268-fafd7b47603b"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200624T103602Z

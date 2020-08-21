@@ -1,0 +1,304 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30105.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".SolutionItems", ".SolutionItems", "{FE951C1D-8EC7-419E-A7A2-A0175125BCBB}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
+		CONTRIBUTING.md = CONTRIBUTING.md
+		init.ps1 = init.ps1
+		nuget.config = nuget.config
+		README.md = README.md
+		sitecore.json = sitecore.json
+		up.ps1 = up.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Environment", "Environment", "{B04642CD-8FAB-4282-8C7E-E79942FC3ABB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{324D4FE7-86EF-43A2-A466-21198CB856AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{94C82DDA-FE0D-4EBF-AEAA-81E13CB07FE5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feature", "Feature", "{F1800335-D16A-4FB6-B213-1885963E283D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Multisite", "Multisite", "{C498C9DC-F441-45E5-A238-DC2E0D1CB486}"
+	ProjectSection(SolutionItems) = preProject
+		src\Foundation\Multisite\Multisite.module.json = src\Foundation\Multisite\Multisite.module.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{C2A09BF2-FE3E-4A2D-8FB0-CDD281AC568A}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.env = .env
+		docker\azure-pipelines.yml = docker\azure-pipelines.yml
+		docker-compose.override.yml = docker-compose.override.yml
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{0CD77201-5A3D-430A-A40F-C0343435359B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cd", "cd", "{D00E084E-C02B-4F44-B1B5-09F44A3F0084}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\cd\Dockerfile = docker\build\cd\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cm", "cm", "{C3047BDB-95AB-461D-A5F6-E337D606A2CD}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\cm\Dockerfile = docker\build\cm\Dockerfile
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Environment.Sitecore", "src\Environment\sitecore\Mvp.Environment.Sitecore.csproj", "{2424E8B4-0111-4306-9603-0D2702EA60C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Project.MvpSite.Sitecore", "src\Project\MvpSite\sitecore\Mvp.Project.MvpSite.Sitecore.csproj", "{AD9A7A76-AAE5-4336-9E8F-8327498845D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MvpSite", "MvpSite", "{E3ED70EC-3845-46E0-B18A-2EC8077C83A2}"
+	ProjectSection(SolutionItems) = preProject
+		src\Project\MvpSite\MvpSite.module.json = src\Project\MvpSite\MvpSite.module.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Project.MvpSite.Rendering", "src\Project\MvpSite\rendering\Mvp.Project.MvpSite.Rendering.csproj", "{BA33EC49-1ED9-4628-A2F9-057D5BC0F76D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{C9635732-EFFF-441E-B2C4-272AB2F9DC64}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\solution\Dockerfile = docker\build\solution\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "rendering", "rendering", "{7DC50DBD-3ABA-4EB0-9DC5-9007BDE0EC01}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\rendering\Dockerfile = docker\build\rendering\Dockerfile
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.Navigation.Rendering", "src\Feature\Navigation\rendering\Mvp.Feature.Navigation.Rendering.csproj", "{3B79ADFB-5EEF-4892-A4DE-CAAF6EA5141D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Feature.Navigation.Sitecore", "src\Feature\Navigation\sitecore\Mvp.Feature.Navigation.Sitecore.csproj", "{DE98D5C9-5350-4457-AC65-63BC6A3BA0E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Navigation", "Navigation", "{8DE4BCBC-3DDF-402C-BE7A-DFE00CC3FF58}"
+	ProjectSection(SolutionItems) = preProject
+		src\Feature\Navigation\Navigation.module.json = src\Feature\Navigation\Navigation.module.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hero", "Hero", "{17BD7D19-AD78-4D67-9087-65F0047B67F5}"
+	ProjectSection(SolutionItems) = preProject
+		src\Feature\Hero\Hero.module.json = src\Feature\Hero\Hero.module.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.Hero.Rendering", "src\Feature\Hero\rendering\Mvp.Feature.Hero.Rendering.csproj", "{C635C132-79EE-4E73-8215-493D6FC20E5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BasicContent", "BasicContent", "{7C3FF05D-1EDE-48E2-9B07-3119D8433291}"
+	ProjectSection(SolutionItems) = preProject
+		src\Feature\BasicContent\BasicContent.module.json = src\Feature\BasicContent\BasicContent.module.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.BasicContent.Rendering", "src\Feature\BasicContent\rendering\Mvp.Feature.BasicContent.Rendering.csproj", "{FB7AC742-AE9A-4CD4-A279-C0A546495823}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.BasicContent.Shared", "src\Feature\BasicContent\shared\Mvp.Feature.BasicContent.Shared.csproj", "{EAB0A752-8515-42F2-B21B-8D63ADAAF461}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Feature.BasicContent.Sitecore", "src\Feature\BasicContent\sitecore\Mvp.Feature.BasicContent.Sitecore.csproj", "{E878C143-E4D5-4BA9-AA69-D7FE0772C92C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{F09E0330-CC9A-4E60-9223-E5B7C1CEB12B}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\CreateAKS.ps1 = k8s\CreateAKS.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "specs", "specs", "{E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\specs\cd.yaml = k8s\specs\cd.yaml
+		k8s\specs\cm.yaml = k8s\specs\cm.yaml
+		k8s\specs\id.yaml = k8s\specs\id.yaml
+		k8s\specs\ingress.yaml = k8s\specs\ingress.yaml
+		k8s\specs\rendering.yaml = k8s\specs\rendering.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "external", "external", "{C2633568-EA07-40C8-8379-77DE08167622}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\specs\external\mssql.yaml = k8s\specs\external\mssql.yaml
+		k8s\specs\external\redis.yaml = k8s\specs\external\redis.yaml
+		k8s\specs\external\solr.yaml = k8s\specs\external\solr.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "secrets", "secrets", "{41F529C9-3A73-49E6-B4B0-63C58DC7058C}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\specs\secrets\kustomization.yaml = k8s\specs\secrets\kustomization.yaml
+		k8s\specs\secrets\sitecore-adminpassword.txt = k8s\specs\secrets\sitecore-adminpassword.txt
+		k8s\specs\secrets\sitecore-core-database-password.txt = k8s\specs\secrets\sitecore-core-database-password.txt
+		k8s\specs\secrets\sitecore-core-database-username.txt = k8s\specs\secrets\sitecore-core-database-username.txt
+		k8s\specs\secrets\sitecore-database-elastic-pool-name.txt = k8s\specs\secrets\sitecore-database-elastic-pool-name.txt
+		k8s\specs\secrets\sitecore-databasepassword.txt = k8s\specs\secrets\sitecore-databasepassword.txt
+		k8s\specs\secrets\sitecore-databaseservername.txt = k8s\specs\secrets\sitecore-databaseservername.txt
+		k8s\specs\secrets\sitecore-databaseusername.txt = k8s\specs\secrets\sitecore-databaseusername.txt
+		k8s\specs\secrets\sitecore-forms-database-password.txt = k8s\specs\secrets\sitecore-forms-database-password.txt
+		k8s\specs\secrets\sitecore-forms-database-username.txt = k8s\specs\secrets\sitecore-forms-database-username.txt
+		k8s\specs\secrets\sitecore-identitycertificate.txt = k8s\specs\secrets\sitecore-identitycertificate.txt
+		k8s\specs\secrets\sitecore-identitycertificatepassword.txt = k8s\specs\secrets\sitecore-identitycertificatepassword.txt
+		k8s\specs\secrets\sitecore-identitysecret.txt = k8s\specs\secrets\sitecore-identitysecret.txt
+		k8s\specs\secrets\sitecore-identitysecret_mvp.txt = k8s\specs\secrets\sitecore-identitysecret_mvp.txt
+		k8s\specs\secrets\sitecore-license.txt = k8s\specs\secrets\sitecore-license.txt
+		k8s\specs\secrets\sitecore-master-database-password.txt = k8s\specs\secrets\sitecore-master-database-password.txt
+		k8s\specs\secrets\sitecore-master-database-username.txt = k8s\specs\secrets\sitecore-master-database-username.txt
+		k8s\specs\secrets\sitecore-solr-connection-string.txt = k8s\specs\secrets\sitecore-solr-connection-string.txt
+		k8s\specs\secrets\sitecore-telerikencryptionkey.txt = k8s\specs\secrets\sitecore-telerikencryptionkey.txt
+		k8s\specs\secrets\sitecore-web-database-password.txt = k8s\specs\secrets\sitecore-web-database-password.txt
+		k8s\specs\secrets\sitecore-web-database-username.txt = k8s\specs\secrets\sitecore-web-database-username.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Environment.Identity", "src\Environment\identity\Mvp.Environment.Identity.csproj", "{F8DD20AE-80CA-4958-9467-E24AA81AB2BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "id", "id", "{2147C0EA-2D89-42EA-AE8A-0716AF345394}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\id\Dockerfile = docker\build\id\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "namespaces", "namespaces", "{DAAAE2CB-BBBA-49BE-BD13-42A65C452F7F}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\specs\namespaces\namespace-prod.yaml = k8s\specs\namespaces\namespace-prod.yaml
+		k8s\specs\namespaces\namespace-staging.yaml = k8s\specs\namespaces\namespace-staging.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "init", "init", "{CDFC71FE-D7C2-4B53-861D-B8D7E011D0A5}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\specs\init\solr-init.yaml = k8s\specs\init\solr-init.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mssql", "mssql", "{D4200606-3DE2-49E3-8EA4-D6C9EF5ADCCF}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\mssql\Dockerfile = docker\build\mssql\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnetsdk", "dotnetsdk", "{51ACAC11-AC43-4221-964D-3DEC4895B161}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\dotnetsdk\Dockerfile = docker\build\dotnetsdk\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Social", "Social", "{ADF0A3EF-D7D7-4479-9AA1-E165DE9F1AC4}"
+	ProjectSection(SolutionItems) = preProject
+		src\Feature\Social\Social.module.json = src\Feature\Social\Social.module.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.Social.Rendering", "src\Feature\Social\rendering\Mvp.Feature.Social.Rendering.csproj", "{6ECE05BD-EF3A-4BE6-A08A-8CE61A2ADF98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Feature.Social.Sitecore", "src\Feature\Social\sitecore\Mvp.Feature.Social.Sitecore.csproj", "{0F081C40-E712-4028-B0D1-A78FF7A26F21}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.Social.Shared", "src\Feature\Social\shared\Mvp.Feature.Social.Shared.csproj", "{B67E05A0-2819-4339-9046-E2A9C51B90CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{50F86754-BF9E-4335-86F3-391FD54B5056}"
+	ProjectSection(SolutionItems) = preProject
+		.github\ISSUE_TEMPLATE\bug_report.md = .github\ISSUE_TEMPLATE\bug_report.md
+		.github\ISSUE_TEMPLATE\feature_request.md = .github\ISSUE_TEMPLATE\feature_request.md
+		.github\PULL_REQUEST_TEMPLATE.MD = .github\PULL_REQUEST_TEMPLATE.MD
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tls", "tls", "{70FB990A-EF44-4E6F-AE5E-A65A20223966}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "staging", "staging", "{A1F8DC07-4630-4277-96E2-157B644E6035}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\specs\secrets\tls\staging\tls.crt = k8s\specs\secrets\tls\staging\tls.crt
+		k8s\specs\secrets\tls\staging\tls.key = k8s\specs\secrets\tls\staging\tls.key
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2424E8B4-0111-4306-9603-0D2702EA60C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2424E8B4-0111-4306-9603-0D2702EA60C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2424E8B4-0111-4306-9603-0D2702EA60C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2424E8B4-0111-4306-9603-0D2702EA60C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD9A7A76-AAE5-4336-9E8F-8327498845D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD9A7A76-AAE5-4336-9E8F-8327498845D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD9A7A76-AAE5-4336-9E8F-8327498845D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD9A7A76-AAE5-4336-9E8F-8327498845D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA33EC49-1ED9-4628-A2F9-057D5BC0F76D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA33EC49-1ED9-4628-A2F9-057D5BC0F76D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA33EC49-1ED9-4628-A2F9-057D5BC0F76D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA33EC49-1ED9-4628-A2F9-057D5BC0F76D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B79ADFB-5EEF-4892-A4DE-CAAF6EA5141D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B79ADFB-5EEF-4892-A4DE-CAAF6EA5141D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B79ADFB-5EEF-4892-A4DE-CAAF6EA5141D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B79ADFB-5EEF-4892-A4DE-CAAF6EA5141D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE98D5C9-5350-4457-AC65-63BC6A3BA0E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE98D5C9-5350-4457-AC65-63BC6A3BA0E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE98D5C9-5350-4457-AC65-63BC6A3BA0E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE98D5C9-5350-4457-AC65-63BC6A3BA0E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C635C132-79EE-4E73-8215-493D6FC20E5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C635C132-79EE-4E73-8215-493D6FC20E5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C635C132-79EE-4E73-8215-493D6FC20E5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C635C132-79EE-4E73-8215-493D6FC20E5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB7AC742-AE9A-4CD4-A279-C0A546495823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB7AC742-AE9A-4CD4-A279-C0A546495823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB7AC742-AE9A-4CD4-A279-C0A546495823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB7AC742-AE9A-4CD4-A279-C0A546495823}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAB0A752-8515-42F2-B21B-8D63ADAAF461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAB0A752-8515-42F2-B21B-8D63ADAAF461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAB0A752-8515-42F2-B21B-8D63ADAAF461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAB0A752-8515-42F2-B21B-8D63ADAAF461}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E878C143-E4D5-4BA9-AA69-D7FE0772C92C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E878C143-E4D5-4BA9-AA69-D7FE0772C92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E878C143-E4D5-4BA9-AA69-D7FE0772C92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E878C143-E4D5-4BA9-AA69-D7FE0772C92C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8DD20AE-80CA-4958-9467-E24AA81AB2BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8DD20AE-80CA-4958-9467-E24AA81AB2BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8DD20AE-80CA-4958-9467-E24AA81AB2BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8DD20AE-80CA-4958-9467-E24AA81AB2BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ECE05BD-EF3A-4BE6-A08A-8CE61A2ADF98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ECE05BD-EF3A-4BE6-A08A-8CE61A2ADF98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ECE05BD-EF3A-4BE6-A08A-8CE61A2ADF98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ECE05BD-EF3A-4BE6-A08A-8CE61A2ADF98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F081C40-E712-4028-B0D1-A78FF7A26F21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F081C40-E712-4028-B0D1-A78FF7A26F21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F081C40-E712-4028-B0D1-A78FF7A26F21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F081C40-E712-4028-B0D1-A78FF7A26F21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B67E05A0-2819-4339-9046-E2A9C51B90CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B67E05A0-2819-4339-9046-E2A9C51B90CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B67E05A0-2819-4339-9046-E2A9C51B90CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B67E05A0-2819-4339-9046-E2A9C51B90CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C498C9DC-F441-45E5-A238-DC2E0D1CB486} = {324D4FE7-86EF-43A2-A466-21198CB856AD}
+		{C2A09BF2-FE3E-4A2D-8FB0-CDD281AC568A} = {FE951C1D-8EC7-419E-A7A2-A0175125BCBB}
+		{0CD77201-5A3D-430A-A40F-C0343435359B} = {C2A09BF2-FE3E-4A2D-8FB0-CDD281AC568A}
+		{D00E084E-C02B-4F44-B1B5-09F44A3F0084} = {0CD77201-5A3D-430A-A40F-C0343435359B}
+		{C3047BDB-95AB-461D-A5F6-E337D606A2CD} = {0CD77201-5A3D-430A-A40F-C0343435359B}
+		{2424E8B4-0111-4306-9603-0D2702EA60C5} = {B04642CD-8FAB-4282-8C7E-E79942FC3ABB}
+		{AD9A7A76-AAE5-4336-9E8F-8327498845D1} = {E3ED70EC-3845-46E0-B18A-2EC8077C83A2}
+		{E3ED70EC-3845-46E0-B18A-2EC8077C83A2} = {94C82DDA-FE0D-4EBF-AEAA-81E13CB07FE5}
+		{BA33EC49-1ED9-4628-A2F9-057D5BC0F76D} = {E3ED70EC-3845-46E0-B18A-2EC8077C83A2}
+		{C9635732-EFFF-441E-B2C4-272AB2F9DC64} = {0CD77201-5A3D-430A-A40F-C0343435359B}
+		{7DC50DBD-3ABA-4EB0-9DC5-9007BDE0EC01} = {0CD77201-5A3D-430A-A40F-C0343435359B}
+		{3B79ADFB-5EEF-4892-A4DE-CAAF6EA5141D} = {8DE4BCBC-3DDF-402C-BE7A-DFE00CC3FF58}
+		{DE98D5C9-5350-4457-AC65-63BC6A3BA0E9} = {8DE4BCBC-3DDF-402C-BE7A-DFE00CC3FF58}
+		{8DE4BCBC-3DDF-402C-BE7A-DFE00CC3FF58} = {F1800335-D16A-4FB6-B213-1885963E283D}
+		{17BD7D19-AD78-4D67-9087-65F0047B67F5} = {F1800335-D16A-4FB6-B213-1885963E283D}
+		{C635C132-79EE-4E73-8215-493D6FC20E5D} = {17BD7D19-AD78-4D67-9087-65F0047B67F5}
+		{7C3FF05D-1EDE-48E2-9B07-3119D8433291} = {F1800335-D16A-4FB6-B213-1885963E283D}
+		{FB7AC742-AE9A-4CD4-A279-C0A546495823} = {7C3FF05D-1EDE-48E2-9B07-3119D8433291}
+		{EAB0A752-8515-42F2-B21B-8D63ADAAF461} = {7C3FF05D-1EDE-48E2-9B07-3119D8433291}
+		{E878C143-E4D5-4BA9-AA69-D7FE0772C92C} = {7C3FF05D-1EDE-48E2-9B07-3119D8433291}
+		{F09E0330-CC9A-4E60-9223-E5B7C1CEB12B} = {FE951C1D-8EC7-419E-A7A2-A0175125BCBB}
+		{E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2} = {F09E0330-CC9A-4E60-9223-E5B7C1CEB12B}
+		{C2633568-EA07-40C8-8379-77DE08167622} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
+		{41F529C9-3A73-49E6-B4B0-63C58DC7058C} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
+		{F8DD20AE-80CA-4958-9467-E24AA81AB2BA} = {B04642CD-8FAB-4282-8C7E-E79942FC3ABB}
+		{2147C0EA-2D89-42EA-AE8A-0716AF345394} = {0CD77201-5A3D-430A-A40F-C0343435359B}
+		{DAAAE2CB-BBBA-49BE-BD13-42A65C452F7F} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
+		{CDFC71FE-D7C2-4B53-861D-B8D7E011D0A5} = {E76884C3-E9F0-4105-AA2B-AE48CAEDE5F2}
+		{D4200606-3DE2-49E3-8EA4-D6C9EF5ADCCF} = {0CD77201-5A3D-430A-A40F-C0343435359B}
+		{51ACAC11-AC43-4221-964D-3DEC4895B161} = {0CD77201-5A3D-430A-A40F-C0343435359B}
+		{ADF0A3EF-D7D7-4479-9AA1-E165DE9F1AC4} = {F1800335-D16A-4FB6-B213-1885963E283D}
+		{6ECE05BD-EF3A-4BE6-A08A-8CE61A2ADF98} = {ADF0A3EF-D7D7-4479-9AA1-E165DE9F1AC4}
+		{0F081C40-E712-4028-B0D1-A78FF7A26F21} = {ADF0A3EF-D7D7-4479-9AA1-E165DE9F1AC4}
+		{B67E05A0-2819-4339-9046-E2A9C51B90CA} = {ADF0A3EF-D7D7-4479-9AA1-E165DE9F1AC4}
+		{50F86754-BF9E-4335-86F3-391FD54B5056} = {FE951C1D-8EC7-419E-A7A2-A0175125BCBB}
+		{70FB990A-EF44-4E6F-AE5E-A65A20223966} = {41F529C9-3A73-49E6-B4B0-63C58DC7058C}
+		{A1F8DC07-4630-4277-96E2-157B644E6035} = {70FB990A-EF44-4E6F-AE5E-A65A20223966}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3377439-FD7A-4F3E-8011-06175E0E3100}
+	EndGlobalSection
+EndGlobal

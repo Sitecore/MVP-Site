@@ -1,0 +1,36 @@
+﻿---
+ID: "73ce5b47-9367-4218-8356-82ec301bec8b"
+Parent: "64ae5870-3113-4ad0-9978-f4ac10a874cb"
+Template: "ab41e387-f300-470c-88d1-6fcd5e12c5d8"
+Path: /sitecore/content/MvpSite/Shared Content/Content Lists/Past MVP Award Winners/MVP Award 2018
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0953b42d-91ac-4644-9a4e-38fd3fc91eb7"
+      Hint: FeatureTitle
+      Value: MVP Award
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200629T111123Z
+    - ID: "6e8201ed-44cb-4b9d-a1a0-d1f8d32e2779"
+      Hint: FeatureSubtitle
+      Value: 2018
+    - ID: "8948fc61-e65e-4215-8365-ed0951155ec5"
+      Hint: FeatureLink
+      Value: |
+        <link text="See the list" anchor="" linktype="internal" class="" title=""  querystring="" id="{94DE9AC3-A9F7-40AB-AE90-ACDA364B9C40}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "40416ea0-4dea-438e-9dce-c1272572faa6"
+    - ID: "aeb48911-54fc-479c-966d-1808cbba333c"
+      Hint: FeatureText
+      Value: Introduction of the Ambassador category
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200629T111302Z

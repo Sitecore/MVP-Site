@@ -1,0 +1,44 @@
+﻿@model Mvp.Feature.BasicContent.Models.ContentList
+
+
+@if (!string.IsNullOrEmpty(Model.Title))
+{
+    <div class="col-12 col-lg-12 text-center">
+        <h2>@Model.Title</h2>
+    </div>
+}
+
+@{
+    var fileName = string.Empty;
+
+    switch (Model.listType)
+    {
+        case "{E58A021E-74D2-471E-9EBA-B09616350605}": // White blocks
+            fileName = "_clFeatureBlock.cshtml";
+            break;
+        case "{92DD658A-76BE-437A-86E4-589DF627FBCC}": // MVP 3 columns
+            fileName = "_clMvpYearBlockThreeColumn.cshtml";
+            break;
+        case "{F0027CB2-8725-48EA-B85D-EB83E5216E5A}": // MVP 4 columns
+            fileName = "_clMvpYearBlockFourColumn.cshtml";
+            break;
+        default:
+            break;
+    }
+}
+
+@if (Model.limit > 0)
+{
+
+    @foreach (var item in Model.Items.Take(Model.limit))
+    {
+        @await Html.PartialAsync(fileName, item)
+    }
+}
+else
+{
+    @foreach (var item in Model.Items)
+    {
+        @await Html.PartialAsync(fileName, item)
+    }
+}

@@ -1,0 +1,46 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: mvp-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-buffer-size: "32k"
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: $(STAGING_CD_HOST)
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: mvp-cd
+          servicePort: 80
+  - host: $(STAGING_CM_HOST)
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: mvp-cm
+          servicePort: 80
+  - host: $(STAGING_ID_HOST)
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: mvp-id
+          servicePort: 80
+  - host: $(STAGING_HOST)
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: mvp-rendering
+          servicePort: 80
+
+  tls:
+  - secretName: staging-tls
+    hosts:
+    - $(STAGING_HOST)
+    - $(STAGING_ID_HOST)
+    - $(STAGING_CM_HOST)
+    - $(STAGING_CD_HOST)

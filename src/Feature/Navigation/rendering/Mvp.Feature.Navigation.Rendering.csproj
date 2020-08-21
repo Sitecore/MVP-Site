@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Mvp.Feature.Navigation</AssemblyName>
+    <RootNamespace>Mvp.Feature.Navigation</RootNamespace>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+	  <PackageReference Include="Sitecore.LayoutService.Client" Version="14.0.1" />
+	  <PackageReference Include="Sitecore.AspNet.RenderingEngine" Version="14.0.1" />
+  </ItemGroup>
+
+</Project>

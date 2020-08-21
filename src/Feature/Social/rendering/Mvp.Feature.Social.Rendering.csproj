@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Mvp.Feature.Social</AssemblyName>
+    <RootNamespace>Mvp.Feature.Social</RootNamespace>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Sitecore.LayoutService.Client" Version="14.0.1" />
+    <PackageReference Include="Sitecore.AspNet.RenderingEngine" Version="14.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\shared\Mvp.Feature.Social.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

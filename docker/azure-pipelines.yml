@@ -1,0 +1,273 @@
+# Docker
+# Build and push an image to Azure Container Registry
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+  branches:
+    include:
+    - master
+
+resources:
+- repo: self
+  clean: true
+
+variables:
+  # Agent VM image name
+  vmImageName: 'windows-latest'
+
+stages:
+- stage: Build
+  displayName: Build Images + Push to ACR
+  jobs:  
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: DockerCompose@0
+      displayName: "Build Images"
+      inputs:
+        containerregistrytype: 'Container Registry'
+        dockerComposeFile: '**/docker-compose.yml'
+        additionalDockerComposeFiles: 'docker-compose.override.yml'
+        dockerComposeFileArgs: '$(DOCKER_COMPOSE_ARGS)'
+        qualifyImageNames: false
+        action: 'Build services'
+        additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
+        includeLatestTag: true
+    - task: DockerCompose@0
+      displayName: "Push Images with Latest Tag"
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: '$(AZURE_SUBSCRIPTION)'
+        azureContainerRegistry: '$(AZURE_CONTAINER_REGISTRY)'
+        dockerComposeFile: '**/docker-compose.yml'
+        additionalDockerComposeFiles: 'docker-compose.override.yml'
+        dockerComposeFileArgs: '$(DOCKER_COMPOSE_ARGS)'
+        action: 'Push services'
+        additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
+        includeLatestTag: true
+      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    - task: CopyFiles@2
+      displayName: "Copy K8s specifications to staging directory"
+      inputs:
+        SourceFolder: 'k8s/specs'
+        Contents: '**'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/k8s-specs'
+        CleanTargetFolder: true
+    - task: CopyFiles@2
+      displayName: "Copy Serialisation assets to staging directory"
+      inputs:
+        SourceFolder: './'
+        Contents: |
+          sitecore.json
+          src/**/*.module.json
+          src/**/items/**
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/serialization'
+        CleanTargetFolder: true
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(System.ArtifactsDirectory)'
+        artifact: 'Sitecore.MVP-$(Build.BuildNumber)'
+
+- stage: Deploy
+  condition:  and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  dependsOn: Build
+  displayName: Deploy to Staging
+  jobs:
+  - deployment: 'Deploy_Specs_to_Staging_AKS'
+    pool:
+      vmImage: $(vmImageName)
+    environment: Staging
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: DownloadPipelineArtifact@2
+            displayName: "Download Build Artifact"
+            inputs:
+              artifact: Sitecore.MVP-$(Build.BuildNumber)
+              targetPath: '$(System.ArtifactsDirectory)'
+          - task: Kubernetes@1
+            displayName: Create MVP-Staging Namespace
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              command: 'apply'
+              useConfigurationFile: true
+              configuration: '$(System.ArtifactsDirectory)/k8s-specs/namespaces/namespace-staging.yaml'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+              outputFormat: ''
+          - task: replacetokens@3
+            displayName: "Replace Tokens in Secrets & Specs"
+            inputs:
+              rootDirectory: '$(System.ArtifactsDirectory)/k8s-specs'
+              targetFiles: |
+                **/*.txt
+                **/*.crt
+                **/*.key
+                **/*.yaml
+              encoding: 'auto'
+              writeBOM: true
+              actionOnMissing: 'warn'
+              keepToken: true
+              tokenPrefix: '$('
+              tokenSuffix: ')'
+              useLegacyPattern: false
+              enableTelemetry: false
+          - task: KubernetesManifest@0
+            displayName: Bake K8s Secrets
+            name: 'bake'
+            inputs:
+              action: 'bake'
+              renderType: 'kustomize'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/secrets/'
+          - task: KubernetesManifest@0
+            displayName: Deploy K8s Secrets
+            inputs:
+              action: 'deploy'
+              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
+              namespace: 'mvp-staging'
+              manifests: '$(bake.manifestsBundle)'
+          - task: Kubernetes@1
+            displayName: Deploy External Specifications
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              namespace: 'mvp-staging'
+              command: 'apply'
+              useConfigurationFile: true
+              configuration: '$(System.ArtifactsDirectory)/k8s-specs/external'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+              outputFormat: ''
+          - task: Kubernetes@1
+            displayName: Deploy Init Specifications
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              namespace: 'mvp-staging'
+              command: 'apply'
+              useConfigurationFile: true
+              configuration: '$(System.ArtifactsDirectory)/k8s-specs/init'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+              outputFormat: ''
+          - task: Kubernetes@1
+            displayName: Deploy Application Specifications
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              namespace: 'mvp-staging'
+              command: 'apply'
+              useConfigurationFile: true
+              configuration: '$(System.ArtifactsDirectory)/k8s-specs'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+              outputFormat: ''
+          - task: KubernetesManifest@0
+            displayName: Patch IP-Whitelist Values into Ingress
+            inputs:
+              action: 'patch'
+              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
+              namespace: 'mvp-staging'
+              resourceToPatch: 'file'
+              resourceFileToPatch: '$(System.ArtifactsDirectory)/k8s-specs/ingress.yaml'
+              mergeStrategy: 'merge'
+              patch: '{"metadata": { "annotations": { "nginx.ingress.kubernetes.io/whitelist-source-range": "$(IP_WHITELIST)" }}}'
+          - task: Kubernetes@1
+            displayName: Update SQL Image version
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              namespace: 'mvp-staging'
+              command: 'set'
+              arguments: 'image deployments/mssql mssql=$(ACR_ENDPOINT)/mvp-mssql:$(Build.BuildNumber)-$(Build.SourceBranchName)'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+              outputFormat: ''
+          - task: Kubernetes@1
+            displayName: Update ID Image version
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              namespace: 'mvp-staging'
+              command: 'set'
+              arguments: 'image deployments/mvp-id sitecore-xm1-id=$(ACR_ENDPOINT)/mvp-id:$(Build.BuildNumber)-$(Build.SourceBranchName)'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+              outputFormat: ''
+          - task: Kubernetes@1
+            displayName: Update CM Image version
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              namespace: 'mvp-staging'
+              command: 'set'
+              arguments: 'image deployments/mvp-cm sitecore-xm1-cm=$(ACR_ENDPOINT)/mvp-cm:$(Build.BuildNumber)-$(Build.SourceBranchName)'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+              outputFormat: ''
+          - task: Kubernetes@1
+            displayName: Update CD Image version
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              namespace: 'mvp-staging'
+              command: 'set'
+              arguments: 'image deployments/mvp-cd sitecore-xm1-cd=$(ACR_ENDPOINT)/mvp-cd:$(Build.BuildNumber)-$(Build.SourceBranchName)'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+              outputFormat: ''
+          - task: Kubernetes@1
+            displayName: Update Rendering Image version
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              namespace: 'mvp-staging'
+              command: 'set'
+              arguments: 'image deployments/mvp-rendering sitecore-xm1-rendering=$(ACR_ENDPOINT)/mvp-rendering:$(Build.BuildNumber)-$(Build.SourceBranchName)'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+              outputFormat: ''
+  - deployment: 'Deserialize_Content_to_Staging'
+    dependsOn: 'Deploy_Specs_to_Staging_AKS'
+    pool:
+      vmImage: $(vmImageName)
+    environment: Staging
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: DownloadPipelineArtifact@2
+            displayName: "Download Build Artifact"
+            inputs:
+              artifact: Sitecore.MVP-$(Build.BuildNumber)
+              targetPath: '$(System.ArtifactsDirectory)'
+          - task: PowerShell@2
+            displayName: Install Sitecore CLI
+            inputs:
+              targetType: 'inline'
+              script: |               
+                # Add nuget source & install Sitecore CLI
+                dotnet nuget add source $(SITECORE_PUBLIC_NUGET_FEED) --name "Sitecore-Public-Nuget-Feed"
+                dotnet tool install -g --add-source=$(SITECORE_PUBLIC_NUGET_FEED) --version 2.0.0 sitecore.cli
+          - task: PowerShell@2
+            displayName: Login to Sitecore Instance
+            inputs:
+              targetType: 'inline'
+              script: 'sitecore login --client-credentials true --auth $(ID_SERVER_URL) --cm $(CM_URL) --allow-write true --client-id "MVP_Automation" --client-secret "$(SITECORE_MVP_IDENTITY_SECRET)"'
+              workingDirectory: '$(System.ArtifactsDirectory)/serialization'
+          - task: PowerShell@2
+            displayName: Deserialize Sitecore Content
+            inputs:
+              targetType: 'inline'
+              script: 'sitecore ser push'
+              workingDirectory: '$(System.ArtifactsDirectory)/serialization'
+          - task: PowerShell@2
+            displayName: Perform Full Sitecore Publish
+            inputs:
+              targetType: 'inline'
+              script: 'sitecore publish'
+              workingDirectory: '$(System.ArtifactsDirectory)/serialization'

@@ -1,0 +1,33 @@
+﻿---
+ID: "1ae49d12-8da1-4fbd-92ff-887b01c02bb5"
+Parent: "cf0be47e-9cd8-4375-af41-f970231845e7"
+Template: "35c61e90-47dd-43dd-83a8-d1c4d5119720"
+Path: /sitecore/layout/Layouts/Project/MvpSite/Default
+SharedFields:
+- ID: "80334869-86dc-4472-aa89-44cf1b2f6c9b"
+  Hint: Placeholders
+  Value: |
+    {9AED7A3B-5823-4566-828E-B6A799DBCA3D}
+    {4C14AEC2-35C5-4A40-98D1-7A75A8452521}
+    {40E386A6-C647-4069-93AB-4ABD1F87CFB9}
+- ID: "a036b2bc-ba04-44f6-a75f-bae6cd242abf"
+  Hint: Path
+  Value: /Views/Default/Index.cshtml
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200513T063313Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "b88626ac-82bd-42cb-b3b9-4bea83fcaeae"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200721T144851Z

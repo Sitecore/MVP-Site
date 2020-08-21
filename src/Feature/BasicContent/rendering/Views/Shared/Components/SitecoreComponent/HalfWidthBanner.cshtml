@@ -1,0 +1,21 @@
+﻿@model Mvp.Feature.BasicContent.Models.CtaContent
+
+<section class="half-width-banner background-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-1 order-2 order-md-2 text">
+                <p class="eyebrow"></p>
+                <h2><sc-text asp-for="@Model.CtaTitle" /></h2>
+                <sc-text asp-for="@Model.CtaText" />
+                
+                <sc-link asp-for="@Model.CtaLink" data-module="cta-button" class="link-arrow" aria-label="@Model.CtaLink.Value.Title" target="@Model.CtaLink.Value.Target">
+                    @Model.CtaLink.Value.Text
+                    <img alt="Learn more" src="images/icon-arrow.png">
+                </sc-link>
+            </div>
+            <div class="col-12 col-md-3 order-1 order-md-1 image">
+                <sc-img asp-for="@Model.CtaImage" loading="lazy" />
+            </div>
+        </div>
+    </div>
+</section>
