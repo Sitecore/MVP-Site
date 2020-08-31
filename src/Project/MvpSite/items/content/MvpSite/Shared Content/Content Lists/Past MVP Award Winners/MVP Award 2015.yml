@@ -10,27 +10,27 @@ Languages:
     Fields:
     - ID: "0953b42d-91ac-4644-9a4e-38fd3fc91eb7"
       Hint: ItemTitle
-      Value: MVP Award
+      Value: 2015
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20200629T111123Z
     - ID: "6e8201ed-44cb-4b9d-a1a0-d1f8d32e2779"
       Hint: ItemSubtitle
-      Value: 2015
+      Value: MVP Award
     - ID: "8948fc61-e65e-4215-8365-ed0951155ec5"
       Hint: ItemLink
       Value: |
         <link text="See the list" anchor="" linktype="internal" class="" title=""  querystring="" id="{94DE9AC3-A9F7-40AB-AE90-ACDA364B9C40}" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e50ac802-4711-4d5d-9c36-ef56c67c7c75"
+      Value: "84742166-fb3c-4221-977a-3e9824726a56"
     - ID: "aeb48911-54fc-479c-966d-1808cbba333c"
       Hint: ItemText
       Value: The year the number of Strategists doubled
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\admin
+        sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200721T145306Z
+      Value: 20200831T231148Z
