@@ -180,11 +180,13 @@ main {
         font-size: 0.9em;
         a:link, a:visited {
             color: $sc-white;
+            margin: 3px;
         }
     }
     .footer-social-link {
-        &:link, &:visited {
+        &:link, &:visited, i {
             color: $sc-white;
+            margin: 0px 5px; 
         }
     }
 } 

@@ -3272,10 +3272,12 @@ main .autoplay-video {
 
         .fixed-footer .footer-copyright a:link, .fixed-footer .footer-copyright a:visited {
             color: #ffffff;
+            margin: 3px;
         }
 
-    .fixed-footer .footer-social-link:link, .fixed-footer .footer-social-link:visited {
+    .fixed-footer .footer-social-link:link, .fixed-footer .footer-social-link:visited, .fixed-footer .footer-social-link i {
         color: #ffffff;
+        margin: 0px 5px;
     }
 
 /*# sourceMappingURL=maps/main.css.map */
