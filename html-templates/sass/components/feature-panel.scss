@@ -6,20 +6,20 @@
       padding: 80px 70px;
     }
   
-    h2 {
+    h3 {
       width: 108%;
     }
   
-    p.counter {
+    h4.counter {
       left: 90px;
     }
   
     &.with-background {
-      h2 {
+      h3 {
         width: 100%;
       }
   
-      p.counter {
+      h4.counter {
         left: 0;
         top: -121px;
       }
@@ -144,7 +144,7 @@
       padding-right: 0;
       padding-left: 100px;
   
-      p.counter {
+      .counter {
         left: 100px;
       }
     }
@@ -158,7 +158,7 @@
   }
   
   @media (max-width: 767.98px) {
-    .column-container .col-lg-6:last-child .feature-panel-text p.counter {
+    .column-container .col-lg-6:last-child .feature-panel-text h3.counter {
       left: 0;
     }
   
@@ -216,7 +216,7 @@
   
   @media (max-width: 1199.98px) {
     .feature-panel-quote {
-      .text p.counter {
+      .text .counter {
         font-size: 100px;
         line-height: 100px;
         top: -65px;
@@ -360,7 +360,7 @@
   
   @media (max-width: 1199.98px) {
     .feature-panel-image .text {
-      p.counter {
+      h3.counter {
         font-size: 100px;
         line-height: 100px;
         top: -71px;
@@ -388,19 +388,19 @@
       padding: 80px 70px;
       margin-bottom: 30px;
   
-      p.counter {
+      .counter {
         top: -121px;
       }
     }
   
-    h2 {
+    h4 {
       margin-bottom: 20px;
       position: relative;
       line-height: 45px;
       z-index: 2;
     }
   
-    p {
+    h3 {
       color: #707070;
       font-size: 18px;
       line-height: 40px;
@@ -445,7 +445,7 @@
         color: #707070;
         font-size: 16px;
   
-        &:before {
+        &:before { 
           content: " ";
           position: absolute;
           left: -29px;
@@ -481,21 +481,21 @@
         margin-top: 40px
       }
   
-      h2 {
+      h4 {
         line-height: 30px;
       }
     }
   }
   
   @media (max-width: 1199.98px) {
-    .feature-panel-text p {
+    .feature-panel-text h4 {
       font-size: 16px;
       line-height: 32px;
     }
   }
   
   @media (max-width: 1199.98px) {
-    .feature-panel-text p.counter {
+    .feature-panel-text h3.counter {
       font-size: 100px;
       line-height: 100px;
       top: 6px;
@@ -652,7 +652,7 @@
         background-color: #fff;
         padding: 80px 70px;
   
-        p.counter {
+        h3.counter {
           top: -111px !important;
           left: 53px !important;
   
@@ -694,7 +694,7 @@
       }
     }
   
-    .order-1.order-lg-1 .text p.counter {
+    .order-1.order-lg-1 .text .counter {
       left: 0;
   
       &.number {
@@ -703,7 +703,7 @@
     }
   
     .order-2 {
-      &.order-lg-1 .text p.counter, &.order-lg-2 .text p.counter {
+      &.order-lg-1 .text .counter, &.order-lg-2 .text .counter {
         left: 0;
   
         &.number {
@@ -712,7 +712,7 @@
       }
     }
   
-    .text p.counter i {
+    .text .counter i {
       color: #fff;
     }
   
@@ -833,7 +833,7 @@
       &:nth-child(1) .text {
         padding-left: 0;
   
-        p.counter {
+        .counter {
           left: 0;
         }
       }
@@ -925,7 +925,7 @@
       margin-bottom: 34px;
       padding-left: 15px;
   
-      p.counter {
+      .counter {
         top: -67px !important;
         left: 0 !important;
       }
@@ -952,7 +952,7 @@
   }
   
   @media (max-width: 1199.98px) {
-    .feature-panel-video .text p.counter {
+    .feature-panel-video .text .counter {
       font-size: 100px;
       line-height: 100px;
       top: -67px;
@@ -972,12 +972,12 @@
         }
       }
   
-      .order-1.order-lg-1 .text p.counter {
+      .order-1.order-lg-1 .text .counter {
         left: 0;
       }
   
       .order-2 {
-        &.order-lg-1 .text p.counter, &.order-lg-2 .text p.counter {
+        &.order-lg-1 .text .counter, &.order-lg-2 .text .counter {
           left: 0;
         }
       }

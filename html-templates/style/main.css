@@ -1276,13 +1276,13 @@ main .column-container .col-lg-6:last-child .feature-panel-text {
   padding-left: 90px; }
   main .column-container .col-lg-6:last-child .feature-panel-text.with-background {
     padding: 80px 70px; }
-  main .column-container .col-lg-6:last-child .feature-panel-text h2 {
+  main .column-container .col-lg-6:last-child .feature-panel-text h3 {
     width: 108%; }
-  main .column-container .col-lg-6:last-child .feature-panel-text p.counter {
+  main .column-container .col-lg-6:last-child .feature-panel-text h4.counter {
     left: 90px; }
-  main .column-container .col-lg-6:last-child .feature-panel-text.with-background h2 {
+  main .column-container .col-lg-6:last-child .feature-panel-text.with-background h3 {
     width: 100%; }
-  main .column-container .col-lg-6:last-child .feature-panel-text.with-background p.counter {
+  main .column-container .col-lg-6:last-child .feature-panel-text.with-background h4.counter {
     left: 0;
     top: -121px; }
 
@@ -1356,7 +1356,7 @@ main .feature-panel-quote {
   main .feature-panel-quote .col-md-6:nth-child(2) .text {
     padding-right: 0;
     padding-left: 100px; }
-    main .feature-panel-quote .col-md-6:nth-child(2) .text p.counter {
+    main .feature-panel-quote .col-md-6:nth-child(2) .text .counter {
       left: 100px; }
   main .feature-panel-quote.show-pattern {
     background-image: url(../../../images/hero-plus-pattern.png);
@@ -1365,7 +1365,7 @@ main .feature-panel-quote {
     background-size: 500px; }
 
 @media (max-width: 767.98px) {
-  main .column-container .col-lg-6:last-child .feature-panel-text p.counter {
+  main .column-container .col-lg-6:last-child .feature-panel-text h3.counter {
     left: 0; }
   main .feature-panel-quote a.cta {
     width: 100%;
@@ -1404,7 +1404,7 @@ main .feature-panel-quote {
     line-height: 32px; } }
 
 @media (max-width: 1199.98px) {
-  main .feature-panel-quote .text p.counter {
+  main .feature-panel-quote .text .counter {
     font-size: 100px;
     line-height: 100px;
     top: -65px;
@@ -1497,7 +1497,7 @@ main .feature-panel-image {
     line-height: 32px; } }
 
 @media (max-width: 1199.98px) {
-  main .feature-panel-image .text p.counter {
+  main .feature-panel-image .text h3.counter {
     font-size: 100px;
     line-height: 100px;
     top: -71px;
@@ -1516,19 +1516,19 @@ main .feature-panel-text {
     background-color: #fff;
     padding: 80px 70px;
     margin-bottom: 30px; }
-    main .feature-panel-text.with-background p.counter {
+    main .feature-panel-text.with-background .counter {
       top: -121px; }
-  main .feature-panel-text h2 {
+  main .feature-panel-text h4 {
     margin-bottom: 20px;
     position: relative;
     line-height: 45px;
     z-index: 2; }
-  main .feature-panel-text p {
+  main .feature-panel-text h3 {
     color: #707070;
     font-size: 18px;
     line-height: 40px;
     margin-bottom: 30px; }
-    main .feature-panel-text p.counter {
+    main .feature-panel-text h3.counter {
       position: absolute;
       font-size: 100px;
       line-height: 200px;
@@ -1539,7 +1539,7 @@ main .feature-panel-text {
       font-family: AvenirNextW05-Heavy;
       margin-bottom: 0;
       z-index: 1; }
-      main .feature-panel-text p.counter i {
+      main .feature-panel-text h3.counter i {
         color: #fff; }
   main .feature-panel-text a:not(.cta):not(.link-arrow) {
     color: #000; }
@@ -1581,16 +1581,16 @@ main .feature-panel-text {
     xbackground-color: transparent;
     padding: 80px 70px;
     margin-top: 40px; }
-  main .feature-panel-text h2 {
+  main .feature-panel-text h4 {
     line-height: 30px; } }
 
 @media (max-width: 1199.98px) {
-  main .feature-panel-text p {
+  main .feature-panel-text h4 {
     font-size: 16px;
     line-height: 32px; } }
 
 @media (max-width: 1199.98px) {
-  main .feature-panel-text p.counter {
+  main .feature-panel-text h3.counter {
     font-size: 100px;
     line-height: 100px;
     top: 6px;
@@ -1698,10 +1698,10 @@ main .feature-panel-video {
     main .feature-panel-video .text.with-background {
       background-color: #fff;
       padding: 80px 70px; }
-      main .feature-panel-video .text.with-background p.counter {
+      main .feature-panel-video .text.with-background h3.counter {
         top: -111px !important;
         left: 53px !important; }
-        main .feature-panel-video .text.with-background p.counter.number {
+        main .feature-panel-video .text.with-background h3.counter.number {
           left: 53px; }
     main .feature-panel-video .text h2 {
       margin-bottom: 20px;
@@ -1726,15 +1726,15 @@ main .feature-panel-video {
         z-index: 1; }
         main .feature-panel-video .text p.counter.number {
           left: 88px; }
-  main .feature-panel-video .order-1.order-lg-1 .text p.counter {
+  main .feature-panel-video .order-1.order-lg-1 .text .counter {
     left: 0; }
-    main .feature-panel-video .order-1.order-lg-1 .text p.counter.number {
+    main .feature-panel-video .order-1.order-lg-1 .text .counter.number {
       left: 0; }
-  main .feature-panel-video .order-2.order-lg-1 .text p.counter, main .feature-panel-video .order-2.order-lg-2 .text p.counter {
+  main .feature-panel-video .order-2.order-lg-1 .text .counter, main .feature-panel-video .order-2.order-lg-2 .text .counter {
     left: 0; }
-    main .feature-panel-video .order-2.order-lg-1 .text p.counter.number, main .feature-panel-video .order-2.order-lg-2 .text p.counter.number {
+    main .feature-panel-video .order-2.order-lg-1 .text .counter.number, main .feature-panel-video .order-2.order-lg-2 .text .counter.number {
       left: 0; }
-  main .feature-panel-video .text p.counter i {
+  main .feature-panel-video .text .counter i {
     color: #fff; }
   main .feature-panel-video .order-1.order-lg-1 .text {
     padding-right: 95px; }
@@ -1807,7 +1807,7 @@ main .feature-panel-video {
     left: auto; }
   main .feature-panel-video .col-md-6:nth-child(1) .text {
     padding-left: 0; }
-    main .feature-panel-video .col-md-6:nth-child(1) .text p.counter {
+    main .feature-panel-video .col-md-6:nth-child(1) .text .counter {
       left: 0; }
 
 @media (max-width: 767.98px) {
@@ -1864,7 +1864,7 @@ main .feature-panel-video {
     padding-bottom: 50px;
     margin-bottom: 34px;
     padding-left: 15px; }
-    main .feature-panel-video .text.with-background p.counter {
+    main .feature-panel-video .text.with-background .counter {
       top: -67px !important;
       left: 0 !important; } }
 
@@ -1880,7 +1880,7 @@ main .feature-panel-video {
     line-height: 32px; } }
 
 @media (max-width: 1199.98px) {
-  main .feature-panel-video .text p.counter {
+  main .feature-panel-video .text .counter {
     font-size: 100px;
     line-height: 100px;
     top: -67px;
@@ -1891,9 +1891,9 @@ main .feature-panel-video {
     padding-right: 0; }
   main .feature-panel-video .order-2.order-lg-1 .text, main .feature-panel-video .order-2.order-lg-2 .text {
     padding-right: 0; }
-  main .feature-panel-video .order-1.order-lg-1 .text p.counter {
+  main .feature-panel-video .order-1.order-lg-1 .text .counter {
     left: 0; }
-  main .feature-panel-video .order-2.order-lg-1 .text p.counter, main .feature-panel-video .order-2.order-lg-2 .text p.counter {
+  main .feature-panel-video .order-2.order-lg-1 .text .counter, main .feature-panel-video .order-2.order-lg-2 .text .counter {
     left: 0; }
   main .feature-panel-video .order-1.order-lg-1 .avatar-list {
     margin-left: 0; }
