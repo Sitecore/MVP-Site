@@ -76,7 +76,7 @@ try {
     & $mkcert "*.sc.localhost"
 }
 catch {
-    Write-Error "An error occurred while attempting to generate TLS certificate: $_" -ForegroundColor Red
+    Write-Error "An error occurred while attempting to generate TLS certificate: $_"
 }
 finally {
     Pop-Location
