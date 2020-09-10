@@ -114,11 +114,17 @@ Languages:
       Value: 20200513T045800Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a42a90c3-a58c-4a5a-857a-c7f9abd56a94"
+      Value: "6ddda2e9-e0a2-457f-a785-bb3863f16ad6"
+    - ID: "b1ece12f-b2c9-44e6-92a3-c5dfd6514b59"
+      Hint: Menu Title
+      Value: Home
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200630T200603Z
+      Value: 20200910T132010Z
+    - ID: "efc0a3c7-6993-47d2-ba85-10b44961916e"
+      Hint: Include in Menu
+      Value: 
