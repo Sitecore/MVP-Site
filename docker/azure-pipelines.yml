@@ -253,17 +253,17 @@ stages:
                 # Add nuget source & install Sitecore CLI
                 Write-Host "Installing Sitecore CLI"
                 dotnet nuget add source $(SITECORE_PUBLIC_NUGET_FEED) --name "Sitecore-Public-Nuget-Feed"
-                dotnet tool install -g --add-source=$(SITECORE_PUBLIC_NUGET_FEED) --version 2.0.0 sitecore.cli
+                dotnet tool install --add-source=$(SITECORE_PUBLIC_NUGET_FEED) --version 2.0.0 sitecore.cli
                 
                 # Login to ID Server
                 Write-Host "Logging into ID Server"
-                sitecore login --client-credentials true --auth $(ID_SERVER_URL) --cm $(CM_URL) --allow-write true --client-id "MVP_Automation" --client-secret "$(SITECORE_MVP_IDENTITY_SECRET)"
+                dotnet sitecore login --client-credentials true --auth $(ID_SERVER_URL) --cm $(CM_URL) --allow-write true --client-id "MVP_Automation" --client-secret "$(SITECORE_MVP_IDENTITY_SECRET)"
                 
                 # Deserialize Content
                 Write-Host "Push Content"
-                sitecore ser push
+                dotnet sitecore ser push
                 
                 # Publish Database
                 Write-Host "Publish Database"
-                sitecore publish
+                dotnet sitecore publish
               workingDirectory: '$(System.ArtifactsDirectory)/serialization'
