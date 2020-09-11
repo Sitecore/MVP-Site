@@ -63,6 +63,7 @@ stages:
           sitecore.json
           src/**/*.module.json
           src/**/items/**
+          .config/dotnet-tools.json
         TargetFolder: '$(Build.ArtifactStagingDirectory)/serialization'
         CleanTargetFolder: true
     - task: PublishPipelineArtifact@1
