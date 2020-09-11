@@ -249,25 +249,16 @@ stages:
             displayName: Install Sitecore CLI
             inputs:
               targetType: 'inline'
-              script: |               
+              script: |
                 # Add nuget source & install Sitecore CLI
                 dotnet nuget add source $(SITECORE_PUBLIC_NUGET_FEED) --name "Sitecore-Public-Nuget-Feed"
                 dotnet tool install -g --add-source=$(SITECORE_PUBLIC_NUGET_FEED) --version 2.0.0 sitecore.cli
-          - task: PowerShell@2
-            displayName: Login to Sitecore Instance
-            inputs:
-              targetType: 'inline'
-              script: 'sitecore login --client-credentials true --auth $(ID_SERVER_URL) --cm $(CM_URL) --allow-write true --client-id "MVP_Automation" --client-secret "$(SITECORE_MVP_IDENTITY_SECRET)"'
-              workingDirectory: '$(System.ArtifactsDirectory)/serialization'
-          - task: PowerShell@2
-            displayName: Deserialize Sitecore Content
-            inputs:
-              targetType: 'inline'
-              script: 'sitecore ser push'
-              workingDirectory: '$(System.ArtifactsDirectory)/serialization'
-          - task: PowerShell@2
-            displayName: Perform Full Sitecore Publish
-            inputs:
-              targetType: 'inline'
-              script: 'sitecore publish'
-              workingDirectory: '$(System.ArtifactsDirectory)/serialization'
+                
+                # Login to ID Server
+                sitecore login --client-credentials true --auth $(ID_SERVER_URL) --cm $(CM_URL) --allow-write true --client-id "MVP_Automation" --client-secret "$(SITECORE_MVP_IDENTITY_SECRET)"
+
+                # Deserialize Content
+                sitecore ser push
+
+                # Publish Database
+                sitecore publish
