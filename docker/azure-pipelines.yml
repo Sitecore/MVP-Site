@@ -247,7 +247,7 @@ stages:
               artifact: Sitecore.MVP-$(Build.BuildNumber)
               targetPath: '$(System.ArtifactsDirectory)'
           - task: PowerShell@2
-            displayName: Deserialise Content
+            displayName: Deserialize Content
             inputs:
               targetType: 'inline'
               script: |
