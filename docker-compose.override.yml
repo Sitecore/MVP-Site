@@ -94,6 +94,8 @@ services:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
+    depends_on:
+      - solutionBuildOutput
 
   cd:
     image: ${MVP_DOCKER_REGISTRY}mvp-cd:${SITECORE_VERSION}
