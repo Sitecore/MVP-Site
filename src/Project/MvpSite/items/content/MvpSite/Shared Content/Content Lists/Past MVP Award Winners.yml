@@ -3,6 +3,10 @@ ID: "64ae5870-3113-4ad0-9978-f4ac10a874cb"
 Parent: "b36fa333-32ab-4c3f-ab43-16aaccfccf02"
 Template: "6193dcfc-b632-4fa5-9411-f9588470c1c9"
 Path: /sitecore/content/MvpSite/Shared Content/Content Lists/Past MVP Award Winners
+SharedFields:
+- ID: "6fd695e7-7f6d-4ca5-8b49-a829e5950ae9"
+  Hint: __Subitems Sorting
+  Value: "{C3E3F0E3-0162-4F1F-AB3E-40348E371A3F}"
 Languages:
 - Language: en
   Versions:
@@ -13,14 +17,14 @@ Languages:
       Value: 20200629T110940Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2e58918b-4390-4dc5-bba7-4a8828be34c5"
+      Value: "c002e0bb-20e0-4069-b25e-60211cf227b7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200629T111527Z
+      Value: 20201016T201019Z
     - ID: "e18a5161-33b5-4652-af07-a19404c2d2ab"
       Hint: ContentListTitle
       Value: Past MVP Award Winners
