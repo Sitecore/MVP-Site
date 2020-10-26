@@ -38,7 +38,7 @@ az aks create --resource-group $ResourceGroup `
     --node-count 1 `
     --generate-ssh-keys `
     --network-plugin azure `
-    --enable-addons monitoring,kube-dashboard `
+    --enable-addons monitoring `
     --node-resource-group "$($ResourceGroup)_AKS_BackEnd"
 Write-Host "--- Complete: AKS Created ---" -ForegroundColor Green
 
