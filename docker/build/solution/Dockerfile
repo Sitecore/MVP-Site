@@ -8,6 +8,7 @@ ARG BASE_IMAGE
 ARG BUILD_IMAGE
 
 FROM ${BUILD_IMAGE} AS nuget-prep
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 # Gather only artifacts necessary for NuGet restore, retaining directory structure
 COPY *.sln nuget.config /nuget/
 COPY src/ /temp/
