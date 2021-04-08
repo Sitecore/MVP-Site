@@ -117,7 +117,7 @@ services:
     volumes:
       - ${LOCAL_DEPLOY_PATH}\sitecore:C:\deploy
       - ${LOCAL_DATA_PATH}\cd:C:\inetpub\wwwroot\App_Data\logs
-      - ${HOST_LICENSE_FOLDER}:c:\license   
+      - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
       SITECORE_DEVELOPMENT_PATCHES: CustomErrorsOff
