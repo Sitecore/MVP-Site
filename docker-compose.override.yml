@@ -78,11 +78,16 @@ services:
         target: c:\data
   
   solr:
-    volumes:
-      - type: bind
-        source: .\docker\data\solr
-        target: c:\data
-
+    volumes:            
+      - ${LOCAL_DATA_PATH}\solr:c:\data  
+   
+  solr-init:
+    image: ${MVP_DOCKER_REGISTRY}mvp-solr-init:${SITECORE_VERSION}
+    build:
+      context: ./docker/build/solr-init
+      args:
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-solr-init:${SITECORE_VERSION}                
+  
   id:
     image: ${MVP_DOCKER_REGISTRY}mvp-id:${SITECORE_VERSION}
     build:
@@ -112,9 +117,10 @@ services:
     volumes:
       - ${LOCAL_DEPLOY_PATH}\sitecore:C:\deploy
       - ${LOCAL_DATA_PATH}\cd:C:\inetpub\wwwroot\App_Data\logs
-      - ${HOST_LICENSE_FOLDER}:c:\license
+      - ${HOST_LICENSE_FOLDER}:c:\license   
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      SITECORE_DEVELOPMENT_PATCHES: CustomErrorsOff
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
     labels:
       - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
@@ -143,6 +149,7 @@ services:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      SITECORE_DEVELOPMENT_PATCHES: CustomErrorsOff
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
  
 networks:
