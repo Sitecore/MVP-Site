@@ -17,11 +17,6 @@ Param (
 
 $ErrorActionPreference = "Stop";
 
-$cmHost = "mvp-cm.sc.localhost"
-$cdHost = "mvp-cd.sc.localhost" 
-$idHost = "mvp-id.sc.localhost"
-$renderingHost = "mvp.sc.localhost"
-
 if ($InitEnv) {
     if (-not $LicenseXmlPath.EndsWith("license.xml")) {
         Write-Error "Sitecore license file must be named 'license.xml'."
@@ -30,8 +25,14 @@ if ($InitEnv) {
         Write-Error "Could not find Sitecore license file at path '$LicenseXmlPath'."
     }
     # We actually want the folder that it's in for mounting
-    $LicenseXmlFolderPath = (Get-Item $LicenseXmlPath).Directory.FullName
+    $LicenseXmlPath = (Get-Item $LicenseXmlPath).Directory.FullName
 }
+
+Write-Host "Preparing your Sitecore Containers environment!" -ForegroundColor Green
+
+################################################
+# Retrieve and import SitecoreDockerTools module
+################################################
 
 # Check for Sitecore Gallery
 Import-Module PowerShellGet
@@ -52,10 +53,10 @@ if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $docker
 Write-Host "Importing SitecoreDockerTools..." -ForegroundColor Green
 Import-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion
 
+
 ##################################
 # Configure TLS/HTTPS certificates
 ##################################
-
 Push-Location docker\traefik\certs
 try {
     $mkcert = ".\mkcert.exe"
@@ -75,67 +76,50 @@ try {
     & $mkcert "*.sc.localhost"
 }
 catch {
-    Write-Host "An error occurred while attempting to generate TLS certificate: $_" -ForegroundColor Red
+    Write-Error "An error occurred while attempting to generate TLS certificate: $_"
 }
 finally {
     Pop-Location
 }
 
-
-###############################
-# Populate the environment file
-###############################
-
-Write-Host "Populating required .env file variables..." -ForegroundColor Green
-
-# SITECORE_ADMIN_PASSWORD
-Set-EnvFileVariable "SITECORE_ADMIN_PASSWORD" -Value $AdminPassword
-
-# SQL_SA_PASSWORD
-Set-DockerComposeEnvFileVariable "SQL_SA_PASSWORD" -Value (Get-SitecoreRandomString 19 -DisallowSpecial -EnforceComplexity)
-
-# CD_HOST
-Set-EnvFileVariable "CD_HOST" -Value $cdHost
-
-# CM_HOST
-Set-EnvFileVariable "CM_HOST" -Value $cmHost
-
-# ID_HOST
-Set-EnvFileVariable "ID_HOST" -Value $idHost
-
-# REPORTING_API_KEY = random 64-128 chars
-Set-EnvFileVariable "REPORTING_API_KEY" -Value (Get-SitecoreRandomString 64 -DisallowSpecial)
-
-# TELERIK_ENCRYPTION_KEY = random 64-128 chars
-Set-EnvFileVariable "TELERIK_ENCRYPTION_KEY" -Value (Get-SitecoreRandomString 128)
-
-# MEDIA_REQUEST_PROTECTION_SHARED_SECRET
-Set-EnvFileVariable "MEDIA_REQUEST_PROTECTION_SHARED_SECRET" -Value (Get-SitecoreRandomString 64)
-
-# SITECORE_IDSECRET = random 64 chars
-Set-EnvFileVariable "SITECORE_IDSECRET" -Value (Get-SitecoreRandomString 64 -DisallowSpecial)
-
-# SITECORE_ID_CERTIFICATE
-$idCertPassword = Get-SitecoreRandomString 8 -DisallowSpecial
-Set-DockerComposeEnvFileVariable "SITECORE_ID_CERTIFICATE" -Value (Get-SitecoreCertificateAsBase64String -DnsName "localhost" -Password (ConvertTo-SecureString -String $idCertPassword -Force -AsPlainText))
-
-# SITECORE_ID_CERTIFICATE_PASSWORD
-Set-EnvFileVariable "SITECORE_ID_CERTIFICATE_PASSWORD" -Value $idCertPassword
-
-# SITECORE_LICENSE
-Set-EnvFileVariable "SITECORE_LICENSE" -Value (ConvertTo-CompressedBase64String -Path $LicenseXmlPath)
-
-Set-DockerComposeEnvFileVariable "HOST_LICENSE_FOLDER" -Value $LicenseXmlFolderPath
-
 ################################
 # Add Windows hosts file entries
 ################################
+$cmHost = "mvp-cm.sc.localhost"
+$cdHost = "mvp-cd.sc.localhost" 
+$idHost = "mvp-id.sc.localhost"
+$renderingHost = "mvp.sc.localhost"
 
 Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
-
 Add-HostsEntry $cmHost
 Add-HostsEntry $cdHost
 Add-HostsEntry $idHost
 Add-HostsEntry $renderingHost
+
+#########################################################
+# Tell git to ignore changes to .env
+# Note: For future upgrades this can be undone by running
+# git update-index --no-assume-unchanged .env
+#########################################################
+git update-index --assume-unchanged .env
+
+###############################
+# Populate the environment file
+###############################
+Write-Host "Populating required .env file values..." -ForegroundColor Green
+
+Set-DockerComposeEnvFileVariable "HOST_LICENSE_FOLDER" -Value $LicenseXmlPath
+Set-DockerComposeEnvFileVariable "CM_HOST" -Value $cmHost
+Set-DockerComposeEnvFileVariable "ID_HOST" -Value $idHost
+Set-DockerComposeEnvFileVariable "RENDERING_HOST" -Value $renderingHost
+Set-DockerComposeEnvFileVariable "CD_HOST" -Value $cdHost
+Set-DockerComposeEnvFileVariable "TELERIK_ENCRYPTION_KEY" -Value (Get-SitecoreRandomString 128)
+Set-DockerComposeEnvFileVariable "SITECORE_IDSECRET" -Value (Get-SitecoreRandomString 64 -DisallowSpecial)
+$idCertPassword = Get-SitecoreRandomString 8 -DisallowSpecial
+Set-DockerComposeEnvFileVariable "SITECORE_ID_CERTIFICATE" -Value (Get-SitecoreCertificateAsBase64String -DnsName "localhost" -Password (ConvertTo-SecureString -String $idCertPassword -Force -AsPlainText))
+Set-DockerComposeEnvFileVariable "SITECORE_ID_CERTIFICATE_PASSWORD" -Value $idCertPassword
+Set-DockerComposeEnvFileVariable "SQL_SA_PASSWORD" -Value (Get-SitecoreRandomString 19 -DisallowSpecial -EnforceComplexity)
+Set-DockerComposeEnvFileVariable "SITECORE_ADMIN_PASSWORD" -Value $AdminPassword
+Set-DockerComposeEnvFileVariable "MEDIA_REQUEST_PROTECTION_SHARED_SECRET" -Value (Get-SitecoreRandomString 64)
 
 Write-Host "Done!" -ForegroundColor Green
