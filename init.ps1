@@ -44,7 +44,7 @@ if (-not $SitecoreGallery) {
 }
 
 #Install and Import SitecoreDockerTools 
-$dockerToolsVersion = "10.0.5"
+$dockerToolsVersion = "10.1.4"
 Remove-Module SitecoreDockerTools -ErrorAction SilentlyContinue
 if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $dockerToolsVersion -ErrorAction SilentlyContinue)) {
     Write-Host "Installing SitecoreDockerTools..." -ForegroundColor Green
@@ -120,5 +120,6 @@ Set-DockerComposeEnvFileVariable "SITECORE_ID_CERTIFICATE" -Value (Get-SitecoreC
 Set-DockerComposeEnvFileVariable "SITECORE_ID_CERTIFICATE_PASSWORD" -Value $idCertPassword
 Set-DockerComposeEnvFileVariable "SQL_SA_PASSWORD" -Value (Get-SitecoreRandomString 19 -DisallowSpecial -EnforceComplexity)
 Set-DockerComposeEnvFileVariable "SITECORE_ADMIN_PASSWORD" -Value $AdminPassword
+Set-DockerComposeEnvFileVariable "MEDIA_REQUEST_PROTECTION_SHARED_SECRET" -Value (Get-SitecoreRandomString 64)
 
 Write-Host "Done!" -ForegroundColor Green
