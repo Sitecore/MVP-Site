@@ -28,7 +28,7 @@ stages:
       displayName: "Build Images"
       inputs:
         containerregistrytype: 'Container Registry'
-        dockerRegistryEndpoint: 'MVPSiteV2'
+        dockerRegistryEndpoint: 'SUGCON2021MVPSiteV2'
         dockerComposeFile: '**/docker-compose.yml'
         additionalDockerComposeFiles: 'docker-compose.override.yml'
         dockerComposeFileArgs: '$(DOCKER_COMPOSE_ARGS)'

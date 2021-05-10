@@ -29,7 +29,7 @@ spec:
         kubernetes.io/os: windows
       containers:
       - name: sitecore-xm1-cm
-        image: mvpsitev2.azurecr.io/mvp-cm:latest
+        image: sugcon2021mvpsitev2.azurecr.io/mvp-cm:latest
         ports:
         - containerPort: 80
         imagePullPolicy: Always

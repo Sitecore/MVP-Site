@@ -1,19 +1,19 @@
 param(
     [Parameter()]
     [ValidateNotNullOrEmpty()]
-    [string]$Region = 'westus2',
+    [string]$Region = 'uksouth',
 
     [Parameter()]
     [ValidateNotNullOrEmpty()]
-    [string]$ResourceGroup = 'MVP-Site-v2',
+    [string]$ResourceGroup = 'sugcon-2021-rg',
 
     [Parameter()]
     [ValidateNotNullOrEmpty()]
-    [string]$AksName = 'MVP-Site-v2',
+    [string]$AksName = 'sugcon2021-mvp-site',
 
     [Parameter()]
     [ValidateNotNullOrEmpty()]
-    [string]$AcrName = 'MVPSiteV2',
+    [string]$AcrName = 'SUGCON2021MVPSiteV2',
 
     [Parameter(Mandatory = $true)]
     [ValidateNotNullOrEmpty()]
