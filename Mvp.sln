@@ -197,6 +197,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "staging", "staging", "{A1F8
 		k8s\specs\secrets\tls\staging\tls.key = k8s\specs\secrets\tls\staging\tls.key
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "People", "People", "{3B0E8E42-A529-409C-86D4-E4DC77C5EB62}"
+	ProjectSection(SolutionItems) = preProject
+		src\Foundation\People\People.module.json = src\Foundation\People\People.module.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -297,6 +302,7 @@ Global
 		{50F86754-BF9E-4335-86F3-391FD54B5056} = {FE951C1D-8EC7-419E-A7A2-A0175125BCBB}
 		{70FB990A-EF44-4E6F-AE5E-A65A20223966} = {41F529C9-3A73-49E6-B4B0-63C58DC7058C}
 		{A1F8DC07-4630-4277-96E2-157B644E6035} = {70FB990A-EF44-4E6F-AE5E-A65A20223966}
+		{3B0E8E42-A529-409C-86D4-E4DC77C5EB62} = {324D4FE7-86EF-43A2-A466-21198CB856AD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3377439-FD7A-4F3E-8011-06175E0E3100}

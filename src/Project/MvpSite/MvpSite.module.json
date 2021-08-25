@@ -32,7 +32,43 @@
       },
       {
         "name": "content",
-        "path": "/sitecore/content/MvpSite"
+        "path": "/sitecore/content/MvpSite",
+        "rules": [
+          {
+            "path": "/MVP Repository",
+            "scope": "ignored"
+          }
+        ]
+      },
+      {
+        "name": "mvp-repo",
+        "path": "/sitecore/content/MvpSite/MVP Repository",
+        "rules": [
+          {
+            "path": "/Countries",
+            "scope": "SingleItem"
+          },
+          {
+            "path": "/MVP Categories",
+            "scope": "SingleItem"
+          },
+          {
+            "path": "/People",
+            "scope": "SingleItem"
+          },
+          {
+            "path": "/People",
+            "scope": "SingleItem"
+          },
+          {
+            "path": "/Winning Profiles",
+            "scope": "SingleItem"
+          },
+          {
+            "path": "*",
+            "scope": "ignored"
+          }
+        ]
       },
       {
         "name": "apikey",

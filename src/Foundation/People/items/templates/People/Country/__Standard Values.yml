@@ -1,0 +1,23 @@
+﻿---
+ID: "12bde32a-9bd2-4e9f-8699-61bfec5ce188"
+Parent: "b0ae1f94-a7d4-4676-a457-c6d62fef2164"
+Template: "b0ae1f94-a7d4-4676-a457-c6d62fef2164"
+Path: /sitecore/templates/Foundation/People/Country/__Standard Values
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210823T220141Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "c18a6f8b-ccd6-4780-8bc8-7461beb0ec3d"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210823T220141Z

@@ -1,0 +1,30 @@
+﻿---
+ID: "2a4234f3-0aaf-4c95-a0ff-0cc5b069cc66"
+Parent: "d3b2ac74-f73d-450d-a040-b40d53e314ec"
+Template: "3cfbf45e-64bb-4042-a1df-6ddca32711ae"
+Path: /sitecore/content/MvpSite/MVP Repository/Countries
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: office/32x32/publishing_viewer.png
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: "{B0AE1F94-A7D4-4676-A457-C6D62FEF2164}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210825T143332Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d328ca32-51fb-456d-ad81-a841a2c83e2e"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210825T145610Z

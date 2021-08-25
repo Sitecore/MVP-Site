@@ -1,0 +1,11 @@
+{
+    "namespace": "Foundation.People",
+    "items": {
+        "includes": [
+            {
+                "name": "templates",
+                "path": "/sitecore/templates/Foundation/People"
+            }
+        ]
+    }
+}
