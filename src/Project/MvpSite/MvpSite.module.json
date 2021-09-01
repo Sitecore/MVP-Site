@@ -45,23 +45,7 @@
         "path": "/sitecore/content/MvpSite/MVP Repository",
         "rules": [
           {
-            "path": "/Countries",
-            "scope": "SingleItem"
-          },
-          {
-            "path": "/MVP Categories",
-            "scope": "SingleItem"
-          },
-          {
             "path": "/People",
-            "scope": "SingleItem"
-          },
-          {
-            "path": "/People",
-            "scope": "SingleItem"
-          },
-          {
-            "path": "/Winning Profiles",
             "scope": "SingleItem"
           },
           {
@@ -69,6 +53,14 @@
             "scope": "ignored"
           }
         ]
+      },
+      {
+        "name": "ItemBucketsOverride",
+        "path": "/sitecore/system/Settings/Buckets/Item Buckets Settings"
+      },
+      {
+        "name": "SemanticsOverride",
+        "path": "/sitecore/templates/System/Templates/Sections/Tagging/Tagging/__Semantics"
       },
       {
         "name": "apikey",

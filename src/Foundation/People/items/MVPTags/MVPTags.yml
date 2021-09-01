@@ -1,15 +1,15 @@
 ﻿---
-ID: "2a3a9a5a-d8c1-45de-98e6-429b718850a0"
-Parent: "fabd0cd5-ec94-452b-a143-031f0fa4a966"
-Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Foundation/People/_lookup/Details/Name
+ID: "dcceba3d-4a56-4a4b-b734-e2114243eebe"
+Parent: "877091a7-131e-40d2-bdc6-5534284c5d03"
+Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
+Path: /sitecore/system/Settings/Buckets/MVPTags
 SharedFields:
-- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
-  Hint: Type
-  Value: "Single-Line Text"
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: apps/32x32/cups.png
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 100
+  Value: 700
 Languages:
 - Language: en
   Versions:
@@ -17,14 +17,14 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210823T213249Z
+      Value: 20210901T203350Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "02b8e4df-092d-418b-9cf5-2f4b77d99a57"
+      Value: "281e7b9e-1f8f-4cb3-8df7-a4df6803651c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210823T213249Z
+      Value: 20210901T205254Z
