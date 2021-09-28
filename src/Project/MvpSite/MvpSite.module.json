@@ -49,6 +49,10 @@
             "scope": "SingleItem"
           },
           {
+            "path": "/Countries",
+            "scope": "SingleItem"
+          },
+          {
             "path": "*",
             "scope": "ignored"
           }
