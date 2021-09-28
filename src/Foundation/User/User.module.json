@@ -1,0 +1,13 @@
+{
+  "namespace": "Foundation.User",
+  "items": {
+    "includes": [
+        {
+            "name": "layouts",
+            "path": "/sitecore/layout/Renderings/Foundation/User",
+            "allowedPushOperations": "createUpdateAndDelete",
+            "scope": "itemAndDescendants"
+        }
+    ]
+  }
+}

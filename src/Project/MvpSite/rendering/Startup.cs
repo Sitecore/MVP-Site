@@ -1,24 +1,24 @@
-using System;
+using System.Collections.Generic;
+using System.Globalization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Mvp.Feature.Navigation.Extensions;
-using Mvp.Feature.Hero.Extensions;
 using Mvp.Feature.BasicContent.Extensions;
+using Mvp.Feature.Hero.Extensions;
+using Mvp.Feature.Navigation.Extensions;
 using Mvp.Feature.Social.Extensions;
+using Mvp.Foundation.User.Extensions;
+using Mvp.Project.MvpSite.Configuration;
+using Sitecore.AspNet.ExperienceEditor;
 using Sitecore.AspNet.RenderingEngine.Extensions;
+using Sitecore.AspNet.RenderingEngine.Localization;
 using Sitecore.LayoutService.Client.Extensions;
 using Sitecore.LayoutService.Client.Newtonsoft.Extensions;
 using Sitecore.LayoutService.Client.Request;
-using Sitecore.AspNet.ExperienceEditor;
-using System.Collections.Generic;
-using System.Globalization;
-using Microsoft.AspNetCore.Localization;
-using Mvp.Project.MvpSite.Configuration;
-using Sitecore.AspNet.RenderingEngine.Localization;
-using Microsoft.AspNetCore.HttpOverrides;
 
 namespace Mvp.Project.MvpSite.Rendering
 {
@@ -32,7 +32,11 @@ namespace Mvp.Project.MvpSite.Rendering
             // Values can originate in appsettings.json, from environment variables, and more.
             // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1
             Configuration = configuration.GetSection(SitecoreOptions.Key).Get<SitecoreOptions>();
+
+            DotNetConfiguration = configuration;
         }
+
+        public IConfiguration DotNetConfiguration { get; }
 
         private SitecoreOptions Configuration { get; }
 
@@ -60,11 +64,15 @@ namespace Mvp.Project.MvpSite.Rendering
                 .AddHttpHandler("default", Configuration.LayoutServiceUri)
                 .AsDefaultHandler();
 
+            // Configure Okta Integration
+            services.AddFoundationUser(this.DotNetConfiguration);
+
             // Register the Sitecore Rendering Engine services.
             services.AddSitecoreRenderingEngine(options =>
             {
                 //Register your components here
                 options
+                    .AddFoundationUser()
                     .AddFeatureBasicContent()
                     .AddFeatureNavigation()
                     .AddFeatureHero()
@@ -140,6 +148,9 @@ namespace Mvp.Project.MvpSite.Rendering
                 options.UseSitecoreRequestLocalization();
             });
 
+            // Configure Okta Integration
+            app.UseFoundationUser();
+
             // Enable proxying of Sitecore robot detection scripts
             //app.UseSitecoreVisitorIdentification();
 
@@ -162,7 +173,9 @@ namespace Mvp.Project.MvpSite.Rendering
 
                 // Fall back to language-less routing as well, and use the default culture (en).
                 endpoints.MapFallbackToController("Index", "Default");
+
             });
+
         }
 
         private ForwardedHeadersOptions ConfigureForwarding(IWebHostEnvironment env)
