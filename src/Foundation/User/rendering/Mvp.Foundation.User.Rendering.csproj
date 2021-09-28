@@ -13,9 +13,4 @@
     <PackageReference Include="Sitecore.AspNet.RenderingEngine" Version="14.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Views\Shared\Components\SitecoreComponent\" />
-  </ItemGroup>
-
 </Project>
