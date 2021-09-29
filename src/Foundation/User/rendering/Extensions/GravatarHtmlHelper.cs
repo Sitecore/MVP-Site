@@ -109,6 +109,7 @@ namespace Mvp.Foundation.User.Extensions
                 );
 
             imgTag.Attributes.Add("class", cssClass);
+            imgTag.Attributes.Add("style", "border-radius:16px");
             imgTag.Attributes.Add("alt", alt);
             imgTag.TagRenderMode = TagRenderMode.SelfClosing;
 

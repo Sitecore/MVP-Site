@@ -1,17 +1,14 @@
-﻿@using System.Security.Claims;
-@using Mvp.Foundation.User.Extensions
+﻿@using Mvp.Foundation.User.Extensions
 
 @if (User.Identity.IsAuthenticated)
 {
-    var emailClaim = ((ClaimsIdentity)User.Identity).FindFirst("email");
-
     <ul class="nav navbar-nav">
         <li>
             <span class="nav-item nav-link">Hello, @User.Identity.Name</span>
         </li>
         <li><a class="nav-item nav-link" asp-controller="User" asp-action="Claims" id="profile-button">
             @Html.GravatarImage(
-              emailClaim == null ? string.Empty : emailClaim.Value,
+              Html.GetUserEmail(),
               size: 32,
               defaultImage: GravatarHtmlHelper.DefaultImage.Identicon,
               rating: GravatarHtmlHelper.Rating.PG,
