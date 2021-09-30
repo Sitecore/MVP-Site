@@ -1,0 +1,83 @@
+﻿@model Mvp.Foundation.People.Services.PeopleSearchResults
+
+
+@{
+	var hasFilterFacets = Model.FilterFacets != null && Model.FilterFacets.Any();
+}
+
+
+@if (Model == null)
+{
+	<div class="container">
+		ERROR
+	</div>
+
+	return;
+}
+
+<div class="col-12 panel">
+	<p class="content"></p><p>MVPs </p>
+	<ul>
+		@foreach (var person in Model.People)
+		{
+		<li>
+			<a href="@person.url" class="content" >
+				<div class="content">
+					<h4>"@person.firstName.value @person.lastName.value "</h4>
+					<p>@person.introduction.value</p>
+					<p>@person.country?.targetItem?.name</p>
+				</div>
+				</a>
+		</li>
+		}
+	</ul><p></p>
+</div>
+<div class="container">
+
+	<div class="columns product-list-columns">
+
+
+
+		@*<div class="column">
+
+
+				@foreach (var facet in Model.Facets)
+				{
+					<article class="panel">
+						<p class="panel-heading">
+							@facet.name
+						</p>
+
+						@{
+							var facetValuesFromUrl = Model.Facets.FirstOrDefault(f => f.Name.ToLower().Equals(@facet.Item1.Key.ToLower()))?.Values;
+						}
+
+
+						@foreach (var facetValue in facet.Item2)
+						{
+							string checkedValue = "";
+							if (facetValuesFromUrl != null && facetValuesFromUrl.Any(f => f.Value == facetValue.Key))
+							{
+								checkedValue = this.Context.Request.HasQueryParamAndValueInUrl($"facet_{facet.Item1.Key}", facetValue.Key) ? "checked" : "";
+							}
+
+
+							<div class="panel-block">
+								<p class="control has-icons-left">
+									<label class="checkbox">
+										<input type="checkbox"
+											   onclick="window.location.assign('@this.Context.Request.UpdateQueryParamInUrl($"facet_{facet.Item1.Key}", facetValue.Key, false, ",", false)')"
+											   @checkedValue>
+										@Localizer[facetValue.Value].Value.ToUpper()
+									</label>
+								</p>
+							</div>
+						}
+					</article>
+				}
+
+
+			</div>*@
+	</div>
+
+</div>

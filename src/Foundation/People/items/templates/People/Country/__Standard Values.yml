@@ -8,6 +8,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "09821e82-2ad7-49f0-b4cd-e4abf8d90983"
+      Hint: Name
+      Value: $name
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210927T234752Z
@@ -19,13 +22,16 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Admin
+    - ID: "89d4f494-dcbd-408c-ad2b-2b0372d73ca8"
+      Hint: Description
+      Value: $name
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "efbbb2ec-172a-480a-9811-50008727725d"
+      Value: "488ba79b-31c7-40a2-919a-470a78935446"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210927T234752Z
+      Value: 20210928T145841Z
