@@ -48,7 +48,7 @@ stages:
         action: 'Push services'
         additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
         includeLatestTag: true
-      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
     - task: CopyFiles@2
       displayName: "Copy K8s specifications to staging directory"
       inputs:
@@ -73,7 +73,7 @@ stages:
         artifact: 'Sitecore.MVP-$(Build.BuildNumber)'
 
 - stage: Deploy
-  condition:  and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  condition:  and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   dependsOn: Build
   displayName: Deploy to Staging
   jobs:
