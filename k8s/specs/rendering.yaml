@@ -39,7 +39,7 @@ spec:
         - name: ASPNETCORE_URLS
           value: http://*:80
         - name: Sitecore__InstanceUri
-          value: http://mvp-cm
+          value: http://cd
         - name: Sitecore__RenderingHostUri
           value: https://$(STAGING_HOST)/
         - name: Sitecore__EnableExperienceEditor

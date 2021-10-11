@@ -11,7 +11,7 @@ images:
   newName: mvpsitev2.azurecr.io/mvp-id
   newTag: latest
 - name: sitecore-mvp-rendering
-  newName: mvpsitev2.azurecr.io/mvp-id
+  newName: mvpsitev2.azurecr.io/mvp-rendering
   newTag: latest
 resources:
 - cm.yaml
