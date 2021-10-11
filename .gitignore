@@ -377,3 +377,7 @@ FodyWeavers.xsd
 # ignore static asset generation items
 /src/Project/MvpSite/rendering/wwwroot/package-lock.json
 /src/Project/MvpSite/rendering/wwwroot/node_modules
+
+# ignore sitecore asset cache & itempackages
+.sitecore/package-cache/
+*.itempackage

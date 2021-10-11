@@ -29,7 +29,7 @@ spec:
         kubernetes.io/os: windows
       containers:
       - name: mssql
-        image: $(ACR_ENDPOINT)/mvp-mssql:$(Build.BuildNumber)-$(Build.SourceBranchName)
+        image: mssql
         ports:
         - containerPort: 1433
         env:

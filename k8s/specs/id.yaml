@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mvp-id
+  name: id
 spec:
   selector:
-    app: mvp-id
+    app: id
   ports:
   - protocol: TCP
     port: 80
@@ -12,27 +12,26 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mvp-id
+  name: id
   labels:
-    app: mvp-id
+    app: id
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mvp-id
+      app: id
   template:
     metadata:
       labels:
-        app: mvp-id
+        app: id
     spec:
       nodeSelector:
         kubernetes.io/os: windows
       containers:
-      - name: sitecore-xm1-id
-        image: $(ACR_ENDPOINT)/mvp-id:$(Build.BuildNumber)-$(Build.SourceBranchName)
+      - name: sitecore-mvp-id
+        image: sitecore-mvp-id
         ports:
         - containerPort: 80
-        imagePullPolicy: Always
         env:
         - name: Database_Server
           valueFrom:
@@ -102,5 +101,12 @@ spec:
           timeoutSeconds: 300
           periodSeconds: 30
           failureThreshold: 10
+        resources:
+          requests:
+            memory: 400Mi
+            cpu: 50m
+          limits:
+            memory: 1Gi
+            cpu: 200m
       imagePullSecrets:
       - name: regcred
