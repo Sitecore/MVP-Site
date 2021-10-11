@@ -3,8 +3,8 @@ kind: Kustomization
 
 images:
 - name: mssql
-  newName: mvpsitev2.azurecr.io/mvp-mssql
-  newTag: latest
+  newName: $(ACR_ENDPOINT)/mvp-mssql
+  newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
 - name: redis
   newName: redis
   newTag: 4.0.14-alpine
