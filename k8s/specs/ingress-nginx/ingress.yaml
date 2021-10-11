@@ -15,28 +15,28 @@ metadata:
       add_header X-Robots-Tag "noindex, nofollow";
 spec:
   rules:
-  - host: mvp-cd.globalhost
+  - host: $(STAGING_CD_HOST)
     http:
       paths:
       - path: /
         backend:
           serviceName: cd
           servicePort: 80
-  - host: mvp-cm.globalhost
+  - host: $(STAGING_CM_HOST)
     http:
       paths:
       - path: /
         backend:
           serviceName: cm
           servicePort: 80
-  - host: mvp-id.globalhost
+  - host: $(STAGING_ID_HOST)
     http:
       paths:
       - path: /
         backend:
           serviceName: id
           servicePort: 80
-  - host: mvp.globalhost
+  - host: $(STAGING_HOST)
     http:
       paths:
       - path: /
@@ -45,15 +45,9 @@ spec:
           servicePort: 80
 
   tls:
-  - secretName: staging-rendering-tls
+  - secretName: sitecoredemo-tls
     hosts:
-    - mvp.globalhost
-  - secretName: staging-id-tls
-    hosts:
-    - mvp-id.globalhost
-  - secretName: staging-cm-tls
-    hosts:
-    - mvp-cm.globalhost
-  - secretName: staging-cd-tls
-    hosts:
-    - mvp-cd.globalhost
+    - $(STAGING_HOST)
+    - $(STAGING_ID_HOST)
+    - $(STAGING_CM_HOST)
+    - $(STAGING_CD_HOST)
