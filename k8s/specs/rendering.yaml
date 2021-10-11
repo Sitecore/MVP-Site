@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mvp-rendering
+  name: rendering
 spec:
   selector:
-    app: mvp-rendering
+    app: rendering
   ports:
   - protocol: TCP
     port: 80
@@ -12,24 +12,24 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mvp-rendering
+  name: rendering
   labels:
-    app: mvp-rendering
+    app: rendering
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mvp-rendering
+      app: rendering
   template:
     metadata:
       labels:
-        app: mvp-rendering
+        app: rendering
     spec:
       nodeSelector:
         kubernetes.io/os: windows
       containers:
-      - name: sitecore-xm1-rendering
-        image: $(ACR_ENDPOINT)/mvp-id:$(Build.BuildNumber)-$(Build.SourceBranchName)
+      - name: sitecore-mvp-rendering
+        image: sitecore-mvp-rendering
         ports:
         - containerPort: 80
         imagePullPolicy: Always
@@ -44,6 +44,11 @@ spec:
           value: https://$(STAGING_HOST)/
         - name: Sitecore__EnableExperienceEditor
           value: "true"
+        - name: Sitecore_License
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-license
+              key: sitecore-license.txt
         livenessProbe:
           httpGet:
             path: /healthz

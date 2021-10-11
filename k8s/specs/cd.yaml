@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mvp-cd
+  name: cd
 spec:
   selector:
-    app: mvp-cd
+    app: cd
   ports:
   - protocol: TCP
     port: 80
@@ -12,27 +12,26 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mvp-cd
+  name: cd
   labels:
-    app: mvp-cd
+    app: cd
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mvp-cd
+      app: cd
   template:
     metadata:
       labels:
-        app: mvp-cd
+        app: cd
     spec:
       nodeSelector:
         kubernetes.io/os: windows
       containers:
-      - name: sitecore-xm1-cd
-        image: $(ACR_ENDPOINT)/mvp-cd:$(Build.BuildNumber)-$(Build.SourceBranchName)
+      - name: sitecore-mvp-cd
+        image: sitecore-mvp-cd
         ports:
         - containerPort: 80
-        imagePullPolicy: Always
         env:
         - name: Sitecore_InstanceName
           valueFrom:
@@ -91,6 +90,16 @@ spec:
               key: sitecore-solr-connection-string.txt
         - name: Sitecore_ConnectionStrings_Redis.Sessions
           value: redis:6379,ssl=False,abortConnect=False
+        - name: SOLR_CORE_PREFIX_NAME
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-solr
+              key: sitecore-solr-core-prefix-name.txt
+        - name: MEDIA_REQUEST_PROTECTION_SHARED_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-protect-media-requests
+              key: sitecore-media-request-protection-shared-secret.txt
         livenessProbe:
           httpGet:
             path: /healthz/live
@@ -111,5 +120,12 @@ spec:
           timeoutSeconds: 300
           periodSeconds: 30
           failureThreshold: 10
+        resources:
+          requests:
+            memory: 1Gi
+            cpu: 1000m
+          limits:
+            memory: 3Gi
+            cpu: 2000m
       imagePullSecrets:
       - name: regcred

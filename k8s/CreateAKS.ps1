@@ -35,12 +35,12 @@ az aks create --resource-group $ResourceGroup `
     --windows-admin-password $AzureWindowsPassword `
     --windows-admin-username azureuser `
     --vm-set-type VirtualMachineScaleSets `
-    --node-count 1 `
+    --node-count 2 `
     --generate-ssh-keys `
     --network-plugin azure `
     --enable-addons monitoring `
-    --node-resource-group "$($ResourceGroup)_AKS_BackEnd"
-    --attach-acr $acrId
+    --node-resource-group "$($ResourceGroup)_AKS_BackEnd" `
+    --attach-acr $AcrName
 Write-Host "--- Complete: AKS Created ---" -ForegroundColor Green
 
 # Add windows server nodepool
@@ -49,8 +49,8 @@ az aks nodepool add --resource-group $ResourceGroup `
     --cluster-name $AksName `
     --os-type Windows `
     --name npwin `
-    --node-vm-size Standard_D8s_v3 `
-    --node-count 1
+    --node-vm-size Standard_DS2_v2 `
+    --node-count 3
 Write-Host "--- Complete: Windows Server Node Pool Created ---" -ForegroundColor Green
 
 # authenticate AKS instance
