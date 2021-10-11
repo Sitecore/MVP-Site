@@ -133,6 +133,18 @@ stages:
               namespace: 'mvp-staging'
               manifests: '$(bake.manifestsBundle)'
           - task: Kubernetes@1
+            displayName: Deploy Ingress Specification
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              namespace: 'mvp-staging'
+              command: 'apply'
+              useConfigurationFile: true
+              configuration: '$(System.ArtifactsDirectory)/k8s-specs/ingress-nginx'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+              outputFormat: ''
+          - task: Kubernetes@1
             displayName: Deploy External Specifications
             inputs:
               connectionType: 'Kubernetes Service Connection'
@@ -190,7 +202,7 @@ stages:
                 # Add nuget source & install Sitecore CLI
                 Write-Host "Installing Sitecore CLI"
                 dotnet nuget add source $(SITECORE_PUBLIC_NUGET_FEED) --name "Sitecore-Public-Nuget-Feed"
-                dotnet tool install --add-source=$(SITECORE_PUBLIC_NUGET_FEED) --version 2.0.0 sitecore.cli
+                dotnet tool restore
                 
                 # Login to ID Server
                 Write-Host "Logging into ID Server"
