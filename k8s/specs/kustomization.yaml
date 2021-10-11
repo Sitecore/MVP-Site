@@ -2,17 +2,17 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
 - name: sitecore-mvp-cd
-  newName: mvpsitev2.azurecr.io/mvp-cd
-  newTag: latest
+  newName: $(ACR_ENDPOINT)/mvp-cd
+  newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
 - name: sitecore-mvp-cm
-  newName: mvpsitev2.azurecr.io/mvp-cm
-  newTag: latest
+  newName: $(ACR_ENDPOINT)/mvp-cm
+  newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
 - name: sitecore-mvp-id
-  newName: mvpsitev2.azurecr.io/mvp-id
-  newTag: latest
+  newName: $(ACR_ENDPOINT)/mvp-id
+  newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
 - name: sitecore-mvp-rendering
-  newName: mvpsitev2.azurecr.io/mvp-rendering
-  newTag: latest
+  newName: $(ACR_ENDPOINT)/mvp-rendering
+  newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
 resources:
 - cm.yaml
 - cd.yaml
