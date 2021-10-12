@@ -5,14 +5,10 @@ images:
 - name: mssql
   newName: $(ACR_ENDPOINT)/mvp-mssql
   newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
-- name: redis
-  newName: redis
-  newTag: 4.0.14-alpine
 - name: solr
   newName: solr
   newTag: 8.4.0
 
 resources:
   - mssql.yaml
-  - redis.yaml
   - solr.yaml

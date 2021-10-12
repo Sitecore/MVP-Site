@@ -89,7 +89,10 @@ spec:
               name: sitecore-solr
               key: sitecore-solr-connection-string.txt
         - name: Sitecore_ConnectionStrings_Redis.Sessions
-          value: redis:6379,ssl=False,abortConnect=False
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-redis
+              key: sitecore-redis-connection-string.txt
         - name: SOLR_CORE_PREFIX_NAME
           valueFrom:
             secretKeyRef:
