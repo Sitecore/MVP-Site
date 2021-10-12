@@ -120,7 +120,7 @@ stages:
               enableTelemetry: false
           - task: KubernetesManifest@0
             displayName: Bake Secrets
-            name: 'bake secrets'
+            name: 'bake_secrets'
             inputs:
               action: 'bake'
               renderType: 'kustomize'
@@ -134,7 +134,7 @@ stages:
               manifests: '$(bake.manifestsBundle)'
           - task: KubernetesManifest@0
             displayName: Bake Ingress Specifications
-            name: 'bake ingress'
+            name: 'bake_ingress'
             inputs:
               action: 'bake'
               renderType: 'kustomize'
@@ -153,7 +153,7 @@ stages:
               outputFormat: ''
           - task: KubernetesManifest@0
             displayName: Bake External Specifications
-            name: 'bake external'
+            name: 'bake_external'
             inputs:
               action: 'bake'
               renderType: 'kustomize'
@@ -172,7 +172,7 @@ stages:
               outputFormat: ''
           - task: KubernetesManifest@0
             displayName: Bake Init Specifications
-            name: 'bake init'
+            name: 'bake_init'
             inputs:
               action: 'bake'
               renderType: 'kustomize'
@@ -191,7 +191,7 @@ stages:
               outputFormat: ''
           - task: KubernetesManifest@0
             displayName: Bake Application Specifications
-            name: 'bake application'
+            name: 'bake_application'
             inputs:
               action: 'bake'
               renderType: 'kustomize'
