@@ -13,6 +13,7 @@ using Mvp.Feature.Navigation.Extensions;
 using Mvp.Feature.Social.Extensions;
 using Mvp.Foundation.User.Extensions;
 using Mvp.Project.MvpSite.Configuration;
+using Mvp.Feature.Forms.Extensions;
 using Sitecore.AspNet.ExperienceEditor;
 using Sitecore.AspNet.RenderingEngine.Extensions;
 using Sitecore.AspNet.RenderingEngine.Localization;
@@ -77,6 +78,7 @@ namespace Mvp.Project.MvpSite.Rendering
                     .AddFeatureNavigation()
                     .AddFeatureHero()
                     .AddFeatureSocial()
+                    .AddFeatureForms()
                     .AddDefaultPartialView("_ComponentNotFound");
             })
                 // Includes forwarding of Scheme as X-Forwarded-Proto to the Layout Service, so that
@@ -166,6 +168,12 @@ namespace Mvp.Project.MvpSite.Rendering
                     "healthz",
                     "healthz",
                     new { controller = "Default", action = "Healthz" }
+                );
+
+                endpoints.MapControllerRoute(
+                    "application",
+                    "submitApplication",
+                    new { controller = "Application", action = "SubmitStep" }
                 );
 
                 // Enables the default Sitecore URL pattern with a language prefix.
