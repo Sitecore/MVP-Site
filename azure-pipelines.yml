@@ -119,21 +119,28 @@ stages:
               useLegacyPattern: false
               enableTelemetry: false
           - task: KubernetesManifest@0
-            displayName: Bake K8s Secrets
-            name: 'bake'
+            displayName: Bake Secrets
+            name: 'bake_secrets'
             inputs:
               action: 'bake'
               renderType: 'kustomize'
               kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/secrets/'
           - task: KubernetesManifest@0
-            displayName: Deploy K8s Secrets
+            displayName: Deploy Secrets
             inputs:
               action: 'deploy'
               kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-staging'
               manifests: '$(bake.manifestsBundle)'
+          - task: KubernetesManifest@0
+            displayName: Bake Ingress Specifications
+            name: 'bake_ingress'
+            inputs:
+              action: 'bake'
+              renderType: 'kustomize'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/ingress-nginx/'
           - task: Kubernetes@1
-            displayName: Deploy Ingress Specification
+            displayName: Deploy Ingress Specifications
             inputs:
               connectionType: 'Kubernetes Service Connection'
               kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
@@ -144,6 +151,13 @@ stages:
               secretType: 'dockerRegistry'
               containerRegistryType: 'Azure Container Registry'
               outputFormat: ''
+          - task: KubernetesManifest@0
+            displayName: Bake External Specifications
+            name: 'bake_external'
+            inputs:
+              action: 'bake'
+              renderType: 'kustomize'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/external/'
           - task: Kubernetes@1
             displayName: Deploy External Specifications
             inputs:
@@ -156,6 +170,13 @@ stages:
               secretType: 'dockerRegistry'
               containerRegistryType: 'Azure Container Registry'
               outputFormat: ''
+          - task: KubernetesManifest@0
+            displayName: Bake Init Specifications
+            name: 'bake_init'
+            inputs:
+              action: 'bake'
+              renderType: 'kustomize'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/init/'
           - task: Kubernetes@1
             displayName: Deploy Init Specifications
             inputs:
@@ -168,6 +189,13 @@ stages:
               secretType: 'dockerRegistry'
               containerRegistryType: 'Azure Container Registry'
               outputFormat: ''
+          - task: KubernetesManifest@0
+            displayName: Bake Application Specifications
+            name: 'bake_application'
+            inputs:
+              action: 'bake'
+              renderType: 'kustomize'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs'
           - task: Kubernetes@1
             displayName: Deploy Application Specifications
             inputs:
