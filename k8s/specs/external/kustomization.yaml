@@ -4,7 +4,7 @@ kind: Kustomization
 images:
 - name: mssql
   newName: $(ACR_ENDPOINT)/mvp-mssql
-  newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
+  newTag: latest
 - name: redis
   newName: redis
   newTag: 4.0.14-alpine
