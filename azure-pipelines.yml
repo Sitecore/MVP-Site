@@ -131,7 +131,7 @@ stages:
               action: 'deploy'
               kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-staging'
-              manifests: '$(bake.manifestsBundle)'
+              manifests: '$(bake_secrets.manifestsBundle)'
           - task: KubernetesManifest@0
             displayName: Bake Ingress Specifications
             name: 'bake_ingress'
@@ -139,18 +139,13 @@ stages:
               action: 'bake'
               renderType: 'kustomize'
               kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/ingress-nginx/'
-          - task: Kubernetes@1
+          - task: KubernetesManifest@0
             displayName: Deploy Ingress Specifications
             inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              action: 'deploy'
+              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-staging'
-              command: 'apply'
-              useConfigurationFile: true
-              configuration: '$(System.ArtifactsDirectory)/k8s-specs/ingress-nginx'
-              secretType: 'dockerRegistry'
-              containerRegistryType: 'Azure Container Registry'
-              outputFormat: ''
+              manifests: '$(bake_ingress.manifestsBundle)'
           - task: KubernetesManifest@0
             displayName: Bake External Specifications
             name: 'bake_external'
@@ -158,18 +153,13 @@ stages:
               action: 'bake'
               renderType: 'kustomize'
               kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/external/'
-          - task: Kubernetes@1
+          - task: KubernetesManifest@0
             displayName: Deploy External Specifications
             inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              action: 'deploy'
+              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-staging'
-              command: 'apply'
-              useConfigurationFile: true
-              configuration: '$(System.ArtifactsDirectory)/k8s-specs/external'
-              secretType: 'dockerRegistry'
-              containerRegistryType: 'Azure Container Registry'
-              outputFormat: ''
+              manifests: '$(bake_external.manifestsBundle)'
           - task: KubernetesManifest@0
             displayName: Bake Init Specifications
             name: 'bake_init'
@@ -177,18 +167,13 @@ stages:
               action: 'bake'
               renderType: 'kustomize'
               kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/init/'
-          - task: Kubernetes@1
+          - task: KubernetesManifest@0
             displayName: Deploy Init Specifications
             inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              action: 'deploy'
+              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-staging'
-              command: 'apply'
-              useConfigurationFile: true
-              configuration: '$(System.ArtifactsDirectory)/k8s-specs/init'
-              secretType: 'dockerRegistry'
-              containerRegistryType: 'Azure Container Registry'
-              outputFormat: ''
+              manifests: '$(bake_init.manifestsBundle)'
           - task: KubernetesManifest@0
             displayName: Bake Application Specifications
             name: 'bake_application'
@@ -196,18 +181,13 @@ stages:
               action: 'bake'
               renderType: 'kustomize'
               kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs'
-          - task: Kubernetes@1
+          - task: KubernetesManifest@0
             displayName: Deploy Application Specifications
             inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              action: 'deploy'
+              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-staging'
-              command: 'apply'
-              useConfigurationFile: true
-              configuration: '$(System.ArtifactsDirectory)/k8s-specs'
-              secretType: 'dockerRegistry'
-              containerRegistryType: 'Azure Container Registry'
-              outputFormat: ''
+              manifests: '$(bake_application.manifestsBundle)'
   - deployment: 'Deserialize_Content_to_Staging'
     dependsOn: 'Deploy_Specs_to_Staging_AKS'
     pool:
