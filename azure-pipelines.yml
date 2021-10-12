@@ -74,7 +74,7 @@ stages:
 
 - stage: Deploy
   condition:  and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
-  dependsOn: Build
+  # dependsOn: Build
   displayName: Deploy to Staging
   jobs:
   - deployment: 'Deploy_Specs_to_Staging_AKS'
