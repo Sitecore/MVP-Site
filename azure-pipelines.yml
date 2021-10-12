@@ -16,61 +16,61 @@ variables:
   vmImageName: 'windows-latest'
 
 stages:
-- stage: Build
-  displayName: Build Images + Push to ACR
-  jobs:  
-  - job: Build
-    displayName: Build
-    pool:
-      vmImage: $(vmImageName)
-    steps:
-    - task: DockerCompose@0
-      displayName: "Build Images"
-      inputs:
-        containerregistrytype: 'Container Registry'
-        dockerRegistryEndpoint: 'MVPSiteV2'
-        dockerComposeFile: '**/docker-compose.yml'
-        additionalDockerComposeFiles: 'docker-compose.override.yml'
-        dockerComposeFileArgs: '$(DOCKER_COMPOSE_ARGS)'
-        qualifyImageNames: false
-        action: 'Build services'
-        additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
-        includeLatestTag: true
-    - task: DockerCompose@0
-      displayName: "Push Images with Latest Tag"
-      inputs:
-        containerregistrytype: 'Azure Container Registry'
-        azureSubscription: '$(AZURE_SUBSCRIPTION)'
-        azureContainerRegistry: '$(AZURE_CONTAINER_REGISTRY)'
-        dockerComposeFile: '**/docker-compose.yml'
-        additionalDockerComposeFiles: 'docker-compose.override.yml'
-        dockerComposeFileArgs: '$(DOCKER_COMPOSE_ARGS)'
-        action: 'Push services'
-        additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
-        includeLatestTag: true
-      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
-    - task: CopyFiles@2
-      displayName: "Copy K8s specifications to staging directory"
-      inputs:
-        SourceFolder: 'k8s/specs'
-        Contents: '**'
-        TargetFolder: '$(Build.ArtifactStagingDirectory)/k8s-specs'
-        CleanTargetFolder: true
-    - task: CopyFiles@2
-      displayName: "Copy Serialisation assets to staging directory"
-      inputs:
-        SourceFolder: './'
-        Contents: |
-          sitecore.json
-          src/**/*.module.json
-          src/**/items/**
-          .config/dotnet-tools.json
-        TargetFolder: '$(Build.ArtifactStagingDirectory)/serialization'
-        CleanTargetFolder: true
-    - task: PublishPipelineArtifact@1
-      inputs:
-        targetPath: '$(System.ArtifactsDirectory)'
-        artifact: 'Sitecore.MVP-$(Build.BuildNumber)'
+# - stage: Build
+#   displayName: Build Images + Push to ACR
+#   jobs:  
+#   - job: Build
+#     displayName: Build
+#     pool:
+#       vmImage: $(vmImageName)
+#     steps:
+#     - task: DockerCompose@0
+#       displayName: "Build Images"
+#       inputs:
+#         containerregistrytype: 'Container Registry'
+#         dockerRegistryEndpoint: 'MVPSiteV2'
+#         dockerComposeFile: '**/docker-compose.yml'
+#         additionalDockerComposeFiles: 'docker-compose.override.yml'
+#         dockerComposeFileArgs: '$(DOCKER_COMPOSE_ARGS)'
+#         qualifyImageNames: false
+#         action: 'Build services'
+#         additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
+#         includeLatestTag: true
+#     - task: DockerCompose@0
+#       displayName: "Push Images with Latest Tag"
+#       inputs:
+#         containerregistrytype: 'Azure Container Registry'
+#         azureSubscription: '$(AZURE_SUBSCRIPTION)'
+#         azureContainerRegistry: '$(AZURE_CONTAINER_REGISTRY)'
+#         dockerComposeFile: '**/docker-compose.yml'
+#         additionalDockerComposeFiles: 'docker-compose.override.yml'
+#         dockerComposeFileArgs: '$(DOCKER_COMPOSE_ARGS)'
+#         action: 'Push services'
+#         additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
+#         includeLatestTag: true
+#       condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+#     - task: CopyFiles@2
+#       displayName: "Copy K8s specifications to staging directory"
+#       inputs:
+#         SourceFolder: 'k8s/specs'
+#         Contents: '**'
+#         TargetFolder: '$(Build.ArtifactStagingDirectory)/k8s-specs'
+#         CleanTargetFolder: true
+#     - task: CopyFiles@2
+#       displayName: "Copy Serialisation assets to staging directory"
+#       inputs:
+#         SourceFolder: './'
+#         Contents: |
+#           sitecore.json
+#           src/**/*.module.json
+#           src/**/items/**
+#           .config/dotnet-tools.json
+#         TargetFolder: '$(Build.ArtifactStagingDirectory)/serialization'
+#         CleanTargetFolder: true
+#     - task: PublishPipelineArtifact@1
+#       inputs:
+#         targetPath: '$(System.ArtifactsDirectory)'
+#         artifact: 'Sitecore.MVP-$(Build.BuildNumber)'
 
 - stage: Deploy
   condition:  and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
@@ -131,7 +131,7 @@ stages:
               action: 'deploy'
               kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-staging'
-              manifests: '$(bake.manifestsBundle)'
+              manifests: '$(bake_secrets.manifestsBundle)'
           - task: KubernetesManifest@0
             displayName: Bake Ingress Specifications
             name: 'bake_ingress'
@@ -139,18 +139,13 @@ stages:
               action: 'bake'
               renderType: 'kustomize'
               kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/ingress-nginx/'
-          - task: Kubernetes@1
+          - task: KubernetesManifest@0
             displayName: Deploy Ingress Specifications
             inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              action: 'deploy'
+              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-staging'
-              command: 'apply'
-              useConfigurationFile: true
-              configuration: '$(System.ArtifactsDirectory)/k8s-specs/ingress-nginx'
-              secretType: 'dockerRegistry'
-              containerRegistryType: 'Azure Container Registry'
-              outputFormat: ''
+              manifests: '$(bake_ingress.manifestsBundle)'
           - task: KubernetesManifest@0
             displayName: Bake External Specifications
             name: 'bake_external'
@@ -158,18 +153,13 @@ stages:
               action: 'bake'
               renderType: 'kustomize'
               kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/external/'
-          - task: Kubernetes@1
+          - task: KubernetesManifest@0
             displayName: Deploy External Specifications
             inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              action: 'deploy'
+              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-staging'
-              command: 'apply'
-              useConfigurationFile: true
-              configuration: '$(System.ArtifactsDirectory)/k8s-specs/external'
-              secretType: 'dockerRegistry'
-              containerRegistryType: 'Azure Container Registry'
-              outputFormat: ''
+              manifests: '$(bake_external.manifestsBundle)'
           - task: KubernetesManifest@0
             displayName: Bake Init Specifications
             name: 'bake_init'
@@ -177,18 +167,13 @@ stages:
               action: 'bake'
               renderType: 'kustomize'
               kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/init/'
-          - task: Kubernetes@1
+          - task: KubernetesManifest@0
             displayName: Deploy Init Specifications
             inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              action: 'deploy'
+              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-staging'
-              command: 'apply'
-              useConfigurationFile: true
-              configuration: '$(System.ArtifactsDirectory)/k8s-specs/init'
-              secretType: 'dockerRegistry'
-              containerRegistryType: 'Azure Container Registry'
-              outputFormat: ''
+              manifests: '$(bake_init.manifestsBundle)'
           - task: KubernetesManifest@0
             displayName: Bake Application Specifications
             name: 'bake_application'
@@ -196,18 +181,13 @@ stages:
               action: 'bake'
               renderType: 'kustomize'
               kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs'
-          - task: Kubernetes@1
+          - task: KubernetesManifest@0
             displayName: Deploy Application Specifications
             inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              action: 'deploy'
+              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-staging'
-              command: 'apply'
-              useConfigurationFile: true
-              configuration: '$(System.ArtifactsDirectory)/k8s-specs'
-              secretType: 'dockerRegistry'
-              containerRegistryType: 'Azure Container Registry'
-              outputFormat: ''
+              manifests: '$(bake_application.manifestsBundle)'
   - deployment: 'Deserialize_Content_to_Staging'
     dependsOn: 'Deploy_Specs_to_Staging_AKS'
     pool:
