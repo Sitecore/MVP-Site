@@ -1,0 +1,11 @@
+﻿@using System.Security.Claims;
+
+<h1>Claims</h1>
+
+<div style="margin:20px">
+@foreach (var claim in ((ClaimsIdentity)User.Identity).Claims)
+{
+    <dt title="@claim.Type">@claim.Type</dt>
+    <dd>@claim.Value</dd>
+}
+</div>
