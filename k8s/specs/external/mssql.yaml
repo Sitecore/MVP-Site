@@ -26,10 +26,15 @@ spec:
         app: mssql
     spec:
       nodeSelector:
-        kubernetes.io/os: windows
+        kubernetes.io/os: linux
       containers:
       - name: mssql
         image: mssql
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 101
         ports:
         - containerPort: 1433
         env:
@@ -40,10 +45,16 @@ spec:
               key: sitecore-databasepassword.txt
         - name: ACCEPT_EULA
           value: "Y"
-        - name: SITECORE_ADMIN_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: sitecore-admin
-              key: sitecore-adminpassword.txt  
-      imagePullSecrets:
-      - name: regcred 
+        volumeMounts:
+          - mountPath: /var/opt/mssql
+            name: sql
+        resources:
+          requests:
+            memory: 2Gi
+            cpu: 200m
+          limits:
+            memory: 3Gi
+            cpu: 700m    
+      volumes:
+        - name: sql
+          emptyDir: {}
