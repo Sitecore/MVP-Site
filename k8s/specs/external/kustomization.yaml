@@ -2,13 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 images:
-- name: mssql
-  newName: scr.sitecore.com/sxp/sitecore-xm1-mssql
-  newTag: 10.1-ltsc2019
 - name: solr
   newName: solr
   newTag: 8.4.0
 
 resources:
-  - mssql.yaml
   - solr.yaml
