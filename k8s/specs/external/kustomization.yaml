@@ -3,8 +3,8 @@ kind: Kustomization
 
 images:
 - name: mssql
-  newName: $(ACR_ENDPOINT)/mvp-mssql
-  newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
+  newName: mcr.microsoft.com/mssql/server
+  newTag: 2017-CU21-ubuntu-16.04
 - name: solr
   newName: solr
   newTag: 8.4.0
