@@ -170,7 +170,7 @@ stages:
               arguments: 'job mssql-init'
           - task: KubernetesManifest@0
             displayName: Delete Previous Solr-Init Job
-            name: 'delete previous sql init'
+            name: 'delete previous solr init'
             inputs:
               action: 'delete'
               kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
