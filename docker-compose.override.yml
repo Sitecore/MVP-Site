@@ -78,7 +78,7 @@ services:
       context: ./docker/build/mssql-init
       args:
         BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-mssql-init:${SITECORE_VERSION}
-        JSS_RESOURCES_IMAGE: ${JSS_RESOURCES_IMAGE}
+        HEADLESS_SERVICES_RESOURCES_IMAGE: ${HEADLESS_SERVICES_RESOURCES_IMAGE}
     environment:
       SQL_SERVER: mssql
       SQL_ADMIN_LOGIN: sa
@@ -120,7 +120,7 @@ services:
         BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}${CD_IMAGE}:${SITECORE_VERSION}
         SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution:${SITECORE_VERSION}
         TOOLS_RESOURCES_IMAGE: ${TOOLS_RESOURCES_IMAGE}
-        JSS_RESOURCES_IMAGE: ${JSS_RESOURCES_IMAGE}
+        HEADLESS_SERVICES_RESOURCES_IMAGE: ${HEADLESS_SERVICES_RESOURCES_IMAGE}
     depends_on:
       solutionBuildOutput:
         condition: service_started
@@ -149,7 +149,7 @@ services:
         SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution:${SITECORE_VERSION}
         TOOLS_RESOURCES_IMAGE: ${TOOLS_RESOURCES_IMAGE}
         DEVEX_RESOURCES_IMAGE: ${DEVEX_RESOURCES_IMAGE}
-        JSS_RESOURCES_IMAGE: ${JSS_RESOURCES_IMAGE}
+        HEADLESS_SERVICES_RESOURCES_IMAGE: ${HEADLESS_SERVICES_RESOURCES_IMAGE}
     depends_on:
       solutionBuildOutput:
         condition: service_started
