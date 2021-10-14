@@ -19,9 +19,9 @@ namespace Mvp.Foundation.SitecoreExtensions.Pipelines
         public static void Register()
         {
             RouteTable.Routes.MapRoute(
-            name: "GetApplicationStep",
-            url: "Application/GetUserCurrentStep",
-            defaults: new { controller = "Application", action = "GetUserApplicationStep", id = UrlParameter.Optional }
+            name: "GetApplicationInfo",
+            url: "Application/GetApplicationInfo",
+            defaults: new { controller = "Application", action = "GetApplicationInfo", id = UrlParameter.Optional }
         );
         }
 

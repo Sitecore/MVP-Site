@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Foundation\User\rendering\Mvp.Foundation.User.Rendering.csproj" />
     <ProjectReference Include="..\shared\Mvp.Feature.Forms.Shared.csproj" />
   </ItemGroup>
 

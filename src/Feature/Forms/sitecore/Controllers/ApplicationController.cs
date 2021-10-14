@@ -16,10 +16,9 @@ namespace Mvp.Feature.Forms.Controllers
     public class ApplicationController : SitecoreController
     {
         [HttpPost]
-        public JsonResult GetUserApplicationStep(string identifier)
+        public JsonResult GetApplicationInfo(string identifier)
         {
             //TODO:need to pass identifier from the currently logged in user
-            identifier = "alex.lentz@americaneagle.com";
             if (string.IsNullOrEmpty(identifier))
                 return null;
 
@@ -29,11 +28,19 @@ namespace Mvp.Feature.Forms.Controllers
             if (searchResults != null && searchResults.Any())
             {
                 var person = searchResults.FirstOrDefault();
-                var result = new SkinnyPerson();
-                result.FirstName = person.Document.FirstName;
-                result.LastName = person.Document.LastName;
-                result.ApplicationStep = person.Document.ApplicationStep;
-                result.Application = person.Document.Application;
+                var personItem  = Sitecore.Context.Database.GetItem(person.Document.ItemId);
+
+                var result = new ApplicationInfo()
+                {
+                    FirstName = personItem.Fields[Constants.People.Fields.PEOPLE_FIRST_NAME].Value,
+                    LastName = personItem.Fields[Constants.People.Fields.PEOPLE_LAST_NAME].Value,
+                };
+
+                //Set Application Info for result
+                var applicationStep = personItem.Fields[Constants.People.Fields.PEOPLE_APPLICATION_STEP].Value;
+                var applicationStepItem = Sitecore.Context.Database.GetItem(new ID(applicationStep));
+
+                result.ApplicationStep = applicationStepItem.Fields[Constants.ApplicationStep.Fields.APPLICATION_STEP_VIEW_PATH].Value;
                 return Json(result);
             }
 

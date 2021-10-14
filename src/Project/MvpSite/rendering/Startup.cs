@@ -172,6 +172,18 @@ namespace Mvp.Project.MvpSite.Rendering
 
                 endpoints.MapControllerRoute(
                     "application",
+                    "getUserEmailClaim",
+                    new { controller = "Application", action = "GetUserEmailClaim" }
+                );
+
+                endpoints.MapControllerRoute(
+                    "application",
+                    "getApplicationInfo",
+                    new { controller = "Application", action = "GetApplicationInfo" }
+                );
+
+                endpoints.MapControllerRoute(
+                    "application",
                     "submitApplication",
                     new { controller = "Application", action = "SubmitStep" }
                 );

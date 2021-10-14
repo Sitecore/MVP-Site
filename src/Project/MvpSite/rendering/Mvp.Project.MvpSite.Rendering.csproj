@@ -45,4 +45,9 @@
 		<ProjectReference Include="..\..\..\Foundation\User\rendering\Mvp.Foundation.User.Rendering.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Includes\Styles\" />
+	  <Folder Include="Includes\Scripts\" />
+	</ItemGroup>
+
 </Project>
