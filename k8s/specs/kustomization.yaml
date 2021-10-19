@@ -17,4 +17,4 @@ resources:
 - cm.yaml
 - cd.yaml
 - id.yaml
-- rendering.yaml
+- mvp-rendering.yaml
