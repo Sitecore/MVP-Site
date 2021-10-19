@@ -161,20 +161,6 @@ stages:
               namespace: 'mvp-staging'
               manifests: '$(bake_external.manifestsBundle)'
           - task: KubernetesManifest@0
-            displayName: Delete Previous MSSQL-Init Job
-            inputs:
-              action: 'delete'
-              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
-              namespace: 'mvp-staging'
-              arguments: 'job mssql-init'
-          - task: KubernetesManifest@0
-            displayName: Delete Previous Solr-Init Job
-            inputs:
-              action: 'delete'
-              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
-              namespace: 'mvp-staging'
-              arguments: 'job solr-init'
-          - task: KubernetesManifest@0
             displayName: Bake Init Specifications
             name: 'bake_init'
             inputs:
