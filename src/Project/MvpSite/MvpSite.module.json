@@ -4,39 +4,48 @@
     "includes": [
       {
         "name": "layouts",
-        "path": "/sitecore/layout/Layouts/Project/MvpSite"
+        "path": "/sitecore/layout/Layouts/Project/MvpSite",
+        "allowedPushOperations": "CreateUpdateAndDelete"
       },
       {
         "name": "placeholders",
-        "path": "/sitecore/layout/Placeholder Settings/Project/MvpSite"
+        "path": "/sitecore/layout/Placeholder Settings/Project/MvpSite",
+        "allowedPushOperations": "CreateUpdateAndDelete"
       },
       {
         "name": "media",
-        "path": "/sitecore/media library/MvpSite"
+        "path": "/sitecore/media library/MvpSite",
+        "allowedPushOperations": "CreateOnly"
       },
       {
         "name": "forms",
-        "path": "/sitecore/Forms/MvpSite"
+        "path": "/sitecore/Forms/MvpSite",
+        "allowedPushOperations": "CreateOnly"
       },
       {
         "name": "dictionary",
-        "path": "/sitecore/system/Dictionary/MvpSite"
+        "path": "/sitecore/system/Dictionary/MvpSite",
+        "allowedPushOperations": "CreateOnly"
       },
       {
         "name": "templates",
-        "path": "/sitecore/templates/Project/MvpSite"
+        "path": "/sitecore/templates/Project/MvpSite",
+        "allowedPushOperations": "CreateUpdateAndDelete"
       },
       {
         "name": "branche-templates",
-        "path": "/sitecore/templates/Branches/Project/MvpSite"
+        "path": "/sitecore/templates/Branches/Project/MvpSite",
+        "allowedPushOperations": "CreateUpdateAndDelete"
       },
       {
         "name": "content",
-        "path": "/sitecore/content/MvpSite"
+        "path": "/sitecore/content/MvpSite",
+        "allowedPushOperations": "CreateOnly"
       },
       {
         "name": "apikey",
-        "path": "/sitecore/system/Settings/Services/API Keys/MvpSite"
+        "path": "/sitecore/system/Settings/Services/API Keys/MvpSite",
+        "allowedPushOperations": "CreateUpdateAndDelete"
       }
     ]
   }
