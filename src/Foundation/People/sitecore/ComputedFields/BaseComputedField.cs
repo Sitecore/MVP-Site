@@ -13,42 +13,27 @@ namespace Mvp.Foundation.People.ComputedFields
 			List<string> mvpTags = new List<string>();
 			if (personItem != null && personItem.TemplateID.Equals(Constants.Templates.Person))
 			{
-				var awards = personItem.Children.Where(i => i.TemplateID.Equals(Constants.Templates.PersonAward)).ToList();
+				var awards = ((MultilistField)personItem.Fields[Constants.FieldNames.Awards]).GetItems();
 				foreach(var award in awards)
 				{
-					var tags = ((MultilistField)award.Fields["__Semantics"]).GetItems();
-					foreach (var tag in tags)
+					if(award.TemplateID.Equals(Constants.Templates.YearCategory))
 					{
-						if (tagType== TagType.AwardType && tag.ParentID.Equals(Constants.Folders.AwardsTagFolder))
+						if (tagType == TagType.Year)
 						{
-							mvpTags.Add(tag.Name);
+							mvpTags.Add(award.Parent.Name);
 						}
-						if (tagType == TagType.Year && tag.ParentID.Equals(Constants.Folders.YearsTagFolder))
+						else
 						{
-							mvpTags.Add(tag.Name);
+							var mvptype = ((ReferenceField)award.Fields[Constants.FieldNames.Type]).TargetItem;
+							if (mvptype != null && mvptype.TemplateID.Equals(Constants.Templates.MVPType))
+							{
+								mvpTags.Add(mvptype.Name);
+							}
 						}
 					}
 				}
 			}
 			return mvpTags.Distinct().ToList() ;
-		}
-
-		public string GetPersonCountry(Sitecore.Data.Items.Item personItem)
-		{
-			string country = "";
-			if (personItem != null && personItem.TemplateID.Equals(Constants.Templates.Person))
-			{
-				var tags = ((MultilistField)personItem.Fields["__Semantics"]).GetItems();
-				foreach (var tag in tags)
-				{
-					if (tag.ParentID.Equals(Constants.Folders.CountriesTagFolder))
-					{
-						country = tag.Name;
-						break;
-					}
-				}
-			}
-			return country;
 		}
 
 	}

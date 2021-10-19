@@ -9,7 +9,8 @@ namespace Mvp.Foundation.People
 		public static class QueryParameters
 		{
 			public static string FacetPrefix = "fc_";
-			public static string Page = "pg_";
+			public static string Page = "pg";
+			public static string Query = "q";
 		}
 	}
 }

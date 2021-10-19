@@ -51,6 +51,8 @@
     <PackageReference Include="Sitecore.LayoutService" Version="10.0.0" />
     <PackageReference Include="Sitecore.Mvc" Version="10.0.0" />
     <PackageReference Include="Sitecore.ContentSearch" Version="10.0.0" />
+    <PackageReference Include="Sitecore.Services.GraphQL" Version="10.0.0" />
+    <PackageReference Include="Sitecore.Services.GraphQL.ContentSchema" Version="10.0.0" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.config" />
@@ -58,15 +60,16 @@
   <ItemGroup>
     <Content Include="App_Config\Include\Foundation\Foundation.People.config" />
     <Compile Include="ComputedFields\BaseComputedField.cs" />
+    <Compile Include="ComputedFields\PersonFullName.cs" />
+    <Compile Include="ComputedFields\PersonIsMvp.cs" />
     <Compile Include="ComputedFields\PersonCountry.cs" />
     <Compile Include="ComputedFields\PersonAward.cs" />
     <Compile Include="ComputedFields\PersonYear.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="LayoutService\MVPListContentResolver.cs" />
+    <Compile Include="Extenders\CustomSchemaExtender.cs" />
+    <Compile Include="GrapghQl\SearchQueryWithSort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicesConfigurator.cs" />
-    <Compile Include="Services\IMVPListBuilder.cs" />
-    <Compile Include="Services\MVPListBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">
@@ -82,6 +85,7 @@
       <Name>Mvp.Foundation.People.Shared</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

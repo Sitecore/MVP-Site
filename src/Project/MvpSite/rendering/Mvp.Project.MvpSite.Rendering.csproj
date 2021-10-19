@@ -19,7 +19,7 @@
 
 	<ItemGroup>
 	  <Content Remove="compilerconfig.json" />
-	</ItemGroup>
+	</ItemGroup> 
 
 	<ItemGroup>
 	  <None Include="compilerconfig.json" />

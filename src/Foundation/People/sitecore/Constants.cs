@@ -17,6 +17,9 @@ namespace Mvp.Foundation.People
             public static readonly ID Person = new ID("{AD9C7837-8660-4360-BA2B-7ADDF4163685}");
             public static readonly ID PersonAward = new ID("{D5412132-BBC8-479F-B358-E5167E6FCF1B}");
             public static readonly ID Country = new ID("{1FC8657F-F737-47D6-A52B-67E8BFF8A390}");
+            public static readonly ID YearCategory = new ID("{7007DB97-C724-464B-A735-B301844F7D82}");
+            public static readonly ID Year = new ID("{F27C2D30-C390-47D2-8DC9-F73FE114FA70}");
+            public static readonly ID MVPType = new ID("{CDD8427E-FA86-4549-A647-D665164F2F77}");
         }
 
         public static class FieldNames
@@ -26,6 +29,9 @@ namespace Mvp.Foundation.People
             public const string Email = "Email";
             public const string Introduction = "Introduction";
             public const string Country = "Country";
+            public const string Awards = "Awards";
+
+            public const string Type = "Type";
         }
 
     }

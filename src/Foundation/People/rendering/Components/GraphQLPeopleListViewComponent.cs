@@ -28,23 +28,34 @@ namespace Mvp.Foundation.People.Components
             searchParams.CursorValueToGetItemsAfter = GetCursorIndex(searchParams.PageSize);
             searchParams.Facets = GetFacetsFromUrl();
             searchParams.CacheKey = this.HttpContext.Request.GetEncodedPathAndQuery();
-
+            searchParams.Query = GetQueryKeyword();
             var results = await _graphQLPeopleService.Search(searchParams);
 
             return View(results);
         }
 
      
-        private IList<KeyValuePair<string, string>>? GetFacetsFromUrl()
+        private List<KeyValuePair<string, string[]>>? GetFacetsFromUrl()
         {
+            List<KeyValuePair<string, string[]>> filterFacets = new List<KeyValuePair<string, string[]>>();
+            var fffacetsList = this.HttpContext.Request.Query.Where(kvp => kvp.Key.StartsWith(Constants.QueryParameters.FacetPrefix) && !string.IsNullOrWhiteSpace(kvp.Value));
+            foreach(KeyValuePair<string, Microsoft.Extensions.Primitives.StringValues> fcFilter in fffacetsList)
+			{
+                filterFacets.Add(new KeyValuePair<string, string[]>( fcFilter.Key.Replace(Constants.QueryParameters.FacetPrefix, ""),  fcFilter.Value.ToString().Split('|')));
 
-            var facetsList = this.HttpContext.Request.Query.Where(kvp => kvp.Key.StartsWith(Constants.QueryParameters.FacetPrefix))
-                .Select(kvp => new KeyValuePair<string, string>(kvp.Key.Replace(Constants.QueryParameters.FacetPrefix, ""), kvp.Value)).ToList();
-
-            return facetsList;
+            }
+            return filterFacets;
 
         }
 
+        private string GetQueryKeyword()
+		{
+            if (this.HttpContext.Request.Query.ContainsKey(Constants.QueryParameters.Query))
+                return Request.Query[Constants.QueryParameters.Query];
+            return "";
+        }
+
+        
 
         private int? GetCursorIndex(int? pageSize)
         {

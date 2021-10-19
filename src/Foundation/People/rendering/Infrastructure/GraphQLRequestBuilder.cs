@@ -27,77 +27,71 @@ namespace Mvp.Foundation.People.Infrastructure
         protected string GetOperationResource(GraphQLFiles queryFile)
         {
             return _query;
-            var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = $"{assembly.GetName().Name}.GraphQL.{queryFile}.graphql";
-            if (assembly.GetManifestResourceInfo(resourceName) == null)
-            {
-                throw new Exception($"Unknown GraphQL resource: {resourceName} -- is the file embedded?");
-            }
-            using var stream = assembly.GetManifestResourceStream(resourceName);
-            using var reader = new StreamReader(stream ?? throw new InvalidOperationException($"An error occurred with GraphQL resource {resourceName}"));
-            return reader.ReadToEnd();
+            
         }
         private string _query = @"query MVPSearch(
-   $language: String!
-  $rootItem: String!
-  $pageSize: Int
-  $cursorValueToGetItemsAfter: String!
-  $facetOn: [String!]
-  $fieldsEqual: [ItemSearchFieldQuery]
-  $query: String
+                                                   $language: String!
+                                                  $rootItem: String!
+                                                  $pageSize: Int
+                                                  $cursorValueToGetItemsAfter: String!
+                                                  $facetOn: [String!]
+                                                  $fieldsEqual: [ItemSearchFieldQuery]
+                                                  $query: String
 
-) {
-  search(
-    rootItem: $rootItem
-    language: $language
-    latestVersion:true
-    first: $pageSize
-    after: $cursorValueToGetItemsAfter
-     fieldsEqual: $fieldsEqual
-    facetOn: $facetOn
-     keyword: $query
+                                                ) {
+                                                  search(
+                                                    rootItem: $rootItem
+                                                    language: $language
+                                                    latestVersion:true
+                                                    sortBy:""personfullname""
+                                                    first: $pageSize
+                                                    after: $cursorValueToGetItemsAfter
+                                                     fieldsEqual: $fieldsEqual
+                                                    facetOn: $facetOn
+                                                     keyword: $query
     
-  ) {
-    facets {
-      name
-      values {
-        value
-        count
-      }
-    }
+                                                  ) {
+                                                    facets {
+                                                      name
+                                                      values {
+                                                        value
+                                                        count
+                                                      }
+                                                    }
  
-    results {
-      items {
-        item {
-          ... on Person {
-            firstName {
-              value
-            }
-            lastName {
-              value
-            }
-            email {
-              value
-            }
-            introduction {
-              value
-            }
-            url
-            country{targetItem{name}}
+                                                    results {
+                                                      items {
+                                                        item {
+                                                          ... on Person {
+                                                            firstName {
+                                                              value
+                                                            }
+                                                            lastName {
+                                                              value
+                                                            }
+                                                            email {
+                                                              value
+                                                            }
+                                                            introduction {
+                                                              value
+                                                            }
+                                                            url
+                                                            mvpAwards
+                                                            country{targetItem{name}}
             
-          }
-        }
-      }
-      totalCount
-      pageInfo {
-        startCursor
-        endCursor
-        hasNextPage
-        hasPreviousPage
-      }
-    }
-  }
-}";
+                                                          }
+                                                        }
+                                                      }
+                                                      totalCount
+                                                      pageInfo {
+                                                        startCursor
+                                                        endCursor
+                                                        hasNextPage
+                                                        hasPreviousPage
+                                                      }
+                                                    }
+                                                  }
+                                                }";
     }
 
     [Flags]
