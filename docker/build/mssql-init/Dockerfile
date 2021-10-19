@@ -11,5 +11,3 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 
 COPY --from=headless_services_resources C:\module\db c:\resources\headless_services_data
 COPY --from=spe_resources C:\module\db c:\resources\spe_data
-
-ENTRYPOINT .\DeployDatabases.ps1 -ResourcesDirectory c:\resources -SqlServer $env:SQL_SERVER -SqlAdminUser $env:SQL_ADMIN_LOGIN -SqlAdminPassword $env:SQL_ADMIN_PASSWORD -SkipStartingServer

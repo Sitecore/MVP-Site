@@ -84,6 +84,7 @@ services:
       SQL_SERVER: mssql
       SQL_ADMIN_LOGIN: sa
       SQL_ADMIN_PASSWORD: ${SQL_SA_PASSWORD}
+      sitecore_admin_password: ${SITECORE_ADMIN_PASSWORD}
     depends_on:
       mssql:
         condition: service_healthy
@@ -125,6 +126,8 @@ services:
     depends_on:
       solutionBuildOutput:
         condition: service_started
+      mssql-init:
+        condition: service_completed_successfully
     volumes:
       - ${LOCAL_DEPLOY_PATH}\sitecore:C:\deploy
       - ${LOCAL_DATA_PATH}\cd:C:\inetpub\wwwroot\App_Data\logs
@@ -155,6 +158,8 @@ services:
     depends_on:
       solutionBuildOutput:
         condition: service_started
+      mssql-init:
+        condition: service_completed_successfully    
     volumes:
       - ${LOCAL_DEPLOY_PATH}\sitecore:C:\deploy
       - ${LOCAL_DATA_PATH}\cm:C:\inetpub\wwwroot\App_Data\logs
