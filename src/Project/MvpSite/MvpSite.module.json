@@ -53,6 +53,18 @@
             "scope": "SingleItem"
           },
           {
+            "path": "/Award Years",
+            "scope": "SingleItem"
+          },
+          {
+            "path": "/Award Years",
+            "scope": "SingleItem"
+          },
+          {
+            "path": "/MVP Types",
+            "scope": "SingleItem"
+          },
+          {
             "path": "*",
             "scope": "ignored"
           }
@@ -61,10 +73,6 @@
       {
         "name": "ItemBucketsOverride",
         "path": "/sitecore/system/Settings/Buckets/Item Buckets Settings"
-      },
-      {
-        "name": "SemanticsOverride",
-        "path": "/sitecore/templates/System/Templates/Sections/Tagging/Tagging/__Semantics"
       },
       {
         "name": "apikey",
