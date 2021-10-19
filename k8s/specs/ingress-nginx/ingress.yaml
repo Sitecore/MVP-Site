@@ -41,7 +41,7 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: rendering
+          serviceName: mvp-rendering
           servicePort: 80
 
   tls:
