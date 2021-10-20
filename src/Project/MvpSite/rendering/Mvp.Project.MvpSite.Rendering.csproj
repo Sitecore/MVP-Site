@@ -19,7 +19,7 @@
 
 	<ItemGroup>
 	  <Content Remove="compilerconfig.json" />
-	</ItemGroup>
+	</ItemGroup> 
 
 	<ItemGroup>
 	  <None Include="compilerconfig.json" />
@@ -43,6 +43,7 @@
 		<ProjectReference Include="..\..\..\Feature\Navigation\rendering\Mvp.Feature.Navigation.Rendering.csproj" />
 		<ProjectReference Include="..\..\..\Feature\Social\rendering\Mvp.Feature.Social.Rendering.csproj" />
 		<ProjectReference Include="..\..\..\Foundation\User\rendering\Mvp.Foundation.User.Rendering.csproj" />
+		<ProjectReference Include="..\..\..\Foundation\People\rendering\Mvp.Foundation.People.Rendering.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

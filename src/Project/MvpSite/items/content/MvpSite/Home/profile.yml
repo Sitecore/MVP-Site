@@ -13,12 +13,26 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{59D7D3ED-EDF9-408C-A948-3CFBDC93FB91}"
+              p:after="*[1=2]"
+              s:id="{1F4AC79E-97E1-4D32-BC0E-2CBE1F3E3F9C}"
+              s:ph="main" />
+          </d>
+        </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210829T230238Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "41e0542e-d131-4e78-9583-7ad2cc43557a"
+      Value: "6f1f1aee-d242-4d5b-9e7f-e750441eb05c"
     - ID: "b1ece12f-b2c9-44e6-92a3-c5dfd6514b59"
       Hint: Menu Title
       Value: profile
@@ -28,4 +42,4 @@ Languages:
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210829T230238Z
+      Value: 20210928T205724Z

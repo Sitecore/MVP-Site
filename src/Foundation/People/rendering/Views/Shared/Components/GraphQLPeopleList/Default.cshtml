@@ -1,0 +1,83 @@
+﻿@using Mvp.Foundation.People.Extensions;
+@model Mvp.Foundation.People.Services.PeopleSearchResults
+
+
+@{
+	var hasFilterFacets = Model.FilterFacets != null && Model.FilterFacets.Any();
+}
+
+
+@if (Model == null)
+{
+	<div class="container">
+		ERROR
+	</div>
+
+	return;
+}
+<div class="col-12 panel">
+	<section class="mb-4">
+
+		<div>
+			<input type="text" id="search" class="form-control mb-0" placeholder="Search..." value="@Model.keyword">
+			<a href="#!" class="btn btn-flat" onclick="UpdateUrlWithQuery()">Search</a>
+		</div>
+
+	</section>
+</div>
+<div class="col-12 panel">
+	<p class="content"></p><p>MVPs </p>
+	<div class="col-4 panel">
+		@foreach (var facet in Model.Facets)
+		{
+			<article class="panel">
+				<p class="panel-heading">
+					@facet.DisplayName
+				</p>
+
+				@foreach (var facetValue in facet.values)
+				{
+					string checkedValue = facetValue.isChecked ? "checked" : "";
+
+
+
+					<div class="panel-block">
+						<p class="control has-icons-left">
+							<label class="checkbox">
+								<input type="checkbox"
+									   onclick="window.location.assign(decodeURIComponent('@this.Context.Request.UpdateFacetsInUrl($"fc_{facet.name}", facetValue.value, !facetValue.isChecked)'))"
+									   @checkedValue>
+								@facetValue.value.ToUpper() (@facetValue.count)
+							</label>
+						</p>
+					</div>
+				}
+			</article>
+		}
+	</div>
+	<div class="col-8 panel">
+		<ul>
+			@foreach (var person in Model.People)
+			{
+				<li>
+					<a href="@person.url" class="content">
+						<div class="content">
+							<h4>"@person.firstName.value @person.lastName.value "</h4>
+							<p>@person.introduction.value</p>
+							<p>@person.country?.targetItem?.name</p>
+						</div>
+					</a>
+				</li>
+			}
+		</ul><p></p>
+	</div>
+</div>
+
+<script>
+	function UpdateUrlWithQuery() {
+		var urlformat = decodeURIComponent('@this.Context.Request.UpdateKeywordInUrl($"q", "KEYYWORD")');
+		
+		window.location.assign(urlformat.replace("KEYYWORD", document.getElementById("search").value));
+	}
+</script>
+
