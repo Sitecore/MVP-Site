@@ -209,6 +209,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "People", "People", "{3B0E8E
 		src\Foundation\People\People.module.json = src\Foundation\People\People.module.json
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Foundation.User.Sitecore", "src\Foundation\User\sitecore\Mvp.Foundation.User.Sitecore.csproj", "{6A918C58-705F-45AE-A04D-974320671724}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -271,6 +273,10 @@ Global
 		{A45D3974-CE35-4576-9C3D-584188586C78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A45D3974-CE35-4576-9C3D-584188586C78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A45D3974-CE35-4576-9C3D-584188586C78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A918C58-705F-45AE-A04D-974320671724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A918C58-705F-45AE-A04D-974320671724}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A918C58-705F-45AE-A04D-974320671724}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A918C58-705F-45AE-A04D-974320671724}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -316,6 +322,7 @@ Global
 		{C567479E-39AD-4C55-8B54-E9A4908D0339} = {324D4FE7-86EF-43A2-A466-21198CB856AD}
 		{A45D3974-CE35-4576-9C3D-584188586C78} = {C567479E-39AD-4C55-8B54-E9A4908D0339}
 		{3B0E8E42-A529-409C-86D4-E4DC77C5EB62} = {324D4FE7-86EF-43A2-A466-21198CB856AD}
+		{6A918C58-705F-45AE-A04D-974320671724} = {C567479E-39AD-4C55-8B54-E9A4908D0339}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3377439-FD7A-4F3E-8011-06175E0E3100}
