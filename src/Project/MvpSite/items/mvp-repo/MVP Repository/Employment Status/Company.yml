@@ -1,0 +1,26 @@
+﻿---
+ID: "4cd78dd6-433b-421b-93f2-fb9ab9a09c6f"
+Parent: "965852ba-c78d-4a41-8dd8-d8cad7032d4f"
+Template: "37421902-c3c5-49e3-bf4a-a7ee73312993"
+Path: /sitecore/content/MvpSite/MVP Repository/Employment Status/Company
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211011T183724Z
+    - ID: "7e89334b-65af-46ff-abdd-f15a614aa78b"
+      Hint: Name
+      Value: Working for a company which is not a Partner nor a Customer
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d8035fba-c78a-4399-a15a-ddc6c578c11b"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211011T183747Z

@@ -4,13 +4,13 @@
     "includes": [
       {
         "name": "templates",
-        "path": "/sitecore/layout/Renderings/Feature/Forms",
+        "path": "/sitecore/templates/Feature/Forms",
         "allowedPushOperations": "createUpdateAndDelete",
         "scope": "itemAndDescendants"
       },
       {
         "name": "layouts",
-        "path": "/sitecore/templates/Feature/Forms",
+        "path": "/sitecore/layout/Renderings/Feature/Forms",
         "allowedPushOperations": "createUpdateAndDelete",
         "scope": "itemAndDescendants"
       }

@@ -1,0 +1,26 @@
+﻿---
+ID: "05c9539b-503b-4bd0-af31-4d3546ed2f84"
+Parent: "4c7f1805-8cda-440f-8105-a87945e14440"
+Template: "1a9e1888-ff42-4f22-8448-307ec516fa6f"
+Path: /sitecore/content/MvpSite/MVP Repository/MVP Category/Strategy
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211011T183645Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "ed6aa031-6ac0-4ccd-89f0-5d120f4e18a1"
+    - ID: "adf81a5d-c899-424d-a589-5ed32fdf2b47"
+      Hint: Name
+      Value: Strategy
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211011T183927Z
