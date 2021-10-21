@@ -1,0 +1,26 @@
+﻿---
+ID: "2cb87307-33d2-4beb-afd9-542af9151dec"
+Parent: "965852ba-c78d-4a41-8dd8-d8cad7032d4f"
+Template: "37421902-c3c5-49e3-bf4a-a7ee73312993"
+Path: /sitecore/content/MvpSite/MVP Repository/Employment Status/Freelancer
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211011T183728Z
+    - ID: "7e89334b-65af-46ff-abdd-f15a614aa78b"
+      Hint: Name
+      Value: Freelancer/Independent Consultant
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "3b16352b-de91-4294-82b5-5980ce3b6367"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211011T183820Z
