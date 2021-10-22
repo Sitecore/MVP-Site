@@ -5,11 +5,13 @@ ARG SOLUTION_IMAGE
 ARG TOOLS_RESOURCES_IMAGE
 ARG DEVEX_RESOURCES_IMAGE
 ARG JSS_RESOURCES_IMAGE
+ARG SPE_IMAGE
 
 FROM ${SOLUTION_IMAGE} as solution
 FROM ${TOOLS_RESOURCES_IMAGE} as tooling
 FROM ${DEVEX_RESOURCES_IMAGE} AS devex_resources
 FROM ${JSS_RESOURCES_IMAGE} AS jss_resources
+FROM ${SPE_IMAGE} as spe_resources
 FROM ${BASE_IMAGE}
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
@@ -30,3 +32,6 @@ RUN C:\module\tools\Initialize-Content.ps1 -TargetPath C:\inetpub\wwwroot; `
 
 # Copy solution website files
 COPY --from=solution /artifacts/sitecore/ ./
+
+# Add SPE Module
+COPY --from=spe_resources C:\module\cm\content C:\inetpub\wwwroot
