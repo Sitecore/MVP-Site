@@ -15,63 +15,128 @@
 
 	return;
 }
-<div class="col-12 panel">
-	<section class="mb-4">
 
-		<div>
-			<input type="text" id="search" class="form-control mb-0" placeholder="Search..." value="@Model.keyword">
-			<a href="#!" class="btn btn-flat" onclick="UpdateUrlWithQuery()">Search</a>
-		</div>
+<!--Banner Section-->
+<section class="component hero  bg-white small  no-overhang" data-component-name="Hero Banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 side-content">
+                <p class="top">Intro to Sitecore MVP</p>
+                <h1 class="static">Sitecore MVP's'</h1>
+            </div>
+        </div>
+    </div>
+</section>
 
-	</section>
-</div>
-<div class="col-12 panel">
-	<p class="content"></p><p>MVPs </p>
-	<div class="col-4 panel">
-		@foreach (var facet in Model.Facets)
-		{
-			<article class="panel">
-				<p class="panel-heading">
-					@facet.DisplayName
-				</p>
+<!--MVP Search-->
+<section id="mvp-search" class="bg-white" data-component-name="MVP Search">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 side-content">
+                <input type="text" id="search" class="form-control mb-0" placeholder="Search..." value="@Model.keyword">
+                <a href="#!" class="btn btn-flat" onclick="UpdateUrlWithQuery()"></a>
+            </div>
+        </div>
+    </div>
+</section>
 
-				@foreach (var facetValue in facet.values)
+<!--Search Results -->
+<section class="bg-white" data-component-name="MVP Results">
+    <div class="container">
+        <div class="row">
+            <!--Sidebar filtering-->
+            <div class="col-md-3 col-xs-12 mvp-filter">
+                @foreach (var facet in Model.Facets)
+		        {
+                <article class="panel">
+                    <p class="panel-heading">
+                        @facet.DisplayName
+                    </p>
+
+                    @foreach (var facetValue in facet.values)
 				{
 					string checkedValue = facetValue.isChecked ? "checked" : "";
 
 
-
-					<div class="panel-block">
-						<p class="control has-icons-left">
-							<label class="checkbox">
-								<input type="checkbox"
-									   onclick="window.location.assign(decodeURIComponent('@this.Context.Request.UpdateFacetsInUrl($"fc_{facet.name}", facetValue.value, !facetValue.isChecked)'))"
-									   @checkedValue>
-								@facetValue.value.ToUpper() (@facetValue.count)
-							</label>
-						</p>
-					</div>
+                    <div class="panel-block">
+                        <p class="control has-icons-left">
+                            <label class="checkbox">
+                                <input type="checkbox"
+                                       onclick="window.location.assign(decodeURIComponent('@this.Context.Request.UpdateFacetsInUrl($"fc_{facet.name}", facetValue.value, !facetValue.isChecked)'))"
+                                       @checkedValue>
+                                @facetValue.value.ToUpper() (@facetValue.count)
+                            </label>
+                        </p>
+                    </div>
 				}
-			</article>
-		}
-	</div>
-	<div class="col-8 panel">
-		<ul>
-			@foreach (var person in Model.People)
-			{
-				<li>
-					<a href="@person.url" class="content">
-						<div class="content">
-							<h4>"@person.firstName.value @person.lastName.value "</h4>
-							<p>@person.introduction.value</p>
-							<p>@person.country?.targetItem?.name</p>
-						</div>
-					</a>
-				</li>
-			}
-		</ul><p></p>
-	</div>
-</div>
+                </article>
+		        }
+            </div>
+            
+            <!--MVP Results Section-->
+            <div class="col-md-9 col-xs-12">
+
+                <!--MVP Facet Results-->
+                <div class="mvp-facet-results row">
+                    <div class="badge badge-pill badge-primary">Technology <a href="#">X</a></div>
+                </div>
+                
+                <!--MVP Results Count-->
+                <div class="mvp-results-toolbar row">
+                    <div class="mvp-results-summary">
+                        Results: 1 - 20 of 100
+                    </div>
+                </div>
+
+                <!--MVP Results Cards-->
+                <div class="mvp-results-entries row">
+                    @foreach (var person in Model.People)
+			        {
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="card rounded-0">
+                            <a href="@person.url" class="content">
+                                <!--Get users latest MVP year-->
+                                <div class="mvp-year">2021</div>
+                                <img class="card-img-top" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" alt="Grivatar User Profile">
+                                <div class="card-body">
+                                    <div class="mvp-category">Technology</div>
+                                    <h5 class="card-title">@person.firstName.value @person.lastName.value </h5>
+                                    <!-- Commenting out year for go-live <p class="card-text">Country: United States @person.country?.targetItem?.name</p> -->
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    }
+                </div>
+
+                <!--MVP Pagination-->
+                <div class="mvp-pagination row">
+                    <nav class="mx-auto" aria-label="MVP Pagination">
+                        <ul class="pagination">
+                            <li class="page-item page-previous">
+                                <!--Only show if you are on a page greater than pg.1-->
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <!-- Note: Active class added to current page-->
+                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item page-next">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+         </div>
+     </div>
+</section>
 
 <script>
 	function UpdateUrlWithQuery() {
