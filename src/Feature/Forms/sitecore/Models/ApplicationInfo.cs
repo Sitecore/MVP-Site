@@ -7,9 +7,16 @@ namespace Mvp.Feature.Forms.Models
 {
     public class ApplicationInfo
     {
-        public String FirstName { get; set; }
-        public String LastName { get; set; }
+        
         public string ApplicationStep { get; set; }
-        public Guid Application { get; set; }
+        public Application Application { get; set; }
+   
+      //  public Person Person { get; set; }
+    }
+
+    public class ApplicationLists {
+        public IEnumerable<Country> Countries { get; set; }
+        public IEnumerable<EmploymentStatus> EmploymentStatus { get; set; }
+        public IEnumerable<MVPCategory> MVPCategories { get; set; }
     }
 }

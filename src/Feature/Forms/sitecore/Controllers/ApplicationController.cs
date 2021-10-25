@@ -10,56 +10,81 @@ using System.Linq;
 using System.Web.Mvc;
 using Mvp.Feature.Forms.Search;
 using Mvp.Feature.Forms.Models;
+using Sitecore.Data.Fields;
 
 namespace Mvp.Feature.Forms.Controllers
 {
     public class ApplicationController : SitecoreController
     {
-        [HttpPost]
-        public JsonResult GetApplicationInfo(string identifier)
+        [HttpGet]
+        public JsonResult GetApplicationInfo()
         {
             //TODO:need to pass identifier from the currently logged in user
-            if (string.IsNullOrEmpty(identifier))
-                return null;
 
-            var peopleFolder = Sitecore.Context.Database.GetItem(Constants.People.Folder.FOLDER_ID);
-            var searchResults = SearchPeople(peopleFolder, identifier);
-            
-            if (searchResults != null && searchResults.Any())
+            //if (Sitecore.Context.IsLoggedIn && Sitecore.Context.User.Identity.IsAuthenticated) 
+            if (true) //just for dev
             {
-                var person = searchResults.FirstOrDefault();
-                var personItem  = Sitecore.Context.Database.GetItem(person.Document.ItemId);
+                var identifier = "123456m";// Sitecore.Context.User.Identity.Name;
+                
+                var searchResults = Helper.SearchPeopleByOktaId( identifier);
 
-                var result = new ApplicationInfo()
+                if (searchResults != null && searchResults.Any())
                 {
-                    FirstName = personItem.Fields[Constants.People.Fields.PEOPLE_FIRST_NAME].Value,
-                    LastName = personItem.Fields[Constants.People.Fields.PEOPLE_LAST_NAME].Value,
-                };
+                    var person = searchResults.FirstOrDefault();
+                    var personItem = Sitecore.Context.Database.GetItem(person.Document.ItemId);
 
-                //Set Application Info for result
-                var applicationStep = personItem.Fields[Constants.People.Fields.PEOPLE_APPLICATION_STEP].Value;
-                var applicationStepItem = Sitecore.Context.Database.GetItem(new ID(applicationStep));
+                    if (personItem != null)
+                    {
+                        //Set Application Info for result
+                        var applicationStep = personItem.Fields[Constants.Person.Template.Fields.PEOPLE_APPLICATION_STEP].Value;
+                        var applicationStepItem = Sitecore.Context.Database.GetItem(new ID(applicationStep));
 
-                result.ApplicationStep = applicationStepItem.Fields[Constants.ApplicationStep.Fields.APPLICATION_STEP_VIEW_PATH].Value;
-                return Json(result);
+                        var applicationItemId= personItem.Fields[Constants.Person.Template.Fields.PEOPLE_APPLICATION]?.Value;
+                        var applicationModel= Helper.GetApplicationModel(applicationItemId);
+                      
+                        if (applicationModel != null) {
+                            var applicationInfoModel = new ApplicationInfo
+                            {
+                                Application = applicationModel,
+                                ApplicationStep = applicationStepItem.Fields[Constants.ApplicationStep.Fields.APPLICATION_STEP_VIEW_PATH].Value
+                            };
+
+                            return Json(applicationInfoModel, JsonRequestBehavior.AllowGet);
+                        }
+
+                        return Json(new { result = false, error = "application can't be found." }, JsonRequestBehavior.AllowGet);
+                    }
+                    else {
+                        return Json(new { result = false, error = "person can't be found." }, JsonRequestBehavior.AllowGet);
+                    }
+                }
             }
-
-            return Json(new { result = false, error = "Applicable person not found." });
-
+            return Json(new { result = false, error = "Please login first." }, JsonRequestBehavior.AllowGet);
+        
         }
 
-        private SearchResults<PeopleDataItem> SearchPeople(Item sourceItem, string identifier)
+
+        [HttpGet]
+        public JsonResult GetApplicationLists()
         {
-            var indexable = new SitecoreIndexableItem(sourceItem);
-            using (var context = ContentSearchManager.GetIndex(indexable).CreateSearchContext())
+            //TODO:need to pass identifier from the currently logged in user
+
+            //if (Sitecore.Context.IsLoggedIn && Sitecore.Context.User.Identity.IsAuthenticated) 
+            if (true) //just for dev
             {
-                //original search query conditions that pull back blog items with tags in common
-                var searchQuery = context.GetQueryable<PeopleDataItem>().Where(x => x.TemplateId == Constants.People.Template.TEMPLATE_ID && x.Paths.Contains(sourceItem.ID));
-                var predicate = PredicateBuilder.True<PeopleDataItem>();
-                predicate = predicate.And(x => x.Email.Contains(identifier));
-                searchQuery = searchQuery.Where(predicate);
-                return searchQuery.GetResults();
+                 var applicationListsModel = new ApplicationLists{
+                                Countries  = Helper.GetCountries(),
+                                EmploymentStatus = Helper.GetEmploymentStatus(),
+                                MVPCategories = Helper.GetMVPCategories(),
+                        };
+
+                    return Json(applicationListsModel, JsonRequestBehavior.AllowGet);
             }
+
+            return Json(new { result = false, error = "please signin to get the application lists." }, JsonRequestBehavior.AllowGet);
+
         }
+
     }
 }
+ 
