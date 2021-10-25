@@ -73,6 +73,26 @@
             "scope": "itemAndDescendants"
           },
           {
+            "path": "/States",
+            "scope": "SingleItem"
+          },
+          {
+            "path": "/Applications",
+            "scope": "SingleItem"
+          },
+          {
+            "path": "/Application Steps",
+            "scope": "itemAndDescendants"
+          },
+          {
+            "path": "/Employment Status",
+            "scope": "itemAndDescendants"
+          },
+          {
+            "path": "/MVP Category",
+            "scope": "itemAndDescendants"
+          },
+          {
             "path": "*",
             "scope": "ignored"
           }
