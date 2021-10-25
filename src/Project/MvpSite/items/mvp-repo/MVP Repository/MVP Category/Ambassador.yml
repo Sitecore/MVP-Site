@@ -1,7 +1,7 @@
 ﻿---
-ID: "eea97d66-ca5b-4da8-be9e-bfe79bace0b6"
-Parent: "4c7f1805-8cda-440f-8105-a87945e14440"
-Template: "1a9e1888-ff42-4f22-8448-307ec516fa6f"
+ID: "7768de06-8cae-45cc-b644-15d41bd168d1"
+Parent: "e2f6ea22-562b-4d70-a444-f5bbc81c183e"
+Template: "cdd8427e-fa86-4549-a647-d665164f2f77"
 Path: /sitecore/content/MvpSite/MVP Repository/MVP Category/Ambassador
 Languages:
 - Language: en
@@ -10,17 +10,25 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20211011T183637Z
+      Value: 20211013T200127Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d4d39361-511e-4330-b37b-5287df2522f6"
-    - ID: "adf81a5d-c899-424d-a589-5ed32fdf2b47"
-      Hint: Name
-      Value: Ambassador
+      Value: "fefe0b55-2100-4eae-8aab-a282bfffa558"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211011T183923Z
+      Value: 20211025T172513Z
+    - ID: "e20fda97-3f0c-49a0-9257-d55d006a2efe"
+      Hint: Active
+      Value: 1
