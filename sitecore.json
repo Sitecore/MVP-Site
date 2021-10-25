@@ -3,7 +3,6 @@
   "modules": [
     "src/*/*/*.module.json"
   ],
-  "plugins": [],
   "serialization": {
     "defaultMaxRelativeItemPathLength": 100,
     "defaultModuleRelativeSerializationPath": "items"
