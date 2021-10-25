@@ -1,15 +1,19 @@
 {
     "namespace": "Foundation.People",
     "items": {
-        "includes": [
-          {
-            "name": "templates",
-            "path": "/sitecore/templates/Foundation/People"
-          },
-          {
-            "name": "MVPTags",
-            "path": "/sitecore/system/Settings/Buckets/MVPTags"
-          }
-        ]
+      "includes": [
+        {
+          "name": "templates",
+          "path": "/sitecore/templates/Foundation/People"
+        },
+        {
+          "name": "renderings",
+          "path": "/sitecore/layout/Renderings/Foundation/People"
+        },
+        {
+          "name": "MVPTags",
+          "path": "/sitecore/system/Settings/Buckets/MVPTags"
+        }
+      ]
     }
 }

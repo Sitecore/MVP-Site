@@ -2,11 +2,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Identity.Web;
 using Mvp.Feature.BasicContent.Extensions;
 using Mvp.Feature.Hero.Extensions;
 using Mvp.Feature.Navigation.Extensions;
@@ -15,11 +17,20 @@ using Mvp.Foundation.User.Extensions;
 using Mvp.Project.MvpSite.Configuration;
 using Mvp.Feature.Forms.Extensions;
 using Sitecore.AspNet.ExperienceEditor;
+using Mvp.Foundation.People.Extensions;
 using Sitecore.AspNet.RenderingEngine.Extensions;
 using Sitecore.AspNet.RenderingEngine.Localization;
 using Sitecore.LayoutService.Client.Extensions;
 using Sitecore.LayoutService.Client.Newtonsoft.Extensions;
 using Sitecore.LayoutService.Client.Request;
+using Sitecore.AspNet.ExperienceEditor;
+using System.Collections.Generic;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using Mvp.Project.MvpSite.Configuration;
+using Sitecore.AspNet.RenderingEngine.Localization;
+using Microsoft.AspNetCore.HttpOverrides;
+using Mvp.Foundation.People.Infrastructure;
 
 namespace Mvp.Project.MvpSite.Rendering
 {
@@ -68,6 +79,15 @@ namespace Mvp.Project.MvpSite.Rendering
             // Configure Okta Integration
             services.AddFoundationUser(this.DotNetConfiguration);
 
+            //services.Configure<CookiePolicyOptions>(options =>
+            //{
+            //    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+            //    options.CheckConsentNeeded = context => true;
+            //    options.MinimumSameSitePolicy = SameSiteMode.Unspecified;
+            //    // Handling SameSite cookie according to https://docs.microsoft.com/en-us/aspnet/core/security/samesite?view=aspnetcore-3.1
+            //    options.HandleSameSiteCookieCompatibility();
+            //});
+
             // Register the Sitecore Rendering Engine services.
             services.AddSitecoreRenderingEngine(options =>
             {
@@ -76,6 +96,7 @@ namespace Mvp.Project.MvpSite.Rendering
                     .AddFoundationUser()
                     .AddFeatureBasicContent()
                     .AddFeatureNavigation()
+                    .AddFoundationPeople()
                     .AddFeatureHero()
                     .AddFeatureSocial()
                     .AddFeatureForms()
@@ -96,13 +117,13 @@ namespace Mvp.Project.MvpSite.Rendering
                         options.ApplicationUrl = Configuration.RenderingHostUri;
                     }
                 });
-
+            services.AddFoundationPeople();
             // Enable support for robot detection.
             //services.AddSitecoreVisitorIdentification(options =>
             //{
-                // Usually the SitecoreInstanceUri is same host as the Layout Service, but it can be any Sitecore CD/CM
-                // instance which shares same AspNet session with Layout Service. This address should be accessible
-                // from the Rendering Host and will be used to proxy robot detection scripts.
+            // Usually the SitecoreInstanceUri is same host as the Layout Service, but it can be any Sitecore CD/CM
+            // instance which shares same AspNet session with Layout Service. This address should be accessible
+            // from the Rendering Host and will be used to proxy robot detection scripts.
             //    options.SitecoreInstanceUri = Configuration.InstanceUri;
             //});
         }
@@ -152,6 +173,8 @@ namespace Mvp.Project.MvpSite.Rendering
 
             // Configure Okta Integration
             app.UseFoundationUser();
+
+            // app.UseCookiePolicy();
 
             // Enable proxying of Sitecore robot detection scripts
             //app.UseSitecoreVisitorIdentification();
