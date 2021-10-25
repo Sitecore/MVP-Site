@@ -25,7 +25,8 @@ namespace Mvp.Feature.Forms.Models
         public string GitHub { get; set; }
         public string Twitter { get; set; }
         public string Other { get; set; }
-        public string OnlineAcvitity { get; set; }
-        public string OfflineAcvitity { get; set; }
+        public string OnlineActivity { get; set; }
+        public string OfflineActivity { get; set; }
+ 
     }
 }

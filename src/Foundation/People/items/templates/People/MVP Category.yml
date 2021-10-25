@@ -1,21 +1,15 @@
 ﻿---
-ID: "1a9e1888-ff42-4f22-8448-307ec516fa6f"
+ID: "cdd8427e-fa86-4549-a647-d665164f2f77"
 Parent: "17003d0b-e7ca-4858-89d3-e70962f16b93"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
 Path: /sitecore/templates/Foundation/People/MVP Category
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: apps/32x32/medal.png
+  Value: Apps/32x32/Cup.png
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
   Value: "{1930BBEB-7805-471A-A3BE-4858AC7CF696}"
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 0
-- ID: "f7d48a55-2158-4f02-9356-756654404f73"
-  Hint: __Standard values
-  Value: "{50FC84A3-74B1-4E3E-B277-C230E62DA0D0}"
 Languages:
 - Language: en
   Versions:
@@ -23,14 +17,14 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20211011T183051Z
+      Value: 20211013T140027Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "de211792-eb42-4dc9-bc2c-304063c18c9e"
+      Value: "1f6f397f-5f3d-47ff-8394-935a9702b356"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211021T160622Z
+      Value: 20211025T171911Z

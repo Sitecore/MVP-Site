@@ -2,7 +2,7 @@
 ID: "67cae6b9-7aec-474b-b1ad-7a59355ac9d6"
 Parent: "cdd8427e-fa86-4549-a647-d665164f2f77"
 Template: "e269fbb5-3750-427a-9149-7aa950b49301"
-Path: /sitecore/templates/Foundation/People/MVP Type/Details
+Path: /sitecore/templates/Foundation/People/MVP Category/Details
 Languages:
 - Language: en
   Versions:
@@ -13,11 +13,11 @@ Languages:
       Value: 20211013T195806Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "bcd9cf3a-c97e-45ed-b651-682be14e087c"
+      Value: "0eefc7ef-042d-4561-b169-9f2ab759c502"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211013T195806Z
+      Value: 20211022T164139Z

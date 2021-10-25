@@ -53,16 +53,24 @@
             "scope": "SingleItem"
           },
           {
-            "path": "/Award Years",
+            "path": "/States",
             "scope": "SingleItem"
           },
           {
-            "path": "/Award Years",
+            "path": "/Applications",
             "scope": "SingleItem"
           },
           {
-            "path": "/MVP Types",
-            "scope": "SingleItem"
+            "path": "/Application Steps",
+            "scope": "itemAndDescendants"
+          },
+          {
+            "path": "/Employment Status",
+            "scope": "itemAndDescendants"
+          },
+          {
+            "path": "/MVP Category",
+            "scope": "itemAndDescendants"
           },
           {
             "path": "/States",
@@ -93,6 +101,10 @@
       {
         "name": "ItemBucketsOverride",
         "path": "/sitecore/system/Settings/Buckets/Item Buckets Settings"
+      },
+      {
+        "name": "SemanticsOverride",
+        "path": "/sitecore/templates/System/Templates/Sections/Tagging/Tagging/__Semantics"
       },
       {
         "name": "apikey",

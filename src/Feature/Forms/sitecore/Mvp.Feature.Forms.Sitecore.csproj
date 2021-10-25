@@ -60,10 +60,16 @@
   <ItemGroup>
     <Content Include="App_Config\Include\Feature\Feature.Forms.config" />
     <Compile Include="Constants\ApplicationStep.cs" />
-    <Compile Include="Constants\People.cs" />
+    <Compile Include="Constants\Application.cs" />
+    <Compile Include="Constants\MVPCategory.cs" />
+    <Compile Include="Constants\Country.cs" />
+    <Compile Include="Constants\EmploymentStatus.cs" />
+    <Compile Include="Constants\Person.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="Models\Application.cs" />
     <Compile Include="Models\ApplicationInfo.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\MVPCategory.cs" />
     <Compile Include="Models\EmploymentStatus.cs" />

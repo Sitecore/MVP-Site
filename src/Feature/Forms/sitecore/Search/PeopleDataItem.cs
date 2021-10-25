@@ -22,5 +22,8 @@ namespace Mvp.Feature.Forms.Search
 
         [Sitecore.ContentSearch.IndexField("application_sm")]
         public Guid Application { get; set; }
+
+        [Sitecore.ContentSearch.IndexField("okta_id")]
+        public String OktaId { get;  set; }
     }
 }
