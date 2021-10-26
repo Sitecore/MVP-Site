@@ -117,7 +117,7 @@ namespace Mvp.Feature.Forms.Controllers
             return Json(appModel);
         }
 
-        [HttpPost("welcome")]
+        [HttpPost]
         public IActionResult Welcome()
         {
             try

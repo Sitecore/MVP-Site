@@ -1,38 +1,66 @@
 ﻿$(document).ready(function () {
-	
-			//Check if user email cookie has been set, if not, make ajax request to set it
-            var userEmail = getCookie('user_email');
-            if (!userEmail) {
-                $.ajax({
-                    url: '/GetUserEmailClaim',
-                    type: 'get',
-                    crossDomain: true,
-                    dataType: 'json',
-                    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-                    success: function (data) {
-                        setCookie('user_email', data);
+
+    $("#btnStep1").click(function (event) {
+        'use strict'
+        var forms = document.querySelectorAll('#form_step1')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault()
+                    if (!form.checkValidity()) {
+                        event.stopPropagation()
                     }
-                });
-            }
+                    else {
+                        $.ajax({
+                            url: '/submitStep1',
+                            type: 'post',
+                            dataType: 'json',
+                            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                            success: function (data) {
+                                alert(data);
+                            }
+                        });
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    });
+			//Check if user email cookie has been set, if not, make ajax request to set it
+   //         var userEmail = getCookie('user_email');
+   //         if (!userEmail) {
+   //             $.ajax({
+   //                 url: '/GetUserEmailClaim',
+   //                 type: 'get',
+   //                 crossDomain: true,
+   //                 dataType: 'json',
+   //                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+   //                 success: function (data) {
+   //                     setCookie('user_email', data);
+   //                 }
+   //             });
+   //         }
 			
-			//Only make this check if the application form exists on the page
-			if ($('#application-form').length)
-			{
-				$.ajax({
-					type: 'POST',
-					url: 'https://mvp-cd.sc.localhost/Application/GetApplicationInfo',
-					crossDomain: true,
-					data: {"identifier":getCookie('user_email')},
-					dataType: 'json',
-					success: function(responseData, textStatus, jqXHR) {
-						var value = responseData.someKey;
-						alert(value);
-					},
-					error: function (responseData, textStatus, errorThrown) {
-						alert('POST failed.');
-					}
-				});
-			}
+			////Only make this check if the application form exists on the page
+			//if ($('#application-form').length)
+			//{
+			//	$.ajax({
+			//		type: 'POST',
+			//		url: 'https://mvp-cd.sc.localhost/Application/GetApplicationInfo',
+			//		crossDomain: true,
+			//		data: {"identifier":getCookie('user_email')},
+			//		dataType: 'json',
+			//		success: function(responseData, textStatus, jqXHR) {
+			//			var value = responseData.someKey;
+			//			alert(value);
+			//		},
+			//		error: function (responseData, textStatus, errorThrown) {
+			//			alert('POST failed.');
+			//		}
+			//	});
+			//}
 
 
 
@@ -123,55 +151,55 @@
             //    });
             //});
 
-            $("#btnWelcome").click(function (event) {
+            //$("#btnWelcome").click(function (event) {
 
-                event.preventDefault();
-                var form = $('#welcomeForm');
-                var method = form.attr('method');
-                var url = form.attr('action');
+            //    event.preventDefault();
+            //    var form = $('#welcomeForm');
+            //    var method = form.attr('method');
+            //    var url = form.attr('action');
 
-                if ($('#welcomeForm')[0].checkValidity() === false) {
-                    event.stopPropagation();
-                    $('.form-check-input').addClass('is-invalid');
-                } else {
-                    var jsonData = {};
-                    $.each($(form).serializeArray(), function () {
-                        jsonData[this.name] = this.value;
-                    });
-                    var data = JSON.stringify(jsonData);
-                    console.log(data);
-                    ajaxCallRequest(method, url, data);
-                }
+            //    if ($('#welcomeForm')[0].checkValidity() === false) {
+            //        event.stopPropagation();
+            //        $('.form-check-input').addClass('is-invalid');
+            //    } else {
+            //        var jsonData = {};
+            //        $.each($(form).serializeArray(), function () {
+            //            jsonData[this.name] = this.value;
+            //        });
+            //        var data = JSON.stringify(jsonData);
+            //        console.log(data);
+            //        ajaxCallRequest(method, url, data);
+            //    }
 
 
 
-            });
+            //});
 
-            function ajaxCallRequest(f_method, f_url, f_data) {
-                $("#dataSent").val(unescape(f_data));
-                var f_contentType = 'application/x-www-form-urlencoded; charset=UTF-8';
-                $.ajax({
-                    url: f_url,
-                    type: f_method,
-                    contentType: f_contentType,
-                    dataType: 'json',
-                    data: f_data,
-                    success: function (data) {
-                        var jsonResult = JSON.stringify(data);
-                        $("#results").val(unescape(jsonResult));
-                    }
-                });
-            }
+            //function ajaxCallRequest(f_method, f_url, f_data) {
+            //    $("#dataSent").val(unescape(f_data));
+            //    var f_contentType = 'application/x-www-form-urlencoded; charset=UTF-8';
+            //    $.ajax({
+            //        url: f_url,
+            //        type: f_method,
+            //        contentType: f_contentType,
+            //        dataType: 'json',
+            //        data: f_data,
+            //        success: function (data) {
+            //            var jsonResult = JSON.stringify(data);
+            //            $("#results").val(unescape(jsonResult));
+            //        }
+            //    });
+            //}
 
-            function setCookie(key, value) {
-                var expires = new Date();
-                expires.setTime(expires.getTime() + 31536000000); //1 year  
-                document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
-            }
+            //function setCookie(key, value) {
+            //    var expires = new Date();
+            //    expires.setTime(expires.getTime() + 31536000000); //1 year  
+            //    document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+            //}
 
-            function getCookie(key) {
-                var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
-                return keyValue ? keyValue[2] : null;
-            }
+            //function getCookie(key) {
+            //    var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+            //    return keyValue ? keyValue[2] : null;
+            //}
 
         });

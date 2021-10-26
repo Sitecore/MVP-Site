@@ -196,12 +196,18 @@ namespace Mvp.Project.MvpSite.Rendering
                 );
 
                 endpoints.MapControllerRoute(
-                    "application",
+                    "getUserEmailClaim",
                     "getUserEmailClaim",
                     new { controller = "Application", action = "GetUserEmailClaim" }
                 );
 
-              
+                endpoints.MapControllerRoute(
+                    "submitStep1",
+                    "submitStep1",
+                    new { controller = "Application", action = "Welcome" }
+                );
+
+
 
                 // Enables the default Sitecore URL pattern with a language prefix.
                 endpoints.MapSitecoreLocalizedRoute("sitecore", "Index", "Default");

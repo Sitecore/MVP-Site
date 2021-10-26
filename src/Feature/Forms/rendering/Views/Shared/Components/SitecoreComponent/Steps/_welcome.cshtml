@@ -1,4 +1,4 @@
-﻿<form id="welcomeForm" class="form-horizontal" method="post" action="/submitApplication/">
+﻿<form id="form_step1"  class="form-horizontal needs-validation" novalidate>
     <div class="form-card">
         <div class="row">
             <div class="col-7">
@@ -11,13 +11,16 @@
     </div>
     <div class="form-group">
         <div class="form-check">
-            <label class="form-check-label" for="chkTerms">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+            <label class="form-check-label" for="invalidCheck">
                 By submitting my information, I confirm that I have read and agree to the Sitecore Privacy Policy, which explains how Sitecore collects, processes and shares my personal data. I consent to my data being processed in accordance with Sitecore’s Privacy Policy so that Sitecore can optimize my experience with the Sitecore brand. I understand that I can opt-out at any time.
             </label>
-            <br />
-            <input class="form-check-input" type="checkbox" value="" id="chkTerms" required>
-            <br />
+            <div class="invalid-feedback">
+                You must agree before begining your application.
+            </div>
         </div>
     </div>
-    <button class="btn btn-primary" id="btnWelcome" type="submit">Next</button>
+    <div class="col-12">
+        <button id="btnStep1" class="btn btn-primary" type="submit">Begin Application</button>
+    </div>
 </form>
