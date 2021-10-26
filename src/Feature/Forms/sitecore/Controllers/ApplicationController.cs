@@ -14,17 +14,15 @@ using Sitecore.Data.Fields;
 
 namespace Mvp.Feature.Forms.Controllers
 {
-    public class ApplicationController : SitecoreController
+    public class ApplicationController : Controller
     {
         [HttpGet]
         public JsonResult GetApplicationInfo()
         {
-            //TODO:need to pass identifier from the currently logged in user
-
-            //if (Sitecore.Context.IsLoggedIn && Sitecore.Context.User.Identity.IsAuthenticated) 
-            if (true) //just for dev
+            if (Sitecore.Context.User.Identity.IsAuthenticated) 
             {
-                var identifier = "123456m";// Sitecore.Context.User.Identity.Name;
+                
+                var identifier = ((System.Security.Claims.ClaimsIdentity)Sitecore.Context.User.Identity).FindFirst("jti").Value;
                 
                 var searchResults = Helper.SearchPeopleByOktaId( identifier);
 
@@ -35,7 +33,6 @@ namespace Mvp.Feature.Forms.Controllers
 
                     if (personItem != null)
                     {
-                        //Set Application Info for result
                         var applicationStep = personItem.Fields[Constants.Person.Template.Fields.PEOPLE_APPLICATION_STEP].Value;
                         var applicationStepItem = Sitecore.Context.Database.GetItem(new ID(applicationStep));
 
@@ -67,10 +64,7 @@ namespace Mvp.Feature.Forms.Controllers
         [HttpGet]
         public JsonResult GetApplicationLists()
         {
-            //TODO:need to pass identifier from the currently logged in user
-
-            //if (Sitecore.Context.IsLoggedIn && Sitecore.Context.User.Identity.IsAuthenticated) 
-            if (true) //just for dev
+            if (Sitecore.Context.User.Identity.IsAuthenticated) 
             {
                  var applicationListsModel = new ApplicationLists{
                                 Countries  = Helper.GetCountries(),

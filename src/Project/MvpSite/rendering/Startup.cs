@@ -174,6 +174,8 @@ namespace Mvp.Project.MvpSite.Rendering
             // Configure Okta Integration
             app.UseFoundationUser();
 
+            app.UseFeatureForms();
+
             // app.UseCookiePolicy();
 
             // Enable proxying of Sitecore robot detection scripts
@@ -199,17 +201,7 @@ namespace Mvp.Project.MvpSite.Rendering
                     new { controller = "Application", action = "GetUserEmailClaim" }
                 );
 
-                endpoints.MapControllerRoute(
-                    "application",
-                    "getApplicationInfo",
-                    new { controller = "Application", action = "GetApplicationInfo" }
-                );
-
-                endpoints.MapControllerRoute(
-                    "application",
-                    "submitApplication",
-                    new { controller = "Application", action = "SubmitStep" }
-                );
+              
 
                 // Enables the default Sitecore URL pattern with a language prefix.
                 endpoints.MapSitecoreLocalizedRoute("sitecore", "Index", "Default");
