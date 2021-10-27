@@ -24,14 +24,14 @@ Languages:
       Value: "Step 1 - Welcome"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "14d7669f-8535-4080-94c0-3b7d0aa8226b"
+      Value: "890960dc-7be1-45fd-9f9d-300cc0277a32"
     - ID: "b06c3aac-d999-4a81-bbd9-eb53d2b791a1"
-      Hint: View Path
-      Value: ~/Views/Shared/Components/SitecoreComponent/Steps/_welcome.cshtml
+      Hint: Step ID
+      Value: step_welcome
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211013T235531Z
+      Value: 20211027T222105Z

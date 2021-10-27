@@ -24,14 +24,14 @@ Languages:
       Value: "Step 3 - Personal Information"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ba7007ef-e8a2-47e0-8103-57a257de0865"
+      Value: "4e9ac38d-6e5e-491e-bec8-c9e625b77889"
     - ID: "b06c3aac-d999-4a81-bbd9-eb53d2b791a1"
-      Hint: View Path
-      Value: ~/Views/Shared/Components/SitecoreComponent/Steps/_personal.cshtml
+      Hint: Step ID
+      Value: step_personal
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211013T235531Z
+      Value: 20211027T222123Z

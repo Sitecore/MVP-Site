@@ -24,14 +24,14 @@ Languages:
       Value: "Step 4 - Objectives"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0b6ed6d7-8c31-4c42-9bd3-e3d0a493848e"
+      Value: "bbd974cd-b45c-4704-bfd0-f520cf6806b1"
     - ID: "b06c3aac-d999-4a81-bbd9-eb53d2b791a1"
-      Hint: View Path
-      Value: ~/Views/Shared/Components/SitecoreComponent/Steps/_objectives.cshtml
+      Hint: Step ID
+      Value: step_objectives
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211013T235537Z
+      Value: 20211027T222130Z

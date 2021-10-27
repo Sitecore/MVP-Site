@@ -6,23 +6,38 @@
                 <p>Fill all form field to go to next step</p>
                 <!-- progressbar -->
                 <ul id="progressbar">
-                    <li id="welcome" class="active"><strong>Welcome</strong></li>
-                    <li id="category"><strong>Category</strong></li>
-                    <li id="personal"><strong>Personal</strong></li>
-                    <li id="objectives"><strong>Objectives</strong></li>
-                    <li id="socials"><strong>Socials</strong></li>
-                    <li id="contributions"><strong>Contributions</strong></li>
-                    <li id="confirmation"><strong>Confirmation</strong></li>
+                    <li id="welcome" data-step="1"><strong>Welcome</strong></li>
+                    <li id="category" data-step="2"><strong>Category</strong></li>
+                    <li id="personal" data-step="3"><strong>Personal</strong></li>
+                    <li id="objectives" data-step="4"><strong>Objectives</strong></li>
+                    <li id="socials" data-step="5"><strong>Socials</strong></li>
+                    <li id="contributions" data-step="6"><strong>Contributions</strong></li>
+                    <li id="confirmation" data-step="7"><strong>Confirmation</strong></li>
                 </ul>
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <br>
-                <div class="appStep" id="step_welcome">
+                <div class="appStep fieldSet" id="step_welcome" data-step="1" hidden>
                     @Html.Partial("~/Views/Shared/Components/SitecoreComponent/Steps/_welcome.cshtml")
                 </div>
-                <div class="appStep" id="step_category" hidden>
+                <div class="appStep fieldSet" id="step_category" data-step="2" hidden>
                     @Html.Partial("~/Views/Shared/Components/SitecoreComponent/Steps/_category.cshtml")
+                </div>
+                <div class="appStep fieldSet" id="step_personal" data-step="3" hidden>
+                    @Html.Partial("~/Views/Shared/Components/SitecoreComponent/Steps/_personal.cshtml")
+                </div>
+                <div class="appStep fieldSet" id="step_objectives" data-step="4" hidden>
+                    @Html.Partial("~/Views/Shared/Components/SitecoreComponent/Steps/_objectives.cshtml")
+                </div>
+                <div class="appStep fieldSet" id="step_socials" data-step="5" hidden>
+                    @Html.Partial("~/Views/Shared/Components/SitecoreComponent/Steps/_socials.cshtml")
+                </div>
+                <div class="appStep fieldSet" id="step_contributions" data-step="6" hidden>
+                    @Html.Partial("~/Views/Shared/Components/SitecoreComponent/Steps/_contributions.cshtml")
+                </div>
+                <div class="appStep fieldSet" id="step_confirmation" data-step="7" hidden>
+                    @Html.Partial("~/Views/Shared/Components/SitecoreComponent/Steps/_confirmation.cshtml")
                 </div>
             </div>
         </div>

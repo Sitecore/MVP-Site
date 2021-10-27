@@ -24,15 +24,14 @@ Languages:
       Value: "Step 5 - Socials"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "70e17747-eece-4970-bf54-61d97157800b"
+      Value: "6e82f5e7-8038-4d42-98eb-36556b84230a"
     - ID: "b06c3aac-d999-4a81-bbd9-eb53d2b791a1"
-      Hint: View Path
-      Value: |
-        "~/Views/Shared/Components/SitecoreComponent/Steps/_socials.cshtml
+      Hint: Step ID
+      Value: step_socials
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211013T235542Z
+      Value: 20211027T222137Z

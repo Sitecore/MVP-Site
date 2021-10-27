@@ -24,14 +24,14 @@ Languages:
       Value: "Step 6 - Contributions"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "413dbefe-da29-44fd-b92e-68172124d89a"
+      Value: "5bbe7070-cfd8-4567-9bb0-7802315a18fd"
     - ID: "b06c3aac-d999-4a81-bbd9-eb53d2b791a1"
-      Hint: View Path
-      Value: ~/Views/Shared/Components/SitecoreComponent/Steps/_contributions.cshtml
+      Hint: Step ID
+      Value: step_contributions
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211013T235546Z
+      Value: 20211027T222143Z

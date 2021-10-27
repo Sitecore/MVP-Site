@@ -1,5 +1,17 @@
 ﻿$(document).ready(function () {
 
+    //TODO
+    //Naim - good entry point to call your ajax function and with the response you can set field values and then also set the current step for the user
+    //Assuming in the response we will have application data which can be used to update values on the application
+    //We will also have the current step for the user.  It will be an ID - so '#step_welcome'
+    //Using that ID you can find the element on the page, get the data-step attribute and set the two variables below
+    //current - comes from data-step attribute
+    //currentStep - ID returned from Sitecore for the user
+    var current = 1;
+    var currentStep = "#step_welcome"
+    var steps = $(".fieldSet").length;
+    setStep(currentStep, current);
+
     $(document).ajaxSend(function () {
         $("#overlay").fadeIn(300);
     });
@@ -24,7 +36,7 @@
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
                                 if (data.success == true) {
-                                    setStep('#step_category');
+                                    setStep('#step_category', 2);
                                 }
                                 else {
                                     alert(data.responseText);
@@ -41,186 +53,26 @@
                     form.classList.add('was-validated')
                 }, false)
             })
-    });
-			//Check if user email cookie has been set, if not, make ajax request to set it
-   //         var userEmail = getCookie('user_email');
-   //         if (!userEmail) {
-   //             $.ajax({
-   //                 url: '/GetUserEmailClaim',
-   //                 type: 'get',
-   //                 crossDomain: true,
-   //                 dataType: 'json',
-   //                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-   //                 success: function (data) {
-   //                     setCookie('user_email', data);
-   //                 }
-   //             });
-   //         }
-			
-			////Only make this check if the application form exists on the page
-			//if ($('#application-form').length)
-			//{
-			//	$.ajax({
-			//		type: 'POST',
-			//		url: 'https://mvp-cd.sc.localhost/Application/GetApplicationInfo',
-			//		crossDomain: true,
-			//		data: {"identifier":getCookie('user_email')},
-			//		dataType: 'json',
-			//		success: function(responseData, textStatus, jqXHR) {
-			//			var value = responseData.someKey;
-			//			alert(value);
-			//		},
-			//		error: function (responseData, textStatus, errorThrown) {
-			//			alert('POST failed.');
-			//		}
-			//	});
-			//}
+    });		
 
+    function setStep(stepId, stepCount) {
+        //hide all steps
+        $('.appStep').attr("hidden", true);
+        //show requested step
+        $(stepId).attr("hidden", false);
+        //update progress bar at the top 
+        //$("#progressbar").find('[data-step="' + stepCount + '"]').addClass('active');
+        for (var i = stepCount; i >= 1; i--) {
+            $("#progressbar").find('[data-step="' + i + '"]').addClass('active');
+        }
+        setProgressBar(stepCount);
+    }
 
+    function setProgressBar(curStep) {
+        var percent = parseFloat(100 / steps) * curStep;
+        percent = percent.toFixed();
+        $(".progress-bar")
+            .css("width", percent + "%")
+    }
 
-            var current_fs, next_fs, previous_fs; //fieldsets
-            var opacity;
-            var current = 1;
-            var steps = $("fieldset").length;
-
-            setProgressBar(current);
-
-            $(".next").click(function () {
-
-                current_fs = $(this).parent();
-                next_fs = $(this).parent().next();
-
-                //Add Class Active
-                $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-
-                //show the next fieldset
-                next_fs.show();
-                //hide the current fieldset with style
-                current_fs.animate({ opacity: 0 }, {
-                    step: function (now) {
-                        // for making fielset appear animation
-                        opacity = 1 - now;
-
-                        current_fs.css({
-                            'display': 'none',
-                            'position': 'relative'
-                        });
-                        next_fs.css({ 'opacity': opacity });
-                    },
-                    duration: 500
-                });
-                setProgressBar(++current);
-            });
-
-            $(".previous").click(function () {
-
-                current_fs = $(this).parent();
-                previous_fs = $(this).parent().prev();
-
-                //Remove class active
-                $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-
-                //show the previous fieldset
-                previous_fs.show();
-
-                //hide the current fieldset with style
-                current_fs.animate({ opacity: 0 }, {
-                    step: function (now) {
-                        // for making fielset appear animation
-                        opacity = 1 - now;
-
-                        current_fs.css({
-                            'display': 'none',
-                            'position': 'relative'
-                        });
-                        previous_fs.css({ 'opacity': opacity });
-                    },
-                    duration: 500
-                });
-                setProgressBar(--current);
-            });
-
-            function setStep(step) {
-                //hide all steps
-                $('.appStep').attr("hidden", true);
-                //show requested step
-                $(step).attr("hidden", false);
-            }
-
-            function setProgressBar(curStep) {
-                var percent = parseFloat(100 / steps) * curStep;
-                percent = percent.toFixed();
-                $(".progress-bar")
-                    .css("width", percent + "%")
-            }
-
-
-            //$(function () {
-            //    //twitter bootstrap script
-            //    $("button#btnWelcome").click(function () {
-            //        $.ajax({
-            //            type: "POST",
-            //            url: "PastSurgicalCustomItem",
-            //            data: $('form.form-horizontal').serialize(),
-            //            success: function (msg) {
-            //                alert(msg);
-            //            },
-            //            error: function () {
-            //                alert("failure");
-            //            }
-            //        });
-            //    });
-            //});
-
-            //$("#btnWelcome").click(function (event) {
-
-            //    event.preventDefault();
-            //    var form = $('#welcomeForm');
-            //    var method = form.attr('method');
-            //    var url = form.attr('action');
-
-            //    if ($('#welcomeForm')[0].checkValidity() === false) {
-            //        event.stopPropagation();
-            //        $('.form-check-input').addClass('is-invalid');
-            //    } else {
-            //        var jsonData = {};
-            //        $.each($(form).serializeArray(), function () {
-            //            jsonData[this.name] = this.value;
-            //        });
-            //        var data = JSON.stringify(jsonData);
-            //        console.log(data);
-            //        ajaxCallRequest(method, url, data);
-            //    }
-
-
-
-            //});
-
-            //function ajaxCallRequest(f_method, f_url, f_data) {
-            //    $("#dataSent").val(unescape(f_data));
-            //    var f_contentType = 'application/x-www-form-urlencoded; charset=UTF-8';
-            //    $.ajax({
-            //        url: f_url,
-            //        type: f_method,
-            //        contentType: f_contentType,
-            //        dataType: 'json',
-            //        data: f_data,
-            //        success: function (data) {
-            //            var jsonResult = JSON.stringify(data);
-            //            $("#results").val(unescape(jsonResult));
-            //        }
-            //    });
-            //}
-
-            //function setCookie(key, value) {
-            //    var expires = new Date();
-            //    expires.setTime(expires.getTime() + 31536000000); //1 year  
-            //    document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
-            //}
-
-            //function getCookie(key) {
-            //    var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
-            //    return keyValue ? keyValue[2] : null;
-            //}
-
-        });
+});

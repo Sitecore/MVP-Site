@@ -24,14 +24,14 @@ Languages:
       Value: "Step 7 - Confirmation"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "392a6ec2-ef60-4362-9d5c-e411d1a32c43"
+      Value: "5ae15e5d-da28-4d3e-bcb0-79e187477dd9"
     - ID: "b06c3aac-d999-4a81-bbd9-eb53d2b791a1"
-      Hint: View Path
-      Value: ~/Views/Shared/Components/SitecoreComponent/Steps/_confirmation.cshtml
+      Hint: Step ID
+      Value: step_confirmation
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211013T193703Z
+      Value: 20211027T222149Z
