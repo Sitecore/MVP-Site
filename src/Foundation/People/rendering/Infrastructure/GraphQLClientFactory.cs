@@ -24,12 +24,12 @@ namespace Mvp.Foundation.People.Infrastructure
 
         public IGraphQLClient CreateLiveClient()
         {
-            return LiveClient ??= CreateGraphQLClient("Foundation:PeopleGraphQL:UrlLive");
+            return LiveClient ??= CreateGraphQLClient("PeopleGraphQL:UrlLive");
         }
 
         public IGraphQLClient CreateEditClient()
         {
-            return EditClient ??= CreateGraphQLClient("Foundation:PeopleGraphQL:UrlEdit");
+            return EditClient ??= CreateGraphQLClient("PeopleGraphQL:UrlEdit");
         }
 
         private IGraphQLClient CreateGraphQLClient(string configurationKeyUrlLiveOrEditMode)

@@ -18,24 +18,52 @@ namespace Mvp.Foundation.People.Extensions
 			{
 				// add a new field to the field object type
 				// note the resolve method's Source property is the Field so you can get at its data
-				type.Field<StringGraphType>("mvpAwards",
-					description: "MVP Person Awards",
-					resolve: context => GetAwardsTags(context.Source));
+				type.Field<StringGraphType>("mvpYear",
+					description: "MVP Person year",
+					resolve: context => GetLatestMvpYear(context.Source));
+			});
+			ExtendTypes<ObjectGraphType<Item>>(type =>
+			{
+				// add a new field to the field object type
+				// note the resolve method's Source property is the Field so you can get at its data
+				type.Field<StringGraphType>("mvpCategory",
+					description: "MVP Person category",
+					resolve: context => GetLatestMvpCategory(context.Source));
 			});
 		}
-		private string GetAwardsTags(Sitecore.Data.Items.Item personItem)
+
+		private string GetLatestMvpYear(Sitecore.Data.Items.Item personItem)
 		{
-			List<string> mvpTags = new List<string>();
+			var awards = GetAwardsTags(personItem);
+			if(awards.Any())
+			{
+				return awards.First().Key.ToString();
+			}
+			return "";
+		}
+
+		private string GetLatestMvpCategory(Sitecore.Data.Items.Item personItem)
+		{
+			var awards = GetAwardsTags(personItem);
+			if (awards.Any())
+			{
+				return awards.First().Value;
+			}
+			return "";
+		}
+		private Dictionary<int,string> GetAwardsTags(Sitecore.Data.Items.Item personItem)
+		{
+			Dictionary<int, string> mvpTags = new Dictionary<int, string>();
 			if (personItem != null && personItem.TemplateID.Equals(Constants.Templates.Person))
 			{
 				var awards = ((MultilistField)personItem.Fields[Constants.FieldNames.Awards]).GetItems();
 				foreach (var award in awards)
 				{
 					string mvpaward = "";
-					string mvpyear = "";
+					int mvpyear = 0;
 					if (award.TemplateID.Equals(Constants.Templates.YearCategory))
 					{
-						mvpyear = award.Parent.Name;
+						Int32.TryParse( award.Parent.Name, out mvpyear);
 
 						var mvptype = ((ReferenceField)award.Fields[Constants.FieldNames.Type]).TargetItem;
 						if (mvptype != null && mvptype.TemplateID.Equals(Constants.Templates.MVPType))
@@ -43,17 +71,20 @@ namespace Mvp.Foundation.People.Extensions
 							mvpaward = mvptype.Name;
 						}
 					}
-					if (!string.IsNullOrEmpty(mvpaward) && !string.IsNullOrEmpty(mvpyear))
+					if (!string.IsNullOrEmpty(mvpaward) && mvpyear > 0)
 					{
-						mvpTags.Add(mvpaward + " " + mvpyear);
+						if(mvpTags.ContainsKey(mvpyear))
+						{
+							mvpTags[mvpyear] += ", " + mvpaward;
+						}
+						else
+						{
+							mvpTags.Add(mvpyear, mvpaward);
+						}
 					}
 				}
 			}
-			if (mvpTags.Any())
-			{
-				return string.Join(", ", mvpTags.Distinct().ToArray());
-			}
-			return "";
+			return mvpTags.OrderByDescending(mvp=>mvp.Key).ToDictionary(obj => obj.Key, obj => obj.Value);
 		}
 	}
 }
