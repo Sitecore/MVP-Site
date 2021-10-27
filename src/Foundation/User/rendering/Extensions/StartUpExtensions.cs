@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -12,6 +13,9 @@ namespace Mvp.Foundation.User.Extensions
     {
         public static void AddFoundationUser(this IServiceCollection services, IConfiguration configuration)
         {
+            var okta = configuration.GetSection("Okta").Get<OktaMvcOptions>();
+                okta.Scope = new List<string> { "openid", "profile", "email" };
+
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -21,16 +25,8 @@ namespace Mvp.Foundation.User.Extensions
             .AddCookie(options =>
             {
                 options.LoginPath = new PathString("/user/signin");
-            })
-            .AddOktaMvc(new OktaMvcOptions
-            {
-                // Settings from Project MvpSite appsettings.json
-                OktaDomain = configuration.GetValue<string>("Okta:OktaDomain"),
-                ClientId = configuration.GetValue<string>("Okta:ClientId"),
-                ClientSecret = configuration.GetValue<string>("Okta:ClientSecret"),
-                AuthorizationServerId = configuration.GetValue<string>("Okta:AuthorizationServerId"),
-                Scope = new List<string> { "openid", "profile", "email" },
-            });
+            })            
+            .AddOktaMvc(okta);
         }
 
 
