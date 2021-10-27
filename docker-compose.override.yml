@@ -49,6 +49,8 @@ services:
       Okta__ClientId: ${OKTA_CLIENT_ID}
       Okta__ClientSecret: ${OKTA_CLIENT_SECRET}
       Okta__AuthorizationServerId: ${OKTA_AUTH_SERVER_ID}
+      PeopleGraphQL__UrlLive: ${PeopleGraphQL_UrlLive}
+      PeopleGraphQL__UrlEdit: ${PeopleGraphQL_UrlEdit}
     depends_on:
       - solutionBuildOutput
       - cm
