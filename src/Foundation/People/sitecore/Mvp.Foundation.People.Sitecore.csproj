@@ -79,12 +79,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\shared\Mvp.Foundation.People.Shared.csproj">
-      <Project>{1b31a9cc-6aca-4300-8f5d-7ac7aeb97067}</Project>
-      <Name>Mvp.Foundation.People.Shared</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
