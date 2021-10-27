@@ -72,17 +72,29 @@ services:
         condition: service_started
 
   mssql:
-    image: ${MVP_DOCKER_REGISTRY}mvp-mssql:${SITECORE_VERSION}
-    build:
-      context: ./docker/build/mssql
-      args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}${SQL_IMAGE}:${SITECORE_VERSION}
-        JSS_RESOURCES_IMAGE: ${JSS_RESOURCES_IMAGE}
     volumes:
       - type: bind
         source: .\docker\data\sql
         target: c:\data
   
+  mssql-init:
+    isolation: ${ISOLATION}
+    image: ${MVP_DOCKER_REGISTRY}mvp-mssql-init:${SITECORE_VERSION}
+    build:
+      context: ./docker/build/mssql-init
+      args:
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-mssql-init:${SITECORE_VERSION}
+        HEADLESS_SERVICES_RESOURCES_IMAGE: ${HEADLESS_SERVICES_RESOURCES_IMAGE}
+        SPE_RESOURCES_IMAGE: ${SPE_RESOURCES_IMAGE}
+    environment:
+      SQL_SERVER: mssql
+      SQL_ADMIN_LOGIN: sa
+      SQL_ADMIN_PASSWORD: ${SQL_SA_PASSWORD}
+      sitecore_admin_password: ${SITECORE_ADMIN_PASSWORD}
+    depends_on:
+      mssql:
+        condition: service_healthy
+
   solr:
     volumes:            
       - ${LOCAL_DATA_PATH}\solr:c:\data  
@@ -116,10 +128,12 @@ services:
         BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}${CD_IMAGE}:${SITECORE_VERSION}
         SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution:${SITECORE_VERSION}
         TOOLS_RESOURCES_IMAGE: ${TOOLS_RESOURCES_IMAGE}
-        JSS_RESOURCES_IMAGE: ${JSS_RESOURCES_IMAGE}
+        HEADLESS_SERVICES_RESOURCES_IMAGE: ${HEADLESS_SERVICES_RESOURCES_IMAGE}
     depends_on:
       solutionBuildOutput:
         condition: service_started
+      mssql-init:
+        condition: service_completed_successfully
     volumes:
       - ${LOCAL_DEPLOY_PATH}\sitecore:C:\deploy
       - ${LOCAL_DATA_PATH}\cd:C:\inetpub\wwwroot\App_Data\logs
@@ -150,10 +164,13 @@ services:
         SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution:${SITECORE_VERSION}
         TOOLS_RESOURCES_IMAGE: ${TOOLS_RESOURCES_IMAGE}
         DEVEX_RESOURCES_IMAGE: ${DEVEX_RESOURCES_IMAGE}
-        JSS_RESOURCES_IMAGE: ${JSS_RESOURCES_IMAGE}
+        HEADLESS_SERVICES_RESOURCES_IMAGE: ${HEADLESS_SERVICES_RESOURCES_IMAGE}
+        SPE_RESOURCES_IMAGE: ${SPE_RESOURCES_IMAGE}
     depends_on:
       solutionBuildOutput:
         condition: service_started
+      mssql-init:
+        condition: service_completed_successfully    
     volumes:
       - ${LOCAL_DEPLOY_PATH}\sitecore:C:\deploy
       - ${LOCAL_DATA_PATH}\cm:C:\inetpub\wwwroot\App_Data\logs

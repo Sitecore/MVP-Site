@@ -5,7 +5,7 @@
 trigger:
   branches:
     include:
-    - master
+    - main
 
 resources:
 - repo: self
@@ -48,7 +48,7 @@ stages:
         action: 'Push services'
         additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
         includeLatestTag: true
-      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
     - task: CopyFiles@2
       displayName: "Copy K8s specifications to staging directory"
       inputs:
@@ -73,7 +73,7 @@ stages:
         artifact: 'Sitecore.MVP-$(Build.BuildNumber)'
 
 - stage: Deploy
-  condition:  and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  condition:  and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   dependsOn: Build
   displayName: Deploy to Staging
   jobs:
@@ -119,120 +119,75 @@ stages:
               useLegacyPattern: false
               enableTelemetry: false
           - task: KubernetesManifest@0
-            displayName: Bake K8s Secrets
-            name: 'bake'
+            displayName: Bake Secrets
+            name: 'bake_secrets'
             inputs:
               action: 'bake'
               renderType: 'kustomize'
               kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/secrets/'
           - task: KubernetesManifest@0
-            displayName: Deploy K8s Secrets
+            displayName: Deploy Secrets
             inputs:
               action: 'deploy'
               kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-staging'
-              manifests: '$(bake.manifestsBundle)'
-          - task: Kubernetes@1
-            displayName: Deploy External Specifications
-            inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
-              namespace: 'mvp-staging'
-              command: 'apply'
-              useConfigurationFile: true
-              configuration: '$(System.ArtifactsDirectory)/k8s-specs/external'
-              secretType: 'dockerRegistry'
-              containerRegistryType: 'Azure Container Registry'
-              outputFormat: ''
-          - task: Kubernetes@1
-            displayName: Deploy Init Specifications
-            inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
-              namespace: 'mvp-staging'
-              command: 'apply'
-              useConfigurationFile: true
-              configuration: '$(System.ArtifactsDirectory)/k8s-specs/init'
-              secretType: 'dockerRegistry'
-              containerRegistryType: 'Azure Container Registry'
-              outputFormat: ''
-          - task: Kubernetes@1
-            displayName: Deploy Application Specifications
-            inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
-              namespace: 'mvp-staging'
-              command: 'apply'
-              useConfigurationFile: true
-              configuration: '$(System.ArtifactsDirectory)/k8s-specs'
-              secretType: 'dockerRegistry'
-              containerRegistryType: 'Azure Container Registry'
-              outputFormat: ''
+              manifests: '$(bake_secrets.manifestsBundle)'
           - task: KubernetesManifest@0
-            displayName: Patch IP-Whitelist Values into Ingress
+            displayName: Bake Ingress Specifications
+            name: 'bake_ingress'
             inputs:
-              action: 'patch'
+              action: 'bake'
+              renderType: 'kustomize'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/ingress-nginx/'
+          - task: KubernetesManifest@0
+            displayName: Deploy Ingress Specifications
+            inputs:
+              action: 'deploy'
               kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-staging'
-              resourceToPatch: 'file'
-              resourceFileToPatch: '$(System.ArtifactsDirectory)/k8s-specs/ingress.yaml'
-              mergeStrategy: 'merge'
-              patch: '{"metadata": { "annotations": { "nginx.ingress.kubernetes.io/whitelist-source-range": "$(IP_WHITELIST)" }}}'
-          - task: Kubernetes@1
-            displayName: Update SQL Image version
+              manifests: '$(bake_ingress.manifestsBundle)'
+          - task: KubernetesManifest@0
+            displayName: Bake External Specifications
+            name: 'bake_external'
             inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
-              namespace: 'mvp-staging'
-              command: 'set'
-              arguments: 'image deployments/mssql mssql=$(ACR_ENDPOINT)/mvp-mssql:$(Build.BuildNumber)-$(Build.SourceBranchName)'
-              secretType: 'dockerRegistry'
-              containerRegistryType: 'Azure Container Registry'
-              outputFormat: ''
-          - task: Kubernetes@1
-            displayName: Update ID Image version
+              action: 'bake'
+              renderType: 'kustomize'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/external/'
+          - task: KubernetesManifest@0
+            displayName: Deploy External Specifications
             inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              action: 'deploy'
+              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-staging'
-              command: 'set'
-              arguments: 'image deployments/mvp-id sitecore-xm1-id=$(ACR_ENDPOINT)/mvp-id:$(Build.BuildNumber)-$(Build.SourceBranchName)'
-              secretType: 'dockerRegistry'
-              containerRegistryType: 'Azure Container Registry'
-              outputFormat: ''
-          - task: Kubernetes@1
-            displayName: Update CM Image version
+              manifests: '$(bake_external.manifestsBundle)'
+          # - task: KubernetesManifest@0
+          #   displayName: Bake Init Specifications
+          #   name: 'bake_init'
+          #   inputs:
+          #     action: 'bake'
+          #     renderType: 'kustomize'
+          #     kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/init/'
+          # - task: KubernetesManifest@0
+          #   displayName: Deploy Init Specifications
+          #   inputs:
+          #     action: 'deploy'
+          #     kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
+          #     namespace: 'mvp-staging'
+          #     manifests: '$(bake_init.manifestsBundle)'
+          - task: KubernetesManifest@0
+            displayName: Bake Application Specifications
+            name: 'bake_application'
             inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
-              namespace: 'mvp-staging'
-              command: 'set'
-              arguments: 'image deployments/mvp-cm sitecore-xm1-cm=$(ACR_ENDPOINT)/mvp-cm:$(Build.BuildNumber)-$(Build.SourceBranchName)'
-              secretType: 'dockerRegistry'
-              containerRegistryType: 'Azure Container Registry'
-              outputFormat: ''
-          - task: Kubernetes@1
-            displayName: Update CD Image version
+              action: 'bake'
+              renderType: 'kustomize'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs'
+          - task: KubernetesManifest@0
+            displayName: Deploy Application Specifications
             inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              action: 'deploy'
+              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-staging'
-              command: 'set'
-              arguments: 'image deployments/mvp-cd sitecore-xm1-cd=$(ACR_ENDPOINT)/mvp-cd:$(Build.BuildNumber)-$(Build.SourceBranchName)'
-              secretType: 'dockerRegistry'
-              containerRegistryType: 'Azure Container Registry'
-              outputFormat: ''
-          - task: Kubernetes@1
-            displayName: Update Rendering Image version
-            inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
-              namespace: 'mvp-staging'
-              command: 'set'
-              arguments: 'image deployments/mvp-rendering sitecore-xm1-rendering=$(ACR_ENDPOINT)/mvp-rendering:$(Build.BuildNumber)-$(Build.SourceBranchName)'
-              secretType: 'dockerRegistry'
-              containerRegistryType: 'Azure Container Registry'
-              outputFormat: ''
+              manifests: '$(bake_application.manifestsBundle)'
   - deployment: 'Deserialize_Content_to_Staging'
     dependsOn: 'Deploy_Specs_to_Staging_AKS'
     pool:
@@ -255,7 +210,7 @@ stages:
                 # Add nuget source & install Sitecore CLI
                 Write-Host "Installing Sitecore CLI"
                 dotnet nuget add source $(SITECORE_PUBLIC_NUGET_FEED) --name "Sitecore-Public-Nuget-Feed"
-                dotnet tool install --add-source=$(SITECORE_PUBLIC_NUGET_FEED) --version 2.0.0 sitecore.cli
+                dotnet tool restore
                 
                 # Login to ID Server
                 Write-Host "Logging into ID Server"

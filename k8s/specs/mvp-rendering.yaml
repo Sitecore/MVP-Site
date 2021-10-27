@@ -28,8 +28,8 @@ spec:
       nodeSelector:
         kubernetes.io/os: windows
       containers:
-      - name: sitecore-xm1-rendering
-        image: mvpsitev2.azurecr.io/mvp-rendering:latest
+      - name: sitecore-mvp-rendering
+        image: sitecore-mvp-rendering
         ports:
         - containerPort: 80
         imagePullPolicy: Always
@@ -39,11 +39,16 @@ spec:
         - name: ASPNETCORE_URLS
           value: http://*:80
         - name: Sitecore__InstanceUri
-          value: http://mvp-cm
+          value: http://cd
         - name: Sitecore__RenderingHostUri
-          value: https://$(STAGING_HOST)/
+          value: https://mvp.sitecoredemo.com/
         - name: Sitecore__EnableExperienceEditor
           value: "true"
+        - name: Sitecore_License
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-license
+              key: sitecore-license.txt
         livenessProbe:
           httpGet:
             path: /healthz

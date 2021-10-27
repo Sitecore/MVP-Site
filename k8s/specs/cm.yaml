@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mvp-cm
+  name: cm
 spec:
   selector:
-    app: mvp-cm
+    app: cm
   ports:
   - protocol: TCP
     port: 80
@@ -12,27 +12,26 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mvp-cm
+  name: cm
   labels:
-    app: mvp-cm
+    app: cm
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mvp-cm
+      app: cm
   template:
     metadata:
       labels:
-        app: mvp-cm
+        app: cm
     spec:
       nodeSelector:
         kubernetes.io/os: windows
       containers:
-      - name: sitecore-xm1-cm
-        image: mvpsitev2.azurecr.io/mvp-cm:latest
+      - name: sitecore-mvp-cm
+        image: sitecore-mvp-cm
         ports:
         - containerPort: 80
-        imagePullPolicy: Always
         env:
         - name: Sitecore_InstanceName
           valueFrom:
@@ -128,9 +127,19 @@ spec:
         - name: Sitecore_Identity_Server_CallbackAuthority
           value: https://$(STAGING_CM_HOST)
         - name: Sitecore_Identity_Server_InternalAuthority
-          value: http://mvp-id
+          value: http://id
         - name: Sitecore_Identity_Server_Require_Https
           value: "false"
+        - name: SOLR_CORE_PREFIX_NAME
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-solr
+              key: sitecore-solr-core-prefix-name.txt
+        - name: MEDIA_REQUEST_PROTECTION_SHARED_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-protect-media-requests
+              key: sitecore-media-request-protection-shared-secret.txt
         livenessProbe:
           httpGet:
             path: /healthz/live
@@ -151,5 +160,12 @@ spec:
           timeoutSeconds: 300
           periodSeconds: 30
           failureThreshold: 10
+        resources:
+          requests:
+            memory: 800Mi
+            cpu: 1000m
+          limits:
+            memory: 3Gi
+            cpu: 2000m
       imagePullSecrets:
       - name: regcred

@@ -5,16 +5,23 @@ metadata:
 spec:
   template:
     spec:
+      nodeSelector:
+        kubernetes.io/os: windows
       imagePullSecrets:
         - name: regcred
       containers:
       - name: solr-init
-        image: scr.sitecore.com/sxp/sitecore-xm1-solr-init:10.0.0-ltsc2019
+        image: sitecore-xm1-solr-init
         env:
         - name: SITECORE_SOLR_CONNECTION_STRING
           valueFrom:
             secretKeyRef:
               name: sitecore-solr
               key: sitecore-solr-connection-string.txt
+        - name: SOLR_CORE_PREFIX_NAME
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-solr
+              key: sitecore-solr-core-prefix-name.txt
       restartPolicy: Never
   backoffLimit: 5

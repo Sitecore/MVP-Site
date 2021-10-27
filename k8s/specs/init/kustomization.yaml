@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+images:
+- name: mvp-mssql-init
+  newName: $(ACR_ENDPOINT)/mvp-mssql-init
+  newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
+- name: sitecore-xm1-solr-init
+  newName: scr.sitecore.com/sxp/sitecore-xm1-solr-init
+  newTag: 10.1-ltsc2019
+resources:
+- mssql-init.yaml
+- solr-init.yaml

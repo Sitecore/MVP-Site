@@ -26,14 +26,42 @@ spec:
         app: solr
     spec:
       nodeSelector:
-        kubernetes.io/os: windows
+        kubernetes.io/os: linux
       containers:
       - name: solr
-        image: scr.sitecore.com/sxp/nonproduction/solr:8.4.0-10.0.0-ltsc2019
+        image: solr
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
         ports:
         - containerPort: 8983
         env:
         - name: SOLR_MODE
           value: solrcloud
+        startupProbe:
+          httpGet:
+            path: /solr/admin/info/system
+            port: 8983
+            httpHeaders:
+            - name: X-Kubernetes-Probe
+              value: Startup
+          timeoutSeconds: 30
+          periodSeconds: 10
+          failureThreshold: 10
+        volumeMounts:
+            - mountPath: /tmp
+              name: tmp
+        resources:
+          requests:
+            memory: 2Gi
+            cpu: 500m
+          limits:
+            memory: 3Gi
+            cpu: 1500m
+      volumes:
+        - emptyDir: {}
+          name: tmp     
       imagePullSecrets:
       - name: regcred
