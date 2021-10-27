@@ -1,5 +1,9 @@
 ﻿$(document).ready(function () {
 
+    $(document).ajaxSend(function () {
+        $("#overlay").fadeIn(300);
+    });
+
     $("#btnStep1").click(function (event) {
         'use strict'
         var forms = document.querySelectorAll('#form_step1')
@@ -19,8 +23,18 @@
                             dataType: 'json',
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
-                                alert(data);
+                                if (data.success == true) {
+                                    setStep('#step_category');
+                                }
+                                else {
+                                    alert(data.responseText);
+                                }
+                                
                             }
+                        }).done(function () {
+                            setTimeout(function () {
+                                $("#overlay").fadeOut(300);
+                            }, 500);
                         });
                     }
 
@@ -125,6 +139,13 @@
                 });
                 setProgressBar(--current);
             });
+
+            function setStep(step) {
+                //hide all steps
+                $('.appStep').attr("hidden", true);
+                //show requested step
+                $(step).attr("hidden", false);
+            }
 
             function setProgressBar(curStep) {
                 var percent = parseFloat(100 / steps) * curStep;

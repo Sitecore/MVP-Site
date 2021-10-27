@@ -159,13 +159,18 @@ namespace Mvp.Feature.Forms.Controllers
 
                 // Use SSC to create application Item
 
+                var user = HttpContext.User;
+                var identity = (ClaimsIdentity)user?.Identity;
                 var createApplication = new CreateApplication
                 {
-                    ItemName = DateTime.Now.Year.ToString("yyyy"),
-                    TemplateId = _configuration.GetValue<string>("Sitecore:MVPApplicationTemplateId")
+                    ItemName = DateTime.Now.Year.ToString(),
+                    TemplateID = _configuration.GetValue<string>("Sitecore:MVPApplicationTemplateId"),
+                    FirstName = identity?.FindFirst(_configuration.GetValue<string>("Claims:FirstName"))?.Value,
+                    LastName = identity?.FindFirst(_configuration.GetValue<string>("Claims:LastName"))?.Value
                 };
 
-                var createItemUrl = $"{sitecoreUri}{SSCAPIs.CreateItemApi}"; // Path need to be added to th end ex: https://%3Cdomain%3E/sitecore/api/ssc/item/sitecore%2Fcontent%2Fhome
+                //TODO - how can we get the path to the user item to pass into the item service API
+                var createItemUrl = $"{sitecoreUri}{SSCAPIs.CreateItemApi}{"sitecore%2Fcontent%2FMvpSite%2FMVP%20Repository%2FPeople%2Fa%2FAlex%20Lentz?database=master"}"; // Path need to be added to th end ex: https://%3Cdomain%3E/sitecore/api/ssc/item/sitecore%2Fcontent%2Fhome
                 var request = (HttpWebRequest)WebRequest.Create(createItemUrl);
 
                 request.Method = "POST";
@@ -185,15 +190,20 @@ namespace Mvp.Feature.Forms.Controllers
 
                 _logger.LogDebug($"Item Status:\n\r{((HttpWebResponse)response).StatusDescription}");
 
-                // TODO :: If success --> status equals 201 aka "created" move user to next step
+                //Item was created - store item ID in sesion and respond
+                if (((HttpWebResponse)response).StatusCode == HttpStatusCode.Created)
+                {
+                    var createdItemId = response.Headers["Location"].Substring(response.Headers["Location"].LastIndexOf("/"), response.Headers["Location"].Length - response.Headers["Location"].LastIndexOf("/")).Split("?")[0].TrimStart('/');
+                    HttpContext.Session.SetString("UserApplicationId", createdItemId);
+                    return Json(new { success = true, responseText = "Application succesffuly created." });
+                }
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, ex.Message, null);
             }
+            return Json(new { success = false, responseText = "An error occured while creating your application.  Please contact Sitecore Support." });
 
-
-            return PartialView();
         }
     }
 }

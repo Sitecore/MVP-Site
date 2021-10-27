@@ -7,6 +7,8 @@ namespace Mvp.Feature.Forms.Models
     public class CreateApplication
     {
         public string ItemName { get; set; }
-        public string TemplateId { get; set; }
+        public string TemplateID { get; set; }
+        public string FirstName { get;set; }
+        public string LastName { get; set; }
     }
 }

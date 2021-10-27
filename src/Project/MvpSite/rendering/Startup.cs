@@ -126,6 +126,8 @@ namespace Mvp.Project.MvpSite.Rendering
             // from the Rendering Host and will be used to proxy robot detection scripts.
             //    options.SitecoreInstanceUri = Configuration.InstanceUri;
             //});
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -134,6 +136,7 @@ namespace Mvp.Project.MvpSite.Rendering
             // When running behind HTTPS termination, set the request scheme according to forwarded protocol headers.
             // Also set the Request IP, so that it can be passed on to the Sitecore Layout Service for tracking and personalization.
             app.UseForwardedHeaders(ConfigureForwarding(env));
+            app.UseSession();
 
             if (env.IsDevelopment())
             {
