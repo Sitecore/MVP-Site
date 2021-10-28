@@ -8,14 +8,18 @@
                 <h2 class="steps">Step 3 - 7</h2>
             </div>
         </div>
+
         <label class="fieldlabels">Official First Name: *</label>
-        <input type="email" name="email" placeholder="Email Id" />
+        <input type="text" id="firstName" name="firstName" placeholder="first name" />
+
         <label class="fieldlabels">Official Last Name: *</label>
-        <input type="text" name="uname" placeholder="UserName" />
+        <input type="text" id="lastName" name="lastName" placeholder="last name" />
+
         <label class="fieldlabels">Preferred Name: *</label>
-        <input type="password" name="pwd" placeholder="Password" />
+        <input type="text" id="preferredName" name="preferredName" placeholder="preferred name" />
+
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="ddlEmploymentStatus" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 I am...
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -25,36 +29,26 @@
                 <a class="dropdown-item" href="#">Freelancer/Independant Consultant</a>
             </div>
         </div>
+
         <label class="fieldlabels">Company Name: *</label>
-        <input type="password" name="pwd" placeholder="Password" />
+        <input type="text" id="companyName" name="companyName" placeholder="company name" />
+
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="ddlCountry" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Country/Region/Territory
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Working for a Partner</a>
-                <a class="dropdown-item" href="#">Working for a Customer</a>
-                <a class="dropdown-item" href="#">Working for a company which is not a Partner nor a Customer</a>
-                <a class="dropdown-item" href="#">Freelancer/Independant Consultant</a>
+                <a class="dropdown-item" href="#">USA</a>
             </div>
         </div>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                State (US & Canada)
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Working for a Partner</a>
-                <a class="dropdown-item" href="#">Working for a Customer</a>
-                <a class="dropdown-item" href="#">Working for a company which is not a Partner nor a Customer</a>
-                <a class="dropdown-item" href="#">Freelancer/Independant Consultant</a>
-            </div>
-        </div>
-        <label class="fieldlabels">Name of your Mentor (if any): *</label>
-        <input type="password" name="pwd" placeholder="Password" />
+
+
+        <label class="fieldlabels">Mentor: *</label>
+        <input type="text" id="mentor" name="mentor" placeholder="mentore" />
 
 
     </div>
-    <button class="btn btn-primary" id="btnWelcome" type="submit">Next</button>
+    <button class="btn btn-primary" id="btnStep3" type="submit">Next</button>
     <button class="btn btn-primary" id="btnPrevious" type="submit">Previous</button>
 </form>
 
