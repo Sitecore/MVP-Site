@@ -1,4 +1,4 @@
-﻿<form id="personalForm" class="form-horizontal" method="post" action="/submitApplication/">
+﻿<form id="socialForm" class="form-horizontal" method="post" action="/submitApplication/">
     <div class="form-card">
         <div class="row">
             <div class="col-7">
@@ -9,23 +9,28 @@
             </div>
         </div>
         <label class="fieldlabels">Blog:</label>
-        <input type="text" name="email" placeholder="Email Id" />
-        <label class="fieldlabels">LinkedIn:</label>
-        <input type="text" name="uname" placeholder="UserName" />
-        <label class="fieldlabels">Sitecore Community:</label>
-        <input type="text" name="pwd" placeholder="Password" />
-        <label class="fieldlabels">Customer Core Profile</label>
-        <input type="text" name="pwd" placeholder="Password" />
-        <label class="fieldlabels">Stack Exchange:</label>
-        <input type="text" name="pwd" placeholder="Password" />
-        <label class="fieldlabels">GitHub:</label>
-        <input type="text" name="pwd" placeholder="Password" />
+        <input type="text" id="blog" name="blog" placeholder="blog" />
+
+        <label class="fieldlabels">sitecore Community:</label>
+        <input type="text" id="sitecoreCommunity" name="sitecoreCommunity" placeholder="sitecore community" />
+
+        <label class="fieldlabels">Customer Core Profile:</label>
+        <input type="text" id="customerCoreProfile" name="customerCoreProfile" placeholder="customer core profile" />
+
+        <label class="fieldlabels">Stack Exchange</label>
+        <input type="text" id="stackExchange" name="stackExchange" placeholder="Stack Exchange" />
+
+        <label class="fieldlabels">Github:</label>
+        <input type="text" id="gitHub" name="gitHub" placeholder="github" />
+
         <label class="fieldlabels">Twitter:</label>
-        <input type="text" name="pwd" placeholder="Password" />
+        <input type="text" id="twitter" name="twitter" placeholder="twitter" />
+
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Other</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" id="others" rows="3"></textarea>
         </div>
+
         <div class="form-group">
             <div class="form-check">
                 <label class="form-check-label" for="chkTerms">
@@ -37,7 +42,7 @@
             </div>
         </div>
     </div>
-    <button class="btn btn-primary" id="btnWelcome" type="submit">Next</button>
+    <button class="btn btn-primary" id="btnStep5" type="submit">Next</button>
     <button class="btn btn-primary" id="btnPrevious" type="submit">Previous</button>
 </form>
 

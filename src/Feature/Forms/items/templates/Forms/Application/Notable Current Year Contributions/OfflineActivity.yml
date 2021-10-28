@@ -1,17 +1,21 @@
 ﻿---
-ID: "eec4f929-7346-429a-84df-d238ca8c6713"
-Parent: "d02b703f-0ad6-4907-8e85-30b6c2ebc84a"
+ID: "aace78cb-997c-49ac-a8c7-854398b9c1f3"
+Parent: "76b5c887-6f34-40fb-a1bf-be86e99f71ee"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Feature/Forms/Application/Personal Information/Company Name
+Path: /sitecore/templates/Feature/Forms/Application/Notable Current Year Contributions/OfflineActivity
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: "Single-Line Text"
+  Value: "Multi-Line Text"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 500
+  Value: 200
 Languages:
 - Language: en
+  Fields:
+  - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
+    Hint: Title
+    Value: Offline Activity
   Versions:
   - Version: 1
     Fields:
@@ -20,11 +24,11 @@ Languages:
       Value: 20211011T180407Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1ef488a6-5873-4219-879b-2b3a5343c5ff"
+      Value: "17cce329-9064-4357-a56f-9e0df881cf6e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211011T190031Z
+      Value: 20211028T183638Z
