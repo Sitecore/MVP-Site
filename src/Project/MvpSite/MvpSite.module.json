@@ -40,6 +40,7 @@
       {
         "name": "content",
         "path": "/sitecore/content/MvpSite",
+        "allowedPushOperations": "CreateOnly",
         "rules": [
           {
             "path": "/MVP Repository",
@@ -50,6 +51,7 @@
       {
         "name": "mvp-repo",
         "path": "/sitecore/content/MvpSite/MVP Repository",
+        "allowedPushOperations": "CreateOnly",
         "rules": [
           {
             "path": "/People",
@@ -68,7 +70,7 @@
             "scope": "SingleItem"
           },
           {
-            "path": "/MVP Types",
+            "path": "/MVP Category",
             "scope": "SingleItem"
           },
           {
@@ -79,7 +81,8 @@
       },
       {
         "name": "ItemBucketsOverride",
-        "path": "/sitecore/system/Settings/Buckets/Item Buckets Settings"
+        "path": "/sitecore/system/Settings/Buckets/Item Buckets Settings",
+        "allowedPushOperations": "CreateUpdateAndDelete"
       },
       {
         "name": "apikey",
