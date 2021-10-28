@@ -22,9 +22,15 @@ namespace Mvp.Feature.Forms.Controllers
             if (Sitecore.Context.User.Identity.IsAuthenticated) 
             {
                 
-                var identifier = ((System.Security.Claims.ClaimsIdentity)Sitecore.Context.User.Identity).FindFirst("jti").Value;
+                var identifier = ((System.Security.Claims.ClaimsIdentity)Sitecore.Context.User.Identity).FindFirst("aud").Value;
                 
                 var searchResults = Helper.SearchPeopleByOktaId( identifier);
+
+                //fallback to email verification assuming the persons okta id was updated, can be removed later
+                if (searchResults == null || !searchResults.Any()){
+                    var email = ((System.Security.Claims.ClaimsIdentity)Sitecore.Context.User.Identity).FindFirst("email").Value;
+                    searchResults = Helper.SearchPeopleByEmail(email);
+                }
 
                 if (searchResults != null && searchResults.Any())
                 {
@@ -33,8 +39,8 @@ namespace Mvp.Feature.Forms.Controllers
 
                     if (personItem != null)
                     {
-                        var applicationStep = personItem.Fields[Constants.Person.Template.Fields.PEOPLE_APPLICATION_STEP].Value;
-                        var applicationStepItem = Sitecore.Context.Database.GetItem(new ID(applicationStep));
+                        var applicationStepId = personItem.Fields[Constants.Person.Template.Fields.PEOPLE_APPLICATION_STEP].Value;
+                        ApplicationStep applicationStep = Helper.GetApplicationStepModel(applicationStepId);
 
                         var applicationItemId= personItem.Fields[Constants.Person.Template.Fields.PEOPLE_APPLICATION]?.Value;
                         var applicationModel= Helper.GetApplicationModel(applicationItemId);
@@ -43,16 +49,16 @@ namespace Mvp.Feature.Forms.Controllers
                             var applicationInfoModel = new ApplicationInfo
                             {
                                 Application = applicationModel,
-                                ApplicationStep = applicationStepItem.Fields[Constants.ApplicationStep.Fields.APPLICATION_STEP_VIEW_PATH].Value
+                                ApplicationStep = applicationStep
                             };
 
                             return Json(applicationInfoModel, JsonRequestBehavior.AllowGet);
                         }
 
-                        return Json(new { result = false, error = "application can't be found." }, JsonRequestBehavior.AllowGet);
+                        return Json(new { result = true, error = "application not found."  }, JsonRequestBehavior.AllowGet);
                     }
                     else {
-                        return Json(new { result = false, error = "person can't be found." }, JsonRequestBehavior.AllowGet);
+                        return Json(new { result = false, error = "person not found." }, JsonRequestBehavior.AllowGet);
                     }
                 }
             }

@@ -92,6 +92,9 @@ namespace Mvp.Feature.Forms
 
         public static MVPCategory GetMVPCategoryModel(string mvpCategoryItemId)
         {
+            if (string.IsNullOrWhiteSpace(mvpCategoryItemId))
+                return null;
+
             Item MVPCategoryItem = Sitecore.Context.Database.GetItem(mvpCategoryItemId);
 
             if (MVPCategoryItem == null)
@@ -109,6 +112,9 @@ namespace Mvp.Feature.Forms
         }
         public static Country GetCountryModel(string countryItemId)
         {
+            if (string.IsNullOrWhiteSpace(countryItemId))
+                return null;
+
             Item countryItem = Sitecore.Context.Database.GetItem(countryItemId);
 
             if (countryItem == null)
@@ -122,7 +128,31 @@ namespace Mvp.Feature.Forms
 
             return country;
 
+        
         }
+
+        
+
+        public static ApplicationStep GetApplicationStepModel(string applicationStepItemId)
+        {
+            if (string.IsNullOrWhiteSpace(applicationStepItemId))
+                return null;
+
+            Item Item = Sitecore.Context.Database.GetItem(applicationStepItemId);
+
+            if (Item == null)
+                return null;
+
+            var applicationStep = new ApplicationStep()
+            {
+                StepId = Item.Fields[Constants.ApplicationStep.Template.Fields.APPLICATION_STEP_ID].Value,
+                Title = Item.Fields[Constants.ApplicationStep.Template.Fields.APPLICATION_STEP_TITLE].Value,
+            };
+
+            return applicationStep;
+            
+        }
+
 
         public static EmploymentStatus GetEmploymentStatusModel(string employmentStatusItemId)
         {

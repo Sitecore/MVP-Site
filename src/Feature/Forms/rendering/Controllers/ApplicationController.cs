@@ -73,6 +73,42 @@ namespace Mvp.Feature.Forms.Controllers
                 return string.Empty;
             }
         }
+        [HttpGet]
+        public IActionResult GetApplicationLists()
+        {
+            //TODO:need to pass identifier from the currently logged in user
+
+            //if (Sitecore.Context.IsLoggedIn && Sitecore.Context.User.Identity.IsAuthenticated) 
+            if (!User.Identity.IsAuthenticated)
+                return null;
+
+            // Create a request using a URL that can receive a post.
+            WebRequest request = WebRequest.Create("http://cd/api/sitecore/Application/GetApplicationLists");
+
+            AddOktaAuthHeaders(request, HttpContext);
+
+            // Set the Method property of the request to POST.
+            request.Method = "GET";
+
+            // Get the response.
+            WebResponse response = request.GetResponse();
+
+            // Get the stream containing content returned by the server.
+            // The using block ensures the stream is automatically closed.
+            var responseFromServer = string.Empty;
+            using (var dataStream = response.GetResponseStream())
+            {
+                // Open the stream using a StreamReader for easy access.
+                StreamReader reader = new StreamReader(dataStream);
+                // Read the content.
+                responseFromServer = reader.ReadToEnd();
+            }
+
+            // Close the response.
+            response.Close();
+            return Json(responseFromServer);
+
+        }
 
         [HttpGet]
         public IActionResult GetApplicationInfo()

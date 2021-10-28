@@ -8,7 +8,7 @@ namespace Mvp.Feature.Forms.Models
     public class ApplicationInfo
     {
         
-        public string ApplicationStep { get; set; }
+        public ApplicationStep ApplicationStep { get; set; }
         public Application Application { get; set; }
    
       //  public Person Person { get; set; }

@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Mvp.Feature.Forms.Models
 {
-    public class ApplicationStep
+    public class MVPCategory
     {
-        public string Title { get; set; }
-        public string StepId{ get; set; }
+        public string Name { get; set; }
+        public bool Active{ get; set; }
     }
 }

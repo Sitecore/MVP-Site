@@ -8,13 +8,88 @@
     //current - comes from data-step attribute
     //currentStep - ID returned from Sitecore for the user
     var current = 1;
-    var currentStep = "#step_welcome"
+    var currentStep = "#step_personal";//"#step_welcome";
     var steps = $(".fieldSet").length;
-    setStep(currentStep, current);
+    setStep(currentStep);
 
     $(document).ajaxSend(function () {
         $("#overlay").fadeIn(300);
     });
+
+    function updateinput(key, value) {
+        $("input[asp-for='"+key+"']").val(value);
+    }
+
+    function fillDropLists(items,dropId,title) {
+        var lists = '';
+
+        $.each(items, function (i, item) {
+            
+            if (typeof item.Active === 'undefined' || item.Active) {
+                console.info(item.Name);
+                lists += '<a class="dropdown-item" href="#">' + item[title] + '</a>';
+            } 
+        });
+        
+        $("div[asp-for='" + dropId + "']").html(lists);
+    }
+  
+        $.ajax({
+            type: "GET",
+            url: "/Application/GetApplicationLists",
+            data: {
+
+            },
+            success: function (data) {
+                console.info(data);
+                if (data.result) {
+                    console.info(data.result);
+                } else {
+                    var jsonData = JSON.parse(data);
+
+                    fillDropLists(jsonData.Countries, 'Countries', 'Name');
+                    fillDropLists(jsonData.EmploymentStatus, 'EmploymentStatus', 'Name');
+                    fillDropLists(jsonData.MVPCategories, 'MVPCategories', 'Name');
+
+                    getApplicationInfo()
+                }
+                $("#overlay").fadeOut();
+            },
+            error: function (result) {
+                
+                console.info(result);
+                $("#overlay").fadeOut();
+            }
+        });
+
+    function getApplicationInfo() {
+        $.ajax({
+            type: "GET",
+            url: "/Application/GetApplicationInfo",
+            data: {
+
+            },
+            success: function (data) {
+                console.info(data);
+                if (data.result) {
+                    
+                } else {
+                    var jsonData = JSON.parse(data);
+                    setStep('#' + jsonData.ApplicationStep.StepId);
+
+                    $.each(jsonData.Application, function (k, v) {
+                        updateinput(k, v);
+                    });
+                }
+                $("#overlay").fadeOut();
+            },
+            error: function (result) {
+
+                console.error(result);
+                $("#overlay").fadeOut();
+            }
+        });
+    }
 
     $("#btnStep1").click(function (event) {
         'use strict'
@@ -36,7 +111,7 @@
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
                                 if (data.success == true) {
-                                    setStep('#step_category', 2);
+                                    setStep('#step_category');
                                 }
                                 else {
                                     alert(data.responseText);
@@ -55,11 +130,13 @@
             })
     });		
 
-    function setStep(stepId, stepCount) {
+    function setStep(stepId) {
         //hide all steps
         $('.appStep').attr("hidden", true);
         //show requested step
         $(stepId).attr("hidden", false);
+
+        stepCount = $(stepId).attr('data-step');
         //update progress bar at the top 
         //$("#progressbar").find('[data-step="' + stepCount + '"]').addClass('active');
         for (var i = stepCount; i >= 1; i--) {

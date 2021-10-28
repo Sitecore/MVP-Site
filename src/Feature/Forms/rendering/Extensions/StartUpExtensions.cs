@@ -9,6 +9,13 @@ namespace Mvp.Feature.Forms.Extensions
         {
             app.UseEndpoints(endpoints =>
             {
+                
+                endpoints.MapControllerRoute(
+                      name: "getApplicationlists",
+                      pattern: "application/getapplicationlists",
+
+                      new { controller = "Application", action = "GetApplicationLists" }
+                 );
                 endpoints.MapControllerRoute(
                       name:"getApplicationInfo",
                       pattern: "application/getapplicationinfo",

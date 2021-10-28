@@ -69,6 +69,7 @@
     <Compile Include="Helper.cs" />
     <Compile Include="Models\Application.cs" />
     <Compile Include="Models\ApplicationInfo.cs" />
+    <Compile Include="Models\ApplicationStep.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\MVPCategory.cs" />

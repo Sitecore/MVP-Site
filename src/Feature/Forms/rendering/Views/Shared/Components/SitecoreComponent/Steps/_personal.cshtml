@@ -9,17 +9,17 @@
             </div>
         </div>
         <label class="fieldlabels">Official First Name: *</label>
-        <input type="email" name="email" placeholder="Email Id" />
+        <input type="text" name="officialfirstname" asp-for="OfficialFirstName" />
         <label class="fieldlabels">Official Last Name: *</label>
-        <input type="text" name="uname" placeholder="UserName" />
+        <input type="text" name="officiallastname" asp-for="OfficialLastName" />
         <label class="fieldlabels">Preferred Name: *</label>
         <input type="password" name="pwd" placeholder="Password" />
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 I am...
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Working for a Partner</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" asp-for="EmploymentStatus">
+                <a class="dropdown-item" href="#">Working for a Partner 111</a>
                 <a class="dropdown-item" href="#">Working for a Customer</a>
                 <a class="dropdown-item" href="#">Working for a company which is not a Partner nor a Customer</a>
                 <a class="dropdown-item" href="#">Freelancer/Independant Consultant</a>
@@ -31,8 +31,8 @@
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Country/Region/Territory
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Working for a Partner</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" asp-for="Countries">
+                <a class="dropdown-item" href="#">Working for a Partner 222</a>
                 <a class="dropdown-item" href="#">Working for a Customer</a>
                 <a class="dropdown-item" href="#">Working for a company which is not a Partner nor a Customer</a>
                 <a class="dropdown-item" href="#">Freelancer/Independant Consultant</a>
@@ -42,8 +42,8 @@
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 State (US & Canada)
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Working for a Partner</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" asp-for="State">
+                <a class="dropdown-item" href="#">Working for a Partner 333</a>
                 <a class="dropdown-item" href="#">Working for a Customer</a>
                 <a class="dropdown-item" href="#">Working for a company which is not a Partner nor a Customer</a>
                 <a class="dropdown-item" href="#">Freelancer/Independant Consultant</a>
