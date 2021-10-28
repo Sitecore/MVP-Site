@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
 
-    var current = 1;
+    var currentStepId = 1;
     var currentStep = "#step_welcome";
     var steps = $(".fieldSet").length;
     setStep(currentStep);
@@ -44,7 +44,7 @@
                     fillDropLists(jsonData.EmploymentStatus, 'EmploymentStatus', 'Name');
                     fillDropLists(jsonData.MVPCategories, 'MVPCategories', 'Name');
 
-                    getApplicationInfo()
+                    getApplicationInfo();
                 }
                 $("#overlay").fadeOut();
             },
@@ -197,7 +197,7 @@
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
                                 if (data.success === true) {
-                                    setStep('#step_objectives', 4);
+                                    setStep('#step_objectives');
                                 }
                                 else {
                                     alert(data.responseText);
@@ -242,7 +242,7 @@
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
                                 if (data.success === true) {
-                                    setStep('#step_socials', 5);
+                                    setStep('#step_socials');
                                 }
                                 else {
                                     alert(data.responseText);
@@ -292,7 +292,7 @@
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
                                 if (data.success === true) {
-                                    setStep('#step_contributions', 6);
+                                    setStep('#step_contributions');
                                 }
                                 else {
                                     alert(data.responseText);
@@ -336,7 +336,7 @@
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
                                 if (data.success === true) {
-                                    setStep('#step_confirmation', 7);
+                                    setStep('#step_confirmation');
                                 }
                                 else {
                                     alert(data.responseText);
@@ -355,19 +355,25 @@
             })
     });
 
-    function setStep(stepId) {
-        //hide all steps
-        $('.appStep').attr("hidden", true);
-        //show requested step
-        $(stepId).attr("hidden", false);
+    function getnextStep() {
 
-        stepCount = $(stepId).attr('data-step');
-        //update progress bar at the top 
-        //$("#progressbar").find('[data-step="' + stepCount + '"]').addClass('active');
-        for (var i = stepCount; i >= 1; i--) {
-            $("#progressbar").find('[data-step="' + i + '"]').addClass('active');
+    }
+    function setStep(stepId) {
+
+            //hide all steps
+            $('.appStep').attr("hidden", true);
+            //show requested step
+            $(stepId).attr("hidden", false);
+
+            stepCount = $(stepId).attr('data-step');
+            //update progress bar at the top 
+            //$("#progressbar").find('[data-step="' + stepCount + '"]').addClass('active');
+            for (var i = stepCount; i >= 1; i--) {
+                $("#progressbar").find('[data-step="' + i + '"]').addClass('active');
         }
-        setProgressBar(stepCount);
+
+            currentStepId = stepCount;
+            setProgressBar(stepCount);
     }
 
     function setProgressBar(curStep) {
