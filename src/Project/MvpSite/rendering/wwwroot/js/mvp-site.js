@@ -1,14 +1,7 @@
 ﻿$(document).ready(function () {
 
-    //TODO
-    //Naim - good entry point to call your ajax function and with the response you can set field values and then also set the current step for the user
-    //Assuming in the response we will have application data which can be used to update values on the application
-    //We will also have the current step for the user.  It will be an ID - so '#step_welcome'
-    //Using that ID you can find the element on the page, get the data-step attribute and set the two variables below
-    //current - comes from data-step attribute
-    //currentStep - ID returned from Sitecore for the user
     var current = 1;
-    var currentStep = "#step_personal";//"#step_welcome";
+    var currentStep = "#step_welcome";
     var steps = $(".fieldSet").length;
     setStep(currentStep);
 
@@ -26,7 +19,6 @@
         $.each(items, function (i, item) {
             
             if (typeof item.Active === 'undefined' || item.Active) {
-                console.info(item.Name);
                 lists += '<a class="dropdown-item" href="#">' + item[title] + '</a>';
             } 
         });
@@ -41,8 +33,9 @@
 
             },
             success: function (data) {
-                console.info(data);
+                
                 if (data.result) {
+                    //some went thing wrong,we can handel this later.
                     console.info(data.result);
                 } else {
                     var jsonData = JSON.parse(data);
@@ -57,7 +50,7 @@
             },
             error: function (result) {
                 
-                console.info(result);
+                console.error(result);
                 $("#overlay").fadeOut();
             }
         });
@@ -70,16 +63,16 @@
 
             },
             success: function (data) {
-                console.info(data);
+                
                 if (data.result) {
                     
                 } else {
                     var jsonData = JSON.parse(data);
-                    setStep('#' + jsonData.ApplicationStep.StepId);
-
                     $.each(jsonData.Application, function (k, v) {
                         updateinput(k, v);
                     });
+
+                    setStep('#' + jsonData.ApplicationStep.StepId);
                 }
                 $("#overlay").fadeOut();
             },

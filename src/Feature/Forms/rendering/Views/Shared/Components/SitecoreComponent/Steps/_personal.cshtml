@@ -16,49 +16,32 @@
         <input type="text" id="lastName" name="lastName" placeholder="last name" asp-for="OfficialLastName" />
 
         <label class="fieldlabels">Preferred Name: *</label>
-        <input type="text" id="preferredName" name="preferredName" placeholder="preferred name" />
+        <input type="text" id="preferredName" name="preferredName" placeholder="preferred name" asp-for="PreferredName"/>
 
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="ddlEmploymentStatus" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 I am...
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" asp-for="EmploymentStatus">
-                <a class="dropdown-item" href="#">Working for a Partner 111</a>
-                <a class="dropdown-item" href="#">Working for a Customer</a>
-                <a class="dropdown-item" href="#">Working for a company which is not a Partner nor a Customer</a>
-                <a class="dropdown-item" href="#">Freelancer/Independant Consultant</a>
+                
             </div>
         </div>
 
         <label class="fieldlabels">Company Name: *</label>
-        <input type="text" id="companyName" name="companyName" placeholder="company name" />
+        <input type="text" id="companyName" name="companyName" placeholder="company name" asp-for="CompanyName" />
 
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="ddlCountry" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Country/Region/Territory
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" asp-for="Countries">
-                <a class="dropdown-item" href="#">Working for a Partner 222</a>
-                <a class="dropdown-item" href="#">Working for a Customer</a>
-                <a class="dropdown-item" href="#">Working for a company which is not a Partner nor a Customer</a>
-                <a class="dropdown-item" href="#">Freelancer/Independant Consultant</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                State (US & Canada)
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" asp-for="State">
-                <a class="dropdown-item" href="#">Working for a Partner 333</a>
-                <a class="dropdown-item" href="#">Working for a Customer</a>
-                <a class="dropdown-item" href="#">Working for a company which is not a Partner nor a Customer</a>
-                <a class="dropdown-item" href="#">Freelancer/Independant Consultant</a>
+                
             </div>
         </div>
 
 
         <label class="fieldlabels">Mentor: *</label>
-        <input type="text" id="mentor" name="mentor" placeholder="mentore" />
+        <input type="text" id="mentor" name="mentor" placeholder="mentore" asp-for="Mentor"/>
 
 
     </div>
