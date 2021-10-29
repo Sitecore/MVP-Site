@@ -84,7 +84,8 @@ namespace Mvp.Feature.Forms.Controllers
                 return null;
 
             // Create a request using a URL that can receive a post.
-            WebRequest request = WebRequest.Create("http://cd/api/sitecore/Application/GetApplicationLists");
+            var sitecoreCdUri = _configuration.GetValue<string>("Sitecore:InstanceUri");
+            WebRequest request = WebRequest.Create($"{sitecoreCdUri}/api/sitecore/Application/GetApplicationLists");
 
             AddOktaAuthHeaders(request, HttpContext);
 
@@ -119,9 +120,10 @@ namespace Mvp.Feature.Forms.Controllers
             //if (Sitecore.Context.IsLoggedIn && Sitecore.Context.User.Identity.IsAuthenticated) 
             if (!User.Identity.IsAuthenticated)
                 return null;
- 
+
             // Create a request using a URL that can receive a post.
-            WebRequest request = WebRequest.Create("http://cd/api/sitecore/Application/GetApplicationInfo");
+            var sitecoreCdUri = _configuration.GetValue<string>("Sitecore:InstanceUri");
+            WebRequest request = WebRequest.Create($"{sitecoreCdUri}/api/sitecore/Application/GetApplicationInfo");
 
             AddOktaAuthHeaders(request, HttpContext);
             

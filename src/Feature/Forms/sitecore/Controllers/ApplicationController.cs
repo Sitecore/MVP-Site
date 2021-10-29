@@ -28,7 +28,7 @@ namespace Mvp.Feature.Forms.Controllers
 
                 //fallback to email verification assuming the persons okta id was updated, can be removed later
                 if (searchResults == null || !searchResults.Any()){
-                    var email = ((System.Security.Claims.ClaimsIdentity)Sitecore.Context.User.Identity).FindFirst("email").Value;
+                    var email = ((System.Security.Claims.ClaimsIdentity)Sitecore.Context.User.Identity).FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").Value;
                     searchResults = Helper.SearchPeopleByEmail(email);
                 }
 
