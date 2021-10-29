@@ -171,16 +171,19 @@ namespace Mvp.Feature.Forms.Controllers
                 var sitecoreUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
                 var user = HttpContext.User;
                 var identity = (ClaimsIdentity)user?.Identity;
+                var firstName = identity?.FindFirst(_configuration.GetValue<string>("Claims:FirstName"))?.Value;
+                var lastName = identity?.FindFirst(_configuration.GetValue<string>("Claims:LastName"))?.Value;
+
                 var createApplication = new CreateApplication
                 {
                     ItemName = DateTime.Now.Year.ToString(),
                     TemplateID = _configuration.GetValue<string>("Sitecore:MVPApplicationTemplateId"),
-                    FirstName = identity?.FindFirst(_configuration.GetValue<string>("Claims:FirstName"))?.Value,
-                    LastName = identity?.FindFirst(_configuration.GetValue<string>("Claims:LastName"))?.Value
+                    FirstName = firstName,
+                    LastName = lastName
                 };
 
                 //TODO - how can we get the path to the user item to pass into the item service API
-                var createItemUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{"sitecore%2Fcontent%2FMvpSite%2FMVP%20Repository%2FPeople%2Fa%2FAaron%20Bickle?database=master"}"; // Path need to be added to th end ex: https://%3Cdomain%3E/sitecore/api/ssc/item/sitecore%2Fcontent%2Fhome
+                var createItemUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{$"sitecore%2Fcontent%2FMvpSite%2FMVP%20Repository%2FPeople%2Fa%2FAaron%20Bickle?database=master"}"; // Path need to be added to th end ex: https://%3Cdomain%3E/sitecore/api/ssc/item/sitecore%2Fcontent%2Fhome
                 var request = (HttpWebRequest)WebRequest.Create(createItemUrl);
 
                 request.Method = "POST";
@@ -205,7 +208,7 @@ namespace Mvp.Feature.Forms.Controllers
                 {
                     var createdItemId = response.Headers["Location"].Substring(response.Headers["Location"].LastIndexOf("/"), response.Headers["Location"].Length - response.Headers["Location"].LastIndexOf("/")).Split("?")[0].TrimStart('/');
                     HttpContext.Session.SetString(SessionConstants.UserApplicationId, createdItemId);
-                    return Json(new { success = true, responseText = "Application succesffuly created." });
+                    return Json(new { success = true, responseText = "Application succesffuly created.", applicationItemId = createdItemId });
                 }
             }
             catch (Exception ex)
@@ -217,50 +220,14 @@ namespace Mvp.Feature.Forms.Controllers
         }
 
 
-        [HttpGet("getcategories")]
-        public IActionResult GetCategories()
-        {
-            try
-            {
-                var sitecoreUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
-                var categories = $"{Constants.ItemIds.Categories}";
-                var getItemByPathUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{categories}/children?database=master&language=en&includeStandardTemplateFields=true&includeMetadata=true";
-
-                var cookies = Authenticate();
-
-                var request = (HttpWebRequest)WebRequest.Create(getItemByPathUrl);
-
-                request.Method = "GET";
-                request.ContentType = "application/json";
-                request.CookieContainer = cookies;
-
-                var response = request.GetResponse();
-                var JsonData = string.Empty;
-                using (var twitpicResponse = (HttpWebResponse)response)
-                {
-                    using (var reader = new StreamReader(twitpicResponse.GetResponseStream()))
-                    {
-                        JsonData = reader.ReadToEnd();
-                    }
-                }
-
-
-                return Json(new { success = true, responseText = JsonData });
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, ex.Message, null);
-                return Json(new { success = false, responseText = "An error occured while creating your application.  Please contact Sitecore Support." });
-            }
-        }
 
         [HttpPost]
-        public IActionResult Category(string category)
+        public IActionResult Category(string applicationId, string category)
         {
             try
             {
                 var sitecoreUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
-                var updateItemByPathUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{HttpContext.Session.GetString(SessionConstants.UserApplicationId)}/?database=master&language=en";
+                var updateItemByPathUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{applicationId}/?database=master&language=en";
 
                 var cookies = Authenticate();
 
@@ -512,6 +479,7 @@ namespace Mvp.Feature.Forms.Controllers
             authRequest.CookieContainer = cookies;
 
             var authResponse = authRequest.GetResponse();
+            
 
             _logger.LogDebug($"Login Status:\n\r{((HttpWebResponse)authResponse).StatusDescription}");
 

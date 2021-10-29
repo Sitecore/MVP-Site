@@ -109,30 +109,9 @@
                             dataType: 'json',
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
-                                if (data.success == true) {
+                                if (data.success === true) {
 
-                                    $.ajax({
-                                        url: '/getCategories',
-                                        type: 'GET',
-                                        dataType: 'json',
-                                        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-                                        success: function (response, msg, responseText) {
-                                            var data = jQuery.parseJSON(responseText.responseJSON.responseText);
-                                            var _categoryElement = $("#dllcategory");
-                                            $.each(data, function (i, item) {
-                                                var _itemId = item.ItemID;
-                                                var _itemName = item.ItemName;
-
-                                                _categoryElement.append('<a class="dropdown-item" data-ItemId="' + _itemId + '" href="#">' + _itemName + '</a>');
-
-                                            });
-
-                                        }
-                                    }).done(function () {
-                                        setTimeout(function () {
-                                            $("#overlay").fadeOut(300);
-                                        }, 500);
-                                    });
+                                    $("input[asp-for='ApplicationId']").val(data.applicationItemId);
 
                                     setStep('#step_category');
                                 }
@@ -167,12 +146,13 @@
                     }
                     else {
                         // TODO :: Get selected category from bootstrap dropdown
+                        var _applicationId = $('#applicationId').val();
                         var _category = "{DB39FC29-E639-4BE5-AE17-14428301CD11}";// $("#dllcategory").find("option:selected").text();
 
                         $.ajax({
                             url: '/submitStep2',
                             type: 'post',
-                            data: { category: _category },
+                            data: { applicationId: _applicationId, category: _category },
                             dataType: 'json',
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
@@ -263,7 +243,7 @@
                     else {
                         // get data from the form
                         var _eligibility = $('#eligibility').val();
-                        var _objectives = $('#objectives').val();
+                        var _objectives = $('#txtObjectives').val();
 
 
                         $.ajax({
