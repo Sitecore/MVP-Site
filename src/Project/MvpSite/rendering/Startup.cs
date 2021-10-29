@@ -210,6 +210,42 @@ namespace Mvp.Project.MvpSite.Rendering
                     new { controller = "Application", action = "Welcome" }
                 );
 
+                endpoints.MapControllerRoute(
+                    "submitStep2",
+                    "submitStep2",
+                    new { controller = "Application", action = "Category" }
+                );
+
+                endpoints.MapControllerRoute(
+                    "submitStep3",
+                    "submitStep3",
+                    new { controller = "Application", action = "PersonalInformation" }
+                );
+
+                endpoints.MapControllerRoute(
+                   "submitStep4",
+                   "submitStep4",
+                   new { controller = "Application", action = "ObjectivesandMotivation" }
+               );
+
+                endpoints.MapControllerRoute(
+                   "submitStep5",
+                   "submitStep5",
+                   new { controller = "Application", action = "Socials" }
+               );
+
+                endpoints.MapControllerRoute(
+                  "submitStep6",
+                  "submitStep6",
+                  new { controller = "Application", action = "NotableCurrentYearContributions" }
+              );
+
+                endpoints.MapControllerRoute(
+                 "getCategories",
+                 "getCategories",
+                 new { controller = "Application", action = "GetCategories" }
+             );
+
 
 
                 // Enables the default Sitecore URL pattern with a language prefix.

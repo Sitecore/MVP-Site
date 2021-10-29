@@ -12,9 +12,9 @@ namespace Mvp.Feature.Forms
             internal const string ItemApi = "/sitecore/api/ssc/item/";
         }
 
-        internal class Paths
+        internal class ItemIds
         {
-            internal const string Categories = "/sitecore/content/MvpSite/MVP Repository/MVP Category";
+            internal const string Categories = "{E2F6EA22-562B-4D70-A444-F5BBC81C183E}";
         }
 
         internal class SessionConstants
