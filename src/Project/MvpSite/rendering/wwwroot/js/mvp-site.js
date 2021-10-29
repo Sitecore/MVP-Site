@@ -65,14 +65,19 @@
             success: function (data) {
 
                 if (data.result) {
-
+                    //todo: redirec to login
                 } else {
                     var jsonData = JSON.parse(data);
                     $.each(jsonData.Application, function (k, v) {
                         updateinput(k, v);
                     });
 
-                    setStep('#' + jsonData.ApplicationStep.StepId);
+                    if (jsonData.ApplicationStep.StepId) {
+                        setStep('#' + jsonData.ApplicationStep.StepId);
+                    } else {
+                        //call 
+                        setStep('#step_welcome');
+                    }
                 }
                 $("#overlay").fadeOut();
             },
