@@ -41,7 +41,7 @@ spec:
         - name: Sitecore__InstanceUri
           value: http://cd
         - name: Sitecore__RenderingHostUri
-          value: https://mvp.sitecoredemo.com/
+          value: https://$(STAGING_HOST)/
         - name: Sitecore__EnableExperienceEditor
           value: "true"
         - name: Sitecore_License
@@ -49,6 +49,30 @@ spec:
             secretKeyRef:
               name: sitecore-license
               key: sitecore-license.txt
+        - name: Okta__OktaDomain
+          valueFrom:
+            secretKeyRef:
+              name: okta
+              key: okta-domain.txt
+        - name: Okta__ClientId
+          valueFrom:
+            secretKeyRef:
+              name: okta
+              key: okta-client-id.txt
+        - name: Okta__ClientSecret
+          valueFrom:
+            secretKeyRef:
+              name: okta
+              key: okta-domain.txt
+        - name: Okta__AuthorizationServerId
+          valueFrom:
+            secretKeyRef:
+              name: okta
+              key: okta-auth-server-id.txt
+        - name: PeopleGraphQL__UrlLive
+          value: http://cd/api/content/people
+        - name: PeopleGraphQL__UrlEdit
+          value: http://cd/api/content/people
         livenessProbe:
           httpGet:
             path: /healthz
