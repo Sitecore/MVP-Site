@@ -103,6 +103,28 @@ spec:
             secretKeyRef:
               name: sitecore-protect-media-requests
               key: sitecore-media-request-protection-shared-secret.txt
+        - name: Okta__OktaDomain
+          valueFrom:
+            secretKeyRef:
+              name: okta
+              key: okta-domain.txt
+        - name: Okta__ClientId
+          valueFrom:
+            secretKeyRef:
+              name: okta
+              key: okta-client-id.txt
+        - name: Okta__ClientSecret
+          valueFrom:
+            secretKeyRef:
+              name: okta
+              key: okta-client-secret.txt
+        - name: Okta__AuthorizationServerId
+          valueFrom:
+            secretKeyRef:
+              name: okta
+              key: okta-auth-server-id.txt
+        - name: Okta__RedirectUri
+          value: https://${CD_HOST}/identity/externallogincallback
         livenessProbe:
           httpGet:
             path: /healthz/live
