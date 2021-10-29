@@ -1,0 +1,23 @@
+﻿---
+ID: "a2b660e1-9671-41b4-a6ca-4956ff9847b8"
+Parent: "d3b2ac74-f73d-450d-a040-b40d53e314ec"
+Template: "0dc4f16b-6f23-4a23-b4d2-a350c0b84fd5"
+Path: /sitecore/content/MvpSite/MVP Repository/Award Years
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211013T075814Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "36c56fe7-ca9d-4a66-9983-a11dc73e4f1c"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211013T075827Z

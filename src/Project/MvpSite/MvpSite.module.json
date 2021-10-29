@@ -40,7 +40,49 @@
       {
         "name": "content",
         "path": "/sitecore/content/MvpSite",
-        "allowedPushOperations": "CreateOnly"
+        "allowedPushOperations": "CreateOnly",
+        "rules": [
+          {
+            "path": "/MVP Repository",
+            "scope": "ignored"
+          }
+        ]
+      },
+      {
+        "name": "mvp-repo",
+        "path": "/sitecore/content/MvpSite/MVP Repository",
+        "allowedPushOperations": "CreateOnly",
+        "rules": [
+          {
+            "path": "/People",
+            "scope": "SingleItem"
+          },
+          {
+            "path": "/Countries",
+            "scope": "SingleItem"
+          },
+          {
+            "path": "/Award Years",
+            "scope": "SingleItem"
+          },
+          {
+            "path": "/Award Years",
+            "scope": "SingleItem"
+          },
+          {
+            "path": "/MVP Category",
+            "scope": "SingleItem"
+          },
+          {
+            "path": "*",
+            "scope": "ignored"
+          }
+        ]
+      },
+      {
+        "name": "ItemBucketsOverride",
+        "path": "/sitecore/system/Settings/Buckets/Item Buckets Settings",
+        "allowedPushOperations": "CreateUpdateAndDelete"
       },
       {
         "name": "apikey",

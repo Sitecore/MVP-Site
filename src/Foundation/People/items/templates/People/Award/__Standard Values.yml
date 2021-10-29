@@ -1,0 +1,27 @@
+﻿---
+ID: "a4d8e3e1-4b18-40bc-b887-a388bef56d9b"
+Parent: "d5412132-bbc8-479f-b358-e5167e6fcf1b"
+Template: "d5412132-bbc8-479f-b358-e5167e6fcf1b"
+Path: /sitecore/templates/Foundation/People/Award/__Standard Values
+SharedFields:
+- ID: "c9283d9e-7c29-4419-9c28-5a5c8ff53e84"
+  Hint: __Bucketable
+  Value: 1
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210823T214628Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "c2422a0e-ec26-4f81-92e7-00f60c66c9ff"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210825T150522Z

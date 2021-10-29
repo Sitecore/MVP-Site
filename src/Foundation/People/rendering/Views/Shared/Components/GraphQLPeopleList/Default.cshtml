@@ -1,0 +1,162 @@
+﻿@using Mvp.Foundation.People.Extensions;
+@using Mvp.Foundation.People.Models;
+@model Mvp.Foundation.People.Models.PeopleSearchResults
+
+
+@{
+	var hasFilterFacets = Model.FilterFacets != null && Model.FilterFacets.Any();
+}
+
+
+@if (Model == null)
+{
+	<div class="container">
+		ERROR
+	</div>
+
+	return;
+}
+
+<!--Banner Section-->
+<section class="component hero  bg-white small  no-overhang" data-component-name="Hero Banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 side-content">
+                <p class="top">Intro to Sitecore MVP</p>
+                <h1 class="static">Sitecore MVP's'</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--MVP Search-->
+<section id="mvp-search" class="bg-white" data-component-name="MVP Search">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 side-content">
+                <input type="text" id="search" class="form-control mb-0" placeholder="Search..." value="@Model.keyword">
+                <a href="#!" class="btn btn-flat" onclick="UpdateUrlWithQuery()"></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Search Results -->
+<section class="bg-white" data-component-name="MVP Results">
+    <div class="container">
+        <div class="row">
+            <!--Sidebar filtering-->
+            <div class="col-md-3 col-xs-12 mvp-filter">
+                @foreach (var facet in Model.Facets)
+		        {
+                <article class="panel">
+                    <p class="panel-heading">
+                        @facet.DisplayName
+                    </p>
+
+                    @foreach (var facetValue in facet.values)
+				{
+					string checkedValue = facetValue.isChecked ? "checked" : "";
+
+
+                    <div class="panel-block">
+                        <p class="control has-icons-left">
+                            <label class="checkbox">
+                                <input type="checkbox"
+                                       onclick="window.location.assign(decodeURIComponent('@this.Context.Request.UpdateFacetsInUrl($"fc_{facet.name}", facetValue.value, !facetValue.isChecked)'))"
+                                       @checkedValue>
+                                @facetValue.value.ToUpper() (@facetValue.count)
+                            </label>
+                        </p>
+                    </div>
+				}
+                </article>
+		        }
+            </div>
+            
+            <!--MVP Results Section-->
+            <div class="col-md-9 col-xs-12">
+
+                <!--MVP Facet Results-->
+                @*<div class="mvp-facet-results row">
+                    <div class="badge badge-pill badge-primary">Technology <a href="#">X</a></div>
+                </div>*@
+                
+                <!--MVP Results Count-->
+                <div class="mvp-results-toolbar row">
+					<div class="mvp-results-summary">
+						Results: @Model.StartCursor - @Model.EndCursor of @Model.TotalCount
+					</div>
+                </div>
+
+                <!--MVP Results Cards-->
+                <div class="mvp-results-entries row">
+                    @foreach (var person in Model.People)
+			        {
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="card rounded-0">
+                            <a href="@person.url" class="content">
+                                <!--Get users latest MVP year-->
+                                <div class="mvp-year">@person.mvpYear</div>
+                                <img class="card-img-top" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" alt="Grivatar User Profile">
+                                <div class="card-body">
+                                    <div class="mvp-category">@person.mvpCategory</div>
+                                    <h5 class="card-title">@person.firstName.value @person.lastName.value </h5>
+                                    <!-- Commenting out year for go-live <p class="card-text">Country: United States @person.country?.targetItem?.name</p> -->
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    }
+                </div>
+
+                <!--MVP Pagination-->
+                <div class="mvp-pagination row">
+                    <nav class="mx-auto" aria-label="MVP Pagination">
+						<ul class="pagination">
+							@if(Model.CurrentPage > 1)
+                            {
+							<li class="page-item page-previous">
+								<!--Only show if you are on a page greater than pg.1-->
+								<a class="page-link" href="@System.Net.WebUtility.UrlDecode(this.Context.Request.UpdatePagerInUrl("pg", (Model.CurrentPage-1).ToString()))" aria-label="Previous">
+									<span aria-hidden="true">&laquo;</span>
+									<span class="sr-only">Previous</span>
+								</a>
+							</li>
+                            }
+							@for (int i = Model.PagerStart; i <=Model.PagerEnd ;i++)
+                            {
+							@if(i == Model.CurrentPage)
+                                {
+							<li class="page-item active"><a class="page-link"  href="@System.Net.WebUtility.UrlDecode(this.Context.Request.UpdatePagerInUrl("pg", (i).ToString()))">@i</a></li>
+                                }
+                                else
+                                {
+							<li class="page-item"><a class="page-link" href="@System.Net.WebUtility.UrlDecode(this.Context.Request.UpdatePagerInUrl("pg", (i).ToString()))">@i</a></li>
+                                }
+                            }
+							@if(Model.CurrentPage != Model.LastPage)
+                            {
+							<li class="page-item page-next">
+								<a class="page-link" href="@System.Net.WebUtility.UrlDecode(this.Context.Request.UpdatePagerInUrl("pg", (Model.CurrentPage + 1).ToString()))" aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+									<span class="sr-only">Next</span>
+								</a>
+							</li>
+                            }
+						</ul>
+                    </nav>
+                </div>
+            </div>
+         </div>
+     </div>
+</section>
+
+<script>
+	function UpdateUrlWithQuery() {
+		var urlformat = decodeURIComponent('@this.Context.Request.UpdateKeywordInUrl($"q", "KEYYWORD")');
+		
+		window.location.assign(urlformat.replace("KEYYWORD", document.getElementById("search").value));
+	}
+</script>
+

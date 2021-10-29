@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Mvp.Foundation.User</AssemblyName>
+    <RootNamespace>Mvp.Foundation.User</RootNamespace>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Okta.AspNetCore" Version="3.5.0" />
+    <PackageReference Include="Sitecore.LayoutService.Client" Version="14.0.1" />
+    <PackageReference Include="Sitecore.AspNet.RenderingEngine" Version="14.0.1" />
+  </ItemGroup>
+
+</Project>
