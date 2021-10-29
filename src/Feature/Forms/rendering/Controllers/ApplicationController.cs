@@ -180,7 +180,7 @@ namespace Mvp.Feature.Forms.Controllers
                 };
 
                 //TODO - how can we get the path to the user item to pass into the item service API
-                var createItemUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{"sitecore%2Fcontent%2FMvpSite%2FMVP%20Repository%2FPeople%2Fa%2FAlex%20Lentz?database=master"}"; // Path need to be added to th end ex: https://%3Cdomain%3E/sitecore/api/ssc/item/sitecore%2Fcontent%2Fhome
+                var createItemUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{"sitecore%2Fcontent%2FMvpSite%2FMVP%20Repository%2FPeople%2Fa%2FAaron%20Bickle?database=master"}"; // Path need to be added to th end ex: https://%3Cdomain%3E/sitecore/api/ssc/item/sitecore%2Fcontent%2Fhome
                 var request = (HttpWebRequest)WebRequest.Create(createItemUrl);
 
                 request.Method = "POST";
@@ -223,8 +223,8 @@ namespace Mvp.Feature.Forms.Controllers
             try
             {
                 var sitecoreUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
-                var categories = $"{Constants.Paths.Categories}";
-                var getItemByPathUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}?path={categories}&database=master&language=en&includeStandardTemplateFields=true&includeMetadata=true";
+                var categories = $"{Constants.ItemIds.Categories}";
+                var getItemByPathUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{categories}/children?database=master&language=en&includeStandardTemplateFields=true&includeMetadata=true";
 
                 var cookies = Authenticate();
 
@@ -244,7 +244,6 @@ namespace Mvp.Feature.Forms.Controllers
                     }
                 }
 
-                _logger.LogDebug($"Item Status:\n\r{((HttpWebResponse)response).StatusDescription}");
 
                 return Json(new { success = true, responseText = JsonData });
             }
@@ -272,7 +271,7 @@ namespace Mvp.Feature.Forms.Controllers
 
                 var request = (HttpWebRequest)WebRequest.Create(updateItemByPathUrl);
 
-                request.Method = "POST";
+                request.Method = "PATCH";
                 request.ContentType = "application/json";
                 request.CookieContainer = cookies;
 

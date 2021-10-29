@@ -10,50 +10,50 @@
     });
 
     function updateinput(key, value) {
-        $("input[asp-for='"+key+"']").val(value);
+        $("input[asp-for='" + key + "']").val(value);
     }
 
-    function fillDropLists(items,dropId,title) {
+    function fillDropLists(items, dropId, title) {
         var lists = '';
 
         $.each(items, function (i, item) {
-            
+
             if (typeof item.Active === 'undefined' || item.Active) {
                 lists += '<a class="dropdown-item" href="#">' + item[title] + '</a>';
-            } 
-        });
-        
-        $("div[asp-for='" + dropId + "']").html(lists);
-    }
-  
-        $.ajax({
-            type: "GET",
-            url: "/Application/GetApplicationLists",
-            data: {
-
-            },
-            success: function (data) {
-                
-                if (data.result) {
-                    //some went thing wrong,we can handel this later.
-                    console.info(data.result);
-                } else {
-                    var jsonData = JSON.parse(data);
-
-                    fillDropLists(jsonData.Countries, 'Countries', 'Name');
-                    fillDropLists(jsonData.EmploymentStatus, 'EmploymentStatus', 'Name');
-                    fillDropLists(jsonData.MVPCategories, 'MVPCategories', 'Name');
-
-                    getApplicationInfo();
-                }
-                $("#overlay").fadeOut();
-            },
-            error: function (result) {
-                
-                console.error(result);
-                $("#overlay").fadeOut();
             }
         });
+
+        $("div[asp-for='" + dropId + "']").html(lists);
+    }
+
+    $.ajax({
+        type: "GET",
+        url: "/Application/GetApplicationLists",
+        data: {
+
+        },
+        success: function (data) {
+
+            if (data.result) {
+                //some went thing wrong,we can handel this later.
+                console.info(data.result);
+            } else {
+                var jsonData = JSON.parse(data);
+
+                fillDropLists(jsonData.Countries, 'Countries', 'Name');
+                fillDropLists(jsonData.EmploymentStatus, 'EmploymentStatus', 'Name');
+                fillDropLists(jsonData.MVPCategories, 'MVPCategories', 'Name');
+
+                getApplicationInfo();
+            }
+            $("#overlay").fadeOut();
+        },
+        error: function (result) {
+
+            console.error(result);
+            $("#overlay").fadeOut();
+        }
+    });
 
     function getApplicationInfo() {
         $.ajax({
@@ -63,9 +63,9 @@
 
             },
             success: function (data) {
-                
+
                 if (data.result) {
-                    
+
                 } else {
                     var jsonData = JSON.parse(data);
                     $.each(jsonData.Application, function (k, v) {
@@ -83,6 +83,7 @@
             }
         });
     }
+
 
     $("#btnStep1").click(function (event) {
         'use strict'
@@ -104,12 +105,36 @@
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
                                 if (data.success == true) {
+
+                                    $.ajax({
+                                        url: '/getCategories',
+                                        type: 'GET',
+                                        dataType: 'json',
+                                        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                                        success: function (response, msg, responseText) {
+                                            var data = jQuery.parseJSON(responseText.responseJSON.responseText);
+                                            var _categoryElement = $("#dllcategory");
+                                            $.each(data, function (i, item) {
+                                                var _itemId = item.ItemID;
+                                                var _itemName = item.ItemName;
+
+                                                _categoryElement.append('<a class="dropdown-item" data-ItemId="' + _itemId + '" href="#">' + _itemName + '</a>');
+
+                                            });
+
+                                        }
+                                    }).done(function () {
+                                        setTimeout(function () {
+                                            $("#overlay").fadeOut(300);
+                                        }, 500);
+                                    });
+
                                     setStep('#step_category');
                                 }
                                 else {
                                     alert(data.responseText);
                                 }
-                                
+
                             }
                         }).done(function () {
                             setTimeout(function () {
@@ -136,13 +161,13 @@
                         event.stopPropagation()
                     }
                     else {
-                        // get data from the form
-                        var _category = $("#dllcategory").find("option:selected").text();
+                        // TODO :: Get selected category from bootstrap dropdown
+                        var _category = "{DB39FC29-E639-4BE5-AE17-14428301CD11}";// $("#dllcategory").find("option:selected").text();
 
                         $.ajax({
-                            url: '/Application/Category',
+                            url: '/submitStep2',
                             type: 'post',
-                            data: JSON.stringify({ category: _category }),
+                            data: { category: _category },
                             dataType: 'json',
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
@@ -192,7 +217,7 @@
                         var d = JSON.stringify({ applicationId: _applicationId,firstName:_firstName, lastName: _lastName, preferredName: _preferredName, employmentStatus: _employmentStatus, companyName: _companyName, country: _country, state: '', mentor: _mentor });
                         console.info(d);
                         $.ajax({
-                            url: '/Application/PersonalInformation',
+                            url: '/submitStep3',
                             type: 'post',
                             data: { applicationId: _applicationId, firstName: _firstName, lastName: _lastName, preferredName: _preferredName, employmentStatus: _employmentStatus, companyName: _companyName, country: _country, state: '', mentor: _mentor },
                             dataType: 'json',
@@ -237,9 +262,9 @@
 
 
                         $.ajax({
-                            url: '/Application/ObjectivesandMotivation',
+                            url: '/submitStep4',
                             type: 'post',
-                            data: JSON.stringify({ eligibility: _eligibility, objectives: _objectives}),
+                            data: { eligibility: _eligibility, objectives: _objectives },
                             dataType: 'json',
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
@@ -287,9 +312,9 @@
 
 
                         $.ajax({
-                            url: '/Application/Socials',
+                            url: '/submitStep5',
                             type: 'post',
-                            data: JSON.stringify({ blog: _blog, sitecoreCommunity: _sitecoreCommunity, customerCoreProfile: _customerCoreProfile, stackExchange: _stackExchange, gitHub: _gitHub, twitter: _twitter, others: _others }),
+                            data: { blog: _blog, sitecoreCommunity: _sitecoreCommunity, customerCoreProfile: _customerCoreProfile, stackExchange: _stackExchange, gitHub: _gitHub, twitter: _twitter, others: _others },
                             dataType: 'json',
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
@@ -331,9 +356,9 @@
                         var _offlineActivity = $('#offlineActivity').val();
 
                         $.ajax({
-                            url: '/Application/NotableCurrentYearContributions',
+                            url: '/submitStep6',
                             type: 'post',
-                            data: JSON.stringify({ onlineAcvitity: _onlineAcvitity, offlineActivity: _offlineActivity, }),
+                            data: { onlineAcvitity: _onlineAcvitity, offlineActivity: _offlineActivity, },
                             dataType: 'json',
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
@@ -362,20 +387,20 @@
     }
     function setStep(stepId) {
 
-            //hide all steps
-            $('.appStep').attr("hidden", true);
-            //show requested step
-            $(stepId).attr("hidden", false);
+        //hide all steps
+        $('.appStep').attr("hidden", true);
+        //show requested step
+        $(stepId).attr("hidden", false);
 
-            stepCount = $(stepId).attr('data-step');
-            //update progress bar at the top 
-            //$("#progressbar").find('[data-step="' + stepCount + '"]').addClass('active');
-            for (var i = stepCount; i >= 1; i--) {
-                $("#progressbar").find('[data-step="' + i + '"]').addClass('active');
+        stepCount = $(stepId).attr('data-step');
+        //update progress bar at the top 
+        //$("#progressbar").find('[data-step="' + stepCount + '"]').addClass('active');
+        for (var i = stepCount; i >= 1; i--) {
+            $("#progressbar").find('[data-step="' + i + '"]').addClass('active');
         }
 
-            currentStepId = stepCount;
-            setProgressBar(stepCount);
+        currentStepId = stepCount;
+        setProgressBar(stepCount);
     }
 
     function setProgressBar(curStep) {
