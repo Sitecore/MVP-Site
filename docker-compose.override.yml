@@ -146,6 +146,7 @@ services:
       Okta__ClientSecret: ${OKTA_CLIENT_SECRET}
       Okta__AuthorizationServerId: ${OKTA_AUTH_SERVER_ID}
       Okta__RedirectUri: "https://${CD_HOST}/identity/externallogincallback"
+      Sitecore__ExternalCdUrl: "${CD_HOST}"
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
     labels:
       - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
@@ -184,6 +185,7 @@ services:
       Okta__AuthorizationServerId: ${OKTA_AUTH_SERVER_ID}
       Okta__RedirectUri: "https://${CM_HOST}/identity/externallogincallback"
       Okta__DevelopmentMode: ${OKTA_DevelopmentMode}
+      Sitecore__ExternalCdUrl: "${CD_HOST}"
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
  
 networks:
