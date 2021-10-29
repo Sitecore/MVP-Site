@@ -14,6 +14,11 @@ namespace Mvp.Feature.Forms
 {
     public class Helper
     {
+        internal class SessionConstants
+        {
+            internal const string UserApplicationId = "UserApplicationId";
+        }
+
         public static SearchResults<PeopleDataItem> SearchPeopleByEmail(string email)
         {
             Sitecore.Diagnostics.Assert.IsNotNullOrEmpty(email, "email can't be null or empty");
@@ -63,6 +68,7 @@ namespace Mvp.Feature.Forms
 
             var application = new Application()
             {
+                ApplicationId = applicationItem.ID.ToString().TrimStart('{').TrimEnd('}'),
                 OfficialFirstName = applicationItem.Fields[Constants.Application.Template.Fields.OFFICIAL_FIRST_NAME].Value,
                 OfficialLastName = applicationItem.Fields[Constants.Application.Template.Fields.OFFICIAL_LAST_NAME].Value,
                 PreferredName = applicationItem.Fields[Constants.Application.Template.Fields.PREFERRED_NAME].Value,
@@ -85,6 +91,8 @@ namespace Mvp.Feature.Forms
                 // State = GetStateModel(applicationItem.Fields[Constants.Application.Template.Fields.STATE].Value),
                 EmploymentStatus = GetEmploymentStatusModel(applicationItem.Fields[Constants.Application.Template.Fields.EMPLOYMENT_STATUS].Value),
             };
+
+         
 
             return application;
 

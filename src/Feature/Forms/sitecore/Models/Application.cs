@@ -7,6 +7,7 @@ namespace Mvp.Feature.Forms.Models
 {
     public class Application
     {
+        public string ApplicationId { get; set; }
         public MVPCategory MVPCategory { get; set; }
         public string OfficialFirstName { get; set; }
         public string OfficialLastName { get; set; }
@@ -27,6 +28,5 @@ namespace Mvp.Feature.Forms.Models
         public string Other { get; set; }
         public string OnlineActivity { get; set; }
         public string OfflineActivity { get; set; }
- 
     }
 }

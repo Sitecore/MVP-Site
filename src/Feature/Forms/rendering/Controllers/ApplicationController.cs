@@ -144,6 +144,9 @@ namespace Mvp.Feature.Forms.Controllers
 
             // Close the response.
             response.Close();
+
+            
+
             return Json(responseFromServer);
 
         } 
@@ -296,13 +299,12 @@ namespace Mvp.Feature.Forms.Controllers
         }
 
         [HttpPost]
-        public IActionResult PersonalInformation(string firstName, string lastName, string preferredName, string employmentStatus, 
-            string companyName, string country, string state, string mentor)
+        public IActionResult PersonalInformation(string applicationId,string firstName, string lastName, string preferredName, string employmentStatus,string companyName, string country, string state, string mentor)
         {
             try
             {
                 var sitecoreUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
-                var updateItemByPathUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{HttpContext.Session.GetString(SessionConstants.UserApplicationId)}/?database=master&language=en";
+                var updateItemByPathUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{applicationId}/?database=master&language=en";
 
                 var cookies = Authenticate();
 
@@ -311,10 +313,10 @@ namespace Mvp.Feature.Forms.Controllers
                     FirstName = firstName,
                     LastName = lastName,
                     PreferredName = preferredName,
-                    EmploymentStatus = employmentStatus,
-                    CompanyName = companyName,
-                    Country = country,
-                    State = state, 
+                    EmploymentStatus = employmentStatus??"",
+                    CompanyName = companyName??"",
+                    Country = country??"",
+                    State = state??"", 
                     Mentor = mentor
                 };
 

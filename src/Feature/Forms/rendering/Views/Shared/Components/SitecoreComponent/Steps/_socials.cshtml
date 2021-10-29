@@ -1,4 +1,5 @@
 ﻿<form id="socialForm" class="form-horizontal" method="post" action="/submitApplication/">
+    <input type="hidden" id="applicationId" name="applicationId" asp-for="ApplicationId" />
     <div class="form-card">
         <div class="row">
             <div class="col-7">
@@ -18,17 +19,17 @@
         <input type="text" id="customerCoreProfile" name="customerCoreProfile" placeholder="customer core profile" asp-for="CustomerCoreProfile" />
 
         <label class="fieldlabels">Stack Exchange</label>
-        <input type="text" id="stackExchange" name="stackExchange" placeholder="Stack Exchange"  asp-for="StackExchange" />
+        <input type="text" id="stackExchange" name="stackExchange" placeholder="Stack Exchange" asp-for="StackExchange" />
 
         <label class="fieldlabels">Github:</label>
-        <input type="text" id="gitHub" name="gitHub" placeholder="github"  asp-for="GitHub" />
+        <input type="text" id="gitHub" name="gitHub" placeholder="github" asp-for="GitHub" />
 
         <label class="fieldlabels">Twitter:</label>
-        <input type="text" id="twitter" name="twitter" placeholder="twitter"  asp-for="Twitter" />
+        <input type="text" id="twitter" name="twitter" placeholder="twitter" asp-for="Twitter" />
 
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Other</label>
-            <textarea class="form-control" id="others" rows="3"  asp-for="Other"></textarea>
+            <textarea class="form-control" id="others" rows="3" asp-for="Other"></textarea>
         </div>
 
         <div class="form-group">

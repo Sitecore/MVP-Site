@@ -51,7 +51,7 @@ namespace Mvp.Feature.Forms.Controllers
                                 Application = applicationModel,
                                 ApplicationStep = applicationStep
                             };
-
+ 
                             return Json(applicationInfoModel, JsonRequestBehavior.AllowGet);
                         }
 

@@ -1,4 +1,5 @@
 ﻿<form id="personalForm" class="form-horizontal" method="post" action="/submitApplication/">
+    <input type="hidden" id="applicationId" name="applicationId"  asp-for="ApplicationId" />
     <div class="form-card">
         <div class="row">
             <div class="col-7">
@@ -8,22 +9,21 @@
                 <h2 class="steps">Step 3 - 7</h2>
             </div>
         </div>
-
         <label class="fieldlabels">Official First Name: *</label>
-        <input type="text" id="firstName" name="firstName" placeholder="first name"  asp-for="OfficialFirstName" />
+        <input type="text" id="firstName" name="firstName" placeholder="first name" asp-for="OfficialFirstName" />
 
         <label class="fieldlabels">Official Last Name: *</label>
         <input type="text" id="lastName" name="lastName" placeholder="last name" asp-for="OfficialLastName" />
 
         <label class="fieldlabels">Preferred Name: *</label>
-        <input type="text" id="preferredName" name="preferredName" placeholder="preferred name" asp-for="PreferredName"/>
+        <input type="text" id="preferredName" name="preferredName" placeholder="preferred name" asp-for="PreferredName" />
 
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="ddlEmploymentStatus" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 I am...
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" asp-for="EmploymentStatus">
-                
+
             </div>
         </div>
 
@@ -35,13 +35,13 @@
                 Country/Region/Territory
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" asp-for="Countries">
-                
+
             </div>
         </div>
 
 
         <label class="fieldlabels">Mentor: *</label>
-        <input type="text" id="mentor" name="mentor" placeholder="mentore" asp-for="Mentor"/>
+        <input type="text" id="mentor" name="mentor" placeholder="mentore" asp-for="Mentor" />
 
 
     </div>

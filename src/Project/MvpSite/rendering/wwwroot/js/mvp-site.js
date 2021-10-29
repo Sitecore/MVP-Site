@@ -180,6 +180,7 @@
                     }
                     else {
                         // get data from the form
+                        var _applicationId = $('#applicationId').val().toString();
                         var _firstName = $('#firstName').val();
                         var _lastName = $('#lastName').val();
                         var _preferredName = $('#preferredName').val();
@@ -188,11 +189,12 @@
                         var _country = $("#dllCountry").find("option:selected").text();
                         var _mentor = $('#mentor').val();
 
-
+                        var d = JSON.stringify({ applicationId: _applicationId,firstName:_firstName, lastName: _lastName, preferredName: _preferredName, employmentStatus: _employmentStatus, companyName: _companyName, country: _country, state: '', mentor: _mentor });
+                        console.info(d);
                         $.ajax({
                             url: '/Application/PersonalInformation',
                             type: 'post',
-                            data: JSON.stringify({ firstName: _firstName, lastName: _lastName, preferredName: _preferredName, employmentStatus: _employmentStatus, companyName: _companyName, country: _country, state: '', mentor: _mentor }),
+                            data: { applicationId: _applicationId, firstName: _firstName, lastName: _lastName, preferredName: _preferredName, employmentStatus: _employmentStatus, companyName: _companyName, country: _country, state: '', mentor: _mentor },
                             dataType: 'json',
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
