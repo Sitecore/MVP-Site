@@ -97,14 +97,14 @@ stages:
               kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
               command: 'apply'
               useConfigurationFile: true
-              configuration: '$(System.ArtifactsDirectory)/k8s-specs/namespaces/namespace-staging.yaml'
+              configuration: '$(System.ArtifactsDirectory)/k8s-specs/staging/namespaces/namespace-staging.yaml'
               secretType: 'dockerRegistry'
               containerRegistryType: 'Azure Container Registry'
               outputFormat: ''
           - task: replacetokens@3
             displayName: "Replace Tokens in Secrets & Specs"
             inputs:
-              rootDirectory: '$(System.ArtifactsDirectory)/k8s-specs'
+              rootDirectory: '$(System.ArtifactsDirectory)/k8s-specs/staging'
               targetFiles: |
                 **/*.txt
                 **/*.crt
@@ -124,7 +124,7 @@ stages:
             inputs:
               action: 'bake'
               renderType: 'kustomize'
-              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/secrets/'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/secrets/'
           - task: KubernetesManifest@0
             displayName: Deploy Secrets
             inputs:
@@ -138,7 +138,7 @@ stages:
             inputs:
               action: 'bake'
               renderType: 'kustomize'
-              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/ingress-nginx/'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/ingress-nginx/'
           - task: KubernetesManifest@0
             displayName: Deploy Ingress Specifications
             inputs:
@@ -152,7 +152,7 @@ stages:
             inputs:
               action: 'bake'
               renderType: 'kustomize'
-              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/external/'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/external/'
           - task: KubernetesManifest@0
             displayName: Deploy External Specifications
             inputs:
@@ -166,7 +166,7 @@ stages:
           #   inputs:
           #     action: 'bake'
           #     renderType: 'kustomize'
-          #     kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/init/'
+          #     kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/init/'
           # - task: KubernetesManifest@0
           #   displayName: Deploy Init Specifications
           #   inputs:
@@ -180,7 +180,7 @@ stages:
             inputs:
               action: 'bake'
               renderType: 'kustomize'
-              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging'
           - task: KubernetesManifest@0
             displayName: Deploy Application Specifications
             inputs:
@@ -214,7 +214,7 @@ stages:
                 
                 # Login to ID Server
                 Write-Host "Logging into ID Server"
-                dotnet sitecore login --client-credentials true --auth $(ID_SERVER_URL) --cm $(CM_URL) --allow-write true --client-id "MVP_Automation" --client-secret "$(SITECORE_MVP_IDENTITY_SECRET)"
+                dotnet sitecore login --client-credentials true --auth $(STAGING_ID_SERVER_URL) --cm $(STAGING_CM_URL) --allow-write true --client-id "MVP_Automation" --client-secret "$(STAGING_IDENTITY_SECRET_MVP)"
                 
                 # Deserialize Content
                 Write-Host "Push Content"
