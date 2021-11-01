@@ -16,7 +16,6 @@ using System.Net.Http;
 using System.Security.Claims;
 using System.Text;
 using static Mvp.Feature.Forms.Constants;
-using static Mvp.Feature.Forms.Models.ApplicationEditableFields;
 using Mvp.Feature.Forms.Shared.Models;
 
 namespace Mvp.Feature.Forms.Controllers
@@ -348,8 +347,8 @@ namespace Mvp.Feature.Forms.Controllers
 				{
                     dynamic dataToUpdate = new
                     {
-                        Application = "{" + createdItemId.ToUpper() + "}" ,
-                        Step = "{C55F8DEB-1E49-4DD0-9703-ADDA3CB4B72D}"
+                        Application = "{" + createdItemId.ToUpper() + "}",
+                        Step = ItemsIds.ApplicationSteps.Category
                     };
                     UpdateItemInSc(personId, dataToUpdate);
 
@@ -364,41 +363,27 @@ namespace Mvp.Feature.Forms.Controllers
         {
             try
             {
-                var sitecoreUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
-                var updateItemByPathUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{applicationId}/?database=master&language=en";
 
-                var cookies = Authenticate();
-
-                var categoryModel = new CategoryModel
+                dynamic dataToUpdate = new
                 {
                     Category = category
                 };
 
-                var request = (HttpWebRequest)WebRequest.Create(updateItemByPathUrl);
+                UpdateItemInSc(applicationId, dataToUpdate);
 
-                request.Method = "PATCH";
-                request.ContentType = "application/json";
-                request.CookieContainer = cookies;
-
-                var requestBody = JsonConvert.SerializeObject(categoryModel);
-
-                var data = new UTF8Encoding().GetBytes(requestBody);
-
-                using (var dataStream = request.GetRequestStream())
+                dataToUpdate = new
                 {
-                    dataStream.Write(data, 0, data.Length);
-                }
+                    Application = "{" + applicationId.ToUpper() + "}",
+                    Step = ItemsIds.ApplicationSteps.PersonalInformation
+                };
+                UpdateItemInSc(applicationId, dataToUpdate);
 
-                var response = request.GetResponse();
-
-                _logger.LogDebug($"Item Status:\n\r{((HttpWebResponse)response).StatusDescription}");
-
-                return Json(new { success = true, responseText = "Application succesffuly created." });
+                return Json(new { success = true, responseText = "Category succesffuly updated." });
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, ex.Message, null);
-                return Json(new { success = false, responseText = "An error occured while creating your application.  Please contact Sitecore Support." });
+                return Json(new { success = false, responseText = "An error occured while saving your application.  Please contact Sitecore Support." });
             }
         }
 
@@ -407,184 +392,150 @@ namespace Mvp.Feature.Forms.Controllers
         {
             try
             {
-                var sitecoreUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
-                var updateItemByPathUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{applicationId}/?database=master&language=en";
-
-                var cookies = Authenticate();
-
-                var personalInformationModel = new PersonalInformationModel
+                dynamic dataToUpdate = new
                 {
                     FirstName = firstName,
                     LastName = lastName,
                     PreferredName = preferredName,
-                    EmploymentStatus = employmentStatus??"",
-                    CompanyName = companyName??"",
-                    Country = country??"",
-                    State = state??"", 
+                    EmploymentStatus = employmentStatus ?? "",
+                    CompanyName = companyName ?? "",
+                    Country = country ?? "",
+                    State = state ?? "",
                     Mentor = mentor
                 };
 
-                var request = (HttpWebRequest)WebRequest.Create(updateItemByPathUrl);
+                UpdateItemInSc(applicationId, dataToUpdate);
 
-                request.Method = "PATCH";
-                request.ContentType = "application/json";
-                request.CookieContainer = cookies;
-
-                var requestBody = JsonConvert.SerializeObject(personalInformationModel);
-
-                var data = new UTF8Encoding().GetBytes(requestBody);
-
-                using (var dataStream = request.GetRequestStream())
+                dataToUpdate = new
                 {
-                    dataStream.Write(data, 0, data.Length);
-                }
+                    Application = "{" + applicationId.ToUpper() + "}",
+                    Step = ItemsIds.ApplicationSteps.Objectives
+                };
 
-                var response = request.GetResponse();
+                UpdateItemInSc(applicationId, dataToUpdate);
 
-                _logger.LogDebug($"Item Status:\n\r{((HttpWebResponse)response).StatusDescription}");
-
-                return Json(new { success = true, responseText = "Application succesffuly created." });
+                return Json(new { success = true, responseText = "Personal Information succesffuly updated." });
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, ex.Message, null);
-                return Json(new { success = false, responseText = "An error occured while creating your application.  Please contact Sitecore Support." });
+                return Json(new { success = false, responseText = "An error occured while saving your application.  Please contact Sitecore Support." });
             }
         }
 
         [HttpPost]
-        public IActionResult ObjectivesandMotivation(string eligibility, string objectives)
+        public IActionResult ObjectivesandMotivation(string applicationId,string eligibility, string objectives)
         {
             try
             {
-                var sitecoreUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
-                var updateItemByPathUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{HttpContext.Session.GetString(SessionConstants.UserApplicationId)}/?database=master&language=en";
-
-                var cookies = Authenticate();
-
-                var objectivesandMotivationModel = new ObjectivesandMotivationModel
+                dynamic dataToUpdate = new
                 {
-                    Eligibility= eligibility,
+                    Eligibility = eligibility,
                     Objectives = objectives
                 };
 
-                var request = (HttpWebRequest)WebRequest.Create(updateItemByPathUrl);
+                UpdateItemInSc(applicationId, dataToUpdate);
 
-                request.Method = "PATCH";
-                request.ContentType = "application/json";
-                request.CookieContainer = cookies;
-
-                var requestBody = JsonConvert.SerializeObject(objectivesandMotivationModel);
-
-                var data = new UTF8Encoding().GetBytes(requestBody);
-
-                using (var dataStream = request.GetRequestStream())
+                dataToUpdate = new
                 {
-                    dataStream.Write(data, 0, data.Length);
-                }
+                    Application = "{" + applicationId.ToUpper() + "}",
+                    Step = ItemsIds.ApplicationSteps.Socials
+                };
 
-                var response = request.GetResponse();
+                UpdateItemInSc(applicationId, dataToUpdate);
 
-                _logger.LogDebug($"Item Status:\n\r{((HttpWebResponse)response).StatusDescription}");
-
-                return Json(new { success = true, responseText = "Application succesffuly created." });
+                return Json(new { success = true, responseText = "Objectives and Motivation succesffuly updated." });
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, ex.Message, null);
-                return Json(new { success = false, responseText = "An error occured while creating your application.  Please contact Sitecore Support." });
+                return Json(new { success = false, responseText = "An error occured while saving your application.  Please contact Sitecore Support." });
             }
         }
 
         [HttpPost]
-        public IActionResult Socials(string blog, string sitecoreCommunity, string customerCoreProfile, string stackExchange, string gitHub, string twitter, string others)
+        public IActionResult Socials(string applicationId, string blog, string sitecoreCommunity, string customerCoreProfile, string stackExchange, string gitHub, string twitter, string others)
         {
             try
             {
-                var sitecoreUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
-                var updateItemByPathUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{HttpContext.Session.GetString(SessionConstants.UserApplicationId)}/?database=master&language=en";
-
-                var cookies = Authenticate();
-
-                var communityProfilesModel = new CommunityProfilesModel
+                dynamic dataToUpdate = new
                 {
                     Blog = blog,
                     SitecoreCommunity = sitecoreCommunity,
                     CustomerCoreProfile = customerCoreProfile,
                     StackExchange = stackExchange,
-                    GitHub= gitHub,
-                    Twitter = twitter
+                    GitHub = gitHub,
+                    Twitter = twitter,
+                    Other =  others
                 };
 
-                var request = (HttpWebRequest)WebRequest.Create(updateItemByPathUrl);
+                UpdateItemInSc(applicationId, dataToUpdate);
 
-                request.Method = "PATCH";
-                request.ContentType = "application/json";
-                request.CookieContainer = cookies;
-
-                var requestBody = JsonConvert.SerializeObject(communityProfilesModel);
-
-                var data = new UTF8Encoding().GetBytes(requestBody);
-
-                using (var dataStream = request.GetRequestStream())
+                dataToUpdate = new
                 {
-                    dataStream.Write(data, 0, data.Length);
-                }
+                    Application = "{" + applicationId.ToUpper() + "}",
+                    Step = ItemsIds.ApplicationSteps.Contributions
+                };
 
-                var response = request.GetResponse();
+                UpdateItemInSc(applicationId, dataToUpdate);
 
-                _logger.LogDebug($"Item Status:\n\r{((HttpWebResponse)response).StatusDescription}");
-
-                return Json(new { success = true, responseText = "Application succesffuly created." });
+                return Json(new { success = true, responseText = "Socials succesffuly updated." });
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, ex.Message, null);
-                return Json(new { success = false, responseText = "An error occured while creating your application.  Please contact Sitecore Support." });
+                return Json(new { success = false, responseText = "An error occured while saving your application.  Please contact Sitecore Support." });
             }
         }
 
         [HttpPost]
-        public IActionResult NotableCurrentYearContributions(string onlineAcvitity, string offlineActivity)
+        public IActionResult NotableCurrentYearContributions(string applicationId, string onlineAcvitity, string offlineActivity)
         {
             try
             {
-                var sitecoreUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
-                var updateItemByPathUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{HttpContext.Session.GetString(SessionConstants.UserApplicationId)}/?database=master&language=en";
-
-                var cookies = Authenticate();
-
-                var NotableCurrentYearContributionsModeln= new NotableCurrentYearContributionsModel
+                dynamic dataToUpdate = new
                 {
                     OnlineAcvitity = onlineAcvitity,
                     OfflineActivity = offlineActivity
                 };
 
-                var request = (HttpWebRequest)WebRequest.Create(updateItemByPathUrl);
+                UpdateItemInSc(applicationId, dataToUpdate);
 
-                request.Method = "PATCH";
-                request.ContentType = "application/json";
-                request.CookieContainer = cookies;
-
-                var requestBody = JsonConvert.SerializeObject(NotableCurrentYearContributionsModeln);
-
-                var data = new UTF8Encoding().GetBytes(requestBody);
-
-                using (var dataStream = request.GetRequestStream())
+                dataToUpdate = new
                 {
-                    dataStream.Write(data, 0, data.Length);
-                }
+                    Application = "{" + applicationId.ToUpper() + "}",
+                    Step = ItemsIds.ApplicationSteps.Confirmation
+                };
 
-                var response = request.GetResponse();
+                UpdateItemInSc(applicationId, dataToUpdate);
 
-                _logger.LogDebug($"Item Status:\n\r{((HttpWebResponse)response).StatusDescription}");
-
-                return Json(new { success = true, responseText = "Application succesffuly created." });
+                return Json(new { success = true, responseText = "Notable Current Year Contributions succesffuly updated." });
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, ex.Message, null);
-                return Json(new { success = false, responseText = "An error occured while creating your application.  Please contact Sitecore Support." });
+                return Json(new { success = false, responseText = "An error occured while saving your application.  Please contact Sitecore Support." });
+            }
+        }
+       
+        [HttpPost]
+        public IActionResult Confirmation(string applicationId)
+        {
+            try
+            {
+                dynamic dataToUpdate = new
+                {
+                    Completed = "1"
+                };
+
+                UpdateItemInSc(applicationId, dataToUpdate);
+
+                return Json(new { success = true, responseText = "Category succesffuly updated." });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, ex.Message, null);
+                return Json(new { success = false, responseText = "An error occured while saving your application.  Please contact Sitecore Support." });
             }
         }
 

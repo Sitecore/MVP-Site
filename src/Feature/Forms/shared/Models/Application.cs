@@ -28,5 +28,6 @@ namespace Mvp.Feature.Forms.Shared.Models
         public string Other { get; set; }
         public string OnlineActivity { get; set; }
         public string OfflineActivity { get; set; }
+        public string Step { get; set; }
     }
 }

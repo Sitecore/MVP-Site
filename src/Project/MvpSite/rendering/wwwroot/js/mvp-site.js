@@ -39,7 +39,7 @@
                             success: function (data) {
                                 if (data.success === true) {
 
-                                    $("input[asp-for='ApplicationId']").val(data.applicationItemId);
+                                    $("input[asp-for='applicationId']").val(data.applicationItemId);
 
                                     setStep('#step_category');
                                 }
@@ -170,6 +170,7 @@
                     }
                     else {
                         // get data from the form
+                        var _applicationId = $('#applicationId').val().toString();
                         var _eligibility = $('#eligibility').val();
                         var _objectives = $('#txtObjectives').val();
 
@@ -177,7 +178,7 @@
                         $.ajax({
                             url: '/submitStep4',
                             type: 'post',
-                            data: { eligibility: _eligibility, objectives: _objectives },
+                            data: { applicationId: _applicationId, eligibility: _eligibility, objectives: _objectives },
                             dataType: 'json',
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
@@ -215,6 +216,7 @@
                     }
                     else {
                         // get data from the form
+                        var _applicationId = $('#applicationId').val().toString();
                         var _blog = $('#blog').val();
                         var _sitecoreCommunity = $('#customerCoreProfile').val();
                         var _customerCoreProfile = $('#customerCoreProfile').val();
@@ -227,7 +229,7 @@
                         $.ajax({
                             url: '/submitStep5',
                             type: 'post',
-                            data: { blog: _blog, sitecoreCommunity: _sitecoreCommunity, customerCoreProfile: _customerCoreProfile, stackExchange: _stackExchange, gitHub: _gitHub, twitter: _twitter, others: _others },
+                            data: { applicationId: _applicationId, blog: _blog, sitecoreCommunity: _sitecoreCommunity, customerCoreProfile: _customerCoreProfile, stackExchange: _stackExchange, gitHub: _gitHub, twitter: _twitter, others: _others },
                             dataType: 'json',
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
@@ -265,18 +267,63 @@
                     }
                     else {
                         // get data from the form
+                        var _applicationId = $('#applicationId').val().toString();
                         var _onlineAcvitity = $('#onlineAcvitity').val();
                         var _offlineActivity = $('#offlineActivity').val();
 
                         $.ajax({
                             url: '/submitStep6',
                             type: 'post',
-                            data: { onlineAcvitity: _onlineAcvitity, offlineActivity: _offlineActivity, },
+                            data: { applicationId: _applicationId, onlineAcvitity: _onlineAcvitity, offlineActivity: _offlineActivity, },
                             dataType: 'json',
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
                                 if (data.success === true) {
                                     setStep('#step_confirmation');
+                                }
+                                else {
+                                    alert(data.responseText);
+                                }
+
+                            }
+                        }).done(function () {
+                            setTimeout(function () {
+                                $("#overlay").fadeOut(300);
+                            }, 500);
+                        });
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    });
+
+    $("#btnStep7").click(function (event) {
+        'use strict'
+        var forms = document.querySelectorAll('#confirmationForm')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault()
+                    if (!form.checkValidity()) {
+                        event.stopPropagation()
+                    }
+                    else {
+                        // get data from the form
+                        var _applicationId = $('#applicationId').val().toString();
+
+                        $.ajax({
+                            url: '/submitStep7',
+                            type: 'post',
+                            data: { applicationId: _applicationId},
+                            dataType: 'json',
+                            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                            success: function (data) {
+                                if (data.success === true) {
+                                    // TODO : Redirect to thank you page or from the backend
+                                    window.location.href = "/thankyou";
                                 }
                                 else {
                                     alert(data.responseText);

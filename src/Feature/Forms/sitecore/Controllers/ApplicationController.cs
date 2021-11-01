@@ -48,14 +48,16 @@ namespace Mvp.Feature.Forms.Controllers
 					personO.Email = personItem.Fields[Constants.Person.Template.Fields.PEOPLE_EMAIL].Value;
 					personO.ItemPath = personItem.Paths.FullPath;
 					personO.ItemId = personItem.ID.ToString();
-					var applicationStepId = personItem.Fields[Constants.Person.Template.Fields.PEOPLE_APPLICATION_STEP].Value;
-					ApplicationStep applicationStep = _service.GetApplicationStepModel(applicationStepId);
+					
 
 					var applicationItemId = personItem.Fields[Constants.Person.Template.Fields.PEOPLE_APPLICATION]?.Value;
 					var applicationModel = _service.GetApplicationModel(applicationItemId);
 
 					if (applicationModel != null)
 					{
+						var applicationStepId = applicationModel.Step;
+						ApplicationStep applicationStep = _service.GetApplicationStepModel(applicationStepId);
+
 						applicationInfoModel = new ApplicationInfo
 						{
 							Application = applicationModel,

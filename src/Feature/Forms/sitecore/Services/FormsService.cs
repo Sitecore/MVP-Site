@@ -111,6 +111,7 @@ namespace Mvp.Feature.Forms
                 Other = applicationItem.Fields[Constants.Application.Template.Fields.OTHER].Value,
                 OnlineActivity = applicationItem.Fields[Constants.Application.Template.Fields.ONLINE_ACTIVITY].Value,
                 OfflineActivity = applicationItem.Fields[Constants.Application.Template.Fields.OFFLINE_ACTIVITY].Value,
+                Step = applicationItem.Fields[Constants.Application.Template.Fields.STEP].Value,
 
                 MVPCategory = GetMVPCategoryModel(applicationItem.Fields[Constants.Application.Template.Fields.CATEGORY].Value),
                 Country = GetCountryModel(applicationItem.Fields[Constants.Application.Template.Fields.COUNTRY].Value),
