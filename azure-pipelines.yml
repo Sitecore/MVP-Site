@@ -188,6 +188,7 @@ stages:
               kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-staging'
               manifests: '$(bake_application.manifestsBundle)'
+              rolloutStatusTimeout: '1200'
   - deployment: 'Deserialize_Content_to_Staging'
     dependsOn: 'Deploy_Specs_to_Staging_AKS'
     pool:
@@ -327,6 +328,7 @@ stages:
               kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-prod'
               manifests: '$(bake_application.manifestsBundle)'
+              rolloutStatusTimeout: '1200'
   - deployment: 'Deserialize_Content_to_Production'
     dependsOn: 'Deploy_Specs_to_Production_AKS'
     pool:
