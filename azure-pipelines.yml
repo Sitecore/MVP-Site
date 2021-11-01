@@ -227,7 +227,7 @@ stages:
 
 - stage: Production
   condition:  and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
-  dependsOn: Build,Staging
+  dependsOn: Staging
   displayName: Deploy to Production
   jobs:
   - deployment: 'Deploy_Specs_to_Production_AKS'
