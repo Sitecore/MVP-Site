@@ -150,7 +150,7 @@ spec:
         resources:
           requests:
             memory: 1Gi
-            cpu: 100m
+            cpu: 1000m
           limits:
             memory: 3Gi
             cpu: 2000m
