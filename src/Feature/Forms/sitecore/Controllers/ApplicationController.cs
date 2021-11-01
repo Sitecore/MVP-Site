@@ -9,73 +9,98 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Mvp.Feature.Forms.Search;
-using Mvp.Feature.Forms.Models;
+using Mvp.Feature.Forms.Shared.Models;
 using Sitecore.Data.Fields;
 
 namespace Mvp.Feature.Forms.Controllers
 {
     public class ApplicationController : Controller
     {
+        FormsService _service;
+        public ApplicationController()
+		{
+            _service = new FormsService();
+		}
+
         [HttpGet]
         public JsonResult GetApplicationInfo()
-        {
-            if (Sitecore.Context.User.Identity.IsAuthenticated) 
-            {
-                
-                var identifier = ((System.Security.Claims.ClaimsIdentity)Sitecore.Context.User.Identity).FindFirst("aud").Value;
-                
-                var searchResults = Helper.SearchPeopleByOktaId( identifier);
+		{
+			var applicationInfoModel = new ApplicationInfo();
+			if (Sitecore.Context.User.Identity.IsAuthenticated)
+			{
+				var identifier = ((System.Security.Claims.ClaimsIdentity)Sitecore.Context.User.Identity).FindFirst("aud").Value;
 
-                //fallback to email verification assuming the persons okta id was updated, can be removed later
-                if (searchResults == null || !searchResults.Any()){
-                    var email = ((System.Security.Claims.ClaimsIdentity)Sitecore.Context.User.Identity).FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").Value;
-                    searchResults = Helper.SearchPeopleByEmail(email);
-                }
+				var personItem = _service.SearchPeopleByOktaId(identifier);
 
-                if (searchResults != null && searchResults.Any())
-                {
-                    var person = searchResults.FirstOrDefault();
-                    var personItem = Sitecore.Context.Database.GetItem(person.Document.ItemId);
+				//fallback to email verification assuming the persons okta id was updated, can be removed later
+				if (personItem == null)
+				{
+					var email = ((System.Security.Claims.ClaimsIdentity)Sitecore.Context.User.Identity).FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").Value;
+					personItem = _service.SearchPeopleByEmail(email);
+				}
 
-                    if (personItem != null)
-                    {
-                        var applicationStepId = personItem.Fields[Constants.Person.Template.Fields.PEOPLE_APPLICATION_STEP].Value;
-                        ApplicationStep applicationStep = Helper.GetApplicationStepModel(applicationStepId);
+				if (personItem != null)
+				{
+					Person personO = new Person();
+					personO.FirstName = personItem.Fields[Constants.Person.Template.Fields.PEOPLE_FIRST_NAME].Value;
+					personO.LastName = personItem.Fields[Constants.Person.Template.Fields.PEOPLE_LAST_NAME].Value;
+					personO.OktaId = personItem.Fields[Constants.Person.Template.Fields.OKTA_ID].Value;
+					personO.Email = personItem.Fields[Constants.Person.Template.Fields.PEOPLE_EMAIL].Value;
+					personO.ItemPath = personItem.Paths.FullPath;
+					personO.ItemId = personItem.ID.ToString();
+					var applicationStepId = personItem.Fields[Constants.Person.Template.Fields.PEOPLE_APPLICATION_STEP].Value;
+					ApplicationStep applicationStep = _service.GetApplicationStepModel(applicationStepId);
 
-                        var applicationItemId= personItem.Fields[Constants.Person.Template.Fields.PEOPLE_APPLICATION]?.Value;
-                        var applicationModel= Helper.GetApplicationModel(applicationItemId);
-                      
-                        if (applicationModel != null) {
-                            var applicationInfoModel = new ApplicationInfo
-                            {
-                                Application = applicationModel,
-                                ApplicationStep = applicationStep
-                            };
- 
-                            return Json(applicationInfoModel, JsonRequestBehavior.AllowGet);
-                        }
+					var applicationItemId = personItem.Fields[Constants.Person.Template.Fields.PEOPLE_APPLICATION]?.Value;
+					var applicationModel = _service.GetApplicationModel(applicationItemId);
 
-                        return Json(new { result = true, error = "application not found."  }, JsonRequestBehavior.AllowGet);
-                    }
-                    else {
-                        return Json(new { result = false, error = "person not found." }, JsonRequestBehavior.AllowGet);
-                    }
-                }
-            }
-            return Json(new { result = false, error = "Please login first." }, JsonRequestBehavior.AllowGet);
-        
-        }
+					if (applicationModel != null)
+					{
+						applicationInfoModel = new ApplicationInfo
+						{
+							Application = applicationModel,
+							ApplicationStep = applicationStep,
+							Person = personO,
+							Status = ApplicationStatus.ApplicationFound
+						};
+					}
+					else
+					{
+						applicationInfoModel = new ApplicationInfo
+						{
+							Person = personO,
+							Status = ApplicationStatus.ApplicationItemNotFound
+						};
+					}
+				}
+				else
+				{
+					applicationInfoModel = new ApplicationInfo
+					{
+						Status = ApplicationStatus.PersonItemNotFound
+					};
+				}
+			}
+			else
+			{
+				applicationInfoModel = new ApplicationInfo
+				{
+					Status = ApplicationStatus.NotLoggedIn
+				};
+			}
+			return Json(applicationInfoModel, JsonRequestBehavior.AllowGet);
+		}
 
 
-        [HttpGet]
+		[HttpGet]
         public JsonResult GetApplicationLists()
         {
             if (Sitecore.Context.User.Identity.IsAuthenticated) 
             {
                  var applicationListsModel = new ApplicationLists{
-                                Countries  = Helper.GetCountries(),
-                                EmploymentStatus = Helper.GetEmploymentStatus(),
-                                MVPCategories = Helper.GetMVPCategories(),
+                                Countries  = _service.GetCountries(),
+                                EmploymentStatus = _service.GetEmploymentStatus(),
+                                MVPCategories = _service.GetMVPCategories(),
                         };
 
                     return Json(applicationListsModel, JsonRequestBehavior.AllowGet);
