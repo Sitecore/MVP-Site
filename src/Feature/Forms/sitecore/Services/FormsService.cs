@@ -138,6 +138,7 @@ namespace Mvp.Feature.Forms
             CheckboxField ck = MVPCategoryItem.Fields[Constants.MVPCategory.Template.Fields.ACTIVE];
             var mvpCategoryModel = new MVPCategory()
             {
+                ID = MVPCategoryItem.ID.Guid,
                 Name = MVPCategoryItem.Fields[Constants.MVPCategory.Template.Fields.NAME].Value,
                 Active = ck?.Checked??false,
             };
@@ -157,6 +158,7 @@ namespace Mvp.Feature.Forms
 
             var country = new Country()
             {
+                ID = countryItem.ID.Guid,
                 Name = countryItem.Fields[Constants.Country.Template.Fields.NAME].Value,
                 Description = countryItem.Fields[Constants.Country.Template.Fields.DESCRIPTION].Value,
             };
@@ -198,6 +200,7 @@ namespace Mvp.Feature.Forms
             
             var employmentStatus = new EmploymentStatus()
             {
+                ID = employmentStatusItem.ID.Guid,
                 Name = employmentStatusItem.Fields[Constants.EmploymentStatus.Template.Fields.NAME].Value,
                 Description = employmentStatusItem.Fields[Constants.EmploymentStatus.Template.Fields.DESCRIPTION].Value,
             };
@@ -217,7 +220,8 @@ namespace Mvp.Feature.Forms
 
             foreach (Item country  in FolderItem.Children)
             {
-                var countryModel = new Country { 
+                var countryModel = new Country {
+                    ID = country.ID.Guid,
                     Name = country.Fields[Constants.Country.Template.Fields.NAME].Value,
                     Description = country.Fields[Constants.Country.Template.Fields.DESCRIPTION].Value,
                 };
@@ -245,6 +249,7 @@ namespace Mvp.Feature.Forms
  
                 var mvpCategoryModel = new MVPCategory
                 {
+                    ID = mvpCategory.ID.Guid,
                     Name = mvpCategory.Fields[Constants.MVPCategory.Template.Fields.NAME].Value,
                     Active = ck?.Checked ?? false,
                 };
@@ -270,6 +275,7 @@ namespace Mvp.Feature.Forms
             {
                 var employmentStatusModel = new EmploymentStatus
                 {
+                    ID = employmentStatus.ID.Guid,
                     Name = employmentStatus.Fields[Constants.EmploymentStatus.Template.Fields.NAME].Value,
                     Description = employmentStatus.Fields[Constants.EmploymentStatus.Template.Fields.DESCRIPTION].Value,
                 };

@@ -9,5 +9,6 @@ namespace Mvp.Feature.Forms.Shared.Models
     {
         public string Name { get; set; }
         public bool Active{ get; set; }
+        public Guid ID { get; set; }
     }
 }

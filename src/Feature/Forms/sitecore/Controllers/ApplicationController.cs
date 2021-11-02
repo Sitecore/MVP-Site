@@ -98,7 +98,7 @@ namespace Mvp.Feature.Forms.Controllers
 		[HttpGet]
         public JsonResult GetApplicationLists()
         {
-            if (Sitecore.Context.User.Identity.IsAuthenticated) 
+            //if (Sitecore.Context.User.Identity.IsAuthenticated) 
             {
                  var applicationListsModel = new ApplicationLists{
                                 Countries  = _service.GetCountries(),
@@ -109,7 +109,7 @@ namespace Mvp.Feature.Forms.Controllers
                     return Json(applicationListsModel, JsonRequestBehavior.AllowGet);
             }
 
-            return Json(new { result = false, error = "please signin to get the application lists." }, JsonRequestBehavior.AllowGet);
+            //return Json(new { result = false, error = "please signin to get the application lists." }, JsonRequestBehavior.AllowGet);
 
         }
 
