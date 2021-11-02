@@ -148,6 +148,9 @@ spec:
           periodSeconds: 30
           failureThreshold: 10
         resources:
+          requests:
+            memory: 1Gi
+            cpu: 100m
           limits:
             memory: 3Gi
             cpu: 2000m
