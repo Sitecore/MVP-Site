@@ -420,7 +420,7 @@ function fillApplicationList() {
 
                 fillDropLists(jsonData.Country, 'Country', 'Name');
                 fillDropLists(jsonData.EmploymentStatus, 'EmploymentStatus', 'Name');
-                fillDropLists(jsonData.MVPCategory, 'MVPCategories', 'Name');
+                fillDropLists(jsonData.MVPCategories, 'MVPCategory', 'Name');
 
             }
             $("#overlay").fadeOut();

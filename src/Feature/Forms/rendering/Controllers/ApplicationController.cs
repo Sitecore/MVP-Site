@@ -153,6 +153,7 @@ namespace Mvp.Feature.Forms.Controllers
             var user = HttpContext.User;
             var identity = (ClaimsIdentity)user?.Identity;
             string oktaId = identity?.FindFirst(_configuration.GetValue<string>("Claims:OktaId"))?.Value;
+            var email = identity?.FindFirst(_configuration.GetValue<string>("Claims:Email"))?.Value;
 
             AddOktaAuthHeaders(request, HttpContext);
 
@@ -162,7 +163,8 @@ namespace Mvp.Feature.Forms.Controllers
 
             string requestData = JsonConvert.SerializeObject(new
             {
-                identifier = oktaId
+                identifier = oktaId,
+                email = email
             });
 
             var data = new UTF8Encoding().GetBytes(requestData);
