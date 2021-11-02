@@ -142,19 +142,36 @@ namespace Mvp.Feature.Forms.Controllers
 
             return Json(new { IsLoggedIn = false, ApplicationAvailable = false});
 
-        } 
+        }
 
         private ApplicationInfo GetApplication()
-		{
+        {
             // Create a request using a URL that can receive a post.
             var sitecoreCdUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
             WebRequest request = WebRequest.Create($"{sitecoreCdUri}/api/sitecore/Application/GetApplicationInfo");
 
+            var user = HttpContext.User;
+            var identity = (ClaimsIdentity)user?.Identity;
+            string oktaId = identity?.FindFirst(_configuration.GetValue<string>("Claims:OktaId"))?.Value;
+
             AddOktaAuthHeaders(request, HttpContext);
 
             // Set the Method property of the request to POST.
-            request.Method = "GET";
+            request.Method = "POST";
+            request.ContentType = "application/json";
 
+            string requestData = JsonConvert.SerializeObject(new
+            {
+                identifier = oktaId
+            });
+
+            var data = new UTF8Encoding().GetBytes(requestData);
+
+            using (var dataStream = request.GetRequestStream())
+            {
+                dataStream.Write(data, 0, data.Length);
+            }
+ 
             // Get the response.
             WebResponse response = request.GetResponse();
 

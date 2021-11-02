@@ -22,13 +22,14 @@ namespace Mvp.Feature.Forms.Controllers
             _service = new FormsService();
 		}
 
-        [HttpGet]
-        public JsonResult GetApplicationInfo()
+        [HttpPost]
+        public JsonResult GetApplicationInfo(string identifier)
 		{
+			//Sitecore.Diagnostics.Assert.IsNotNullOrEmpty(identifier, "identifier can't be null or empty");
+
 			var applicationInfoModel = new ApplicationInfo();
-			if (Sitecore.Context.User.Identity.IsAuthenticated)
-			{
-				var identifier = ((System.Security.Claims.ClaimsIdentity)Sitecore.Context.User.Identity).FindFirst("aud").Value;
+
+            if(!string.IsNullOrEmpty(identifier)) { 
 
 				var personItem = _service.SearchPeopleByOktaId(identifier);
 
@@ -83,7 +84,7 @@ namespace Mvp.Feature.Forms.Controllers
 					};
 				}
 			}
-			else
+			else	
 			{
 				applicationInfoModel = new ApplicationInfo
 				{
