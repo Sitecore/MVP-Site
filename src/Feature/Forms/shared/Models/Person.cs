@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Mvp.Feature.Forms.Models
+namespace Mvp.Feature.Forms.Shared.Models
 {
     public class Person
     {
@@ -16,6 +16,8 @@ namespace Mvp.Feature.Forms.Models
         public string Application { get; set; }//item
         public string Step { get; set; }//item
         public string OktaId { get; set; }
+        public string ItemPath { get; set; }
+        public string ItemId { get; set; }
 
     }
 }

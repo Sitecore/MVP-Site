@@ -241,6 +241,12 @@ namespace Mvp.Project.MvpSite.Rendering
               );
 
                 endpoints.MapControllerRoute(
+                 "submitStep7",
+                 "submitStep7",
+                 new { controller = "Application", action = "Confirmation" }
+             );
+
+                endpoints.MapControllerRoute(
                  "getCategories",
                  "getCategories",
                  new { controller = "Application", action = "GetCategories" }

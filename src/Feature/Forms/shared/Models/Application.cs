@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Mvp.Feature.Forms.Models
+namespace Mvp.Feature.Forms.Shared.Models
 {
     public class Application
     {
@@ -28,5 +28,6 @@ namespace Mvp.Feature.Forms.Models
         public string Other { get; set; }
         public string OnlineActivity { get; set; }
         public string OfflineActivity { get; set; }
+        public string Step { get; set; }
     }
 }

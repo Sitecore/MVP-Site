@@ -10,8 +10,4 @@
     <Compile Remove="Models\FeaturePanelItem.cs" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
 </Project>
