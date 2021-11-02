@@ -122,9 +122,9 @@
                         var _firstName = $('#firstName').val();
                         var _lastName = $('#lastName').val();
                         var _preferredName = $('#preferredName').val();
-                        var _employmentStatus = $("#ddlEmploymentStatus").find("option:selected").text();
+                        var _employmentStatus = $("#ddlEmploymentStatus").find("option:selected").val();
                         var _companyName = $('#companyName').val();
-                        var _country = $("#dllCountry").find("option:selected").text();
+                        var _country = $("#ddlCountry").find("option:selected").val();
                         var _mentor = $('#mentor').val();
 
                         var d = JSON.stringify({ applicationId: _applicationId,firstName:_firstName, lastName: _lastName, preferredName: _preferredName, employmentStatus: _employmentStatus, companyName: _companyName, country: _country, state: '', mentor: _mentor });
@@ -216,7 +216,7 @@
                     }
                     else {
                         // get data from the form
-                        var _applicationId = $('#applicationId').val().toString();
+                        var _applicationId = $('#applicationId').val();
                         var _blog = $('#blog').val();
                         var _sitecoreCommunity = $('#customerCoreProfile').val();
                         var _customerCoreProfile = $('#customerCoreProfile').val();
@@ -267,7 +267,7 @@
                     }
                     else {
                         // get data from the form
-                        var _applicationId = $('#applicationId').val().toString();
+                        var _applicationId = $('#applicationId').val();
                         var _onlineAcvitity = $('#onlineAcvitity').val();
                         var _offlineActivity = $('#offlineActivity').val();
 
@@ -345,20 +345,28 @@
 
 
 function updateinput(key, value) {
-    $("input[asp-for='" + key + "']").val(value);
-    $("select[asp-for='" + dropId + "'] option[value=" + value + "]").prop('selected', true);
+    var dropLowerCaseId = key.toLowerCase();
+
+    $("input[asp-for='" + dropLowerCaseId + "']").val(value);
+    $("textarea[asp-for='" + dropLowerCaseId + "']").val(value);
+    
+    if (value !=null && typeof value.id !== 'undefined') {
+        $("select[asp-for='" + dropLowerCaseId + "'] option[value=" + value.id + "]").prop('selected', true);
+    }
 }
 
 function fillDropLists(items, dropId, title) {
     var lists = '';
-
-    $("select[asp-for='" + dropId + "']").append("<option value=''>&nbsp;</option>");
-
+    var dropLowerCaseId = dropId.toLowerCase ();
+    $("select[asp-for='" + dropLowerCaseId + "']").append("<option value=''>&nbsp;</option>");
+   
     $.each(items, function (i, item) {
-
+        console.info(dropLowerCaseId + '-' + item[title]);
         if (typeof item.Active === 'undefined' || item.Active) {
             //lists += '<a class="dropdown-item" href="#">' + item[title] + '</a>';
-            $("select[asp-for='" + dropId + "']").append("<option value='"+item['ID']+"'>"+item[title]+"</option>");
+            $("select[asp-for='" + dropLowerCaseId + "']").append("<option value='" + item['ID'] + "'>" + item[title] + "</option>");
+        } else {
+            alert(item.Active);
         }
     });
 
@@ -413,7 +421,7 @@ function fillApplicationList() {
 
                 fillDropLists(jsonData.Countries, 'Countries', 'Name');
                 fillDropLists(jsonData.EmploymentStatus, 'EmploymentStatus', 'Name');
-                fillDropLists(jsonData.MVPCategories, 'MVPCategories', 'Name');
+                fillDropLists(jsonData.MVPCategory, 'MVPCategories', 'Name');
             }
             $("#overlay").fadeOut();
         },

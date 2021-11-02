@@ -383,7 +383,7 @@ namespace Mvp.Feature.Forms.Controllers
 
                 dynamic dataToUpdate = new
                 {
-                    Category = category
+                    Category = "{" + category.ToUpper() + "}",
                 };
 
                 UpdateItemInSc(applicationId, dataToUpdate);
@@ -414,9 +414,9 @@ namespace Mvp.Feature.Forms.Controllers
                     FirstName = firstName,
                     LastName = lastName,
                     PreferredName = preferredName,
-                    EmploymentStatus = employmentStatus ?? "",
+                    EmploymentStatus = "{" + employmentStatus.ToUpper() + "}",
                     CompanyName = companyName ?? "",
-                    Country = country ?? "",
+                    Country = "{" + country.ToUpper() + "}",
                     State = state ?? "",
                     Mentor = mentor
                 };
