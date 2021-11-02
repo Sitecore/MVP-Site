@@ -16,8 +16,7 @@
 
     fillApplicationList();
     getApplicationInfo();
-
-
+    
     $("#btnStep1").click(function (event) {
         'use strict'
         var forms = document.querySelectorAll('#form_step1')
@@ -350,7 +349,8 @@ function updateinput(key, value) {
     $("input[asp-for='" + dropLowerCaseId + "']").val(value);
     $("textarea[asp-for='" + dropLowerCaseId + "']").val(value);
     
-    if (value !=null && typeof value.id !== 'undefined') {
+    if (value != null && typeof value.id !== 'undefined') {
+        console.info(dropLowerCaseId + '-' + value.id);
         $("select[asp-for='" + dropLowerCaseId + "'] option[value=" + value.id + "]").prop('selected', true);
     }
 }
@@ -361,13 +361,12 @@ function fillDropLists(items, dropId, title) {
     $("select[asp-for='" + dropLowerCaseId + "']").append("<option value=''>&nbsp;</option>");
    
     $.each(items, function (i, item) {
-        console.info(dropLowerCaseId + '-' + item[title]);
+        
         if (typeof item.Active === 'undefined' || item.Active) {
             //lists += '<a class="dropdown-item" href="#">' + item[title] + '</a>';
+           
             $("select[asp-for='" + dropLowerCaseId + "']").append("<option value='" + item['ID'] + "'>" + item[title] + "</option>");
-        } else {
-            alert(item.Active);
-        }
+        } 
     });
 
    // $("div[asp-for='" + dropId + "']").html(lists);
@@ -419,9 +418,10 @@ function fillApplicationList() {
             } else {
                 var jsonData = JSON.parse(data);
 
-                fillDropLists(jsonData.Countries, 'Countries', 'Name');
+                fillDropLists(jsonData.Country, 'Country', 'Name');
                 fillDropLists(jsonData.EmploymentStatus, 'EmploymentStatus', 'Name');
                 fillDropLists(jsonData.MVPCategory, 'MVPCategories', 'Name');
+
             }
             $("#overlay").fadeOut();
         },

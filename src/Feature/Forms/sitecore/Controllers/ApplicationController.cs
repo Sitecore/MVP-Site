@@ -101,7 +101,7 @@ namespace Mvp.Feature.Forms.Controllers
             //if (Sitecore.Context.User.Identity.IsAuthenticated) 
             {
                  var applicationListsModel = new ApplicationLists{
-                                Countries  = _service.GetCountries(),
+                                Country  = _service.GetCountries(),
                                 EmploymentStatus = _service.GetEmploymentStatus(),
                                 MVPCategories = _service.GetMVPCategories(),
                         };
