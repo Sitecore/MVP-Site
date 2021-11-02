@@ -1,29 +1,69 @@
-* {
-    margin: 0;
-    padding: 0
+
+section.application-form {
+    padding: 20px 50px;
+    background-color: none;
+
+    .card {
+        z-index: 0;
+        border: none;
+        padding: 25px 0;
+        position: relative;
+        color: #666666;
+        background: none;
+
+        p {
+            text-align: left;
+            line-height: 28px;
+            margin-bottom: 32px;
+        }
+    }
+
+    .btn.btn-primary {
+        background-color: #fe2911;
+        border: none;
+        font-size: 17px;
+        border-radius: 0;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        padding: 16px 30px 17px;
+    }
+
+    .toggle-submit {
+        margin: 40px 0px 25px 0px;
+    }
+
+    .appStep {
+        background: #fff;
+        padding: 20px;
+        text-align: left;
+    }
+
+    .steps {
+        font-size: 18px;
+        color: #232323;
+        margin-bottom: 10px;
+        font-weight: normal;
+        text-align: right;
+        position: relative;
+        top: 5px;
+
+        span {
+            color: #fe2911;
+            font-weight: 800;
+            font-size: 18px;
+            position: relative;
+            top: 0px;
+        }
+    }
 }
 
-html {
-    height: 100%
-}
 
-p {
-    color: grey
-}
-
-#heading {
-    text-transform: uppercase;
-    color: #000000;
-    font-weight: normal
-}
-
-#msform {
+#application-form {
     text-align: center;
     position: relative;
-    margin-top: 20px
-}
+    margin-top: 20px;
 
-    #msform fieldset {
+    fieldset {
         background: white;
         border: 0 none;
         border-radius: 0.5rem;
@@ -31,25 +71,28 @@ p {
         width: 100%;
         margin: 0;
         padding-bottom: 20px;
-        position: relative
+        position: relative;
     }
 
+    fieldset:not(:first-of-type) {
+        display: none;
+    }
+}
+
 .form-card {
-    text-align: left
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 0 20px;
 }
 
-#msform fieldset:not(:first-of-type) {
-    display: none
-}
-
-#msform input,
-#msform textarea {
+#application-form input,
+#application-form textarea {
     padding: 8px 15px 8px 15px;
     border: 1px solid #ccc;
     border-radius: 0px;
     margin-bottom: 25px;
     margin-top: 2px;
-    width: 100%;
     box-sizing: border-box;
     font-family: montserrat;
     color: #2C3E50;
@@ -58,16 +101,16 @@ p {
     letter-spacing: 1px
 }
 
-    #msform input:focus,
-    #msform textarea:focus {
-        -moz-box-shadow: none !important;
-        -webkit-box-shadow: none !important;
-        box-shadow: none !important;
-        border: 1px solid #fe2911;
-        outline-width: 0
-    }
+#application-form input:focus,
+#application-form textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #fe2911;
+    outline-width: 0
+}
 
-#msform .action-button {
+#application-form .action-button {
     width: 100px;
     background: #19a5a2;
     font-weight: bold;
@@ -78,12 +121,16 @@ p {
     float: right
 }
 
-    #msform .action-button:hover,
-    #msform .action-button:focus {
-        background-color: #808080
-    }
+.invalid-feedback {
+    font-size: 18px;
+}
 
-#msform .action-button-previous {
+#application-form .action-button:hover,
+#application-form .action-button:focus {
+    background-color: #808080
+}
+
+#application-form .action-button-previous {
     width: 100px;
     background: #616161;
     font-weight: bold;
@@ -94,21 +141,14 @@ p {
     float: right
 }
 
-    #msform .action-button-previous:hover,
-    #msform .action-button-previous:focus {
-        background-color: #000000
-    }
-
-.card {
-    z-index: 0;
-    border: none;
-    position: relative
+#application-form .action-button-previous:hover,
+#application-form .action-button-previous:focus {
+    background-color: #232323
 }
 
 .fs-title {
-    font-size: 25px;
-    color: #000000;
-    margin-bottom: 15px;
+    font-size: 32px;
+    color: #232323;
     font-weight: normal;
     text-align: left
 }
@@ -118,99 +158,61 @@ p {
     font-weight: normal
 }
 
-.steps {
-    font-size: 25px;
-    color: gray;
-    margin-bottom: 10px;
-    font-weight: normal;
-    text-align: right
+.form-check-wrap {
+    margin-left: 20px;
+    padding-right: 20px;
+    color: grey;
 }
+
 
 .fieldlabels {
     color: gray;
     text-align: left
 }
 
-#progressbar {
-    margin-bottom: 30px;
-    overflow: hidden;
-    color: lightgrey
+
+#progressbar #welcome:before {
+    font-family: FontAwesome;
+    content: "\f046"
 }
 
-    #progressbar .active {
-        color: #fe2911
-    }
-
-    #progressbar li {
-        list-style-type: none;
-        font-size: 15px;
-        width: 14%;
-        float: left;
-        position: relative;
-        font-weight: 400
-    }
-
-    #progressbar #welcome:before {
-        font-family: FontAwesome;
-        content: "\f046"
-    }
-
-    #progressbar #personal:before {
-        font-family: FontAwesome;
-        content: "\f007"
-    }
-
-    #progressbar #payment:before {
-        font-family: FontAwesome;
-        content: "\f030"
-    }
-
-    #progressbar #confirm:before {
-        font-family: FontAwesome;
-        content: "\f00c"
-    }
-
-    #progressbar #category:before {
-        font-family: FontAwesome;
-        content: "\f00b"
-    }
-
-    #progressbar li:before {
-        width: 50px;
-        height: 50px;
-        line-height: 45px;
-        display: block;
-        font-size: 20px;
-        color: #ffffff;
-        background: lightgray;
-        border-radius: 50%;
-        margin: 0 auto 10px auto;
-        padding: 2px
-    }
-
-    #progressbar li:after {
-        content: '';
-        width: 100%;
-        height: 2px;
-        background: lightgray;
-        position: absolute;
-        left: 0;
-        top: 25px;
-        z-index: -1
-    }
-
-    #progressbar li.active:before,
-    #progressbar li.active:after {
-        background: #fe2911
-    }
-
-.progress {
-    height: 20px
+#progressbar #personal:before {
+    font-family: FontAwesome;
+    content: "\f007"
 }
 
-.progress-bar {
-    background-color: #fe2911
+#progressbar #payment:before {
+    font-family: FontAwesome;
+    content: "\f030"
 }
+
+#progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "\f00c"
+}
+
+#progressbar #category:before {
+    font-family: FontAwesome;
+    content: "\f00b"
+}
+#progressbar #objectives:before {
+    font-family: FontAwesome;
+    content: "\f140"
+}
+#progressbar #socials:before {
+    font-family: FontAwesome;
+    content: "\f0c0"
+}
+#progressbar #contributions:before {
+    font-family: FontAwesome;
+    content: "\f2b5"
+}
+#progressbar #confirmation:before {
+    font-family: FontAwesome;
+    content: "\f00c"
+}
+
+
 
 .fit-image {
     width: 100%;
@@ -251,4 +253,97 @@ p {
 
 .is-hide {
     display: none;
+}
+
+
+
+/*---- Progress Bar ----*/
+#progressbar {
+    margin-bottom: 50px;
+    overflow: hidden;
+    color: lightgrey;
+
+    li.active {
+        color: grey;
+
+        &:before {
+            color: white;
+            border: none;
+        }
+    }
+
+    li {
+        &:before {
+            width: 50px;
+            height: 50px;
+            line-height: 45px;
+            display: block;
+            font-size: 20px;
+            color: #fe2911;
+            border-radius: 50%;
+            margin: 0 auto 10px auto;
+            padding: 2px;
+            border: 2px solid lightgrey;
+            background-color: #F6F6F6;
+        }
+
+        list-style-type: none;
+        font-size: 15px;
+        width: 14%;
+        float: left;
+        position: relative;
+        font-weight: 400;
+    }
+}
+
+
+
+// Old
+
+
+.progress {
+    height: 20px;
+}
+
+.progress-bar {
+    background-color: #fe2911;
+}
+#progressbar {
+    margin-bottom: 50px;
+    overflow: hidden;
+    color: lightgrey;
+
+    li.active {
+
+        &:before {
+            color: white;
+            border: none;
+            background: #fe2911;
+        }
+
+        &:after {
+            background: #fe2911;
+        }
+    }
+
+    li {
+        list-style-type: none;
+        font-size: 15px;
+        width: 14%;
+        float: left;
+        position: relative;
+        font-weight: 400;
+        color: grey;
+
+        &:after {
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: lightgray;
+            position: absolute;
+            left: 0;
+            top: 25px;
+            z-index: -1;
+        }
+    }
 }
