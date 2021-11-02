@@ -8,14 +8,10 @@
                 <h2 class="steps">Step 2 - 7</h2>
             </div>
         </div>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select a Category
-            </button>
-            <div class="dropdown-menu" id="dllcategory" aria-labelledby="dropdownMenuButton" asp-for="MVPCategories">
-                <a class="dropdown-item" href="#">Ambassador</a>
-            </div>
-        </div>
+        <span>Select a Category:</span>
+        <select class="dropdown"  id="dllcategory"  asp-for="MVPCategories">
+             
+        </select>
     </div>
     <button class="btn btn-primary" id="btnStep2" type="submit">Next</button>
 </form>

@@ -14,7 +14,7 @@
     });
 
 
-    fillApplicationList() 
+    fillApplicationList();
     getApplicationInfo();
 
 
@@ -322,8 +322,7 @@
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
                                 if (data.success === true) {
-                                    // TODO : Redirect to thank you page or from the backend
-                                    window.location.href = "/thankyou";
+                                    window.location.href = "/thank-you";
                                 }
                                 else {
                                     alert(data.responseText);
@@ -347,19 +346,23 @@
 
 function updateinput(key, value) {
     $("input[asp-for='" + key + "']").val(value);
+    $("select[asp-for='" + dropId + "'] option[value=" + value + "]").prop('selected', true);
 }
 
 function fillDropLists(items, dropId, title) {
     var lists = '';
 
+    $("select[asp-for='" + dropId + "']").append("<option value=''>&nbsp;</option>");
+
     $.each(items, function (i, item) {
 
         if (typeof item.Active === 'undefined' || item.Active) {
-            lists += '<a class="dropdown-item" href="#">' + item[title] + '</a>';
+            //lists += '<a class="dropdown-item" href="#">' + item[title] + '</a>';
+            $("select[asp-for='" + dropId + "']").append("<option value='"+item['ID']+"'>"+item[title]+"</option>");
         }
     });
 
-    $("div[asp-for='" + dropId + "']").html(lists);
+   // $("div[asp-for='" + dropId + "']").html(lists);
 }
 
 
@@ -403,7 +406,7 @@ function fillApplicationList() {
         success: function (data) {
 
             if (data.result) {
-                //some went thing wrong,we can handel this later.
+                //something is wrong 
                 console.info(data.result);
             } else {
                 var jsonData = JSON.parse(data);
@@ -411,8 +414,6 @@ function fillApplicationList() {
                 fillDropLists(jsonData.Countries, 'Countries', 'Name');
                 fillDropLists(jsonData.EmploymentStatus, 'EmploymentStatus', 'Name');
                 fillDropLists(jsonData.MVPCategories, 'MVPCategories', 'Name');
-
-
             }
             $("#overlay").fadeOut();
         },
