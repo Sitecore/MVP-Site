@@ -1,0 +1,26 @@
+﻿---
+ID: "71a3e146-5563-4fb1-803d-87521406e5a9"
+Parent: "5f04bf81-1b60-49f5-9505-302eb2b26a8f"
+Template: "7007db97-c724-464b-a735-b301844f7d82"
+Path: /sitecore/content/MvpSite/MVP Repository/Award Years/2008/2008 Technology MVP
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211013T080144Z
+    - ID: "7fadee03-359c-4e85-a762-027f4acf95c8"
+      Hint: Type
+      Value: "{DB39FC29-E639-4BE5-AE17-14428301CD11}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8f083237-6814-4875-ba90-bcf7e01699ef"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211013T200513Z

@@ -9,6 +9,8 @@
   ],
   "serialization": {
     "defaultMaxRelativeItemPathLength": 100,
-    "defaultModuleRelativeSerializationPath": "items"
+    "defaultModuleRelativeSerializationPath": "items",
+    "removeOrphansForRoles": true,
+    "excludedFields": []
   }
 }

@@ -1,0 +1,26 @@
+﻿---
+ID: "f49db64b-88cb-424a-bc9d-47e56c3baa56"
+Parent: "f9ee7e52-5a3a-48d5-8a1b-19f9aa76f21a"
+Template: "7007db97-c724-464b-a735-b301844f7d82"
+Path: /sitecore/content/MvpSite/MVP Repository/Award Years/2014/2014 Technology MVP
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211013T080221Z
+    - ID: "7fadee03-359c-4e85-a762-027f4acf95c8"
+      Hint: Type
+      Value: "{DB39FC29-E639-4BE5-AE17-14428301CD11}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "33817385-49ad-4cac-9a19-f4beffd7e640"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211013T200507Z

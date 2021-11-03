@@ -33,10 +33,10 @@ Languages:
             <conditions>
               <or
                 uid="9DE31F90CEDA4754A83670F43FB9D87E">
-              <condition
-                id="{E5B43654-4D96-41F3-83D6-4F04CC7ADF69}"
-                uid="176AAE7007764206A09E75C900D0C2FC"
-                templateid="{2EBA0721-DF1E-4D69-A963-2755BAA7D726}" />
+                <condition
+                  id="{E5B43654-4D96-41F3-83D6-4F04CC7ADF69}"
+                  uid="176AAE7007764206A09E75C900D0C2FC"
+                  templateid="{2EBA0721-DF1E-4D69-A963-2755BAA7D726}" />
                 <condition
                   id="{E5B43654-4D96-41F3-83D6-4F04CC7ADF69}"
                   uid="77BFF49CBB6D4F0B821BE84CBDF47230"
@@ -65,7 +65,7 @@ Languages:
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
       Value: 20210901T204629Z
