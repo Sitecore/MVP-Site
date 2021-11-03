@@ -62,8 +62,17 @@
             "scope": "SingleItem"
           },
           {
-            "path": "/Award Years",
+            "path": "/States",
             "scope": "SingleItem"
+          },
+
+          {
+            "path": "/Application Steps",
+            "scope": "itemAndDescendants"
+          },
+          {
+            "path": "/Employment Status",
+            "scope": "itemAndDescendants"
           },
           {
             "path": "/Award Years",
@@ -71,7 +80,7 @@
           },
           {
             "path": "/MVP Category",
-            "scope": "SingleItem"
+            "scope": "itemAndDescendants"
           },
           {
             "path": "*",

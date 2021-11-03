@@ -1,4 +1,5 @@
-﻿using Sitecore.AspNet.RenderingEngine.Configuration;
+﻿using Mvp.Foundation.People.Models;
+using Sitecore.AspNet.RenderingEngine.Configuration;
 using Sitecore.AspNet.RenderingEngine.Extensions;
 
 namespace Mvp.Foundation.People.Extensions

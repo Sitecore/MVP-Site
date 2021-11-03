@@ -15,6 +15,7 @@ using Mvp.Feature.Navigation.Extensions;
 using Mvp.Feature.Social.Extensions;
 using Mvp.Foundation.User.Extensions;
 using Mvp.Project.MvpSite.Configuration;
+using Mvp.Feature.Forms.Extensions;
 using Sitecore.AspNet.ExperienceEditor;
 using Mvp.Foundation.People.Extensions;
 using Sitecore.AspNet.RenderingEngine.Extensions;
@@ -22,13 +23,6 @@ using Sitecore.AspNet.RenderingEngine.Localization;
 using Sitecore.LayoutService.Client.Extensions;
 using Sitecore.LayoutService.Client.Newtonsoft.Extensions;
 using Sitecore.LayoutService.Client.Request;
-using Sitecore.AspNet.ExperienceEditor;
-using System.Collections.Generic;
-using System.Globalization;
-using Microsoft.AspNetCore.Localization;
-using Mvp.Project.MvpSite.Configuration;
-using Sitecore.AspNet.RenderingEngine.Localization;
-using Microsoft.AspNetCore.HttpOverrides;
 using Mvp.Foundation.People.Infrastructure;
 
 namespace Mvp.Project.MvpSite.Rendering
@@ -98,6 +92,7 @@ namespace Mvp.Project.MvpSite.Rendering
                     .AddFoundationPeople()
                     .AddFeatureHero()
                     .AddFeatureSocial()
+                    .AddFeatureForms()
                     .AddDefaultPartialView("_ComponentNotFound");
             })
                 // Includes forwarding of Scheme as X-Forwarded-Proto to the Layout Service, so that
@@ -124,6 +119,8 @@ namespace Mvp.Project.MvpSite.Rendering
             // from the Rendering Host and will be used to proxy robot detection scripts.
             //    options.SitecoreInstanceUri = Configuration.InstanceUri;
             //});
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -132,6 +129,7 @@ namespace Mvp.Project.MvpSite.Rendering
             // When running behind HTTPS termination, set the request scheme according to forwarded protocol headers.
             // Also set the Request IP, so that it can be passed on to the Sitecore Layout Service for tracking and personalization.
             app.UseForwardedHeaders(ConfigureForwarding(env));
+            app.UseSession();
 
             if (env.IsDevelopment())
             {
@@ -172,6 +170,8 @@ namespace Mvp.Project.MvpSite.Rendering
             // Configure Okta Integration
             app.UseFoundationUser();
 
+            app.UseFeatureForms();
+
             // app.UseCookiePolicy();
 
             // Enable proxying of Sitecore robot detection scripts
@@ -190,6 +190,62 @@ namespace Mvp.Project.MvpSite.Rendering
                     "healthz",
                     new { controller = "Default", action = "Healthz" }
                 );
+
+                endpoints.MapControllerRoute(
+                    "getUserEmailClaim",
+                    "getUserEmailClaim",
+                    new { controller = "Application", action = "GetUserEmailClaim" }
+                );
+
+                endpoints.MapControllerRoute(
+                    "submitStep1",
+                    "submitStep1",
+                    new { controller = "Application", action = "Welcome" }
+                );
+
+                endpoints.MapControllerRoute(
+                    "submitStep2",
+                    "submitStep2",
+                    new { controller = "Application", action = "Category" }
+                );
+
+                endpoints.MapControllerRoute(
+                    "submitStep3",
+                    "submitStep3",
+                    new { controller = "Application", action = "PersonalInformation" }
+                );
+
+                endpoints.MapControllerRoute(
+                   "submitStep4",
+                   "submitStep4",
+                   new { controller = "Application", action = "ObjectivesandMotivation" }
+               );
+
+                endpoints.MapControllerRoute(
+                   "submitStep5",
+                   "submitStep5",
+                   new { controller = "Application", action = "Socials" }
+               );
+
+                endpoints.MapControllerRoute(
+                  "submitStep6",
+                  "submitStep6",
+                  new { controller = "Application", action = "NotableCurrentYearContributions" }
+              );
+
+                endpoints.MapControllerRoute(
+                 "submitStep7",
+                 "submitStep7",
+                 new { controller = "Application", action = "Confirmation" }
+             );
+
+                endpoints.MapControllerRoute(
+                 "getCategories",
+                 "getCategories",
+                 new { controller = "Application", action = "GetCategories" }
+             );
+
+
 
                 // Enables the default Sitecore URL pattern with a language prefix.
                 endpoints.MapSitecoreLocalizedRoute("sitecore", "Index", "Default");

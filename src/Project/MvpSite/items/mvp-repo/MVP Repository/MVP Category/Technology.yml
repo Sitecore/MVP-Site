@@ -1,0 +1,37 @@
+﻿---
+ID: "db39fc29-e639-4be5-ae17-14428301cd11"
+Parent: "e2f6ea22-562b-4d70-a444-f5bbc81c183e"
+Template: "cdd8427e-fa86-4549-a647-d665164f2f77"
+Path: /sitecore/content/MvpSite/MVP Repository/MVP Category/Technology
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211013T195910Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "6e7574bd-3578-4c7d-a438-fb86d7c1c927"
+      Hint: Name
+      Value: Technology
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4a47eef5-6228-43a8-a715-126dbdf1269b"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211025T172519Z
+    - ID: "e20fda97-3f0c-49a0-9257-d55d006a2efe"
+      Hint: Active
+      Value: 1

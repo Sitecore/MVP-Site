@@ -31,10 +31,17 @@ Languages:
           <rule
             uid="{3454F77A-B82E-4C1E-8C2C-553254BF3805}">
             <conditions>
+              <or
+                uid="9DE31F90CEDA4754A83670F43FB9D87E">
               <condition
                 id="{E5B43654-4D96-41F3-83D6-4F04CC7ADF69}"
                 uid="176AAE7007764206A09E75C900D0C2FC"
                 templateid="{2EBA0721-DF1E-4D69-A963-2755BAA7D726}" />
+                <condition
+                  id="{E5B43654-4D96-41F3-83D6-4F04CC7ADF69}"
+                  uid="77BFF49CBB6D4F0B821BE84CBDF47230"
+                  templateid="{EA0ECC56-3611-4239-B4F7-81C2EDC956E6}" />
+              </or>
             </conditions>
             <actions>
               <action

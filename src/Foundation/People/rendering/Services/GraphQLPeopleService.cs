@@ -177,7 +177,9 @@ namespace Mvp.Foundation.People.Services
 				SearchParams temp = CopySearchParams(searchParams);
 				temp.PageSize = 1;
 				temp.CursorValueToGetItemsAfter = 0;
+				//var otherFacetOn = temp.FacetOn.Where(fc => !fc.Equals(facetOn)).ToList();
 				var facets = temp.Facets.Where(fc => !fc.Key.Equals(facetOn)).ToList();
+				//temp.FacetOn = otherFacetOn;
 				temp.Facets = facets;
 
 				var searchResultsTemp = await ProductSearchResults(temp, false);
@@ -209,8 +211,4 @@ namespace Mvp.Foundation.People.Services
 			return cloned;
 		}
 	}
-
-
-
-
 }

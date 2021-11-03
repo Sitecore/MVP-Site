@@ -1,0 +1,154 @@
+@charset "UTF-8";
+/* line 2, ../../sass/components/application.scss */
+section.application-form { padding: 20px 50px; background-color: none; }
+/* line 6, ../../sass/components/application.scss */
+section.application-form .card { z-index: 0; border: none; padding: 25px 0; position: relative; color: #666666; background: none; }
+/* line 14, ../../sass/components/application.scss */
+section.application-form .card p { text-align: left; line-height: 28px; margin-bottom: 32px; }
+/* line 22, ../../sass/components/application.scss */
+section.application-form .btn.btn-primary, section.application-form .btn.btn-secondary { border: none; font-size: 17px; border-radius: 0; font-weight: 500; letter-spacing: 0.5px; padding: 16px 30px 17px; font-family: 'AvenirNextW05-Demi'; }
+/* line 33, ../../sass/components/application.scss */
+section.application-form .btn.btn-primary { background-color: #fe2911; }
+/* line 37, ../../sass/components/application.scss */
+section.application-form .btn + .btn { margin-left: 26px; }
+/* line 42, ../../sass/components/application.scss */
+section.application-form .toggle-submit { margin: 40px 0px 25px 0px; }
+/* line 46, ../../sass/components/application.scss */
+section.application-form .appStep { background: #fff; padding: 20px; text-align: left; }
+/* line 52, ../../sass/components/application.scss */
+section.application-form .steps { font-size: 18px; color: #232323; margin-bottom: 10px; font-weight: normal; text-align: right; position: relative; top: 5px; }
+/* line 61, ../../sass/components/application.scss */
+section.application-form .steps span { color: #fe2911; font-weight: 800; font-size: 18px; position: relative; top: 0px; }
+
+/* line 72, ../../sass/components/application.scss */
+#application-form { text-align: center; position: relative; margin-top: 20px; }
+/* line 77, ../../sass/components/application.scss */
+#application-form fieldset { background: white; border: 0 none; border-radius: 0.5rem; box-sizing: border-box; width: 100%; margin: 0; padding-bottom: 20px; position: relative; }
+/* line 88, ../../sass/components/application.scss */
+#application-form fieldset:not(:first-of-type) { display: none; }
+/* line 93, ../../sass/components/application.scss */
+#application-form .dropdown-group label { display: block; font-family: AvenirNextW05-Light; }
+/* line 100, ../../sass/components/application.scss */
+#application-form .form-group select { padding: 15px 15px 15px 15px !important; border-bottom: 2px solid #ccc; border-radius: 0px; margin-bottom: 25px; margin-top: 2px; box-sizing: border-box; color: #3c3c3c; background-color: #F6F6F6; font-size: 18px; border-top: none; border-left: none; border-right: none; font-family: 'AvenirNextW05-Regular'; font-size: 18px; }
+/* line 117, ../../sass/components/application.scss */
+#application-form .form-group label.fieldlabels { display: block; font-family: 'AvenirNextW05-Demi'; font-size: 16px; margin-bottom: 0; }
+/* line 124, ../../sass/components/application.scss */
+#application-form .form-group.row { padding: 0 20px; }
+/* line 128, ../../sass/components/application.scss */
+#application-form .form-group .dropdown { width: 100%; }
+
+/* line 134, ../../sass/components/application.scss */
+#application-form .fieldSet input[type=checkbox] { position: absolute; left: 15px; padding: 0; margin: 0; margin: 0; width: 20px; }
+
+/* line 143, ../../sass/components/application.scss */
+.form-card { text-align: left; margin-top: 15px; margin-bottom: 15px; padding: 0 20px; }
+
+/* line 150, ../../sass/components/application.scss */
+.form-card + .form-group.row { margin-top: 30px; }
+
+/* line 154, ../../sass/components/application.scss */
+#application-form input, #application-form textarea { padding: 15px 15px 15px 15px; border-bottom: 2px solid #ccc; border-radius: 0px; margin-bottom: 25px; margin-top: 2px; box-sizing: border-box; color: #3c3c3c; background-color: #F6F6F6; font-size: 18px; border-top: none; border-left: none; border-right: none; font-family: 'AvenirNextW05-Regular'; width: 100%; }
+
+/* line 172, ../../sass/components/application.scss */
+#application-form input:focus, #application-form textarea:focus { -moz-box-shadow: none !important; -webkit-box-shadow: none !important; box-shadow: none !important; border: 1px solid #fe2911; outline-width: 0; }
+
+/* line 181, ../../sass/components/application.scss */
+#application-form .action-button { width: 100px; background: #19a5a2; font-weight: bold; color: white; cursor: pointer; padding: 10px 5px; margin: 10px 0px 10px 5px; float: right; }
+
+/* line 192, ../../sass/components/application.scss */
+.invalid-feedback { font-size: 18px; }
+
+/* line 196, ../../sass/components/application.scss */
+#application-form .action-button:hover, #application-form .action-button:focus { background-color: #808080; }
+
+/* line 201, ../../sass/components/application.scss */
+#application-form .action-button-previous { width: 100px; background: #616161; font-weight: bold; color: white; cursor: pointer; padding: 10px 5px; margin: 10px 5px 10px 0px; float: right; }
+
+/* line 212, ../../sass/components/application.scss */
+#application-form .action-button-previous:hover, #application-form .action-button-previous:focus { background-color: #232323; }
+
+/* line 217, ../../sass/components/application.scss */
+.fs-title { font-size: 32px; color: #232323; font-weight: normal; text-align: left; }
+
+/* line 224, ../../sass/components/application.scss */
+.purple-text { color: #fe2911; font-weight: normal; }
+
+/* line 229, ../../sass/components/application.scss */
+.form-check-wrap { margin-left: 20px; padding-right: 20px; color: grey; }
+
+/* line 236, ../../sass/components/application.scss */
+.fieldlabels { color: gray; text-align: left; }
+
+/* line 242, ../../sass/components/application.scss */
+#progressbar #welcome:before { font-family: FontAwesome; content: ""; }
+
+/* line 247, ../../sass/components/application.scss */
+#progressbar #personal:before { font-family: FontAwesome; content: ""; }
+
+/* line 252, ../../sass/components/application.scss */
+#progressbar #payment:before { font-family: FontAwesome; content: ""; }
+
+/* line 257, ../../sass/components/application.scss */
+#progressbar #confirm:before { font-family: FontAwesome; content: ""; }
+
+/* line 262, ../../sass/components/application.scss */
+#progressbar #category:before { font-family: FontAwesome; content: ""; }
+
+/* line 267, ../../sass/components/application.scss */
+#progressbar #objectives:before { font-family: FontAwesome; content: ""; }
+
+/* line 272, ../../sass/components/application.scss */
+#progressbar #socials:before { font-family: FontAwesome; content: ""; }
+
+/* line 277, ../../sass/components/application.scss */
+#progressbar #contributions:before { font-family: FontAwesome; content: ""; }
+
+/* line 282, ../../sass/components/application.scss */
+#progressbar #confirmation:before { font-family: FontAwesome; content: ""; }
+
+/* line 289, ../../sass/components/application.scss */
+.fit-image { width: 100%; object-fit: cover; }
+
+/* line 294, ../../sass/components/application.scss */
+#overlay { position: fixed; top: 0; z-index: 100; width: 100%; height: 100%; display: none; background: rgba(0, 0, 0, 0.6); }
+
+/* line 304, ../../sass/components/application.scss */
+.cv-spinner { height: 100%; display: flex; justify-content: center; align-items: center; }
+
+/* line 311, ../../sass/components/application.scss */
+.spinner { width: 40px; height: 40px; border: 4px #ddd solid; border-top: 4px #2e93e6 solid; border-radius: 50%; animation: sp-anime 0.8s infinite linear; }
+
+@keyframes sp-anime { 100% { transform: rotate(360deg); } }
+/* line 326, ../../sass/components/application.scss */
+.is-hide { display: none; }
+
+/*---- Progress Bar ----*/
+/* line 330, ../../sass/components/application.scss */
+#progressbar { margin-bottom: 50px; overflow: hidden; color: lightgrey; }
+/* line 335, ../../sass/components/application.scss */
+#progressbar li.active { color: grey; }
+/* line 338, ../../sass/components/application.scss */
+#progressbar li.active:before { color: white; border: none; }
+/* line 344, ../../sass/components/application.scss */
+#progressbar li { list-style-type: none; font-size: 15px; width: 14%; float: left; position: relative; font-weight: 400; }
+/* line 345, ../../sass/components/application.scss */
+#progressbar li:before { width: 50px; height: 50px; line-height: 45px; display: block; font-size: 20px; color: #fe2911; border-radius: 50%; margin: 0 auto 10px auto; padding: 2px; border: 2px solid lightgrey; background-color: #F6F6F6; }
+
+/* line 368, ../../sass/components/application.scss */
+.progress { height: 20px; }
+
+/* line 372, ../../sass/components/application.scss */
+.progress-bar { background-color: #fe2911; }
+
+/* line 376, ../../sass/components/application.scss */
+#progressbar { margin-bottom: 50px; overflow: hidden; color: lightgrey; }
+/* line 383, ../../sass/components/application.scss */
+#progressbar li.active:before { color: white; border: none; background: #fe2911; }
+/* line 389, ../../sass/components/application.scss */
+#progressbar li.active:after { background: #fe2911; }
+/* line 394, ../../sass/components/application.scss */
+#progressbar li { list-style-type: none; font-size: 15px; width: 14%; float: left; position: relative; font-weight: 400; color: grey; }
+/* line 403, ../../sass/components/application.scss */
+#progressbar li:after { content: ''; width: 100%; height: 2px; background: lightgray; position: absolute; left: 0; top: 25px; z-index: -1; }
+
+/*# sourceMappingURL=application.css.map */
