@@ -77,6 +77,21 @@ section.application-form {
     fieldset:not(:first-of-type) {
         display: none;
     }
+
+    .dropdown-group {
+        margin-left: 20 px;
+
+        label {
+            display: block;
+            font-family: AvenirNextW05-Light;
+        }
+    }
+
+    .form-group select {
+        font-size: 18px;
+        padding: 10 px 32 px;
+        border: 1 px solid lightgrey;
+    }
 }
 
 .form-card {
@@ -295,11 +310,6 @@ section.application-form {
         font-weight: 400;
     }
 }
-
-
-
-// Old
-
 
 .progress {
     height: 20px;
