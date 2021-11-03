@@ -1,7 +1,7 @@
 ﻿@model Route
 
 @{
-    ViewData["Title"] = Model.ReadField<TextField>("NavigationTitle")?.Value ?? Model.ReadField<TextField>("Title")?.Value ?? "Untitled";
+    ViewData["Title"] = Model.ReadField<TextField>("Menu Title")?.Value ?? Model.ReadField<TextField>("Title")?.Value ?? string.Empty;
 }
 
 <header>

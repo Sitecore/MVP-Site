@@ -1,0 +1,27 @@
+﻿---
+ID: "a2bfbc0a-1563-4dc1-9410-651231798af4"
+Parent: "c4dadd5e-1521-4c6d-afce-39d237751541"
+Template: "e4986869-e4b1-4990-8669-52abf69cd9cf"
+Path: /sitecore/content/MvpSite/Shared Content/Top Links/Default Top Links/Developers
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200528T230523Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "cd0199d9-4171-4485-ac74-4a57fd12b0cc"
+    - ID: "aff6fd57-80bd-4b53-adb9-164b922d5763"
+      Hint: Link
+      Value: |
+        <link text="For Downloads" linktype="external" url="https://developers.sitecore.com/" anchor="" title="For Developers" target="" />
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211020T051417Z

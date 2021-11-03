@@ -6,7 +6,7 @@ Path: /sitecore/templates/Foundation/People/Year Category/Details/Type
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
-  Value: /sitecore/content/MvpSite/MVP Repository/MVP Types
+  Value: /sitecore/content/MvpSite/MVP Repository/MVP Category
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
   Value: Droptree
@@ -23,11 +23,11 @@ Languages:
       Value: 20211013T135817Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "673ad955-b4b5-44a5-87ff-73a6a06c4a44"
+      Value: "12a5e44c-9a08-443b-8123-a7fe597ede73"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211013T201146Z
+      Value: 20211028T180411Z

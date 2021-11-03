@@ -1,11 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30105.148
+VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".SolutionItems", ".SolutionItems", "{FE951C1D-8EC7-419E-A7A2-A0175125BCBB}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		azure-pipelines.yml = azure-pipelines.yml
 		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
 		CONTRIBUTING.md = CONTRIBUTING.md
 		init.ps1 = init.ps1
@@ -32,7 +33,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{C2A09B
 	ProjectSection(SolutionItems) = preProject
 		.dockerignore = .dockerignore
 		.env = .env
-		docker\azure-pipelines.yml = docker\azure-pipelines.yml
 		docker-compose.override.yml = docker-compose.override.yml
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
@@ -228,8 +228,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Foundation.People.Sitec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Foundation.People.Rendering", "src\Foundation\People\rendering\Mvp.Foundation.People.Rendering.csproj", "{4356764C-5C21-43E2-9226-17E80425BDA9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Foundation.People.Shared", "src\Foundation\People\shared\Mvp.Foundation.People.Shared.csproj", "{1B31A9CC-6ACA-4300-8F5D-7AC7AEB97067}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Foundation.User.Sitecore", "src\Foundation\User\sitecore\Mvp.Foundation.User.Sitecore.csproj", "{6A918C58-705F-45AE-A04D-974320671724}"
 EndProject
 Global
@@ -318,10 +316,6 @@ Global
 		{4356764C-5C21-43E2-9226-17E80425BDA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4356764C-5C21-43E2-9226-17E80425BDA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4356764C-5C21-43E2-9226-17E80425BDA9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1B31A9CC-6ACA-4300-8F5D-7AC7AEB97067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1B31A9CC-6ACA-4300-8F5D-7AC7AEB97067}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1B31A9CC-6ACA-4300-8F5D-7AC7AEB97067}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1B31A9CC-6ACA-4300-8F5D-7AC7AEB97067}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6A918C58-705F-45AE-A04D-974320671724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6A918C58-705F-45AE-A04D-974320671724}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A918C58-705F-45AE-A04D-974320671724}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -371,10 +365,6 @@ Global
 		{C567479E-39AD-4C55-8B54-E9A4908D0339} = {324D4FE7-86EF-43A2-A466-21198CB856AD}
 		{A45D3974-CE35-4576-9C3D-584188586C78} = {C567479E-39AD-4C55-8B54-E9A4908D0339}
 		{3B0E8E42-A529-409C-86D4-E4DC77C5EB62} = {324D4FE7-86EF-43A2-A466-21198CB856AD}
-		{0E9F5316-E987-457D-B458-B5412C49242B} = {3B0E8E42-A529-409C-86D4-E4DC77C5EB62}
-		{4356764C-5C21-43E2-9226-17E80425BDA9} = {3B0E8E42-A529-409C-86D4-E4DC77C5EB62}
-		{1B31A9CC-6ACA-4300-8F5D-7AC7AEB97067} = {3B0E8E42-A529-409C-86D4-E4DC77C5EB62}
-		{6A918C58-705F-45AE-A04D-974320671724} = {C567479E-39AD-4C55-8B54-E9A4908D0339}
 		{9E8689EB-98CC-4F9C-8830-9E3829B2A4AF} = {F1800335-D16A-4FB6-B213-1885963E283D}
 		{55078753-A807-4AE5-9DBF-4FB0E5523308} = {9E8689EB-98CC-4F9C-8830-9E3829B2A4AF}
 		{9F5BB0CF-E81B-4EF6-BD4B-76B41F55B2DE} = {9E8689EB-98CC-4F9C-8830-9E3829B2A4AF}
@@ -383,7 +373,7 @@ Global
 		{B4344483-4E6E-4939-9187-87B56788A94E} = {BFAFE9BC-9FE7-402B-8B2E-0016531C8E49}
 		{0E9F5316-E987-457D-B458-B5412C49242B} = {3B0E8E42-A529-409C-86D4-E4DC77C5EB62}
 		{4356764C-5C21-43E2-9226-17E80425BDA9} = {3B0E8E42-A529-409C-86D4-E4DC77C5EB62}
-		{1B31A9CC-6ACA-4300-8F5D-7AC7AEB97067} = {3B0E8E42-A529-409C-86D4-E4DC77C5EB62}
+		{6A918C58-705F-45AE-A04D-974320671724} = {C567479E-39AD-4C55-8B54-E9A4908D0339}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3377439-FD7A-4F3E-8011-06175E0E3100}

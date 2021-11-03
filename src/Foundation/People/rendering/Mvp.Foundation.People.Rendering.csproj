@@ -12,25 +12,12 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="GraphQL\PeopleSearchAdvanced.graphql" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="GraphQL\PeopleSearchAdvanced.graphql" />
-  </ItemGroup>
-
 
   <ItemGroup>
 	  <PackageReference Include="Sitecore.LayoutService.Client" Version="14.0.1" />
 	  <PackageReference Include="Sitecore.AspNet.RenderingEngine" Version="14.0.1" />
     <PackageReference Include="GraphQL.Client" Version="3.1.6" />
     <PackageReference Include="GraphQL.Client.Serializer.Newtonsoft" Version="3.1.6" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <ProjectReference Include="..\shared\Mvp.Foundation.People.Shared.csproj" />
   </ItemGroup>
 
 </Project>

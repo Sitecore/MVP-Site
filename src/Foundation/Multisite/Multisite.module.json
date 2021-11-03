@@ -4,7 +4,8 @@
         "includes": [
             {
                 "name": "templates",
-                "path": "/sitecore/templates/Foundation/Multisite"
+                "path": "/sitecore/templates/Foundation/Multisite",
+                "allowedPushOperations": "CreateUpdateAndDelete"
             }
         ]
     }
