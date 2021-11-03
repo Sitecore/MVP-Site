@@ -2,22 +2,28 @@
     <div class="form-card">
         <div class="row">
             <div class="col-7">
-                <h2 class="fs-title">Notable Current Year Contributions:</h2>
+                <h2 class="fs-title">Notable Current Year Contributions</h2>
             </div>
             <div class="col-5">
-                <h2 class="steps">Step 6 - 7</h2>
+                <h2 class="steps">Step <span>6</span> of 7</h2>
             </div>
         </div>
-        <div class="form-group">
+    </div>
+    <div class="form-group row">
+        <div class="col-12">
             <label for="onlineAcvitity">Summary of relevant online professional activity</label>
             <textarea class="form-control" id="onlineAcvitity" rows="3" asp-for="onlineacvitity"></textarea>
         </div>
-        <div class="form-group">
+    </div>
+    <div class="form-group row">
+        <div class="col-12">
             <label for="offlineActivity">Summary of relevant offline professional activity</label>
             <textarea class="form-control" id="offlineActivity" rows="3" asp-for="offlineactivity"></textarea>
         </div>
     </div>
-    <button class="btn btn-primary" id="btnStep6" type="submit">Next</button>
-    <button class="btn btn-primary" id="btnPrevious" type="submit">Previous</button>
+    <div class="col-12 toggle-submit">
+        <button class="btn btn-secondary" id="btnPrevious" type="submit">Previous</button>
+        <button class="btn btn-primary" id="btnStep6" type="submit">Next</button>
+    </div>
 </form>
 

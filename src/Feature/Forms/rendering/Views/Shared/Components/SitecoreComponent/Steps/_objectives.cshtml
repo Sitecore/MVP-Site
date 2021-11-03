@@ -2,10 +2,10 @@
     <div class="form-card">
         <div class="row">
             <div class="col-7">
-                <h2 class="fs-title">Objectives and Motivation:</h2>
+                <h2 class="fs-title">Objectives and Motivation</h2>
             </div>
             <div class="col-5">
-                <h2 class="steps">Step 4 - 7</h2>
+                <h2 class="steps">Step <span>4</span> of 7</h2>
             </div>
         </div>
         <div class="form-group">
@@ -17,7 +17,9 @@
             <textarea class="form-control" id="txtObjectives" rows="3" asp-for="objectives"></textarea>
         </div>
     </div>
-    <button class="btn btn-primary" id="btnStep4" type="submit">Next</button>
-    <button class="btn btn-primary" id="btnPrevious" type="submit">Previous</button>
+    <div class="col-12 toggle-submit">
+        <button class="btn btn-secondary" id="btnPrevious" type="submit">Previous</button>
+        <button class="btn btn-primary" id="btnStep4" type="submit">Next</button>
+    </div>
 </form>
 

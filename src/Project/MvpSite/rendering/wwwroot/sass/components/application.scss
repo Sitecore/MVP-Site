@@ -18,14 +18,25 @@ section.application-form {
         }
     }
 
-    .btn.btn-primary {
-        background-color: #fe2911;
-        border: none;
-        font-size: 17px;
-        border-radius: 0;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-        padding: 16px 30px 17px;
+    .btn {
+        &.btn-primary,
+        &.btn-secondary {
+            border: none;
+            font-size: 17px;
+            border-radius: 0;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 16px 30px 17px;
+            font-family: 'AvenirNextW05-Demi';
+        }
+
+        &.btn-primary {
+            background-color: #fe2911;
+        }
+
+        & + .btn {
+            margin-left: 26px;
+        }
     }
 
     .toggle-submit {
@@ -79,19 +90,54 @@ section.application-form {
     }
 
     .dropdown-group {
-        margin-left: 20 px;
-
         label {
             display: block;
             font-family: AvenirNextW05-Light;
         }
     }
 
-    .form-group select {
-        font-size: 18px;
-        padding: 10 px 32 px;
-        border: 1 px solid lightgrey;
+    .form-group {
+        select {
+            padding: 15px 15px 15px 15px !important;
+            border-bottom: 2px solid #ccc;
+            border-radius: 0px;
+            margin-bottom: 25px;
+            margin-top: 2px;
+            box-sizing: border-box;
+            color: #3c3c3c;
+            background-color: #F6F6F6;
+            font-size: 18px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            font-family: 'AvenirNextW05-Regular';
+            font-size: 18px;
+        }
+
+        label.fieldlabels {
+            display: block;
+            font-family: 'AvenirNextW05-Demi';
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+
+        &.row {
+            padding: 0 20px;
+        }
+
+        .dropdown {
+            width: 100%;
+        }
     }
+}
+
+#application-form .fieldSet input[type=checkbox] {
+    position: absolute;
+    left: 15px;
+    padding: 0;
+    margin: 0;
+    margin: 0;
+    width: 20px;
 }
 
 .form-card {
@@ -101,19 +147,26 @@ section.application-form {
     padding: 0 20px;
 }
 
+.form-card + .form-group.row {
+    margin-top: 30px;
+}
+
 #application-form input,
 #application-form textarea {
-    padding: 8px 15px 8px 15px;
-    border: 1px solid #ccc;
+    padding: 15px 15px 15px 15px;
+    border-bottom: 2px solid #ccc;
     border-radius: 0px;
     margin-bottom: 25px;
     margin-top: 2px;
     box-sizing: border-box;
-    font-family: montserrat;
-    color: #2C3E50;
-    background-color: #ECEFF1;
-    font-size: 16px;
-    letter-spacing: 1px
+    color: #3c3c3c;
+    background-color: #F6F6F6;
+    font-size: 18px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-family: 'AvenirNextW05-Regular';
+    width: 100%;
 }
 
 #application-form input:focus,
@@ -142,7 +195,7 @@ section.application-form {
 
 #application-form .action-button:hover,
 #application-form .action-button:focus {
-    background-color: #808080
+    background-color: #808080;
 }
 
 #application-form .action-button-previous {
@@ -153,24 +206,24 @@ section.application-form {
     cursor: pointer;
     padding: 10px 5px;
     margin: 10px 5px 10px 0px;
-    float: right
+    float: right;
 }
 
 #application-form .action-button-previous:hover,
 #application-form .action-button-previous:focus {
-    background-color: #232323
+    background-color: #232323;
 }
 
 .fs-title {
     font-size: 32px;
     color: #232323;
     font-weight: normal;
-    text-align: left
+    text-align: left;
 }
 
 .purple-text {
     color: #fe2911;
-    font-weight: normal
+    font-weight: normal;
 }
 
 .form-check-wrap {
@@ -210,18 +263,22 @@ section.application-form {
     font-family: FontAwesome;
     content: "\f00b"
 }
+
 #progressbar #objectives:before {
     font-family: FontAwesome;
     content: "\f140"
 }
+
 #progressbar #socials:before {
     font-family: FontAwesome;
     content: "\f0c0"
 }
+
 #progressbar #contributions:before {
     font-family: FontAwesome;
     content: "\f2b5"
 }
+
 #progressbar #confirmation:before {
     font-family: FontAwesome;
     content: "\f00c"
@@ -231,7 +288,7 @@ section.application-form {
 
 .fit-image {
     width: 100%;
-    object-fit: cover
+    object-fit: cover;
 }
 
 #overlay {
@@ -269,9 +326,6 @@ section.application-form {
 .is-hide {
     display: none;
 }
-
-
-
 /*---- Progress Bar ----*/
 #progressbar {
     margin-bottom: 50px;
@@ -318,6 +372,7 @@ section.application-form {
 .progress-bar {
     background-color: #fe2911;
 }
+
 #progressbar {
     margin-bottom: 50px;
     overflow: hidden;

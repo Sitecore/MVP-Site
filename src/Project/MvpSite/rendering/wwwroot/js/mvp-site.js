@@ -5,7 +5,14 @@
     }
 
     var currentStepId = 1;
+    //Comment/uncomment each of the steps if you need to review single screen for starting
     var currentStep = "#step_welcome";
+    //var currentStep = "#step_category"; 
+    //var currentStep = "#step_personal"; 
+    //var currentStep = "#step_objectives"; 
+    //var currentStep = "#step_socials"; 
+    //var currentStep = "#step_contributions"; 
+    //var currentStep = "#step_confirmation"; 
     
     setStep(currentStep);
 

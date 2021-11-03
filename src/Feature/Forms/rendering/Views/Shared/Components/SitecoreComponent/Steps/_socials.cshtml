@@ -2,47 +2,65 @@
     <div class="form-card">
         <div class="row">
             <div class="col-7">
-                <h2 class="fs-title">Community Profiles:</h2>
+                <h2 class="fs-title">Community Profiles</h2>
             </div>
             <div class="col-5">
-                <h2 class="steps">Step 5 - 7</h2>
-            </div>
-        </div>
-        <label class="fieldlabels">Blog:</label>
-        <input type="text" id="blog" name="blog" placeholder="blog" asp-for="Blog" />
-
-        <label class="fieldlabels">sitecore Community:</label>
-        <input type="text" id="sitecoreCommunity" name="sitecoreCommunity" placeholder="sitecore community" asp-for="sitecorecommunity" />
-
-        <label class="fieldlabels">Customer Core Profile:</label>
-        <input type="text" id="customerCoreProfile" name="customerCoreProfile" placeholder="customer core profile" asp-for="customercoreprofile" />
-
-        <label class="fieldlabels">Stack Exchange</label>
-        <input type="text" id="stackExchange" name="stackExchange" placeholder="Stack Exchange" asp-for="stackexchange" />
-
-        <label class="fieldlabels">Github:</label>
-        <input type="text" id="gitHub" name="gitHub" placeholder="github" asp-for="gitHub" />
-
-        <label class="fieldlabels">Twitter:</label>
-        <input type="text" id="twitter" name="twitter" placeholder="twitter" asp-for="twitter" />
-
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Other</label>
-            <textarea class="form-control" id="others" rows="3" asp-for="other"></textarea>
-        </div>
-
-        <div class="form-group">
-            <div class="form-check">
-                <label class="form-check-label" for="chkTerms">
-                    By providing the above information I understand and agree that my community contribution via the above channels may be shared with Sitecore Feeds, SitecoreLink, and other Sitecore Community projects.
-                </label>
-                <br />
-                <input class="form-check-input" type="checkbox" value="" id="chkTerms" required>
-                <br />
+                <h2 class="steps">Step <span>5</span> of 7</h2>
             </div>
         </div>
     </div>
-    <button class="btn btn-primary" id="btnStep5" type="submit">Next</button>
-    <button class="btn btn-primary" id="btnPrevious" type="submit">Previous</button>
+    <div class="form-group row">
+        <div class="col-md-5 col-sm-12">
+            <label class="fieldlabels">Blog:</label>
+            <input type="text" id="blog" name="blog" placeholder="blog" asp-for="Blog" />
+        </div>
+        <div class="col-md-5 offset-md-1 col-sm-12">
+            <label class="fieldlabels">sitecore Community:</label>
+            <input type="text" id="sitecoreCommunity" name="sitecoreCommunity" placeholder="sitecore community" asp-for="sitecorecommunity" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-5 col-sm-12">
+            <label class="fieldlabels">Customer Core Profile:</label>
+            <input type="text" id="customerCoreProfile" name="customerCoreProfile" placeholder="customer core profile" asp-for="customercoreprofile" />
+        </div>
+        <div class="col-md-5 offset-md-1 col-sm-12">
+            <label class="fieldlabels">Stack Exchange</label>
+            <input type="text" id="stackExchange" name="stackExchange" placeholder="Stack Exchange" asp-for="stackexchange" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-5 col-sm-12">
+            <label class="fieldlabels">Github:</label>
+            <input type="text" id="gitHub" name="gitHub" placeholder="github" asp-for="gitHub" />
+        </div>
+        <div class="col-md-5 offset-md-1 col-sm-12">
+            <label class="fieldlabels">Twitter:</label>
+            <input type="text" id="twitter" name="twitter" placeholder="twitter" asp-for="twitter" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-12">
+            <label for="exampleFormControlTextarea1">Other</label>
+            <textarea class="form-control" id="others" rows="3" asp-for="other"></textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="form-check">
+            <label class="form-check-label" for="chkTerms">
+                By providing the above information I understand and agree that my community contribution via the above channels may be shared with Sitecore Feeds, SitecoreLink, and other Sitecore Community projects.
+            </label>
+            <br />
+            <input class="form-check-input" type="checkbox" value="" id="chkTerms" required>
+            <br />
+        </div>
+    </div>
+
+    <div class="col-12 toggle-submit">
+        <button class="btn btn-secondary" id="btnPrevious" type="submit">Previous</button>
+        <button class="btn btn-primary" id="btnStep5" type="submit">Next</button>
+    </div>
 </form>
 
