@@ -117,6 +117,7 @@ namespace Mvp.Feature.Forms
                 Country = GetCountryModel(applicationItem.Fields[Constants.Application.Template.Fields.COUNTRY].Value),
                 // State = GetStateModel(applicationItem.Fields[Constants.Application.Template.Fields.STATE].Value),
                 EmploymentStatus = GetEmploymentStatusModel(applicationItem.Fields[Constants.Application.Template.Fields.EMPLOYMENT_STATUS].Value),
+                Completed = (applicationItem.Fields[Constants.Application.Template.Fields.COMPLETED].Value??"0")=="1",
             };
 
          

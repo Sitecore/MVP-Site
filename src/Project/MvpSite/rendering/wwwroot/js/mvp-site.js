@@ -444,12 +444,17 @@ function getApplicationInfo() {
 	$.ajax({
 		type: "GET",
 		url: "/Application/GetApplicationInfo",
-		success: function (data) {
-
+        success: function (data) {
+            console.info(data);
             if (!data.isLoggedIn) {
 				//todo: redirec to login
 				window.location = '/';
-			} else if (data.applicationAvailable) {
+            }else
+                if (data.applicationCompleted) {
+                    
+                window.location = '/thank-you';
+            }
+            else if (data.applicationAvailable) {
 				//var jsonData = JSON.parse(data);
                 $.each(data.result.application, function (k, v) {
 					updateinput(k, v);

@@ -61,18 +61,30 @@ namespace Mvp.Feature.Forms.Controllers
 					var applicationItemId = personItem.Fields[Constants.Person.Template.Fields.PEOPLE_APPLICATION]?.Value;
 					var applicationModel = _service.GetApplicationModel(applicationItemId);
 
+					
+
 					if (applicationModel != null)
 					{
-						var applicationStepId = applicationModel.Step;
-						ApplicationStep applicationStep = _service.GetApplicationStepModel(applicationStepId);
-
-						applicationInfoModel = new ApplicationInfo
+						if (applicationModel.Completed)
 						{
-							Application = applicationModel,
-							ApplicationStep = applicationStep,
-							Person = personO,
-							Status = ApplicationStatus.ApplicationFound
-						};
+							applicationInfoModel = new ApplicationInfo
+							{
+								Status = ApplicationStatus.ApplicationCompleted
+							};
+						}
+						else
+						{
+							var applicationStepId = applicationModel.Step;
+							ApplicationStep applicationStep = _service.GetApplicationStepModel(applicationStepId);
+
+							applicationInfoModel = new ApplicationInfo
+							{
+								Application = applicationModel,
+								ApplicationStep = applicationStep,
+								Person = personO,
+								Status = ApplicationStatus.ApplicationFound
+							};
+						}
 					}
 					else
 					{

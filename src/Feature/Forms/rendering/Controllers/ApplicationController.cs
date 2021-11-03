@@ -137,6 +137,10 @@ namespace Mvp.Feature.Forms.Controllers
                 {
                     return Json(new { IsLoggedIn = true, ApplicationAvailable = true, Result = applicationInfo });
                 }
+                else if (applicationInfo.Status == ApplicationStatus.ApplicationCompleted)
+                {
+                    return Json(new { IsLoggedIn = true, ApplicationCompleted = true });
+                }
 
             }
 
