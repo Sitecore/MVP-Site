@@ -1,18 +1,16 @@
 {
-    "namespace": "Foundation.People",
-    "items": {
+   "namespace": "Foundation.People",
+   "items": {
       "includes": [
         {
           "name": "templates",
-          "path": "/sitecore/templates/Foundation/People"
+          "path": "/sitecore/templates/Foundation/People",
+          "allowedPushOperations": "CreateUpdateAndDelete"
         },
         {
           "name": "renderings",
-          "path": "/sitecore/layout/Renderings/Foundation/People"
-        },
-        {
-          "name": "MVPTags",
-          "path": "/sitecore/system/Settings/Buckets/MVPTags"
+          "path": "/sitecore/layout/Renderings/Foundation/People",
+          "allowedPushOperations": "CreateUpdateAndDelete"
         }
       ]
     }

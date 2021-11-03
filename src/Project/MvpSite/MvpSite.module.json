@@ -4,35 +4,43 @@
     "includes": [
       {
         "name": "layouts",
-        "path": "/sitecore/layout/Layouts/Project/MvpSite"
+        "path": "/sitecore/layout/Layouts/Project/MvpSite",
+        "allowedPushOperations": "CreateUpdateAndDelete"
       },
       {
         "name": "placeholders",
-        "path": "/sitecore/layout/Placeholder Settings/Project/MvpSite"
+        "path": "/sitecore/layout/Placeholder Settings/Project/MvpSite",
+        "allowedPushOperations": "CreateUpdateAndDelete"
       },
       {
         "name": "media",
-        "path": "/sitecore/media library/MvpSite"
+        "path": "/sitecore/media library/MvpSite",
+        "allowedPushOperations": "CreateOnly"
       },
       {
         "name": "forms",
-        "path": "/sitecore/Forms/MvpSite"
+        "path": "/sitecore/Forms/MvpSite",
+        "allowedPushOperations": "CreateOnly"
       },
       {
         "name": "dictionary",
-        "path": "/sitecore/system/Dictionary/MvpSite"
+        "path": "/sitecore/system/Dictionary/MvpSite",
+        "allowedPushOperations": "CreateOnly"
       },
       {
         "name": "templates",
-        "path": "/sitecore/templates/Project/MvpSite"
+        "path": "/sitecore/templates/Project/MvpSite",
+        "allowedPushOperations": "CreateUpdateAndDelete"
       },
       {
         "name": "branche-templates",
-        "path": "/sitecore/templates/Branches/Project/MvpSite"
+        "path": "/sitecore/templates/Branches/Project/MvpSite",
+        "allowedPushOperations": "CreateUpdateAndDelete"
       },
       {
         "name": "content",
         "path": "/sitecore/content/MvpSite",
+        "allowedPushOperations": "CreateOnly",
         "rules": [
           {
             "path": "/MVP Repository",
@@ -43,6 +51,7 @@
       {
         "name": "mvp-repo",
         "path": "/sitecore/content/MvpSite/MVP Repository",
+        "allowedPushOperations": "CreateOnly",
         "rules": [
           {
             "path": "/People",
@@ -56,10 +65,7 @@
             "path": "/States",
             "scope": "SingleItem"
           },
-          {
-            "path": "/Applications",
-            "scope": "SingleItem"
-          },
+
           {
             "path": "/Application Steps",
             "scope": "itemAndDescendants"
@@ -69,24 +75,8 @@
             "scope": "itemAndDescendants"
           },
           {
-            "path": "/MVP Category",
-            "scope": "itemAndDescendants"
-          },
-          {
-            "path": "/States",
+            "path": "/Award Years",
             "scope": "SingleItem"
-          },
-          {
-            "path": "/Applications",
-            "scope": "SingleItem"
-          },
-          {
-            "path": "/Application Steps",
-            "scope": "itemAndDescendants"
-          },
-          {
-            "path": "/Employment Status",
-            "scope": "itemAndDescendants"
           },
           {
             "path": "/MVP Category",
@@ -100,15 +90,13 @@
       },
       {
         "name": "ItemBucketsOverride",
-        "path": "/sitecore/system/Settings/Buckets/Item Buckets Settings"
-      },
-      {
-        "name": "SemanticsOverride",
-        "path": "/sitecore/templates/System/Templates/Sections/Tagging/Tagging/__Semantics"
+        "path": "/sitecore/system/Settings/Buckets/Item Buckets Settings",
+        "allowedPushOperations": "CreateUpdateAndDelete"
       },
       {
         "name": "apikey",
-        "path": "/sitecore/system/Settings/Services/API Keys/MvpSite"
+        "path": "/sitecore/system/Settings/Services/API Keys/MvpSite",
+        "allowedPushOperations": "CreateUpdateAndDelete"
       }
     ]
   }

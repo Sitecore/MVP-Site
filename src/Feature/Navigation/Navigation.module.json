@@ -4,15 +4,18 @@
     "includes": [
       {
         "name": "templates",
-        "path": "/sitecore/templates/Feature/Navigation"
+        "path": "/sitecore/templates/Feature/Navigation",
+        "allowedPushOperations": "CreateUpdateAndDelete"
       },
       {
         "name": "layouts",
-        "path": "/sitecore/layout/Renderings/Feature/Navigation"
+        "path": "/sitecore/layout/Renderings/Feature/Navigation",
+        "allowedPushOperations": "CreateUpdateAndDelete"
       },
       {
         "name": "Content Resolvers",
-        "path": "/sitecore/system/Modules/Layout Service/Rendering Contents Resolvers/Navigation"
+        "path": "/sitecore/system/Modules/Layout Service/Rendering Contents Resolvers/Navigation",
+        "allowedPushOperations": "CreateUpdateAndDelete"
       }
     ]
   }

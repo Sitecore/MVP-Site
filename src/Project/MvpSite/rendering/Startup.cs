@@ -23,13 +23,6 @@ using Sitecore.AspNet.RenderingEngine.Localization;
 using Sitecore.LayoutService.Client.Extensions;
 using Sitecore.LayoutService.Client.Newtonsoft.Extensions;
 using Sitecore.LayoutService.Client.Request;
-using Sitecore.AspNet.ExperienceEditor;
-using System.Collections.Generic;
-using System.Globalization;
-using Microsoft.AspNetCore.Localization;
-using Mvp.Project.MvpSite.Configuration;
-using Sitecore.AspNet.RenderingEngine.Localization;
-using Microsoft.AspNetCore.HttpOverrides;
 using Mvp.Foundation.People.Infrastructure;
 
 namespace Mvp.Project.MvpSite.Rendering

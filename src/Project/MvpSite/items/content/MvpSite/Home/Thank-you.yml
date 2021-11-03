@@ -1,0 +1,75 @@
+﻿---
+ID: "728d5b0e-573f-4eb6-8233-9a5dc958507c"
+Parent: "94de9ac3-a9f7-40ab-ae90-acda364b9c40"
+Template: "a054184c-3b20-4c2b-ab04-c8a03acd5522"
+Path: "/sitecore/content/MvpSite/Home/Thank-you"
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{EA5CEF36-282B-4254-84FB-86CCD721CFA1}"
+          p:after="r[@uid='{D842E8EB-450E-4348-A54A-E60CF16E9E52}']"
+          s:ds="{EE7F9B17-B8A9-4DEA-BC73-63CBF6CFCBE1}"
+          s:id="{248BDE7D-D010-4D02-95E8-2578A03A2D2D}"
+          s:par=""
+          s:ph="main"
+          s:ccb="Clear on publish" />
+        <r
+          uid="{64CD74AD-6939-48FB-ABB9-33F2403ED031}"
+          p:after="*[1=2]" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{DEA9FEC5-76B0-4A8E-BE9B-36CC4DB16968}"
+              p:before="*"
+              s:ds="{3C50EB5C-DB55-4903-9B5B-C1EBB52F916F}"
+              s:id="{AA449EA4-0695-4D4C-9CD3-E582738A355E}"
+              s:par=""
+              s:ph="/main/page-overview-panel-{DE900095-7395-499F-8983-1206A703FE96}-0"
+              s:ccb="Clear on publish" />
+            <r
+              uid="{DE900095-7395-499F-8983-1206A703FE96}"
+              p:after="r[@uid='{EA5CEF36-282B-4254-84FB-86CCD721CFA1}']"
+              s:id="{DF26CA0D-A60B-4349-8908-E7A62F7E7272}"
+              s:ph="main" />
+            <r
+              uid="{64CD74AD-6939-48FB-ABB9-33F2403ED031}"
+              p:after="*[1=2]" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200604T042308Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "cb06dd1c-6abd-45be-848d-1e2d020f0592"
+    - ID: "b1ece12f-b2c9-44e6-92a3-c5dfd6514b59"
+      Hint: Menu Title
+      Value: Thank You
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211101T231651Z
+    - ID: "efc0a3c7-6993-47d2-ba85-10b44961916e"
+      Hint: Include in Menu
+      Value: 

@@ -22,20 +22,13 @@ namespace Mvp.Foundation.User.Pipelines.IdentityProviders
 {
     public class HeadlessOktaIdentityProvider : IdentityProvidersProcessor
     {
-        /*
-         <setting name="Okta_OktaDomain" value="https://dev-45952888.okta.com" />
-            <setting name="Okta_ClientId" value="0oa1jhwqy63SWS4sG5d7" />
-            <setting name="Okta_ClientSecret" value="KrF9WOnKRCpYsQEjm-RPr9kJ-NjEHWpJBRyfpiUj" />
-            <setting name="Okta_AuthorizationServerId" value="default" />
-         */
-
         // App config settings
         private static readonly string ClientId = Sitecore.Configuration.Settings.GetSetting("Okta_ClientId");
         //private static readonly string ClientSecret = Sitecore.Configuration.Settings.GetSetting("Okta_ClientSecret");
         private static readonly string Authority = Sitecore.Configuration.Settings.GetSetting("Okta_OktaDomain");
         private static readonly string AuthorizationServerId = Sitecore.Configuration.Settings.GetSetting("Okta_AuthorizationServerId");
         //private static readonly string OAuthRedirectUri = Sitecore.Configuration.Settings.GetSetting("Okta_RedirectUri");
-
+        private readonly bool _isDevelopment;
         // constant settings
         private static readonly string OauthMetaDataEndpoint = $"{Authority}/oauth2/{AuthorizationServerId}/.well-known/openid-configuration";
         //private const string OauthTokenEndpoint = "/oauth2/v1/token";
@@ -52,6 +45,7 @@ namespace Mvp.Foundation.User.Pipelines.IdentityProviders
             : base(federatedAuthenticationConfiguration, cookieManager, settings)
         {
             this.ApplicationUserFactory = applicationUserFactory;
+            _isDevelopment = Sitecore.Configuration.Settings.GetBoolSetting("Okta_DevelopmentMode", false); ;
         }
 
         protected override string IdentityProviderName => "headless.okta";
@@ -59,7 +53,7 @@ namespace Mvp.Foundation.User.Pipelines.IdentityProviders
         protected override void ProcessCore(IdentityProvidersArgs args)
         {
             //DO NOT ENABLE THIS FOR PROD, DEBUG ONLY
-            IdentityModelEventSource.ShowPII = true;
+            IdentityModelEventSource.ShowPII = _isDevelopment;
 
             var identityProvider = this.GetIdentityProvider();
             var authenticationType = this.GetAuthenticationType();

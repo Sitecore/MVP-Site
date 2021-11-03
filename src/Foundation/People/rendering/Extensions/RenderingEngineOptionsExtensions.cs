@@ -8,7 +8,6 @@ namespace Mvp.Foundation.People.Extensions
     {
         public static RenderingEngineOptions AddFoundationPeople(this RenderingEngineOptions options)
         {
-            options.AddModelBoundView<MVPYear>("MVPList");
             options.AddViewComponent("GraphQLPeopleList", "GraphQLPeopleList");
             return options;
         }

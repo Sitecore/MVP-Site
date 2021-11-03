@@ -3,7 +3,6 @@ ID: "47e6ab4b-97fb-4c14-a3d6-6265f41723db"
 Parent: "94de9ac3-a9f7-40ab-ae90-acda364b9c40"
 Template: "a054184c-3b20-4c2b-ab04-c8a03acd5522"
 Path: /sitecore/content/MvpSite/Home/Application
-BranchID: "ef8dd6f4-1bb8-4831-a1a6-defa3594051a"
 SharedFields:
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
@@ -24,7 +23,72 @@ Languages:
               uid="{28D15679-431D-4393-B225-2DABF0E75FD3}"
               p:after="r[@uid='{D842E8EB-450E-4348-A54A-E60CF16E9E52}']"
               s:id="{8C3EE30A-6487-4649-901A-09B97BEC6C62}"
-              s:ph="main" />
+              s:ph="main">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{A59661EA-8CF7-495A-9E82-8E39319F4890}"
+                    s:name="Specify name...">
+                    <conditions>
+                      <condition
+                        uid="0EECE9BAB18149D3AA643614EE3872DF"
+                        s:id="{EA0642FA-500B-4B2F-B264-765E771C516F}" />
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="B5A568203550442CB4EEE7AFD4C46410"
+                        s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}"
+                    s:name="Default">
+                    <conditions>
+                      <condition
+                        uid="7983518D7A444EDB923DDAD96BD81FE4"
+                        s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                    </conditions>
+                    <actions />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{CA900ED7-1A55-45F8-A8F5-44DF337D432D}"
+              p:after="r[@uid='{28D15679-431D-4393-B225-2DABF0E75FD3}']"
+              s:ds="{4A99A19C-2299-48C7-A884-FD182172FF9D}"
+              s:id="{DF79486F-2E7B-4EC8-8EFC-C9E6DFE813B7}"
+              s:par=""
+              s:ph="main"
+              s:ccb="Clear on publish">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{157CD51D-EB6B-49E2-A928-5D6741EE4636}"
+                    s:name="Specify name...">
+                    <conditions>
+                      <condition
+                        uid="6C04A61749A243E5BFD6B0C0CF9EE9AA"
+                        s:id="{EA0642FA-500B-4B2F-B264-765E771C516F}" />
+                    </conditions>
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}"
+                    s:name="Default">
+                    <conditions>
+                      <condition
+                        uid="278F8A55BB22427DA8F4951D94C41EC3"
+                        s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="EE67C13C4B7543A3916AACBD675AB648"
+                        s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                    </actions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
             <r
               uid="{64CD74AD-6939-48FB-ABB9-33F2403ED031}"
               p:after="*[1=2]" />
@@ -35,7 +99,7 @@ Languages:
       Value: 20210930T195020Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0601c61e-05ae-416d-9527-45dbdea68ab4"
+      Value: "8a3c31a8-7e74-410a-9536-027c32db0657"
     - ID: "b1ece12f-b2c9-44e6-92a3-c5dfd6514b59"
       Hint: Menu Title
       Value: Application
@@ -45,4 +109,4 @@ Languages:
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T161020Z
+      Value: 20211102T224113Z
