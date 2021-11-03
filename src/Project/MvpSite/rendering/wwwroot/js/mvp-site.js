@@ -1,13 +1,18 @@
-﻿var currentStepId = 1;
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
 
     if (document.getElementById("application-form") == null) {
         return;
     }
 
-    
+    var currentStepId = 1;
+    //Comment/uncomment each of the steps if you need to review single screen for starting
     var currentStep = "#step_welcome";
+    //var currentStep = "#step_category"; 
+    //var currentStep = "#step_personal"; 
+    //var currentStep = "#step_objectives"; 
+    //var currentStep = "#step_socials"; 
+    //var currentStep = "#step_contributions"; 
+    //var currentStep = "#step_confirmation"; 
     
     setStep(currentStep);
 
@@ -18,7 +23,7 @@ $(document).ready(function () {
 
     fillApplicationList();
     getApplicationInfo();
-
+    
     $("#btnStep1").click(function (event) {
         'use strict'
         var forms = document.querySelectorAll('#form_step1')
@@ -76,7 +81,7 @@ $(document).ready(function () {
                     else {
                         // TODO :: Get selected category from bootstrap dropdown
                         var _applicationId = $('#applicationId').val();
-                        var _category =  $("#dllcategory").find("option:selected").val();
+                        var _category = "{DB39FC29-E639-4BE5-AE17-14428301CD11}";// $("#dllcategory").find("option:selected").text();
 
                         $.ajax({
                             url: '/submitStep2',
@@ -375,15 +380,8 @@ function fillDropLists(items, dropId, title) {
 }
 
 
-function getPrevStep() {
-    
-    if (currentStepId > 2) {
+function getnextStep() {
 
-        currentStepId--;
-        var stepIdid = $("div[data-step='" + currentStepId + "']").attr('id');
-
-        setStep('#'+stepIdid);
-    }
 }
 function setStep(stepId) {
 
