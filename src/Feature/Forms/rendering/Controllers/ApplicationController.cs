@@ -377,7 +377,7 @@ namespace Mvp.Feature.Forms.Controllers
 
             var createApplication = new CreateApplication
             {
-                ItemName = DateTime.Now.Year.ToString(),
+                ItemName = (DateTime.Now.Year + 1).ToString(),
                 TemplateID = _configuration.GetValue<string>("Sitecore:MVPApplicationTemplateId"),
                 FirstName = firstName,
                 LastName = lastName

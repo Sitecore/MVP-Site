@@ -12,7 +12,7 @@
     <div class="form-group row">
         <div class="col-md-5 col-sm-12">
             <label class="fieldlabels">Blog:</label>
-            <input type="text" id="blog" name="blog" placeholder="blog" asp-for="Blog" />
+            <input type="text" id="blog" name="blog" placeholder="blog" asp-for="blog" />
         </div>
         <div class="col-md-5 offset-md-1 col-sm-12">
             <label class="fieldlabels">sitecore Community:</label>
@@ -34,7 +34,7 @@
     <div class="form-group row">
         <div class="col-md-5 col-sm-12">
             <label class="fieldlabels">Github:</label>
-            <input type="text" id="gitHub" name="gitHub" placeholder="github" asp-for="gitHub" />
+            <input type="text" id="gitHub" name="gitHub" placeholder="github" asp-for="github" />
         </div>
         <div class="col-md-5 offset-md-1 col-sm-12">
             <label class="fieldlabels">Twitter:</label>
@@ -59,7 +59,7 @@
     </div>
 
     <div class="col-12 toggle-submit">
-        <button class="btn btn-secondary" id="btnPrevious" type="submit">Previous</button>
+        <button class="btn btn-secondary" id="btnPrevious" type="button" onclick="javascript:getPrevStep();">Previous</button>
         <button class="btn btn-primary" id="btnStep5" type="submit">Next</button>
     </div>
 </form>

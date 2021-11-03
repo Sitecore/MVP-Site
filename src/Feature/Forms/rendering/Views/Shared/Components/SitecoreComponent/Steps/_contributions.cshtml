@@ -12,7 +12,7 @@
     <div class="form-group row">
         <div class="col-12">
             <label for="onlineAcvitity">Summary of relevant online professional activity</label>
-            <textarea class="form-control" id="onlineAcvitity" rows="3" asp-for="onlineacvitity"></textarea>
+            <textarea class="form-control" id="onlineAcvitity" rows="3" asp-for="onlineactivity"></textarea>
         </div>
     </div>
     <div class="form-group row">
@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="col-12 toggle-submit">
-        <button class="btn btn-secondary" id="btnPrevious" type="submit">Previous</button>
+        <button class="btn btn-secondary" id="btnPrevious" type="button" onclick="javascript:getPrevStep();">Previous</button>
         <button class="btn btn-primary" id="btnStep6" type="submit">Next</button>
     </div>
 </form>

@@ -79,9 +79,8 @@
                         event.stopPropagation()
                     }
                     else {
-                        // TODO :: Get selected category from bootstrap dropdown
                         var _applicationId = $('#applicationId').val();
-                        var _category = "{DB39FC29-E639-4BE5-AE17-14428301CD11}";// $("#dllcategory").find("option:selected").text();
+                        var _category =  $("#dllcategory").find("option:selected").text();
 
                         $.ajax({
                             url: '/submitStep2',
@@ -379,7 +378,16 @@ function fillDropLists(items, dropId, title) {
    // $("div[asp-for='" + dropId + "']").html(lists);
 }
 
+function getPrevStep() {
 
+    if (currentStepId > 2) {
+
+        currentStepId--;
+        var stepIdid = $("div[data-step='" + currentStepId + "']").attr('id');
+
+        setStep('#' + stepIdid);
+    }
+}
 function getnextStep() {
 
 }
@@ -427,7 +435,7 @@ function fillApplicationList() {
 
                 fillDropLists(jsonData.Country, 'Country', 'Name');
                 fillDropLists(jsonData.EmploymentStatus, 'EmploymentStatus', 'Name');
-                fillDropLists(jsonData.MVPCategories, 'MVPCategory', 'Name');
+                fillDropLists(jsonData.MVPCategories, 'MVPCategories', 'Name');
 
             }
             $("#overlay").fadeOut();
