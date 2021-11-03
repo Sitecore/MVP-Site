@@ -8,11 +8,16 @@
                 <h2 class="steps">Step 2 - 7</h2>
             </div>
         </div>
-        <span>Select a Category:</span>
-        <select class="dropdown"  id="dllcategory"  asp-for="mvpcategory">
-             
-        </select>
     </div>
-    <button class="btn btn-primary" id="btnStep2" type="submit">Next</button>
+    <div class="form-group">
+        <div class="dropdown-group">
+            <label for="Category">Select a Category:</label>
+            <select class="dropdown" id="dllcategory" asp-for="MVPCategories">
+            </select>
+        </div>
+    </div>
+    <div class="col-12 toggle-submit">
+        <button class="btn btn-primary" id="btnStep2" type="submit">Next</button>
+    </div>
 </form>
 
