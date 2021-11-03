@@ -1,10 +1,12 @@
-﻿$(document).ready(function () {
+﻿var currentStepId = 1;
+
+$(document).ready(function () {
 
     if (document.getElementById("application-form") == null) {
         return;
     }
 
-    var currentStepId = 1;
+    
     var currentStep = "#step_welcome";
     
     setStep(currentStep);
@@ -16,7 +18,7 @@
 
     fillApplicationList();
     getApplicationInfo();
-    
+
     $("#btnStep1").click(function (event) {
         'use strict'
         var forms = document.querySelectorAll('#form_step1')
@@ -373,8 +375,15 @@ function fillDropLists(items, dropId, title) {
 }
 
 
-function getnextStep() {
+function getPrevStep() {
+    
+    if (currentStepId > 2) {
 
+        currentStepId--;
+        var stepIdid = $("div[data-step='" + currentStepId + "']").attr('id');
+
+        setStep('#'+stepIdid);
+    }
 }
 function setStep(stepId) {
 
