@@ -13,7 +13,7 @@ namespace Mvp.Foundation.SitecoreExtensions.Pipelines
     {
         public virtual void Process(PipelineArgs args)
         {
-            Register();
+            Register(); 
         }
 
         public static void Register()

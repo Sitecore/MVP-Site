@@ -76,7 +76,8 @@ namespace Mvp.Foundation.People.Infrastructure
                                                               value
                                                             }
                                                             url
-                                                            mvpAwards
+                                                            mvpCategory
+                                                            mvpYear
                                                             country{targetItem{name}}
             
                                                           }

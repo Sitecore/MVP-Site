@@ -153,6 +153,7 @@ namespace Mvp.Feature.Forms.Controllers
             var user = HttpContext.User;
             var identity = (ClaimsIdentity)user?.Identity;
             string oktaId = identity?.FindFirst(_configuration.GetValue<string>("Claims:OktaId"))?.Value;
+            var email = identity?.FindFirst(_configuration.GetValue<string>("Claims:Email"))?.Value;
 
             AddOktaAuthHeaders(request, HttpContext);
 
@@ -162,7 +163,8 @@ namespace Mvp.Feature.Forms.Controllers
 
             string requestData = JsonConvert.SerializeObject(new
             {
-                identifier = oktaId
+                identifier = oktaId,
+                email = email
             });
 
             var data = new UTF8Encoding().GetBytes(requestData);
@@ -201,8 +203,6 @@ namespace Mvp.Feature.Forms.Controllers
         {
             try
             {
-                // TODO :: Backend validation - [make sure Terms checkbox checked].
-
                 var user = HttpContext.User;
                 var identity = (ClaimsIdentity)user?.Identity;
                 var firstName = identity?.FindFirst(_configuration.GetValue<string>("Claims:FirstName"))?.Value;
@@ -214,8 +214,9 @@ namespace Mvp.Feature.Forms.Controllers
                 var application = GetApplication();
                 if(application!=null && application.Status == ApplicationStatus.PersonItemNotFound)
 				{
-                   var person =  CreatePersonItem(firstName, lastName, OktaId, email);
-                    applicationId = CreateApplicationItem(firstName, lastName, person.ItemPath, person.ItemId, true);
+                   var personPathNId =  CreatePersonItem(firstName, lastName, OktaId, email);
+
+                    applicationId = CreateApplicationItem(firstName, lastName, personPathNId.Split("||")[1], personPathNId.Split("||")[0], true);
 				}
                 else if (application != null && application.Status == ApplicationStatus.ApplicationItemNotFound)
 				{
@@ -228,6 +229,13 @@ namespace Mvp.Feature.Forms.Controllers
                 }
                 if(!string.IsNullOrEmpty(applicationId))
 				{
+                    dynamic dataToUpdate = new
+                    {
+                        Application = "{" + applicationId.ToUpper() + "}",
+                        Step = ItemsIds.ApplicationSteps.Category
+                    };
+
+                    UpdateItemInSc(applicationId, dataToUpdate);
                     return Json(new { success = true, responseText = "Application succesffuly created.", applicationItemId = applicationId });
                 }
                  
@@ -240,10 +248,8 @@ namespace Mvp.Feature.Forms.Controllers
 
         }
 
-        private Person CreatePersonItem(string firstName, string lastName, string oktaId, string email)
+        private string CreatePersonItem(string firstName, string lastName, string oktaId, string email)
 		{
-            Person person = new Person();
-
             // Login into Sitecore to authenticate next operation --> create Item 
             var cookies = Authenticate();
 
@@ -284,12 +290,11 @@ namespace Mvp.Feature.Forms.Controllers
             if (((HttpWebResponse)response).StatusCode == HttpStatusCode.Created)
             {
                 var createdItemId = response.Headers["Location"].Substring(response.Headers["Location"].LastIndexOf("/"), response.Headers["Location"].Length - response.Headers["Location"].LastIndexOf("/")).Split("?")[0].TrimStart('/');
-
-                var application = GetApplication();
-                return application?.Person;
+                string itemPath = GetItemPath(createdItemId);
+                return createdItemId + "||" + itemPath;
             }
 
-            return person;
+            return string.Empty;
 		}
 
         private void UpdateItemInSc(string itemId, object dataToUpdate)
@@ -316,7 +321,45 @@ namespace Mvp.Feature.Forms.Controllers
             var response = request.GetResponse();
 
             _logger.LogDebug($"Item Status:\n\r{((HttpWebResponse)response).StatusDescription}");
+            response.Close();
 
+        }
+
+        private string GetItemPath(string itemId)
+		{
+            var sitecoreUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
+            var updateItemByPathUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{itemId.Trim('{').Trim('}')}/?database=master&language=en&fields=ItemPath";
+
+            var cookies = Authenticate();
+            var request = (HttpWebRequest)WebRequest.Create(updateItemByPathUrl);
+
+            request.Method = "GET";
+            request.ContentType = "application/json";
+            request.CookieContainer = cookies;
+
+            var response = request.GetResponse();
+
+            _logger.LogDebug($"Item Status:\n\r{((HttpWebResponse)response).StatusDescription}");
+
+            if (((HttpWebResponse)response).StatusCode == HttpStatusCode.OK)
+            {
+                var responseFromServer = string.Empty;
+                using (var dataStream = response.GetResponseStream())
+                {
+                    // Open the stream using a StreamReader for easy access.
+                    StreamReader reader = new StreamReader(dataStream);
+                    // Read the content.
+                    responseFromServer = reader.ReadToEnd();
+                }
+                GetPerson results = JsonConvert.DeserializeObject<GetPerson>(responseFromServer);
+                if(results.ItemPath!=null)
+				{
+                    response.Close();
+                    return results.ItemPath;
+                }
+            }
+            response.Close();
+            return string.Empty;
         }
 
         private string CreateApplicationItem(string firstName, string lastName,string path, string personId, bool updatePersonApplication)
@@ -356,7 +399,7 @@ namespace Mvp.Feature.Forms.Controllers
             var response = request.GetResponse();
 
             _logger.LogDebug($"Item Status:\n\r{((HttpWebResponse)response).StatusDescription}");
-
+            
             if (((HttpWebResponse)response).StatusCode == HttpStatusCode.Created)
             {
                 var createdItemId = response.Headers["Location"].Substring(response.Headers["Location"].LastIndexOf("/"), response.Headers["Location"].Length - response.Headers["Location"].LastIndexOf("/")).Split("?")[0].TrimStart('/');
@@ -370,8 +413,10 @@ namespace Mvp.Feature.Forms.Controllers
                     UpdateItemInSc(personId, dataToUpdate);
 
                 }
+                response.Close();
                 return createdItemId;
             }
+            response.Close();
             return null;
         }
 
@@ -414,9 +459,9 @@ namespace Mvp.Feature.Forms.Controllers
                     FirstName = firstName,
                     LastName = lastName,
                     PreferredName = preferredName,
-                    EmploymentStatus = "{" + employmentStatus.ToUpper() + "}",
+                    EmploymentStatus = !string.IsNullOrEmpty(employmentStatus) ? "{" + employmentStatus.ToUpper() + "}" : "",
                     CompanyName = companyName ?? "",
-                    Country = "{" + country.ToUpper() + "}",
+                    Country = !string.IsNullOrEmpty(country) ? "{" + country.ToUpper() + "}" : "",
                     State = state ?? "",
                     Mentor = mentor
                 };

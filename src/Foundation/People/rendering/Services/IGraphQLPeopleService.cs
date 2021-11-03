@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Mvp.Foundation.People.Models;
 
 namespace Mvp.Foundation.People.Services
 {
