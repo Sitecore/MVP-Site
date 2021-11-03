@@ -40,7 +40,7 @@ $(document).ready(function () {
                             success: function (data) {
                                 if (data.success === true) {
 
-                                    $("input[asp-for='applicationId']").val(data.applicationItemId);
+                                    $('#applicationId').val(data.applicationItemId);
 
                                     setStep('#step_category');
                                 }
@@ -450,7 +450,7 @@ function getApplicationInfo() {
             console.info(data);
             if (!data.isLoggedIn) {
 				//todo: redirec to login
-				window.location = '/';
+				window.location = '/Application/Intro';
             }else
                 if (data.applicationCompleted) {
                     

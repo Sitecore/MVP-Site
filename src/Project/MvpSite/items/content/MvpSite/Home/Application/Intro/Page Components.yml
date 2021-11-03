@@ -1,0 +1,36 @@
+﻿---
+ID: "69abc474-5968-4c16-9c4c-99e9cf4840a5"
+Parent: "c1a3edfd-f35f-482d-b794-b63f2821d8eb"
+Template: "6aec120a-7222-42c6-a8e8-53f9354aef53"
+Path: /sitecore/content/MvpSite/Home/Application/Intro/Page Components
+BranchID: "ef8dd6f4-1bb8-4831-a1a6-defa3594051a"
+SharedFields:
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{20A55515-D0DF-4AC4-960F-6EBC655A7514}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211103T171419Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f888e7e0-13ba-4581-949a-2600bc1d2dd1"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211103T171419Z
