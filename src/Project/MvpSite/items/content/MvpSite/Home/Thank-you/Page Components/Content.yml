@@ -1,0 +1,32 @@
+﻿---
+ID: "3c50eb5c-db55-4903-9b5b-c1ebb52f916f"
+Parent: "60b26faf-f6e3-4d92-934b-ca7149d6eab2"
+Template: "64ad1284-23fb-4b76-85b3-c6dfb1b322bf"
+Path: "/sitecore/content/MvpSite/Home/Thank-you/Page Components/Content"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200721T145509Z
+    - ID: "5098b799-31dd-4c1b-9955-3e8598caa21f"
+      Hint: Content
+      Value: |
+        <p>Feel free to reach out using any of the channels below:</p>
+        <ul>
+            <li>You can find out more following us on Twitter: <a href="https://www.twitter.com/Sitecore">@Sitecore</a> or <a href="https://www.twitter.com/SitecoreMVP">@SitecoreMVP</a></li>
+            <li>There are also many great topics on the <a href="https://community.sitecore.net">Sitecore Community forum</a> where you can ask questions</li>
+            <li>If you have any other request, please email us: <a href="mailto:mvp-program@sitecore.net">mvp-program@sitecore.net</a></li>
+        </ul>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "27bc2ad3-1646-4e1d-8d71-31d00825cce2"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211101T231517Z
