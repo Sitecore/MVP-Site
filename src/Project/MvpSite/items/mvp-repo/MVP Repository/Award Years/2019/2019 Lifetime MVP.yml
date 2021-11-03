@@ -1,0 +1,26 @@
+﻿---
+ID: "17ce9f9b-90cd-4511-8ee9-1b5b89cd1e43"
+Parent: "2705c6d8-7df1-431e-a407-4f4bb0e1be36"
+Template: "7007db97-c724-464b-a735-b301844f7d82"
+Path: /sitecore/content/MvpSite/MVP Repository/Award Years/2019/2019 Lifetime MVP
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211013T081241Z
+    - ID: "7fadee03-359c-4e85-a762-027f4acf95c8"
+      Hint: Type
+      Value: "{9D391762-CCF9-42A6-AD26-DDF8495DAA4D}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "800e8a5e-ed95-4ae8-9be1-5161b6edbb5f"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211013T200330Z

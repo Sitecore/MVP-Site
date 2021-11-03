@@ -1,0 +1,29 @@
+﻿---
+ID: "18939773-989b-40ec-a2fb-3861b286a404"
+Parent: "f15493bc-613d-4496-be84-263fb737dcbc"
+Template: "13102d13-a6cb-48f6-a813-d431b917ef8f"
+Path: /sitecore/content/MvpSite/MVP Repository/States/IL
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211029T192917Z
+    - ID: "2c587170-6a58-40f3-994d-9df0c3d01845"
+      Hint: Description
+      Value: Illinois
+    - ID: "70588ebe-7611-4f54-9688-5735ff9627de"
+      Hint: Name
+      Value: Illinois
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "7b18e749-b21e-4235-9a42-c20d32ba651e"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211029T192926Z

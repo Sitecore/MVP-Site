@@ -1,0 +1,26 @@
+﻿---
+ID: "40f71464-12f2-4226-963b-36a026592340"
+Parent: "358e6cb7-c796-47e1-a744-490077bcc134"
+Template: "7007db97-c724-464b-a735-b301844f7d82"
+Path: /sitecore/content/MvpSite/MVP Repository/Award Years/2020/2020 Technology MVP
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211013T080632Z
+    - ID: "7fadee03-359c-4e85-a762-027f4acf95c8"
+      Hint: Type
+      Value: "{DB39FC29-E639-4BE5-AE17-14428301CD11}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4d926a91-c3c7-4b7b-92dc-9a4db64eeca7"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211013T200311Z
