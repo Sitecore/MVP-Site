@@ -15,7 +15,7 @@
             <input type="text" id="blog" name="blog" placeholder="blog" asp-for="Blog" />
         </div>
         <div class="col-md-5 offset-md-1 col-sm-12">
-            <label class="fieldlabels">sitecore Community:</label>
+            <label class="fieldlabels">Sitecore Community:</label>
             <input type="text" id="sitecoreCommunity" name="sitecoreCommunity" placeholder="sitecore community" asp-for="sitecorecommunity" />
         </div>
     </div>
@@ -43,18 +43,16 @@
     </div>
     <div class="form-group row">
         <div class="col-12">
-            <label for="exampleFormControlTextarea1">Other</label>
+            <label class="fieldlabels" for="exampleFormControlTextarea1">Other</label>
             <textarea class="form-control" id="others" rows="3" asp-for="other"></textarea>
         </div>
     </div>
     <div class="form-group row">
         <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="chkTerms" required>
             <label class="form-check-label" for="chkTerms">
                 By providing the above information I understand and agree that my community contribution via the above channels may be shared with Sitecore Feeds, SitecoreLink, and other Sitecore Community projects.
             </label>
-            <br />
-            <input class="form-check-input" type="checkbox" value="" id="chkTerms" required>
-            <br />
         </div>
     </div>
 
