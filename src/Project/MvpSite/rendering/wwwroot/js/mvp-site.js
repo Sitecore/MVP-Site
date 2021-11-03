@@ -74,7 +74,7 @@
                     else {
                         // TODO :: Get selected category from bootstrap dropdown
                         var _applicationId = $('#applicationId').val();
-                        var _category = "{DB39FC29-E639-4BE5-AE17-14428301CD11}";// $("#dllcategory").find("option:selected").text();
+                        var _category =  $("#dllcategory").find("option:selected").val();
 
                         $.ajax({
                             url: '/submitStep2',

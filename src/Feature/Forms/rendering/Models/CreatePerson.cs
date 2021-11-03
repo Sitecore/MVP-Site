@@ -19,4 +19,8 @@ namespace Mvp.Feature.Forms.Models
 		[JsonProperty("Email")]
 		public string Email { get; set; }
 	}
+	public class GetPerson
+	{
+		public string ItemPath { get; set; }
+	}
 }

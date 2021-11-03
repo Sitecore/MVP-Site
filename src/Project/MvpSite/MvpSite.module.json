@@ -80,7 +80,7 @@
           },
           {
             "path": "/MVP Category",
-            "scope": "SingleItem"
+            "scope": "itemAndDescendants"
           },
           {
             "path": "*",
