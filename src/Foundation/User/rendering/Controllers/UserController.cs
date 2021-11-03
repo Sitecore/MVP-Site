@@ -47,7 +47,7 @@ namespace Mvp.Foundation.Users.Rendering.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult SignOut()
         {
             return new SignOutResult(
