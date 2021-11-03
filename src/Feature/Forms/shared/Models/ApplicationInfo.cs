@@ -23,7 +23,7 @@ namespace Mvp.Feature.Forms.Shared.Models
         ApplicationFound =2
 	}
     public class ApplicationLists {
-        public IEnumerable<Country> Countries { get; set; }
+        public IEnumerable<Country> Country { get; set; }
         public IEnumerable<EmploymentStatus> EmploymentStatus { get; set; }
         public IEnumerable<MVPCategory> MVPCategories { get; set; }
     }

@@ -23,11 +23,19 @@ namespace Mvp.Feature.Forms.Controllers
 		}
 
         [HttpPost]
-        public JsonResult GetApplicationInfo(string identifier)
+        public JsonResult GetApplicationInfo(string identifier, string email)
 		{
-			//Sitecore.Diagnostics.Assert.IsNotNullOrEmpty(identifier, "identifier can't be null or empty");
 
 			var applicationInfoModel = new ApplicationInfo();
+			if (string.IsNullOrEmpty(identifier) && string.IsNullOrEmpty(email))
+			{
+				applicationInfoModel = new ApplicationInfo
+				{
+					Status = ApplicationStatus.PersonItemNotFound
+				};
+
+				return Json(applicationInfoModel, JsonRequestBehavior.AllowGet);
+			}
 
             if(!string.IsNullOrEmpty(identifier)) { 
 
@@ -36,7 +44,6 @@ namespace Mvp.Feature.Forms.Controllers
 				//fallback to email verification assuming the persons okta id was updated, can be removed later
 				if (personItem == null)
 				{
-					var email = ((System.Security.Claims.ClaimsIdentity)Sitecore.Context.User.Identity).FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").Value;
 					personItem = _service.SearchPeopleByEmail(email);
 				}
 
@@ -98,18 +105,15 @@ namespace Mvp.Feature.Forms.Controllers
 		[HttpGet]
         public JsonResult GetApplicationLists()
         {
-            //if (Sitecore.Context.User.Identity.IsAuthenticated) 
             {
                  var applicationListsModel = new ApplicationLists{
-                                Countries  = _service.GetCountries(),
+                                Country  = _service.GetCountries(),
                                 EmploymentStatus = _service.GetEmploymentStatus(),
                                 MVPCategories = _service.GetMVPCategories(),
                         };
 
                     return Json(applicationListsModel, JsonRequestBehavior.AllowGet);
             }
-
-            //return Json(new { result = false, error = "please signin to get the application lists." }, JsonRequestBehavior.AllowGet);
 
         }
 
