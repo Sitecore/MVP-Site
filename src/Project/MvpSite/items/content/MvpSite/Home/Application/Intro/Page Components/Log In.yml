@@ -1,8 +1,8 @@
 ﻿---
 ID: "4a99a19c-2299-48c7-a884-fd182172ff9d"
-Parent: "520a7845-8d30-4ffd-875b-a19ed9220d8d"
+Parent: "69abc474-5968-4c16-9c4c-99e9cf4840a5"
 Template: "86864760-3b8b-4e79-927e-0addcd14055d"
-Path: /sitecore/content/MvpSite/Home/Application/Page Components/Log In
+Path: /sitecore/content/MvpSite/Home/Application/Intro/Page Components/Log In
 Languages:
 - Language: en
   Versions:
@@ -24,17 +24,17 @@ Languages:
         <image mediaid="{75E92DFC-F50D-40C7-824F-EEEB8D58B5D6}" />
     - ID: "53ee3e16-ba10-4013-959e-9a652a533845"
       Hint: HeroSubtitle
-      Value: 2021 Sitecore MVP Application
+      Value: 2022 Sitecore MVP Application
     - ID: "69db2d7e-db5e-4a02-8580-0bcfb77b5482"
       Hint: HeroDescription
-      Value: Thank you for your interest in applying for Sitecore's 2021 MVP Award.  Please use the link below to login in order to continue with your application.
+      Value: Thank you for your interest in applying for Sitecore's 2022 MVP Award.  Please use the link below to login in order to continue with your application.
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "81554ad8-3cc4-46fc-aafb-34d3771f0ffd"
+      Value: "060a44a3-be84-46fa-88b3-f3ca6cb027be"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211102T224010Z
+      Value: 20211103T171437Z
