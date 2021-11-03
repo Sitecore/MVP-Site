@@ -121,7 +121,7 @@ namespace Mvp.Feature.Forms.Controllers
                  var applicationListsModel = new ApplicationLists{
                                 Country  = _service.GetCountries(),
                                 EmploymentStatus = _service.GetEmploymentStatus(),
-                                MVPCategories = _service.GetMVPCategories(),
+                                MVPCategory = _service.GetMVPCategories(),
                         };
 
                     return Json(applicationListsModel, JsonRequestBehavior.AllowGet);

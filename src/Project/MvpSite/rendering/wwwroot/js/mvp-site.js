@@ -80,7 +80,7 @@
                     }
                     else {
                         var _applicationId = $('#applicationId').val();
-                        var _category =  $("#dllcategory").find("option:selected").text();
+                        var _category =  $("#dllcategory").find("option:selected").val();
 
                         $.ajax({
                             url: '/submitStep2',
