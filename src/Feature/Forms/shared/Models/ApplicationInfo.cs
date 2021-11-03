@@ -20,8 +20,9 @@ namespace Mvp.Feature.Forms.Shared.Models
         NotLoggedIn = -1,
         PersonItemNotFound = 0,
         ApplicationItemNotFound=1,
-        ApplicationFound =2
-	}
+        ApplicationFound =2,
+        ApplicationCompleted = 3
+    }
     public class ApplicationLists {
         public IEnumerable<Country> Country { get; set; }
         public IEnumerable<EmploymentStatus> EmploymentStatus { get; set; }
