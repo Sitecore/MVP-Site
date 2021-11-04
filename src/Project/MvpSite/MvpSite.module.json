@@ -60,12 +60,12 @@
           {
             "path": "/Countries",
             "scope": "itemAndDescendants",
-            "allowedPushOperations": "CreateAndUpdate"
+            "allowedPushOperations": "CreateOnly"
           },
           {
             "path": "/States",
             "scope": "itemAndDescendants",
-            "allowedPushOperations": "CreateAndUpdate"
+            "allowedPushOperations": "CreateOnly"
           },
 
           {
@@ -79,12 +79,12 @@
           {
             "path": "/Award Years",
             "scope": "itemAndDescendants",
-            "allowedPushOperations": "CreateAndUpdate"
+            "allowedPushOperations": "CreateOnly"
           },
           {
             "path": "/MVP Category",
             "scope": "itemAndDescendants",
-            "allowedPushOperations": "CreateAndUpdate"
+            "allowedPushOperations": "CreateOnly"
           },
           {
             "path": "*",
