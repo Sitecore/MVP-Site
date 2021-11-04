@@ -1,4 +1,4 @@
-# 🥇 MVP Site 2020
+# 🥇 Sitecore MVP Program Site
 
 This is the new Sitecore MVP site - build against Sitecore 10.1 utillising the new .NET Core development experience.
 
