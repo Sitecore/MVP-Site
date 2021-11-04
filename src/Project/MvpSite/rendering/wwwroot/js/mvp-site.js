@@ -4,6 +4,14 @@
         return;
     }
 
+
+    $(document).ajaxSend(function () {
+        $("#overlay").fadeIn(300);
+    });
+
+    fillApplicationList();
+    getApplicationInfo();
+
     var currentStepId = 1;
     //Comment/uncomment each of the steps if you need to review single screen for starting
     var currentStep = "#step_welcome";
@@ -13,19 +21,14 @@
     //var currentStep = "#step_socials"; 
     //var currentStep = "#step_contributions"; 
     //var currentStep = "#step_confirmation"; 
-    
-    setStep(currentStep);
 
-    $(document).ajaxSend(function () {
-        $("#overlay").fadeIn(300);
-    });
+    //setStep(currentStep);
 
 
-    fillApplicationList();
-    getApplicationInfo();
-    
+
     $("#btnStep1").click(function (event) {
         'use strict'
+        $("#btnStep1").attr("disabled", true);
         var forms = document.querySelectorAll('#form_step1')
 
         // Loop over them and prevent submission
@@ -64,6 +67,8 @@
                     form.classList.add('was-validated')
                 }, false)
             })
+
+        $("#btnStep1").attr("disabled", false);
     });
 
     $("#btnStep2").click(function (event) {
@@ -458,12 +463,12 @@ function getApplicationInfo() {
 		type: "GET",
 		url: "/Application/GetApplicationInfo",
         success: function (data) {
-            console.info(data);
+            //console.info(data);
             if (!data.isLoggedIn) {
 				//todo: redirec to login
 				window.location = '/Application/Intro';
-            }else
-                if (data.applicationCompleted) {
+            }
+            else if (data.applicationCompleted) {
                     
                 window.location = '/thank-you';
             }
@@ -473,8 +478,10 @@ function getApplicationInfo() {
 					updateinput(k, v);
 				});
 
-                if (data.result.applicationStep.stepId) {
-                    setStep('#' + data.result.applicationStep.stepId);
+				if (data.result.applicationStep.stepId) {
+					setStep('#' + data.result.applicationStep.stepId);
+				} else {
+                    setStep('#step_welcome')
 				}
 			} else {
 				//call 

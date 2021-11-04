@@ -186,6 +186,8 @@ services:
       Okta__RedirectUri: "https://${CM_HOST}/identity/externallogincallback"
       Okta__DevelopmentMode: ${OKTA_DevelopmentMode}
       Sitecore__ExternalCdUrl: "${CD_HOST}"
+      SSC__AllowAnonymousAccess: "${SSC_AllowAnonymousAccess}"
+      SSC__AnonymousUser: "${SSC_AnonymousUser}"
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
  
 networks:
