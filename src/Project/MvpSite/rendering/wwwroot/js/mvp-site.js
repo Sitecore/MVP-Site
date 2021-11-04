@@ -379,6 +379,7 @@ function fillDropLists(items, dropId, title) {
 function getPrevStep() {
 
     if (currentStepId > 2) {
+        $("#progressbar").find('[data-step="' + currentStepId + '"]').removeClass('active');
 
         currentStepId--;
         var stepIdid = $("div[data-step='" + currentStepId + "']").attr('id');
