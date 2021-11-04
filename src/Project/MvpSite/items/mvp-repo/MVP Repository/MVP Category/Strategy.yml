@@ -19,13 +19,19 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Admin
+    - ID: "6e7574bd-3578-4c7d-a438-fb86d7c1c927"
+      Hint: Name
+      Value: Strategy
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "fbdfce87-49ca-427b-be81-31690c9ece90"
+      Value: "78a10779-72f9-4300-b05e-8cfb6a245257"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211013T195934Z
+      Value: 20211103T234921Z
+    - ID: "e20fda97-3f0c-49a0-9257-d55d006a2efe"
+      Hint: Active
+      Value: 1
