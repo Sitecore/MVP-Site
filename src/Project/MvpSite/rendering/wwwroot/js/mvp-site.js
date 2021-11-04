@@ -348,14 +348,20 @@
 
 
 function updateinput(key, value) {
-    var dropLowerCaseId = key.toLowerCase();
 
-    $("input[asp-for='" + dropLowerCaseId + "']").val(value);
-    $("textarea[asp-for='" + dropLowerCaseId + "']").val(value);
+    var dropLowerCaseId = key.toLowerCase();
+ 
+    if (dropLowerCaseId === 'agreeonterms') {
+        $('#chkTerms').prop("checked", value );
+    } else
+    {
+        $("input[asp-for='" + dropLowerCaseId + "']").val(value);
+        $("textarea[asp-for='" + dropLowerCaseId + "']").val(value);
     
-    if (value != null && typeof value.id !== 'undefined') {
-        console.info(dropLowerCaseId + '-' + value.id);
-        $("select[asp-for='" + dropLowerCaseId + "'] option[value=" + value.id + "]").prop('selected', true);
+        if (value != null && typeof value.id !== 'undefined') {
+        
+            $("select[asp-for='" + dropLowerCaseId + "'] option[value=" + value.id + "]").prop('selected', true);
+        }
     }
 }
 
