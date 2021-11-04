@@ -132,8 +132,6 @@
                         var _country = $("#ddlCountry").find("option:selected").val();
                         var _mentor = $('#mentor').val();
 
-                        var d = JSON.stringify({ applicationId: _applicationId,firstName:_firstName, lastName: _lastName, preferredName: _preferredName, employmentStatus: _employmentStatus, companyName: _companyName, country: _country, state: '', mentor: _mentor });
-                        console.info(d);
                         $.ajax({
                             url: '/submitStep3',
                             type: 'post',
@@ -229,12 +227,12 @@
                         var _gitHub = $('#gitHub').val();
                         var _twitter = $('#twitter').val();
                         var _others = $('#others').val();
-
+                        var _agreeOnTerms = $('#chkTerms').prop("checked");
 
                         $.ajax({
                             url: '/submitStep5',
                             type: 'post',
-                            data: { applicationId: _applicationId, blog: _blog, sitecoreCommunity: _sitecoreCommunity, customerCoreProfile: _customerCoreProfile, stackExchange: _stackExchange, gitHub: _gitHub, twitter: _twitter, others: _others },
+                            data: { applicationId: _applicationId, blog: _blog, sitecoreCommunity: _sitecoreCommunity, customerCoreProfile: _customerCoreProfile, stackExchange: _stackExchange, gitHub: _gitHub, twitter: _twitter, others: _others, agreeOnTerms: _agreeOnTerms},
                             dataType: 'json',
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {

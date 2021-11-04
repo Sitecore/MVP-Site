@@ -520,7 +520,7 @@ namespace Mvp.Feature.Forms.Controllers
         }
 
         [HttpPost]
-        public IActionResult Socials(string applicationId, string blog, string sitecoreCommunity, string customerCoreProfile, string stackExchange, string gitHub, string twitter, string others)
+        public IActionResult Socials(string applicationId, string blog, string sitecoreCommunity, string customerCoreProfile, string stackExchange, string gitHub, string twitter, string others,bool agreeOnTerms)
         {
             try
             {
@@ -532,7 +532,8 @@ namespace Mvp.Feature.Forms.Controllers
                     StackExchange = stackExchange,
                     GitHub = gitHub,
                     Twitter = twitter,
-                    Other =  others
+                    Other =  others,
+                    AgreeOnTerms = agreeOnTerms?"1":"0"
                 };
 
                 UpdateItemInSc(applicationId, dataToUpdate);
