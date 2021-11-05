@@ -135,14 +135,15 @@ section.application-form {
     }
 }
 
-#application-form .fieldSet input[type=checkbox] {
-    position: absolute;
-    left: 15px;
-    padding: 0;
-    margin: 0;
-    margin: 0;
-    width: 20px;
-}
+
+//#application-form .fieldSet input[type=checkbox] {
+  //  position: absolute;
+    //left: 15px;
+   // padding: 0;
+  //  margin: 0;
+   // margin: 0;
+   // width: 20px;
+//}
 
 .form-card {
     text-align: left;
@@ -155,7 +156,7 @@ section.application-form {
     margin-top: 30px;
 }
 
-#application-form input,
+#application-form input[type=text],
 #application-form textarea {
     padding: 15px 15px 15px 15px;
     border-bottom: 2px solid #ccc;
