@@ -1,0 +1,31 @@
+﻿---
+ID: "03375f3a-9842-40b8-ab65-69127506bc34"
+Parent: "c4dadd5e-1521-4c6d-afce-39d237751541"
+Template: "e4986869-e4b1-4990-8669-52abf69cd9cf"
+Path: /sitecore/content/MvpSite/Shared Content/Top Links/Default Top Links/Discover Sitecore
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 375
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211020T051206Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "69b3acf1-9a3a-493e-93c7-a4f7741ef42e"
+    - ID: "aff6fd57-80bd-4b53-adb9-164b922d5763"
+      Hint: Link
+      Value: |
+        <link text="Discover Sitecore" linktype="external" url="https://www.youtube.com/c/discoversitecore" anchor="" title="Discover Sitecore" target="" />
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211020T051438Z

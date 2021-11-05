@@ -1,0 +1,19 @@
+{
+  "namespace": "Feature.Forms",
+  "items": {
+    "includes": [
+      {
+        "name": "templates",
+        "path": "/sitecore/templates/Feature/Forms",
+        "allowedPushOperations": "createUpdateAndDelete",
+        "scope": "itemAndDescendants"
+      },
+      {
+        "name": "layouts",
+        "path": "/sitecore/layout/Renderings/Feature/Forms",
+        "allowedPushOperations": "createUpdateAndDelete",
+        "scope": "itemAndDescendants"
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Mvp.Feature.Forms.Shared</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\FeaturePanel.cs" />
+    <Compile Remove="Models\FeaturePanelItem.cs" />
+  </ItemGroup>
+
+</Project>

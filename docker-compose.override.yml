@@ -45,6 +45,12 @@ services:
       Sitecore__InstanceUri: "http://cd"
       Sitecore__RenderingHostUri: "https://${RENDERING_HOST}"
       Sitecore__EnableExperienceEditor: "true"
+      Okta__OktaDomain: ${OKTA_DOMAIN}
+      Okta__ClientId: ${OKTA_CLIENT_ID}
+      Okta__ClientSecret: ${OKTA_CLIENT_SECRET}
+      Okta__AuthorizationServerId: ${OKTA_AUTH_SERVER_ID}
+      PeopleGraphQL__UrlLive: ${PeopleGraphQL_UrlLive}
+      PeopleGraphQL__UrlEdit: ${PeopleGraphQL_UrlEdit}
     depends_on:
       - solutionBuildOutput
       - cm
@@ -135,6 +141,12 @@ services:
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
       SITECORE_DEVELOPMENT_PATCHES: CustomErrorsOff
+      Okta__OktaDomain: ${OKTA_DOMAIN}
+      Okta__ClientId: ${OKTA_CLIENT_ID}
+      Okta__ClientSecret: ${OKTA_CLIENT_SECRET}
+      Okta__AuthorizationServerId: ${OKTA_AUTH_SERVER_ID}
+      Okta__RedirectUri: "https://${CD_HOST}/identity/externallogincallback"
+      Sitecore__ExternalCdUrl: "${CD_HOST}"
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
     labels:
       - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
@@ -167,6 +179,15 @@ services:
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
       SITECORE_DEVELOPMENT_PATCHES: CustomErrorsOff
+      Okta__OktaDomain: ${OKTA_DOMAIN}
+      Okta__ClientId: ${OKTA_CLIENT_ID}
+      Okta__ClientSecret: ${OKTA_CLIENT_SECRET}
+      Okta__AuthorizationServerId: ${OKTA_AUTH_SERVER_ID}
+      Okta__RedirectUri: "https://${CM_HOST}/identity/externallogincallback"
+      Okta__DevelopmentMode: ${OKTA_DevelopmentMode}
+      Sitecore__ExternalCdUrl: "${CD_HOST}"
+      SSC__AllowAnonymousAccess: "${SSC_AllowAnonymousAccess}"
+      SSC__AnonymousUser: "${SSC_AnonymousUser}"
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
  
 networks:

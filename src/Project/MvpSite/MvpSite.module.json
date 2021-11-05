@@ -40,7 +40,62 @@
       {
         "name": "content",
         "path": "/sitecore/content/MvpSite",
-        "allowedPushOperations": "CreateOnly"
+        "allowedPushOperations": "CreateOnly",
+        "rules": [
+          {
+            "path": "/MVP Repository",
+            "scope": "ignored"
+          }
+        ]
+      },
+      {
+        "name": "mvp-repo",
+        "path": "/sitecore/content/MvpSite/MVP Repository",
+        "allowedPushOperations": "CreateOnly",
+        "rules": [
+          {
+            "path": "/People",
+            "scope": "SingleItem"
+          },
+          {
+            "path": "/Countries",
+            "scope": "itemAndDescendants",
+            "allowedPushOperations": "CreateOnly"
+          },
+          {
+            "path": "/States",
+            "scope": "itemAndDescendants",
+            "allowedPushOperations": "CreateOnly"
+          },
+
+          {
+            "path": "/Application Steps",
+            "scope": "itemAndDescendants"
+          },
+          {
+            "path": "/Employment Status",
+            "scope": "itemAndDescendants"
+          },
+          {
+            "path": "/Award Years",
+            "scope": "itemAndDescendants",
+            "allowedPushOperations": "CreateOnly"
+          },
+          {
+            "path": "/MVP Category",
+            "scope": "itemAndDescendants",
+            "allowedPushOperations": "CreateOnly"
+          },
+          {
+            "path": "*",
+            "scope": "ignored"
+          }
+        ]
+      },
+      {
+        "name": "ItemBucketsOverride",
+        "path": "/sitecore/system/Settings/Buckets/Item Buckets Settings",
+        "allowedPushOperations": "CreateUpdateAndDelete"
       },
       {
         "name": "apikey",

@@ -1,0 +1,37 @@
+﻿---
+ID: "49e75b4c-3398-48c8-bff3-5ef91be15025"
+Parent: "8be29760-eaec-49ca-be48-c5c68fd887c5"
+Template: "f1c4767e-0344-4619-9d00-62fb519c07b1"
+Path: /sitecore/content/MvpSite/MVP Repository/Application Steps/Socials
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 188
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Step 5 - Socials"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211013T193319Z
+    - ID: "28efa042-b2bc-45a2-bd09-07a79cde8467"
+      Hint: Title
+      Value: "Step 5 - Socials"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6e82f5e7-8038-4d42-98eb-36556b84230a"
+    - ID: "b06c3aac-d999-4a81-bbd9-eb53d2b791a1"
+      Hint: Step ID
+      Value: step_socials
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211027T222137Z

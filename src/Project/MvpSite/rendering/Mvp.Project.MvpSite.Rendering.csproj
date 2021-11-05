@@ -19,7 +19,7 @@
 
 	<ItemGroup>
 	  <Content Remove="compilerconfig.json" />
-	</ItemGroup>
+	</ItemGroup> 
 
 	<ItemGroup>
 	  <None Include="compilerconfig.json" />
@@ -28,8 +28,10 @@
 	<ItemGroup>
 		<PackageReference Include="BuildWebCompiler" Version="1.12.394" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.1" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="3.1.1" />
+		<PackageReference Include="Microsoft.Identity.Web" Version="1.11.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
 		<PackageReference Include="Sitecore.LayoutService.Client" Version="14.0.1" />
 		<PackageReference Include="Sitecore.AspNet.RenderingEngine" Version="14.0.1" />
@@ -38,9 +40,17 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\Feature\BasicContent\rendering\Mvp.Feature.BasicContent.Rendering.csproj" />
+		<ProjectReference Include="..\..\..\Feature\Forms\rendering\MVP.Feature.Forms.Rendering.csproj" />
 		<ProjectReference Include="..\..\..\Feature\Hero\rendering\Mvp.Feature.Hero.Rendering.csproj" />
 		<ProjectReference Include="..\..\..\Feature\Navigation\rendering\Mvp.Feature.Navigation.Rendering.csproj" />
 		<ProjectReference Include="..\..\..\Feature\Social\rendering\Mvp.Feature.Social.Rendering.csproj" />
+		<ProjectReference Include="..\..\..\Foundation\User\rendering\Mvp.Foundation.User.Rendering.csproj" />
+		<ProjectReference Include="..\..\..\Foundation\People\rendering\Mvp.Foundation.People.Rendering.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Includes\Styles\" />
+	  <Folder Include="Includes\Scripts\" />
 	</ItemGroup>
 
 </Project>

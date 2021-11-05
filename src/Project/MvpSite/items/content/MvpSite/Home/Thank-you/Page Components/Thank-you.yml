@@ -1,0 +1,36 @@
+﻿---
+ID: "ee7f9b17-b8a9-4dea-bc73-63cbf6cfcbe1"
+Parent: "60b26faf-f6e3-4d92-934b-ca7149d6eab2"
+Template: "86864760-3b8b-4e79-927e-0addcd14055d"
+Path: "/sitecore/content/MvpSite/Home/Thank-you/Page Components/Thank-you"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "00f0228c-aff3-4ab7-ac98-e4175a53bf32"
+      Hint: HeroTitle
+      Value: Thank you
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200625T215654Z
+    - ID: "3489c7a2-efe1-49e0-a3d7-271183c4f255"
+      Hint: HeroImage
+      Value: |
+        <image mediaid="{F26BBBB9-9B2A-4AA7-BA41-1DBB7557DD13}" />
+    - ID: "53ee3e16-ba10-4013-959e-9a652a533845"
+      Hint: HeroSubtitle
+      Value: We have received your application
+    - ID: "69db2d7e-db5e-4a02-8580-0bcfb77b5482"
+      Hint: HeroDescription
+      Value: We have received your application for Sitecore's Most Valuable Professional program for 2022, and it is under review
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1a4e43ae-1ecd-451c-b05f-61dedd12f617"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211103T171859Z

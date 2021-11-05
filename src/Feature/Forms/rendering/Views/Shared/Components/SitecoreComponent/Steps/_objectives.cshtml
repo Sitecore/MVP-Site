@@ -1,0 +1,25 @@
+﻿<form id="objectivesForm" class="form-horizontal" method="post" action="/submitApplication/">
+    <div class="form-card">
+        <div class="row">
+            <div class="col-7">
+                <h2 class="fs-title">Objectives and Motivation</h2>
+            </div>
+            <div class="col-5">
+                <h2 class="steps">Step <span>4</span> of 7</h2>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="eligibility">Why do you believe you are eligible to be selected to be a Sitecore MVP?</label>
+            <textarea class="form-control" id="eligibility" rows="3" asp-for="eligibility"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="objectives">What are your objectives for the next year?</label>
+            <textarea class="form-control" id="txtObjectives" rows="3" asp-for="objectives"></textarea>
+        </div>
+    </div>
+    <div class="col-12 toggle-submit">
+        <button class="btn btn-secondary" id="btnPrevious" type="button" onclick="javascript:getPrevStep();">Previous</button>
+        <button class="btn btn-primary" id="btnStep4" type="submit">Next</button>
+    </div>
+</form>
+
