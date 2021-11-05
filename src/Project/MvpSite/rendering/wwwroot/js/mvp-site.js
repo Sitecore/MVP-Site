@@ -22,7 +22,7 @@
     //var currentStep = "#step_contributions"; 
     //var currentStep = "#step_confirmation"; 
 
-    //setStep(currentStep);
+    setStep(currentStep);
 
 
 
