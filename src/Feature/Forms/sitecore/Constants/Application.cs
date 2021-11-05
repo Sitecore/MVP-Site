@@ -37,6 +37,7 @@ namespace Mvp.Feature.Forms.Constants
                 public static ID PERSON = ID.Parse("{F95A166C-8106-41E3-8ACC-D11E3D74B722}");
                 public static ID STEP = ID.Parse("{1D69FCB9-FD09-4E25-B25C-C2D846F21206}");
                 public static ID COMPLETED= ID.Parse("{C169B762-B673-412C-9F0F-748F505FD7BF}");
+                public static ID AGREEONTERMS = ID.Parse("{FAAD57CE-B0EA-4519-A76D-29F8B7C2223C}");
             }
         }
     }

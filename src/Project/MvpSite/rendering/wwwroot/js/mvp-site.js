@@ -4,6 +4,14 @@
         return;
     }
 
+
+    $(document).ajaxSend(function () {
+        $("#overlay").fadeIn(300);
+    });
+
+    fillApplicationList();
+    getApplicationInfo();
+
     var currentStepId = 1;
     //Comment/uncomment each of the steps if you need to review single screen for starting
     var currentStep = "#step_welcome";
@@ -13,19 +21,14 @@
     //var currentStep = "#step_socials"; 
     //var currentStep = "#step_contributions"; 
     //var currentStep = "#step_confirmation"; 
-    
-    setStep(currentStep);
 
-    $(document).ajaxSend(function () {
-        $("#overlay").fadeIn(300);
-    });
+    //setStep(currentStep);
 
 
-    fillApplicationList();
-    getApplicationInfo();
-    
+
     $("#btnStep1").click(function (event) {
         'use strict'
+        $("#btnStep1").attr("disabled", true);
         var forms = document.querySelectorAll('#form_step1')
 
         // Loop over them and prevent submission
@@ -64,6 +67,8 @@
                     form.classList.add('was-validated')
                 }, false)
             })
+
+        $("#btnStep1").attr("disabled", false);
     });
 
     $("#btnStep2").click(function (event) {
@@ -132,8 +137,6 @@
                         var _country = $("#ddlCountry").find("option:selected").val();
                         var _mentor = $('#mentor').val();
 
-                        var d = JSON.stringify({ applicationId: _applicationId,firstName:_firstName, lastName: _lastName, preferredName: _preferredName, employmentStatus: _employmentStatus, companyName: _companyName, country: _country, state: '', mentor: _mentor });
-                        console.info(d);
                         $.ajax({
                             url: '/submitStep3',
                             type: 'post',
@@ -229,12 +232,12 @@
                         var _gitHub = $('#gitHub').val();
                         var _twitter = $('#twitter').val();
                         var _others = $('#others').val();
-
+                        var _agreeOnTerms = $('#chkTerms').prop("checked");
 
                         $.ajax({
                             url: '/submitStep5',
                             type: 'post',
-                            data: { applicationId: _applicationId, blog: _blog, sitecoreCommunity: _sitecoreCommunity, customerCoreProfile: _customerCoreProfile, stackExchange: _stackExchange, gitHub: _gitHub, twitter: _twitter, others: _others },
+                            data: { applicationId: _applicationId, blog: _blog, sitecoreCommunity: _sitecoreCommunity, customerCoreProfile: _customerCoreProfile, stackExchange: _stackExchange, gitHub: _gitHub, twitter: _twitter, others: _others, agreeOnTerms: _agreeOnTerms},
                             dataType: 'json',
                             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                             success: function (data) {
@@ -350,14 +353,20 @@
 
 
 function updateinput(key, value) {
-    var dropLowerCaseId = key.toLowerCase();
 
-    $("input[asp-for='" + dropLowerCaseId + "']").val(value);
-    $("textarea[asp-for='" + dropLowerCaseId + "']").val(value);
+    var dropLowerCaseId = key.toLowerCase();
+ 
+    if (dropLowerCaseId === 'agreeonterms') {
+        $('#chkTerms').prop("checked", value );
+    } else
+    {
+        $("input[asp-for='" + dropLowerCaseId + "']").val(value);
+        $("textarea[asp-for='" + dropLowerCaseId + "']").val(value);
     
-    if (value != null && typeof value.id !== 'undefined') {
-        console.info(dropLowerCaseId + '-' + value.id);
-        $("select[asp-for='" + dropLowerCaseId + "'] option[value=" + value.id + "]").prop('selected', true);
+        if (value != null && typeof value.id !== 'undefined') {
+        
+            $("select[asp-for='" + dropLowerCaseId + "'] option[value=" + value.id + "]").prop('selected', true);
+        }
     }
 }
 
@@ -381,6 +390,7 @@ function fillDropLists(items, dropId, title) {
 function getPrevStep() {
 
     if (currentStepId > 2) {
+        $("#progressbar").find('[data-step="' + currentStepId + '"]').removeClass('active');
 
         currentStepId--;
         var stepIdid = $("div[data-step='" + currentStepId + "']").attr('id');
@@ -453,12 +463,12 @@ function getApplicationInfo() {
 		type: "GET",
 		url: "/Application/GetApplicationInfo",
         success: function (data) {
-            console.info(data);
+            //console.info(data);
             if (!data.isLoggedIn) {
 				//todo: redirec to login
 				window.location = '/Application/Intro';
-            }else
-                if (data.applicationCompleted) {
+            }
+            else if (data.applicationCompleted) {
                     
                 window.location = '/thank-you';
             }
@@ -468,8 +478,10 @@ function getApplicationInfo() {
 					updateinput(k, v);
 				});
 
-                if (data.result.applicationStep.stepId) {
-                    setStep('#' + data.result.applicationStep.stepId);
+				if (data.result.applicationStep.stepId) {
+					setStep('#' + data.result.applicationStep.stepId);
+				} else {
+                    setStep('#step_welcome')
 				}
 			} else {
 				//call 

@@ -118,6 +118,7 @@ namespace Mvp.Feature.Forms
                 // State = GetStateModel(applicationItem.Fields[Constants.Application.Template.Fields.STATE].Value),
                 EmploymentStatus = GetEmploymentStatusModel(applicationItem.Fields[Constants.Application.Template.Fields.EMPLOYMENT_STATUS].Value),
                 Completed = (applicationItem.Fields[Constants.Application.Template.Fields.COMPLETED].Value??"0")=="1",
+                AgreeOnTerms = (applicationItem.Fields[Constants.Application.Template.Fields.AGREEONTERMS].Value ?? "0") == "1",
             };
 
          
