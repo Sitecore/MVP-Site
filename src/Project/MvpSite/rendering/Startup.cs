@@ -263,18 +263,10 @@ namespace Mvp.Project.MvpSite.Rendering
             {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             };
-            if (env.IsDevelopment())
-            {
-                // Allow forwarding of headers from Traefik in development
-                options.KnownNetworks.Clear();
-                options.KnownProxies.Clear();
-            }
-            // ReSharper disable once RedundantIfElseBlock
-            else
-            {
-                // TODO: You should configure forwarding options here appropriately based on your test/production environments.
-                // https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/proxy-load-balancer?view=aspnetcore-3.1
-            }
+                
+            // Allow forwarding of headers from Traefik in development & NGINX in k8s
+            options.KnownNetworks.Clear();
+            options.KnownProxies.Clear();
 
             return options;
         }
