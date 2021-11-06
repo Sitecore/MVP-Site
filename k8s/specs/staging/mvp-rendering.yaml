@@ -63,7 +63,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: okta
-              key: okta-domain.txt
+              key: okta-client-secret.txt
         - name: Okta__AuthorizationServerId
           valueFrom:
             secretKeyRef:
