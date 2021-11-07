@@ -12,6 +12,7 @@ The Sitecore MVP site is an Open Source project and as such we welcome community
 - [.NET Core (>= v 3.1) and .NET Framework 4.8](https://dotnet.microsoft.com/download)
 - [MKCert](https://github.com/FiloSottile/mkcert)
 - Approx 40gb HD space
+- [Okta Developer Account](https://developer.okta.com/signup/)
 
 # 💻 Initial Setup
 
@@ -43,7 +44,12 @@ The Sitecore MVP site is an Open Source project and as such we welcome community
     .\init.ps1 -InitEnv -LicenseXmlPath "C:\path\to\license.xml" -AdminPassword "DesiredAdminPassword"
     ```
 
-3. After completing this environment preparation, run the startup script
+3. At the bottom of the `.env` file you'll find the section for your Okta developer account details. You will need to populate the following values:
+   - OKTA_DOMAIN
+   - OKTA_CLIENT_ID
+   - OKTA_CLIENT_SECRET
+
+4.   After completing this environment preparation, run the startup script
    from the solution root:
     ```ps1
     .\up.ps1
