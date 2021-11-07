@@ -610,9 +610,9 @@ namespace Mvp.Feature.Forms.Controllers
         {
             var authData = new Authentication()
             {
-                Domain = _configuration.GetValue<string>("Sitecore:Domain"),
-                Username = _configuration.GetValue<string>("Sitecore:UserName"),
-                Password = _configuration.GetValue<string>("Sitecore:Password")
+                Domain = Environment.GetEnvironmentVariable("Application_User_Domain"),
+                Username = Environment.GetEnvironmentVariable("Application_User_Name"),
+                Password = Environment.GetEnvironmentVariable("Application_User_Password"),
             };
 
             var sitecoreUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
