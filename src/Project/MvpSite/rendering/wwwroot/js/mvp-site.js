@@ -466,7 +466,6 @@ function getApplicationInfo() {
         success: function (data) {
             //console.info(data);
             if (!data.isLoggedIn) {
-				//todo: redirec to login
 				window.location = '/Application/Intro';
             }
             else if (data.applicationCompleted) {
@@ -487,7 +486,8 @@ function getApplicationInfo() {
 			} else {
 				//call 
 				setStep('#step_welcome');
-			}
+            }
+            $('.application-visibility').show();
 			$("#overlay").fadeOut();
 		},
 		error: function (result) {
