@@ -170,7 +170,7 @@ spec:
         - name: Sitecore__ExternalCdUrl
           value: $(PROD_CD_HOST)
         - name: SSC__AllowAnonymousAccess
-          value: false
+          value: "false"
         - name: SSC__AnonymousUser
           value: sitecore\ServicesAPI
         livenessProbe:
