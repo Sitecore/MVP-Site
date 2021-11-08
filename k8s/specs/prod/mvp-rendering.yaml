@@ -88,6 +88,8 @@ spec:
             secretKeyRef:
               name: mvp-application-user
               key: application_user_domain.txt
+        - name: Application_CMS_URL
+          value: https://$(PROD_CM_HOST)/
         livenessProbe:
           httpGet:
             path: /healthz
