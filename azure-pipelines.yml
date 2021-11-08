@@ -13,7 +13,7 @@ resources:
 
 variables:
   # Agent VM image name
-  vmImageName: 'windows-latest'
+  vmImageName: 'MVP-SelfHostedAgent'
 
 stages:
 - stage: Build
