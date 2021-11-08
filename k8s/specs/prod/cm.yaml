@@ -168,7 +168,11 @@ spec:
               name: okta
               key: okta-development-mode.txt
         - name: Sitecore__ExternalCdUrl
-          value: $(PROD_CM_HOST)
+          value: $(PROD_CD_HOST)
+        - name: SSC__AllowAnonymousAccess
+          value: "false"
+        - name: SSC__AnonymousUser
+          value: sitecore\ServicesAPI
         livenessProbe:
           httpGet:
             path: /healthz/live

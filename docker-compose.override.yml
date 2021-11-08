@@ -51,6 +51,9 @@ services:
       Okta__AuthorizationServerId: ${OKTA_AUTH_SERVER_ID}
       PeopleGraphQL__UrlLive: ${PeopleGraphQL_UrlLive}
       PeopleGraphQL__UrlEdit: ${PeopleGraphQL_UrlEdit}
+      Application_User_Name: ${SITECORE_APPLICATION_USER_NAME}
+      Application_User_Password: ${SITECORE_APPLICATION_USER_PASSWORD}
+      Application_User_Domain: ${SITECORE_APPLICATION_USER_DOMAIIN}
     depends_on:
       - solutionBuildOutput
       - cm

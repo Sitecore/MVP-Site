@@ -63,7 +63,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: okta
-              key: okta-domain.txt
+              key: okta-client-secret.txt
         - name: Okta__AuthorizationServerId
           valueFrom:
             secretKeyRef:
@@ -73,6 +73,21 @@ spec:
           value: http://cd/api/content/people
         - name: PeopleGraphQL__UrlEdit
           value: http://cd/api/content/people
+        - name: Application_User_Name
+          valueFrom:
+            secretKeyRef:
+              name: mvp-application-user
+              key: application_user_name.txt
+        - name: Application_User_Password
+          valueFrom:
+            secretKeyRef:
+              name: mvp-application-user
+              key: application_user_password.txt
+        - name: Application_User_Domain
+          valueFrom:
+            secretKeyRef:
+              name: mvp-application-user
+              key: application_user_domain.txt
         livenessProbe:
           httpGet:
             path: /healthz
