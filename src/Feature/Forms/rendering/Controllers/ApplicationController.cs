@@ -151,8 +151,9 @@ namespace Mvp.Feature.Forms.Controllers
         private ApplicationInfo GetApplication()
         {
             // Create a request using a URL that can receive a post.
-            var sitecoreCdUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
-            WebRequest request = WebRequest.Create($"{sitecoreCdUri}/api/sitecore/Application/GetApplicationInfo");
+            var sitecoreUri = Environment.GetEnvironmentVariable("Application_CMS_URL");
+
+            WebRequest request = WebRequest.Create($"{sitecoreUri}/api/sitecore/Application/GetApplicationInfo");
 
             var user = HttpContext.User;
             var identity = (ClaimsIdentity)user?.Identity;
@@ -258,7 +259,7 @@ namespace Mvp.Feature.Forms.Controllers
             var cookies = Authenticate();
 
             // Use SSC to create application Item
-            var sitecoreUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
+            var sitecoreUri = Environment.GetEnvironmentVariable("Application_CMS_URL");
 
             var createPerson = new CreatePerson
             {
@@ -303,7 +304,7 @@ namespace Mvp.Feature.Forms.Controllers
 
         private void UpdateItemInSc(string itemId, object dataToUpdate)
 		{
-            var sitecoreUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
+            var sitecoreUri = Environment.GetEnvironmentVariable("Application_CMS_URL");
             var updateItemByPathUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{itemId.Trim('{').Trim('}')}/?database=master&language=en";
 
             var cookies = Authenticate();
@@ -331,7 +332,7 @@ namespace Mvp.Feature.Forms.Controllers
 
         private string GetItemPath(string itemId)
 		{
-            var sitecoreUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
+            var sitecoreUri = Environment.GetEnvironmentVariable("Application_CMS_URL");
             var updateItemByPathUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{itemId.Trim('{').Trim('}')}/?database=master&language=en&fields=ItemPath";
 
             var cookies = Authenticate();
@@ -373,7 +374,7 @@ namespace Mvp.Feature.Forms.Controllers
             var cookies = Authenticate();
 
             // Use SSC to create application Item
-            var sitecoreUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
+            var sitecoreUri = Environment.GetEnvironmentVariable("Application_CMS_URL");
 
             var createApplication = new CreateApplication
             {
@@ -615,7 +616,7 @@ namespace Mvp.Feature.Forms.Controllers
                 Password = Environment.GetEnvironmentVariable("Application_User_Password"),
             };
 
-            var sitecoreUri = _configuration.GetValue<string>("Sitecore:InstanceCMUri");
+            var sitecoreUri = Environment.GetEnvironmentVariable("Application_CMS_URL");
 
             var AuthUrl = $"{sitecoreUri}{SSCAPIs.AuthenticationApi}";
 
