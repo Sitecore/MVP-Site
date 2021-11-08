@@ -123,6 +123,11 @@ spec:
             secretKeyRef:
               name: okta
               key: okta-auth-server-id.txt
+        - name: Okta__DevelopmentMode
+          valueFrom:
+            secretKeyRef:
+              name: okta
+              key: okta-development-mode.txt
         - name: Okta__RedirectUri
           value: https://$(PROD_CD_HOST)/identity/externallogincallback
         - name: Sitecore__ExternalCdUrl
