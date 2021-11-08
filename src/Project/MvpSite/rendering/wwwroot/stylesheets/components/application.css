@@ -148,38 +148,38 @@ section.application-form .steps span { color: #fe2911; font-weight: 800; font-si
 .progress-bar { background-color: #fe2911; }
 
 /* line 392, ../../sass/components/application.scss */
-#progressbar { margin-bottom: 50px; overflow: hidden; color: lightgrey; }
-/* line 399, ../../sass/components/application.scss */
+#progressbar { margin-bottom: 50px; overflow: hidden; color: lightgrey; padding-left: 0; padding-right: 0; }
+/* line 400, ../../sass/components/application.scss */
 #progressbar li.active:before { color: white; border: none; background: #fe2911; }
-/* line 405, ../../sass/components/application.scss */
+/* line 406, ../../sass/components/application.scss */
 #progressbar li.active:after { background: #fe2911; }
-/* line 410, ../../sass/components/application.scss */
-#progressbar li { list-style-type: none; font-size: 15px; width: 14%; float: left; position: relative; font-weight: 400; color: grey; }
-/* line 419, ../../sass/components/application.scss */
+/* line 411, ../../sass/components/application.scss */
+#progressbar li { list-style-type: none; font-size: 15px; width: 14.2%; float: left; position: relative; font-weight: 400; color: grey; }
+/* line 420, ../../sass/components/application.scss */
 #progressbar li:after { content: ''; width: 100%; height: 2px; background: lightgray; position: absolute; left: 0; top: 25px; z-index: -1; }
 
-/* line 433, ../../sass/components/application.scss */
+/* line 434, ../../sass/components/application.scss */
 #application-form { /* Base for label styling */ /* checkbox aspect */ /* checked mark aspect */ /* checked mark aspect changes */ /* Disabled checkbox */ /* Accessibility */ }
-/* line 435, ../../sass/components/application.scss */
+/* line 436, ../../sass/components/application.scss */
 #application-form [type="checkbox"]:not(:checked), #application-form [type="checkbox"]:checked { position: absolute; left: 0; opacity: 0.01; }
-/* line 442, ../../sass/components/application.scss */
+/* line 443, ../../sass/components/application.scss */
 #application-form [type="checkbox"]:not(:checked) + label, #application-form [type="checkbox"]:checked + label { position: relative; padding-left: 2.3em; font-size: 1.05em; line-height: 1.7; cursor: pointer; }
-/* line 451, ../../sass/components/application.scss */
+/* line 452, ../../sass/components/application.scss */
 #application-form [type="checkbox"]:not(:checked) + label:before, #application-form [type="checkbox"]:checked + label:before { content: ''; position: absolute; left: 0; top: 0; width: 1.4em; height: 1.4em; border: 1px solid #aaa; background: #FFF; border-radius: .2em; -webkit-transition: all .275s; transition: all .275s; }
-/* line 467, ../../sass/components/application.scss */
+/* line 468, ../../sass/components/application.scss */
 #application-form [type="checkbox"]:not(:checked) + label:after, #application-form [type="checkbox"]:checked + label:after { content: '✕'; position: absolute; top: 0.625em; left: 0.18em; font-size: 1.275em; color: #1ca6a3; line-height: 0; -webkit-transition: all .2s; transition: all .2s; }
-/* line 480, ../../sass/components/application.scss */
+/* line 481, ../../sass/components/application.scss */
 #application-form [type="checkbox"]:not(:checked) + label:after { opacity: 0; }
-/* line 486, ../../sass/components/application.scss */
+/* line 487, ../../sass/components/application.scss */
 #application-form [type="checkbox"]:checked + label:after { opacity: 1; -webkit-transform: scale(1) rotate(0); transform: scale(1) rotate(0); }
-/* line 492, ../../sass/components/application.scss */
+/* line 493, ../../sass/components/application.scss */
 #application-form [type="checkbox"]:disabled:not(:checked) + label:before, #application-form [type="checkbox"]:disabled:checked + label:before { box-shadow: none; border-color: #bbb; background-color: #e9e9e9; }
-/* line 499, ../../sass/components/application.scss */
+/* line 500, ../../sass/components/application.scss */
 #application-form [type="checkbox"]:disabled:checked + label:after { color: #777; }
-/* line 503, ../../sass/components/application.scss */
+/* line 504, ../../sass/components/application.scss */
 #application-form [type="checkbox"]:disabled + label { color: #aaa; }
 
-/* line 515, ../../sass/components/application.scss */
+/* line 516, ../../sass/components/application.scss */
 form#confirmationForm [type="checkbox"]:not(:checked), form#confirmationForm [type="checkbox"]:checked { left: 47px; z-index: 100000000; height: 20px; cursor: pointer; }
 
 /*# sourceMappingURL=application.css.map */
