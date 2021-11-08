@@ -54,6 +54,7 @@ services:
       Application_User_Name: ${SITECORE_APPLICATION_USER_NAME}
       Application_User_Password: ${SITECORE_APPLICATION_USER_PASSWORD}
       Application_User_Domain: ${SITECORE_APPLICATION_USER_DOMAIIN}
+      Application_CMS_URL: ${SITECORE_Application_CMS_URL}
     depends_on:
       - solutionBuildOutput
       - cm
