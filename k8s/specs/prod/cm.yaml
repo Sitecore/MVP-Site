@@ -161,7 +161,7 @@ spec:
               name: okta
               key: okta-auth-server-id.txt
         - name: Okta__RedirectUri
-          value: https://$(PROD_CM_HOST)/identity/externallogincallback
+          value: https://$(PROD_CD_HOST)/identity/externallogincallback
         - name: Okta__DevelopmentMode
           valueFrom:
             secretKeyRef:

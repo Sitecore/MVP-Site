@@ -89,7 +89,7 @@ spec:
               name: mvp-application-user
               key: application_user_domain.txt
         - name: Application_CMS_URL
-          value: https://$(PROD_CM_HOST)/
+          value: http://cm
         livenessProbe:
           httpGet:
             path: /healthz
