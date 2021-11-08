@@ -19,10 +19,11 @@
     //var currentStep = "#step_personal"; 
     //var currentStep = "#step_objectives"; 
     //var currentStep = "#step_socials"; 
+    //var currentStep = "#step_socials"; 
     //var currentStep = "#step_contributions"; 
     //var currentStep = "#step_confirmation"; 
 
-    setStep(currentStep);
+   // setStep(currentStep);
 
 
 

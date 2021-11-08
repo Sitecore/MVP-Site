@@ -108,70 +108,78 @@ section.application-form .steps span { color: #fe2911; font-weight: 800; font-si
 /* line 286, ../../sass/components/application.scss */
 #progressbar #confirmation:before { font-family: FontAwesome; content: ""; }
 
-/* line 293, ../../sass/components/application.scss */
+/* line 292, ../../sass/components/application.scss */
+.progress-wrap h3 { font-family: 'AvenirNextW05-Demi'; font-size: 18px; margin-bottom: 10px; }
+/* line 297, ../../sass/components/application.scss */
+.progress-wrap .progress { margin-bottom: 20px; }
+
+/* line 305, ../../sass/components/application.scss */
 .fit-image { width: 100%; object-fit: cover; }
 
-/* line 298, ../../sass/components/application.scss */
+/* line 310, ../../sass/components/application.scss */
 #overlay { position: fixed; top: 0; z-index: 100; width: 100%; height: 100%; display: none; background: rgba(0, 0, 0, 0.6); }
 
-/* line 308, ../../sass/components/application.scss */
+/* line 320, ../../sass/components/application.scss */
 .cv-spinner { height: 100%; display: flex; justify-content: center; align-items: center; }
 
-/* line 315, ../../sass/components/application.scss */
+/* line 327, ../../sass/components/application.scss */
 .spinner { width: 40px; height: 40px; border: 4px #ddd solid; border-top: 4px #2e93e6 solid; border-radius: 50%; animation: sp-anime 0.8s infinite linear; }
 
 @keyframes sp-anime { 100% { transform: rotate(360deg); } }
-/* line 330, ../../sass/components/application.scss */
+/* line 342, ../../sass/components/application.scss */
 .is-hide { display: none; }
 
 /*---- Progress Bar ----*/
-/* line 334, ../../sass/components/application.scss */
+/* line 346, ../../sass/components/application.scss */
 #progressbar { margin-bottom: 50px; overflow: hidden; color: lightgrey; }
-/* line 339, ../../sass/components/application.scss */
+/* line 351, ../../sass/components/application.scss */
 #progressbar li.active { color: grey; }
-/* line 342, ../../sass/components/application.scss */
+/* line 354, ../../sass/components/application.scss */
 #progressbar li.active:before { color: white; border: none; }
-/* line 348, ../../sass/components/application.scss */
+/* line 360, ../../sass/components/application.scss */
 #progressbar li { list-style-type: none; font-size: 15px; width: 14%; float: left; position: relative; font-weight: 400; }
-/* line 349, ../../sass/components/application.scss */
+/* line 361, ../../sass/components/application.scss */
 #progressbar li:before { width: 50px; height: 50px; line-height: 45px; display: block; font-size: 20px; color: #fe2911; border-radius: 50%; margin: 0 auto 10px auto; padding: 2px; border: 2px solid lightgrey; background-color: #F6F6F6; }
 
-/* line 372, ../../sass/components/application.scss */
+/* line 384, ../../sass/components/application.scss */
 .progress { height: 20px; }
 
-/* line 376, ../../sass/components/application.scss */
+/* line 388, ../../sass/components/application.scss */
 .progress-bar { background-color: #fe2911; }
 
-/* line 380, ../../sass/components/application.scss */
+/* line 392, ../../sass/components/application.scss */
 #progressbar { margin-bottom: 50px; overflow: hidden; color: lightgrey; }
-/* line 387, ../../sass/components/application.scss */
+/* line 399, ../../sass/components/application.scss */
 #progressbar li.active:before { color: white; border: none; background: #fe2911; }
-/* line 393, ../../sass/components/application.scss */
+/* line 405, ../../sass/components/application.scss */
 #progressbar li.active:after { background: #fe2911; }
-/* line 398, ../../sass/components/application.scss */
+/* line 410, ../../sass/components/application.scss */
 #progressbar li { list-style-type: none; font-size: 15px; width: 14%; float: left; position: relative; font-weight: 400; color: grey; }
-/* line 407, ../../sass/components/application.scss */
+/* line 419, ../../sass/components/application.scss */
 #progressbar li:after { content: ''; width: 100%; height: 2px; background: lightgray; position: absolute; left: 0; top: 25px; z-index: -1; }
 
-/* line 421, ../../sass/components/application.scss */
+/* line 433, ../../sass/components/application.scss */
 #application-form { /* Base for label styling */ /* checkbox aspect */ /* checked mark aspect */ /* checked mark aspect changes */ /* Disabled checkbox */ /* Accessibility */ }
-/* line 423, ../../sass/components/application.scss */
+/* line 435, ../../sass/components/application.scss */
 #application-form [type="checkbox"]:not(:checked), #application-form [type="checkbox"]:checked { position: absolute; left: 0; opacity: 0.01; }
-/* line 430, ../../sass/components/application.scss */
+/* line 442, ../../sass/components/application.scss */
 #application-form [type="checkbox"]:not(:checked) + label, #application-form [type="checkbox"]:checked + label { position: relative; padding-left: 2.3em; font-size: 1.05em; line-height: 1.7; cursor: pointer; }
-/* line 439, ../../sass/components/application.scss */
+/* line 451, ../../sass/components/application.scss */
 #application-form [type="checkbox"]:not(:checked) + label:before, #application-form [type="checkbox"]:checked + label:before { content: ''; position: absolute; left: 0; top: 0; width: 1.4em; height: 1.4em; border: 1px solid #aaa; background: #FFF; border-radius: .2em; -webkit-transition: all .275s; transition: all .275s; }
-/* line 455, ../../sass/components/application.scss */
+/* line 467, ../../sass/components/application.scss */
 #application-form [type="checkbox"]:not(:checked) + label:after, #application-form [type="checkbox"]:checked + label:after { content: '✕'; position: absolute; top: 0.625em; left: 0.18em; font-size: 1.275em; color: #1ca6a3; line-height: 0; -webkit-transition: all .2s; transition: all .2s; }
-/* line 468, ../../sass/components/application.scss */
-#application-form [type="checkbox"]:not(:checked) + label:after { opacity: 0; }
-/* line 474, ../../sass/components/application.scss */
-#application-form [type="checkbox"]:checked + label:after { opacity: 1; -webkit-transform: scale(1) rotate(0); transform: scale(1) rotate(0); }
 /* line 480, ../../sass/components/application.scss */
+#application-form [type="checkbox"]:not(:checked) + label:after { opacity: 0; }
+/* line 486, ../../sass/components/application.scss */
+#application-form [type="checkbox"]:checked + label:after { opacity: 1; -webkit-transform: scale(1) rotate(0); transform: scale(1) rotate(0); }
+/* line 492, ../../sass/components/application.scss */
 #application-form [type="checkbox"]:disabled:not(:checked) + label:before, #application-form [type="checkbox"]:disabled:checked + label:before { box-shadow: none; border-color: #bbb; background-color: #e9e9e9; }
-/* line 487, ../../sass/components/application.scss */
+/* line 499, ../../sass/components/application.scss */
 #application-form [type="checkbox"]:disabled:checked + label:after { color: #777; }
-/* line 491, ../../sass/components/application.scss */
+/* line 503, ../../sass/components/application.scss */
 #application-form [type="checkbox"]:disabled + label { color: #aaa; }
+
+/* line 515, ../../sass/components/application.scss */
+form#confirmationForm [type="checkbox"]:not(:checked), form#confirmationForm [type="checkbox"]:checked { left: 47px; z-index: 100000000; height: 20px; cursor: pointer; }
 
 /*# sourceMappingURL=application.css.map */

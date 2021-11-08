@@ -54,13 +54,21 @@ $sc-font-color: #212529;
 
     a:link, a:visited {
         color: $sc-white;
-        padding: 10px 18px 7px;
+    }
+
+    a:link {
+        color: $sc-white;
+       // padding: 10px 18px 7px;
     }
 
     a.dropdown-item {
         &:link, &:visited {
             color: $sc-gray5;
         }
+    }
+
+    ul.nav.navbar-nav li a {
+        padding-left: 10px;
     }
 }
 
