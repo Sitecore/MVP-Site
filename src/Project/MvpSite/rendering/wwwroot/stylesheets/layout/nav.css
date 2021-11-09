@@ -16,8 +16,12 @@
 /* line 50, ../../sass/layout/nav.scss */
 #topbar { background: #666; font-size: 0.9em; height: 40px; }
 /* line 55, ../../sass/layout/nav.scss */
-#topbar a:link, #topbar a:visited { color: #ffffff; padding: 10px 18px 7px; }
-/* line 61, ../../sass/layout/nav.scss */
+#topbar a:link, #topbar a:visited { color: #ffffff; }
+/* line 59, ../../sass/layout/nav.scss */
+#topbar a:link { color: #ffffff; }
+/* line 65, ../../sass/layout/nav.scss */
 #topbar a.dropdown-item:link, #topbar a.dropdown-item:visited { color: #333333; }
+/* line 70, ../../sass/layout/nav.scss */
+#topbar ul.nav.navbar-nav li a { padding-left: 10px; }
 
 /*# sourceMappingURL=nav.css.map */
