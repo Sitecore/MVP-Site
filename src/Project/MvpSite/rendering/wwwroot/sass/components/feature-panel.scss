@@ -373,6 +373,10 @@
     }
 }
 
+.feature-panel-text.with-background.no-number h2 {
+    padding-top: 0;
+}
+
 .feature-panel-text {
     padding-top: 130px;
     padding-bottom: 50px;
@@ -393,8 +397,13 @@
         }
     }
 
+    p + a {
+        margin-top: 24px;
+        float: none;
+    }
+
     h4 {
-        margin-bottom: 20px;
+        margin-top: 20px;
         position: relative;
         line-height: 45px;
         z-index: 2;
@@ -417,6 +426,7 @@
             font-family: AvenirNextW05-Heavy;
             margin-bottom: 0;
             z-index: 1;
+            letter-spacing: -7px;
 
             i {
                 color: #fff;

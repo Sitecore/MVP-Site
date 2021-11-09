@@ -19,10 +19,11 @@
     //var currentStep = "#step_personal"; 
     //var currentStep = "#step_objectives"; 
     //var currentStep = "#step_socials"; 
+    //var currentStep = "#step_socials"; 
     //var currentStep = "#step_contributions"; 
     //var currentStep = "#step_confirmation"; 
 
-    //setStep(currentStep);
+   // setStep(currentStep);
 
 
 
@@ -465,7 +466,6 @@ function getApplicationInfo() {
         success: function (data) {
             //console.info(data);
             if (!data.isLoggedIn) {
-				//todo: redirec to login
 				window.location = '/Application/Intro';
             }
             else if (data.applicationCompleted) {
@@ -486,7 +486,8 @@ function getApplicationInfo() {
 			} else {
 				//call 
 				setStep('#step_welcome');
-			}
+            }
+            $('.application-visibility').show();
 			$("#overlay").fadeOut();
 		},
 		error: function (result) {
