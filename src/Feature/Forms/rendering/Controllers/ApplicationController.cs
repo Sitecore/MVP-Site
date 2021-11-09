@@ -1,22 +1,19 @@
 ﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Mvp.Feature.Forms.Models;
-using Mvp.Foundation.User.Extensions;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Security.Claims;
 using System.Text;
 using static Mvp.Feature.Forms.Constants;
 using Mvp.Feature.Forms.Shared.Models;
+using System.Text.RegularExpressions;
 
 namespace Mvp.Feature.Forms.Controllers
 {
@@ -50,15 +47,15 @@ namespace Mvp.Feature.Forms.Controllers
 
         private static void AddOktaAuthHeaders(WebRequest request, HttpContext httpContext)
         {
-                var str = GetAuthenticationHeader(httpContext);
+            var str = GetAuthenticationHeader(httpContext);
 
-                if (string.IsNullOrEmpty(str))
-                    return;
+            if (string.IsNullOrEmpty(str))
+                return;
 
-                if (request.Headers.AllKeys.Contains("authorization"))
-                    return;
+            if (request.Headers.AllKeys.Contains("authorization"))
+                return;
 
-                 request.Headers.Add("authorization","Bearer " + str);
+            request.Headers.Add("authorization", "Bearer " + str);
         }
 
         private static string GetAuthenticationHeader(HttpContext context)
@@ -116,17 +113,17 @@ namespace Mvp.Feature.Forms.Controllers
         public IActionResult GetApplicationInfo()
         {
             if (!User.Identity.IsAuthenticated)
-                return Json(new { IsLoggedIn = false});
+                return Json(new { IsLoggedIn = false });
 
             ApplicationInfo applicationInfo = GetApplication();
-            if (applicationInfo!=null)
-			{
-                if(applicationInfo.Status == ApplicationStatus.NotLoggedIn)
-				{
+            if (applicationInfo != null)
+            {
+                if (applicationInfo.Status == ApplicationStatus.NotLoggedIn)
+                {
                     return Json(new { IsLoggedIn = false });
                 }
                 else if (applicationInfo.Status == ApplicationStatus.PersonItemNotFound)
-				{
+                {
                     return Json(new { IsLoggedIn = true, ApplicationAvailable = false });
                 }
                 else if (applicationInfo.Status == ApplicationStatus.ApplicationItemNotFound)
@@ -144,7 +141,7 @@ namespace Mvp.Feature.Forms.Controllers
 
             }
 
-            return Json(new { IsLoggedIn = false, ApplicationAvailable = false});
+            return Json(new { IsLoggedIn = false, ApplicationAvailable = false });
 
         }
 
@@ -178,7 +175,7 @@ namespace Mvp.Feature.Forms.Controllers
             {
                 dataStream.Write(data, 0, data.Length);
             }
- 
+
             // Get the response.
             WebResponse response = request.GetResponse();
 
@@ -217,14 +214,14 @@ namespace Mvp.Feature.Forms.Controllers
 
                 string applicationId = "";
                 var application = GetApplication();
-                if(application!=null && application.Status == ApplicationStatus.PersonItemNotFound)
-				{
-                   var personPathNId =  CreatePersonItem(firstName, lastName, OktaId, email);
+                if (application != null && application.Status == ApplicationStatus.PersonItemNotFound)
+                {
+                    var personPathNId = CreatePersonItem(firstName, lastName, OktaId, email);
 
                     applicationId = CreateApplicationItem(firstName, lastName, personPathNId.Split("||")[1], personPathNId.Split("||")[0], true);
-				}
+                }
                 else if (application != null && application.Status == ApplicationStatus.ApplicationItemNotFound)
-				{
+                {
                     applicationId = CreateApplicationItem(firstName, lastName, application.Person.ItemPath, application.Person.ItemId, true); ;
                 }
                 else if (application != null && application.Status == ApplicationStatus.ApplicationFound)
@@ -232,8 +229,8 @@ namespace Mvp.Feature.Forms.Controllers
                     applicationId = application.Application.ApplicationId;
 
                 }
-                if(!string.IsNullOrEmpty(applicationId))
-				{
+                if (!string.IsNullOrEmpty(applicationId))
+                {
                     dynamic dataToUpdate = new
                     {
                         Application = "{" + applicationId.ToUpper() + "}",
@@ -243,7 +240,7 @@ namespace Mvp.Feature.Forms.Controllers
                     UpdateItemInSc(applicationId, dataToUpdate);
                     return Json(new { success = true, responseText = "Application succesffuly created.", applicationItemId = applicationId });
                 }
-                 
+
             }
             catch (Exception ex)
             {
@@ -254,7 +251,7 @@ namespace Mvp.Feature.Forms.Controllers
         }
 
         private string CreatePersonItem(string firstName, string lastName, string oktaId, string email)
-		{
+        {
             // Login into Sitecore to authenticate next operation --> create Item 
             var cookies = Authenticate();
 
@@ -271,12 +268,12 @@ namespace Mvp.Feature.Forms.Controllers
                 Email = email
             };
 
-            var createItemUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{$"sitecore%2Fcontent%2FMvpSite%2FMVP%20Repository%2FPeople?database=master"}"; 
+            var createItemUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{$"sitecore%2Fcontent%2FMvpSite%2FMVP%20Repository%2FPeople?database=master"}";
             var request = (HttpWebRequest)WebRequest.Create(createItemUrl);
 
             request.Method = "POST";
             request.ContentType = "application/json";
-            request.CookieContainer = cookies;
+            request.Headers.Add("Cookie", cookies);
 
             var requestBody = JsonConvert.SerializeObject(createPerson);
 
@@ -300,10 +297,10 @@ namespace Mvp.Feature.Forms.Controllers
             }
 
             return string.Empty;
-		}
+        }
 
         private void UpdateItemInSc(string itemId, object dataToUpdate)
-		{
+        {
             var sitecoreUri = Environment.GetEnvironmentVariable("Application_CMS_URL");
             var updateItemByPathUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{itemId.Trim('{').Trim('}')}/?database=master&language=en";
 
@@ -312,7 +309,7 @@ namespace Mvp.Feature.Forms.Controllers
 
             request.Method = "PATCH";
             request.ContentType = "application/json";
-            request.CookieContainer = cookies;
+            request.Headers.Add("Cookie", cookies);
 
             var requestBody = JsonConvert.SerializeObject(dataToUpdate);
 
@@ -331,7 +328,7 @@ namespace Mvp.Feature.Forms.Controllers
         }
 
         private string GetItemPath(string itemId)
-		{
+        {
             var sitecoreUri = Environment.GetEnvironmentVariable("Application_CMS_URL");
             var updateItemByPathUrl = $"{sitecoreUri}{SSCAPIs.ItemApi}{itemId.Trim('{').Trim('}')}/?database=master&language=en&fields=ItemPath";
 
@@ -340,7 +337,7 @@ namespace Mvp.Feature.Forms.Controllers
 
             request.Method = "GET";
             request.ContentType = "application/json";
-            request.CookieContainer = cookies;
+            request.Headers.Add("Cookie", cookies);
 
             var response = request.GetResponse();
 
@@ -357,8 +354,8 @@ namespace Mvp.Feature.Forms.Controllers
                     responseFromServer = reader.ReadToEnd();
                 }
                 GetPerson results = JsonConvert.DeserializeObject<GetPerson>(responseFromServer);
-                if(results.ItemPath!=null)
-				{
+                if (results.ItemPath != null)
+                {
                     response.Close();
                     return results.ItemPath;
                 }
@@ -367,8 +364,8 @@ namespace Mvp.Feature.Forms.Controllers
             return string.Empty;
         }
 
-        private string CreateApplicationItem(string firstName, string lastName,string path, string personId, bool updatePersonApplication)
-		{
+        private string CreateApplicationItem(string firstName, string lastName, string path, string personId, bool updatePersonApplication)
+        {
 
             // Login into Sitecore to authenticate next operation --> create Item 
             var cookies = Authenticate();
@@ -390,7 +387,7 @@ namespace Mvp.Feature.Forms.Controllers
 
             request.Method = "POST";
             request.ContentType = "application/json";
-            request.CookieContainer = cookies;
+            request.Headers.Add("Cookie", cookies);
 
             var requestBody = JsonConvert.SerializeObject(createApplication);
 
@@ -404,12 +401,12 @@ namespace Mvp.Feature.Forms.Controllers
             var response = request.GetResponse();
 
             _logger.LogDebug($"Item Status:\n\r{((HttpWebResponse)response).StatusDescription}");
-            
+
             if (((HttpWebResponse)response).StatusCode == HttpStatusCode.Created)
             {
                 var createdItemId = response.Headers["Location"].Substring(response.Headers["Location"].LastIndexOf("/"), response.Headers["Location"].Length - response.Headers["Location"].LastIndexOf("/")).Split("?")[0].TrimStart('/');
-                if(updatePersonApplication)
-				{
+                if (updatePersonApplication)
+                {
                     dynamic dataToUpdate = new
                     {
                         Application = "{" + createdItemId.ToUpper() + "}",
@@ -455,7 +452,7 @@ namespace Mvp.Feature.Forms.Controllers
         }
 
         [HttpPost]
-        public IActionResult PersonalInformation(string applicationId,string firstName, string lastName, string preferredName, string employmentStatus,string companyName, string country, string state, string mentor)
+        public IActionResult PersonalInformation(string applicationId, string firstName, string lastName, string preferredName, string employmentStatus, string companyName, string country, string state, string mentor)
         {
             try
             {
@@ -491,7 +488,7 @@ namespace Mvp.Feature.Forms.Controllers
         }
 
         [HttpPost]
-        public IActionResult ObjectivesandMotivation(string applicationId,string eligibility, string objectives)
+        public IActionResult ObjectivesandMotivation(string applicationId, string eligibility, string objectives)
         {
             try
             {
@@ -521,7 +518,7 @@ namespace Mvp.Feature.Forms.Controllers
         }
 
         [HttpPost]
-        public IActionResult Socials(string applicationId, string blog, string sitecoreCommunity, string customerCoreProfile, string stackExchange, string gitHub, string twitter, string others,bool agreeOnTerms)
+        public IActionResult Socials(string applicationId, string blog, string sitecoreCommunity, string customerCoreProfile, string stackExchange, string gitHub, string twitter, string others, bool agreeOnTerms)
         {
             try
             {
@@ -533,8 +530,8 @@ namespace Mvp.Feature.Forms.Controllers
                     StackExchange = stackExchange,
                     GitHub = gitHub,
                     Twitter = twitter,
-                    Other =  others,
-                    AgreeOnTerms = agreeOnTerms?"1":"0"
+                    Other = others,
+                    AgreeOnTerms = agreeOnTerms ? "1" : "0"
                 };
 
                 UpdateItemInSc(applicationId, dataToUpdate);
@@ -585,7 +582,7 @@ namespace Mvp.Feature.Forms.Controllers
                 return Json(new { success = false, responseText = "An error occured while saving your application.  Please contact Sitecore Support." });
             }
         }
-       
+
         [HttpPost]
         public IActionResult Confirmation(string applicationId)
         {
@@ -607,7 +604,7 @@ namespace Mvp.Feature.Forms.Controllers
             }
         }
 
-        private CookieContainer Authenticate()
+        private string Authenticate()
         {
             var authData = new Authentication()
             {
@@ -635,15 +632,17 @@ namespace Mvp.Feature.Forms.Controllers
             CookieContainer cookies = new CookieContainer();
             authRequest.CookieContainer = cookies;
 
-            var authResponse = authRequest.GetResponse();
-            
+            using (var authResponse = authRequest.GetResponse())
+            {
+                _logger.LogDebug($"Login Status:\n\r{((HttpWebResponse)authResponse).StatusDescription}");
+                return $".AspNet.Cookies={CookieValue(authResponse.Headers["Set-Cookie"], ".AspNet.Cookies")}";
+            }
+        }
 
-            _logger.LogDebug($"Login Status:\n\r{((HttpWebResponse)authResponse).StatusDescription}");
-
-            authResponse.Close();
-
-
-            return cookies;
+        private string CookieValue(string header, string name)
+        {
+            Match M = Regex.Match(header, string.Format("{0}=(?<value>.*?);", name));
+            return (M.ToString().Split('=')[1]);
         }
     }
 }
