@@ -1,4 +1,4 @@
-﻿@using Mvp.Foundation.People.Extensions;
+@using Mvp.Foundation.People.Extensions;
 @using Mvp.Foundation.People.Models;
 @model Mvp.Foundation.People.Models.PeopleSearchResults
 
@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-12 side-content">
                 <p class="top">Search Results for</p>
-                <h1 class="static">Sitecore MVP's'</h1>
+                <h1 class="static">Sitecore MVPs</h1>
             </div>
         </div>
     </div>
@@ -98,7 +98,7 @@
                             <a class="content">
                                 <!--Get users latest MVP year-->
                                 <div class="mvp-year">@person.mvpYear</div>
-                                <img class="card-img-top" src="images\mvp-base-user.png" alt="MVP User Profile Image">
+                                <img class="card-img-top" src="images\mvp-base-user-grey.png" alt="MVP User Profile Image">
                                 <div class="card-body">
                                     <div class="mvp-category">@person.mvpCategory</div>
                                     <h5 class="card-title">@person.firstName.value @person.lastName.value </h5>
@@ -159,4 +159,3 @@
 		window.location.assign(urlformat.replace("KEYYWORD", document.getElementById("search").value));
 	}
 </script>
-

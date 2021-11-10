@@ -12,40 +12,40 @@
     <div class="form-group row">
         <div class="col-md-5 col-sm-12">
             <label class="fieldlabels">Official First Name: *</label>
-            <input type="text" id="firstName" name="firstName" placeholder="first name" asp-for="officialfirstname" />
+            <input type="text" id="firstName" name="firstName" placeholder="first name" asp-for="officialfirstname" required/>
         </div>
         <div class="col-md-5 offset-md-1 col-sm-12">
             <label class="fieldlabels">Official Last Name: *</label>
-            <input type="text" id="lastName" name="lastName" placeholder="last name" asp-for="officiallastname" />
+            <input type="text" id="lastName" name="lastName" placeholder="last name" asp-for="officiallastname" required />
         </div>
     </div>
     <div class="form-group row">
         <div class="col-md-5 col-sm-12">
-            <label class="fieldlabels">Preferred Name: *</label>
+            <label class="fieldlabels">Preferred Name: </label>
             <input type="text" id="preferredName" name="preferredName" placeholder="preferred name" asp-for="preferredname" />
         </div>
         <div class="col-md-5 offset-md-1 col-sm-12">
-            <label class="fieldlabels">Country/Region/Territory</label>
-            <select class="dropdown" id="ddlCountry" asp-for="country">
+            <label class="fieldlabels">Country/Region/Territory: *</label>
+            <select class="dropdown" id="ddlCountry" asp-for="country" required>
             </select>
         </div>
     </div>
     <div class="form-group row">
         <div class="col-md-5 col-sm-12">
             <label class="fieldlabels">Company Name: *</label>
-            <input type="text" id="companyName" name="companyName" placeholder="company name" asp-for="companyname" />
+            <input type="text" id="companyName" name="companyName" placeholder="company name" asp-for="companyname" required />
         </div>
         <div class="col-md-5 offset-md-1 col-sm-12">
-            <label class="fieldlabels">Employment Status</label>
-            <select class="dropdown" id="ddlEmploymentStatus" asp-for="employmentstatus">
+            <label class="fieldlabels">Employment Status: *</label>
+            <select class="dropdown" id="ddlEmploymentStatus" asp-for="employmentstatus" required>
             </select>
         </div>
     </div>
 
     <div class="form-group row">
         <div class="col-md-5 col-sm-12">
-            <label class="fieldlabels">Mentor: *</label>
-            <input type="text" id="mentor" name="mentor" placeholder="mentore" asp-for="mentor" />
+            <label class="fieldlabels">Mentor: </label>
+            <input type="text" id="mentor" name="mentor" placeholder="mentor" asp-for="mentor" />
         </div>
     </div>
     <div class="col-12 toggle-submit">

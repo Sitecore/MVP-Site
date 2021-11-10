@@ -170,9 +170,9 @@ spec:
         - name: Sitecore__ExternalCdUrl
           value: $(STAGING_CD_HOST)
         - name: SSC__AllowAnonymousAccess
-          value: "true"
+          value: "false"
         - name: SSC__AnonymousUser
-          value: sitecore\admin
+          value: sitecore\ServicesAPI
         livenessProbe:
           httpGet:
             path: /healthz/live
