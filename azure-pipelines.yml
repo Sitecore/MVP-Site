@@ -12,7 +12,8 @@ resources:
   clean: true
 
 variables:
-  kubectlVersion: 'v1.22.2'
+  # Agent VM image name
+  vmImageName: 'windows-latest'
 
 stages:
 - stage: Build
@@ -20,7 +21,8 @@ stages:
   jobs:  
   - job: Build
     displayName: Build
-    pool: MVP-SelfHostedAgent
+    pool:
+      vmImage: $(vmImageName)
     steps:
     - task: DockerCompose@0
       displayName: "Build Images"
@@ -76,7 +78,8 @@ stages:
   displayName: Deploy to Staging
   jobs:
   - deployment: 'Deploy_Specs_to_Staging_AKS'
-    pool: MVP-SelfHostedAgent
+    pool:
+      vmImage: $(vmImageName)
     environment: Staging
     strategy:
       runOnce:
@@ -189,7 +192,8 @@ stages:
               rolloutStatusTimeout: '1200'
   - deployment: 'Deserialize_Content_to_Staging'
     dependsOn: 'Deploy_Specs_to_Staging_AKS'
-    pool: MVP-SelfHostedAgent
+    pool:
+      vmImage: $(vmImageName)
     environment: Staging
     strategy:
       runOnce:
@@ -229,7 +233,8 @@ stages:
   displayName: Deploy to Production
   jobs:
   - deployment: 'Deploy_Specs_to_Production_AKS'
-    pool: MVP-SelfHostedAgent
+    pool:
+      vmImage: $(vmImageName)
     environment: Production
     strategy:
       runOnce:
@@ -314,7 +319,8 @@ stages:
               rolloutStatusTimeout: '1200'
   - deployment: 'Deserialize_Content_to_Production'
     dependsOn: 'Deploy_Specs_to_Production_AKS'
-    pool: MVP-SelfHostedAgent
+    pool:
+      vmImage: $(vmImageName)
     environment: Production
     strategy:
       runOnce:
