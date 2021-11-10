@@ -49,6 +49,11 @@
         ]
       },
       {
+        "name": "SPE",
+        "path": "/sitecore/system/Modules/PowerShell/Script Library/MVP Scripts",
+        "allowedPushOperations": "CreateOnly"
+      },
+      {
         "name": "mvp-repo",
         "path": "/sitecore/content/MvpSite/MVP Repository",
         "allowedPushOperations": "CreateOnly",
