@@ -11,12 +11,9 @@ resources:
 - repo: self
   clean: true
 
-<<<<<<< HEAD
 variables:
   kubectlVersion: '1.22.0'
 
-=======
->>>>>>> main
 stages:
 - stage: Build
   displayName: Build Images + Push to ACR
