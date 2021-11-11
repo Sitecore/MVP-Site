@@ -74,6 +74,7 @@
     <Content Include="App_Config\Include\Sitecore.MediaDefaults.config" />
     <Content Include="App_Config\Include\Sitecore.LinkProvider.config" />
     <Content Include="App_Config\Include\Sitecore.Owin.Authentication.ClientCredentialsMapping.Mvp.config" />
+    <Content Include="App_Config\Include\z_SPE\Spe.IdentityServer.config" />
     <None Include="Mvp.Environment.Sitecore.wpp.targets" />
     <None Include="Directory.Build.props" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
