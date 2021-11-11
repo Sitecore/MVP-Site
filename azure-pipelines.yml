@@ -94,6 +94,7 @@ stages:
               configuration: '$(System.ArtifactsDirectory)/k8s-specs/staging/namespaces/namespace-staging.yaml'
               secretType: 'dockerRegistry'
               containerRegistryType: 'Azure Container Registry'
+              versionSpec: '1.22.2'
               outputFormat: ''
           - task: replacetokens@3
             displayName: "Replace Tokens in Secrets & Specs"
@@ -246,6 +247,7 @@ stages:
               configuration: '$(System.ArtifactsDirectory)/k8s-specs/prod/namespaces/namespace-prod.yaml'
               secretType: 'dockerRegistry'
               containerRegistryType: 'Azure Container Registry'
+              versionSpec: '1.22.2'
               outputFormat: ''
           - task: replacetokens@3
             displayName: "Replace Tokens in Secrets & Specs"
