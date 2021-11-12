@@ -11,18 +11,13 @@ resources:
 - repo: self
   clean: true
 
-variables:
-  # Agent VM image name
-  vmImageName: 'windows-latest'
-
 stages:
 - stage: Build
   displayName: Build Images + Push to ACR
   jobs:  
   - job: Build
     displayName: Build
-    pool:
-      vmImage: $(vmImageName)
+    pool: $(AGENT_POOL_NAME)
     steps:
     - task: DockerCompose@0
       displayName: "Build Images"
@@ -36,6 +31,7 @@ stages:
         action: 'Build services'
         additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
         includeLatestTag: true
+        arguments: '--no-cache'
     - task: DockerCompose@0
       displayName: "Push Images with Latest Tag"
       inputs:
@@ -78,8 +74,7 @@ stages:
   displayName: Deploy to Staging
   jobs:
   - deployment: 'Deploy_Specs_to_Staging_AKS'
-    pool:
-      vmImage: $(vmImageName)
+    pool: $(AGENT_POOL_NAME)
     environment: Staging
     strategy:
       runOnce:
@@ -100,6 +95,7 @@ stages:
               configuration: '$(System.ArtifactsDirectory)/k8s-specs/staging/namespaces/namespace-staging.yaml'
               secretType: 'dockerRegistry'
               containerRegistryType: 'Azure Container Registry'
+              versionSpec: '1.22.2'
               outputFormat: ''
           - task: replacetokens@3
             displayName: "Replace Tokens in Secrets & Specs"
@@ -191,8 +187,7 @@ stages:
               rolloutStatusTimeout: '1200'
   - deployment: 'Deserialize_Content_to_Staging'
     dependsOn: 'Deploy_Specs_to_Staging_AKS'
-    pool:
-      vmImage: $(vmImageName)
+    pool: $(AGENT_POOL_NAME)
     environment: Staging
     strategy:
       runOnce:
@@ -232,8 +227,7 @@ stages:
   displayName: Deploy to Production
   jobs:
   - deployment: 'Deploy_Specs_to_Production_AKS'
-    pool:
-      vmImage: $(vmImageName)
+    pool: $(AGENT_POOL_NAME)
     environment: Production
     strategy:
       runOnce:
@@ -254,6 +248,7 @@ stages:
               configuration: '$(System.ArtifactsDirectory)/k8s-specs/prod/namespaces/namespace-prod.yaml'
               secretType: 'dockerRegistry'
               containerRegistryType: 'Azure Container Registry'
+              versionSpec: '1.22.2'
               outputFormat: ''
           - task: replacetokens@3
             displayName: "Replace Tokens in Secrets & Specs"
@@ -317,8 +312,7 @@ stages:
               rolloutStatusTimeout: '1200'
   - deployment: 'Deserialize_Content_to_Production'
     dependsOn: 'Deploy_Specs_to_Production_AKS'
-    pool:
-      vmImage: $(vmImageName)
+    pool: $(AGENT_POOL_NAME)
     environment: Production
     strategy:
       runOnce:
