@@ -254,13 +254,12 @@ namespace Mvp.Feature.Forms.Controllers
         {
             // Login into Sitecore to authenticate next operation --> create Item 
             var cookies = Authenticate();
-
+            string itemNamePostFix = !string.IsNullOrEmpty(oktaId) ? oktaId.Trim() : "NoID";
             // Use SSC to create application Item
             var sitecoreUri = Environment.GetEnvironmentVariable("Application_CMS_URL");
-
             var createPerson = new CreatePerson
             {
-                ItemName = firstName + " " + lastName,
+                ItemName = firstName + " " + lastName + " - " + itemNamePostFix,
                 TemplateID = _configuration.GetValue<string>("Sitecore:PersonTemplateId"),
                 FirstName = firstName,
                 LastName = lastName,
