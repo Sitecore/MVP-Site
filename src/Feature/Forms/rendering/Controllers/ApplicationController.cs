@@ -246,7 +246,7 @@ namespace Mvp.Feature.Forms.Controllers
             {
                 _logger.LogError(ex, ex.Message, null);
             }
-            return Json(new { success = false, responseText = "An error occured while creating your application.  Please contact Sitecore Support." });
+            return Json(new { success = false, responseText = Constants.Messages.ErrorMessage });
 
         }
 
@@ -257,9 +257,10 @@ namespace Mvp.Feature.Forms.Controllers
             string itemNamePostFix = !string.IsNullOrEmpty(oktaId) ? oktaId.Trim() : "NoID";
             // Use SSC to create application Item
             var sitecoreUri = Environment.GetEnvironmentVariable("Application_CMS_URL");
+            var itemName = ItemUtil.ProposeValidItemName(firstName + " " + lastName + " - " + itemNamePostFix);
             var createPerson = new CreatePerson
             {
-                ItemName = firstName + " " + lastName + " - " + itemNamePostFix,
+                ItemName = itemName,
                 TemplateID = _configuration.GetValue<string>("Sitecore:PersonTemplateId"),
                 FirstName = firstName,
                 LastName = lastName,
@@ -446,7 +447,7 @@ namespace Mvp.Feature.Forms.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, ex.Message, null);
-                return Json(new { success = false, responseText = "An error occured while saving your application.  Please contact Sitecore Support." });
+                return Json(new { success = false, responseText = Constants.Messages.ErrorMessage });
             }
         }
 
@@ -482,7 +483,7 @@ namespace Mvp.Feature.Forms.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, ex.Message, null);
-                return Json(new { success = false, responseText = "An error occured while saving your application.  Please contact Sitecore Support." });
+                return Json(new { success = false, responseText = Constants.Messages.ErrorMessage });
             }
         }
 
@@ -512,7 +513,7 @@ namespace Mvp.Feature.Forms.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, ex.Message, null);
-                return Json(new { success = false, responseText = "An error occured while saving your application.  Please contact Sitecore Support." });
+                return Json(new { success = false, responseText = Constants.Messages.ErrorMessage });
             }
         }
 
@@ -548,7 +549,7 @@ namespace Mvp.Feature.Forms.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, ex.Message, null);
-                return Json(new { success = false, responseText = "An error occured while saving your application.  Please contact Sitecore Support." });
+                return Json(new { success = false, responseText = Constants.Messages.ErrorMessage });
             }
         }
 
@@ -578,7 +579,7 @@ namespace Mvp.Feature.Forms.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, ex.Message, null);
-                return Json(new { success = false, responseText = "An error occured while saving your application.  Please contact Sitecore Support." });
+                return Json(new { success = false, responseText = Constants.Messages.ErrorMessage });
             }
         }
 
@@ -599,7 +600,7 @@ namespace Mvp.Feature.Forms.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, ex.Message, null);
-                return Json(new { success = false, responseText = "An error occured while saving your application.  Please contact Sitecore Support." });
+                return Json(new { success = false, responseText = Constants.Messages.ErrorMessage });
             }
         }
 
