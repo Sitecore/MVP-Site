@@ -6,6 +6,11 @@ namespace Mvp.Feature.Forms
 {
     internal class Constants
     {
+        internal class Messages
+		{
+            internal const string ErrorMessage = "An error occured while saving your application.  Please contact Sitecore MVP team (MVP-Program@sitecore.com)";
+
+        }
         internal class SSCAPIs
         {
             internal const string AuthenticationApi = "/sitecore/api/ssc/auth/login";

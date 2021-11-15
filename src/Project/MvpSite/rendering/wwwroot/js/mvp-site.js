@@ -418,6 +418,7 @@ function fillApplicationList() {
     $.ajax({
         type: "GET",
         url: "/Application/GetApplicationLists",
+        async: false,
         data: {
 
         },
@@ -459,7 +460,7 @@ function getApplicationInfo() {
                 window.location = '/thank-you';
             }
             else if (data.applicationAvailable) {
-				//var jsonData = JSON.parse(data);
+                
                 $.each(data.result.application, function (k, v) {
 					updateinput(k, v);
 				});
