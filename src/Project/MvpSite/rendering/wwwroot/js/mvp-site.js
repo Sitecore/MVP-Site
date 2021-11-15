@@ -447,7 +447,8 @@ function fillApplicationList() {
 function getApplicationInfo() {
 	$.ajax({
 		type: "GET",
-		url: "/Application/GetApplicationInfo",
+        url: "/Application/GetApplicationInfo",
+        async: false,
         success: function (data) {
             //console.info(data);
             if (!data.isLoggedIn) {
@@ -463,7 +464,7 @@ function getApplicationInfo() {
 					updateinput(k, v);
 				});
 
-				if (data.result.applicationStep.stepId) {
+                if (data.result.applicationStep && data.result.applicationStep.stepId) {
 					setStep('#' + data.result.applicationStep.stepId);
 				} else {
                     setStep('#step_welcome')

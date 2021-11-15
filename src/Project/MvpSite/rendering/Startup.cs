@@ -24,6 +24,7 @@ using Sitecore.LayoutService.Client.Extensions;
 using Sitecore.LayoutService.Client.Newtonsoft.Extensions;
 using Sitecore.LayoutService.Client.Request;
 using Mvp.Foundation.People.Infrastructure;
+using Microsoft.AspNetCore.Rewrite;
 
 namespace Mvp.Project.MvpSite.Rendering
 {
@@ -140,8 +141,17 @@ namespace Mvp.Project.MvpSite.Rendering
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
+
+                //Add HTTPS redirection, but ignore for healthz path to allow for liveness probes over http
+                app.UseWhen(context => !context.Request.Path.StartsWithSegments("/healthz"),
+                    builder => builder.UseHttpsRedirection());
             }
 
+            //Add recirects for old mvp pages
+            var options = new RewriteOptions()
+                            .AddRedirect("mvps/(.*)", "Search?fc_personyear=$1")
+                            .AddRedirect("mvps$", "Search");
+            app.UseRewriter(options);
             // The Experience Editor endpoint should not be enabled in production DMZ.
             // See the SDK documentation for details.
             if (Configuration.EnableExperienceEditor)
