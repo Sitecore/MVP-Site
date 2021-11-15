@@ -141,7 +141,10 @@ namespace Mvp.Project.MvpSite.Rendering
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
-                app.UseHttpsRedirection();
+
+                //Add HTTPS redirection, but ignore for healthz path to allow for liveness probes over http
+                app.UseWhen(context => !context.Request.Path.StartsWithSegments("/healthz"),
+                    builder => builder.UseHttpsRedirection());
             }
 
             //Add recirects for old mvp pages
