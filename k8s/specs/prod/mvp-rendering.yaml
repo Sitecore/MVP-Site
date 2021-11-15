@@ -93,7 +93,7 @@ spec:
         livenessProbe:
           httpGet:
             path: /healthz
-            port: 80
+            port: 443
             httpHeaders:
             - name: X-Kubernetes-Probe
               value: Liveness
