@@ -16,7 +16,7 @@ metadata:
   labels:
     app: mvp-rendering
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: mvp-rendering
@@ -97,6 +97,8 @@ spec:
             httpHeaders:
             - name: X-Kubernetes-Probe
               value: Liveness
+            - name: Host
+              value: "$(PROD_HOST)"
           timeoutSeconds: 60
           periodSeconds: 30
           failureThreshold: 3

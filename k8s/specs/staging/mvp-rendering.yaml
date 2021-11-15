@@ -93,10 +93,12 @@ spec:
         livenessProbe:
           httpGet:
             path: /healthz
-            port: 80
+            port: 443
             httpHeaders:
             - name: X-Kubernetes-Probe
               value: Liveness
+            - name: Host
+              value: "$(STAGING_HOST)"              
           timeoutSeconds: 60
           periodSeconds: 30
           failureThreshold: 3
