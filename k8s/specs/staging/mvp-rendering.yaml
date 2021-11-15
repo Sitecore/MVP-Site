@@ -90,17 +90,15 @@ spec:
               key: application_user_domain.txt
         - name: Application_CMS_URL
           value: http://cm
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 443
-            httpHeaders:
-            - name: X-Kubernetes-Probe
-              value: Liveness
-            - name: Host
-              value: "$(STAGING_HOST)"              
-          timeoutSeconds: 60
-          periodSeconds: 30
-          failureThreshold: 3
+        # livenessProbe:
+        #   httpGet:
+        #     path: /healthz
+        #     port: 443
+        #     httpHeaders:
+        #     - name: X-Kubernetes-Probe
+        #       value: Liveness           
+        #   timeoutSeconds: 60
+        #   periodSeconds: 30
+        #   failureThreshold: 3
       imagePullSecrets:
       - name: regcred
