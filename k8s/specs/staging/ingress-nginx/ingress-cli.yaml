@@ -7,7 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/upstream-hash-by: "$request_uri"
 spec:
   rules:
-  - host: mvp-cli.sitecoredemo.com
+  - host: $(STAGING_CLI_HOST)
     http:
       paths:
       - path: /sitecore/api/management
@@ -17,4 +17,4 @@ spec:
   tls:
   - secretName: sitecoredemo-tls
     hosts:
-    - mvp-cli.sitecoredemo.com
+    - $(STAGING_CLI_HOST)
