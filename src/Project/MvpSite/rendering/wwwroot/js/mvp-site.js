@@ -217,8 +217,8 @@
                     // get data from the form
                     var _applicationId = $('#applicationId').val();
                     var _blog = $('#blog').val();
-                    var _sitecoreCommunity = $('#customerCoreProfile').val();
                     var _stackExchange = $('#stackExchange').val();
+                    var _sitecoreCommunity = $('#sitecoreCommunity').val();
                     var _gitHub = $('#gitHub').val();
                     var _twitter = $('#twitter').val();
                     var _others = $('#others').val();
