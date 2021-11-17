@@ -34,3 +34,10 @@ spec:
         backend:
           serviceName: mvp-rendering
           servicePort: 80
+  - host: $(PROD_CM_HOST)
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: cm
+          servicePort: 80
