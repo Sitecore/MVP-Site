@@ -518,7 +518,7 @@ namespace Mvp.Feature.Forms.Controllers
         }
 
         [HttpPost]
-        public IActionResult Socials(string applicationId, string blog, string sitecoreCommunity, string customerCoreProfile, string stackExchange, string gitHub, string twitter, string others, bool agreeOnTerms)
+        public IActionResult Socials(string applicationId, string blog, string sitecoreCommunity, string stackExchange, string gitHub, string twitter, string others, bool agreeOnTerms)
         {
             try
             {
@@ -526,7 +526,6 @@ namespace Mvp.Feature.Forms.Controllers
                 {
                     Blog = blog,
                     SitecoreCommunity = sitecoreCommunity,
-                    CustomerCoreProfile = customerCoreProfile,
                     StackExchange = stackExchange,
                     GitHub = gitHub,
                     Twitter = twitter,

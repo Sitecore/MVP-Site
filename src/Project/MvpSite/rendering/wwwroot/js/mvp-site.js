@@ -217,9 +217,8 @@
                     // get data from the form
                     var _applicationId = $('#applicationId').val();
                     var _blog = $('#blog').val();
-                    var _sitecoreCommunity = $('#customerCoreProfile').val();
-                    var _customerCoreProfile = $('#customerCoreProfile').val();
                     var _stackExchange = $('#stackExchange').val();
+                    var _sitecoreCommunity = $('#sitecoreCommunity').val();
                     var _gitHub = $('#gitHub').val();
                     var _twitter = $('#twitter').val();
                     var _others = $('#others').val();
@@ -228,7 +227,7 @@
                     $.ajax({
                         url: '/submitStep5',
                         type: 'post',
-                        data: { applicationId: _applicationId, blog: _blog, sitecoreCommunity: _sitecoreCommunity, customerCoreProfile: _customerCoreProfile, stackExchange: _stackExchange, gitHub: _gitHub, twitter: _twitter, others: _others, agreeOnTerms: _agreeOnTerms },
+                        data: { applicationId: _applicationId, blog: _blog, sitecoreCommunity: _sitecoreCommunity, stackExchange: _stackExchange, gitHub: _gitHub, twitter: _twitter, others: _others, agreeOnTerms: _agreeOnTerms },
                         dataType: 'json',
                         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                         success: function (data) {
