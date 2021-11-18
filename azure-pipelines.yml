@@ -335,7 +335,7 @@ stages:
                 
                 # Login to ID Server
                 Write-Host "Logging into ID Server"
-                dotnet sitecore login --client-credentials true --auth $(PROD_ID_SERVER_URL) --cm $(PROD_CM_URL) --allow-write true --client-id "MVP_Automation" --client-secret "$(PROD_IDENTITY_SECRET_MVP)"
+                dotnet sitecore login --client-credentials true --auth $(PROD_ID_SERVER_URL) --cm $(PROD_CLI_URL) --allow-write true --client-id "MVP_Automation" --client-secret "$(PROD_IDENTITY_SECRET_MVP)"
                 
                 # Deserialize Content
                 Write-Host "Push Content"
