@@ -8,9 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Okta.AspNetCore" Version="3.5.0" />
-    <PackageReference Include="Sitecore.LayoutService.Client" Version="14.0.1" />
-    <PackageReference Include="Sitecore.AspNet.RenderingEngine" Version="14.0.1" />
+    <PackageReference Include="Okta.AspNetCore" />
+    <PackageReference Include="Sitecore.LayoutService.Client" />
+    <PackageReference Include="Sitecore.AspNet.RenderingEngine" />
   </ItemGroup>
 
 </Project>

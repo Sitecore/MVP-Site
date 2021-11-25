@@ -47,12 +47,12 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Sitecore.Kernel" Version="10.0.0" />
-    <PackageReference Include="Sitecore.LayoutService" Version="10.0.0" />
-    <PackageReference Include="Sitecore.Mvc" Version="10.0.0" />
-    <PackageReference Include="Sitecore.ContentSearch" Version="10.0.0" />
-    <PackageReference Include="Sitecore.Services.GraphQL" Version="10.0.0" />
-    <PackageReference Include="Sitecore.Services.GraphQL.ContentSchema" Version="10.0.0" />
+    <PackageReference Include="Sitecore.Kernel" />
+    <PackageReference Include="Sitecore.LayoutService"/>
+    <PackageReference Include="Sitecore.Mvc" />
+    <PackageReference Include="Sitecore.ContentSearch" />
+    <PackageReference Include="Sitecore.Services.GraphQL" />
+    <PackageReference Include="Sitecore.Services.GraphQL.ContentSchema" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.config" />

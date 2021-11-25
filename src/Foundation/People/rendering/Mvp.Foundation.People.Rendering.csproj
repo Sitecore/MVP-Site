@@ -14,10 +14,10 @@
 
 
   <ItemGroup>
-	  <PackageReference Include="Sitecore.LayoutService.Client" Version="14.0.1" />
-	  <PackageReference Include="Sitecore.AspNet.RenderingEngine" Version="14.0.1" />
-    <PackageReference Include="GraphQL.Client" Version="3.1.6" />
-    <PackageReference Include="GraphQL.Client.Serializer.Newtonsoft" Version="3.1.6" />
+	  <PackageReference Include="Sitecore.LayoutService.Client" />
+	  <PackageReference Include="Sitecore.AspNet.RenderingEngine" />
+    <PackageReference Include="GraphQL.Client" />
+    <PackageReference Include="GraphQL.Client.Serializer.Newtonsoft" />
   </ItemGroup>
 
 </Project>
