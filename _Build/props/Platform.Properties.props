@@ -1,0 +1,42 @@
+<Project>
+    <PropertyGroup>
+        <DeployOnBuild>False</DeployOnBuild>
+        <IsLocalDockerDeploy>True</IsLocalDockerDeploy>
+        <WebPublishOnBuild>True</WebPublishOnBuild>
+        <!-- Set solution-wide config file for binding redirects, to reduce msbuild warns -->
+        <AppConfig>$(SolutionDir)\_Build\props\Platform.AssemblyBindings.config</AppConfig>
+    </PropertyGroup>
+
+    <PropertyGroup  Condition="'$(IsLocalDockerDeploy)'=='true'">
+        <publishUrl>$(SolutionDir)docker\deploy\$(SitecoreRoleType)</publishUrl>
+        <BuildingInsideVisualStudio Condition="'$(DeployOnBuild)'=='true'">False</BuildingInsideVisualStudio>
+        <WebPublishMethod>FileSystem</WebPublishMethod>
+        <LastUsedBuildConfiguration>$(Configuration)</LastUsedBuildConfiguration>
+        <LastUsedPlatform>Any CPU</LastUsedPlatform>
+        <ExcludeApp_Data>False</ExcludeApp_Data>
+        <DeleteExistingFiles>False</DeleteExistingFiles>
+        <ExcludeFilesFromDeployment>@(SitecoreAssemblies)</ExcludeFilesFromDeployment>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="Microsoft.CSharp" />
+        <Reference Include="System.Data.DataSetExtensions" />
+        <Reference Include="System.Data.Linq" />
+        <Reference Include="System.Net.Http" />
+        <Reference Include="System.Web.DynamicData" />
+        <Reference Include="System.Web.Entity" />
+        <Reference Include="System.Web.ApplicationServices" />
+        <Reference Include="System.ComponentModel.DataAnnotations" />
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Web.Extensions" />
+        <Reference Include="System.Drawing" />
+        <Reference Include="System.Web" />
+        <Reference Include="System.Xml" />
+        <Reference Include="System.Configuration" />
+        <Reference Include="System.Web.Services" />
+        <Reference Include="System.EnterpriseServices" />
+        <Reference Include="System.Xml.Linq" />
+    </ItemGroup>
+</Project>

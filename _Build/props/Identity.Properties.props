@@ -1,0 +1,7 @@
+<Project>
+    <PropertyGroup Condition="'$(IsDeploymentModule)' == 'true'">
+        <PublishOnBuild>true</PublishOnBuild>
+        <PublishDir>$(SolutionDir)docker\deploy\identity</PublishDir>
+        <SitecoreHostClient>true</SitecoreHostClient>
+    </PropertyGroup>
+</Project>

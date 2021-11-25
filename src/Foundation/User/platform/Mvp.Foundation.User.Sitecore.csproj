@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <RootNamespace>Mvp.Foundation.User</RootNamespace>
+    <AssemblyName>Mvp.Foundation.User</AssemblyName>
+    <SitecoreRoleType>platform</SitecoreRoleType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SupportsSystemWeb" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Owin.Security.OpenIdConnect" />
+    <PackageReference Include="Sitecore.Assemblies.Platform" />
+    <PackageReference Include="Sitecore.Kernel" />
+    <PackageReference Include="Sitecore.Owin.Authentication"/>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <RootNamespace>Mvp.Feature.BasicContent</RootNamespace>
+    <AssemblyName>Mvp.Feature.BasicContent</AssemblyName>
+    <SitecoreRoleType>platform</SitecoreRoleType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SupportsSystemWeb" />
+  </ItemGroup>
+    <ItemGroup>
+    <PackageReference Include="Sitecore.Kernel" />
+    <PackageReference Include="Sitecore.LayoutService" />
+  </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\shared\Mvp.Feature.BasicContent.Shared.csproj" />
+    </ItemGroup>
+</Project>

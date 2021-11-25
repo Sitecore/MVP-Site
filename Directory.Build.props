@@ -1,4 +1,20 @@
 <Project>
+  <!-- 
+    Dynamically load props from files based on <SitecoreRoleType> set in project file 
+    -->
+  <PropertyGroup>
+    <SolutionDir Condition="'$(SolutionDir)' == ''">$(MSBuildThisFileDirectory)</SolutionDir>
+    <_SolutionBuildPropertiesPath>$(SolutionDir)\_Build\props\</_SolutionBuildPropertiesPath>
+    <_DefaultUserProps>$(SolutionDir)\Default.Properties.props.user</_DefaultUserProps>
+    <CustomBeforeMicrosoftCommonTargets>$(_SolutionBuildPropertiesPath)_SitecoreRoleType.props</CustomBeforeMicrosoftCommonTargets>
+  </PropertyGroup>
+
+  <!-- Import default solution wide properties  -->
+  <Import Project="$(_SolutionBuildPropertiesPath)Default.*.props" />
+
+  <!-- Override default properties using .user file if exists -->
+  <Import Project="$(_DefaultUserProps)" Condition="exists('$(_DefaultUserProps)')" />
+
   <!--
     These props ensure there is no conflict between builds within your Rendering Host container ('dotnet watch'),
     and local builds on the container host (e.g. in Visual Studio).
