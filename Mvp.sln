@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".SolutionItems", ".Solution
 		azure-pipelines.yml = azure-pipelines.yml
 		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
 		CONTRIBUTING.md = CONTRIBUTING.md
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
 		init.ps1 = init.ps1
 		nuget.config = nuget.config
 		Packages.props = Packages.props
@@ -229,7 +231,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Foundation.People.Platf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Foundation.People.Rendering", "src\Foundation\People\rendering\Mvp.Foundation.People.Rendering.csproj", "{4356764C-5C21-43E2-9226-17E80425BDA9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Foundation.User.Sitecore", "src\Foundation\User\platform\Mvp.Foundation.User.Sitecore.csproj", "{F5CC4C6C-0B6D-4610-B7B7-61B87242647A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Foundation.User.Platform", "src\Foundation\User\platform\Mvp.Foundation.User.Platform.csproj", "{F5CC4C6C-0B6D-4610-B7B7-61B87242647A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

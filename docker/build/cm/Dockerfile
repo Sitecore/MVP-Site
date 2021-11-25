@@ -34,4 +34,4 @@ RUN C:\module\tools\Initialize-Content.ps1 -TargetPath C:\inetpub\wwwroot; `
 COPY --from=spe_resources C:\module\cm\content C:\inetpub\wwwroot
 
 # Copy solution website files
-COPY --from=solution /artifacts/sitecore/ ./
+COPY --from=solution /artifacts/platform/ ./

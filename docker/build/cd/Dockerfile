@@ -24,4 +24,4 @@ RUN C:\module\tools\Initialize-Content.ps1 -TargetPath C:\inetpub\wwwroot; `
     Remove-Item -Path C:\module -Recurse -Force;
 
 # Copy solution website files
-COPY --from=solution /artifacts/sitecore/ ./
+COPY --from=solution /artifacts/platform/ ./

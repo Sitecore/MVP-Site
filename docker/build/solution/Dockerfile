@@ -25,22 +25,20 @@ WORKDIR /build
 COPY --from=nuget-prep ./nuget ./
 
 # Restore NuGet packages
-RUN dotnet restore
+RUN nuget restore -Verbosity quiet
 
 # Copy remaining source code
 COPY src/ ./src/
 
-# Publish the Sitecore & Identity Artifacts
+# Ensure deploy folders exist
+RUN mkdir ./docker/deploy/platform; mkdir ./docker/deploy/mvp-rendering; mkdir ./docker/deploy/identity
+
+# Build and publish the solution
 RUN msbuild .\Mvp.sln /restore /m /v:m /p:Configuration=$env:BUILD_CONFIGURATION /p:IsLocalDockerDeploy=true
 
-# Publish the Rendering Host Artifacts
-WORKDIR /src/Project/MvpSite/rendering/
-RUN dotnet publish -c Release -o /build/mvp-rendering
-
-# Start new Stage
+# Final solution assets image
 FROM ${BASE_IMAGE}
 WORKDIR /artifacts
 
 # Copy in all artifacts for sitecore, identity & rendering host
-COPY --from=builder /build/docker/deploy/platform ./
-COPY --from=builder /build/mvp-rendering ./mvp-rendering/
+COPY --from=builder /build/docker/deploy/ ./

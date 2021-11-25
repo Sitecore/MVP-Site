@@ -10,7 +10,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Owin.Security.OpenIdConnect" />
-    <PackageReference Include="Sitecore.Assemblies.Platform" />
     <PackageReference Include="Sitecore.Kernel" />
     <PackageReference Include="Sitecore.Owin.Authentication"/>
   </ItemGroup>

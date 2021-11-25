@@ -15,8 +15,12 @@
         <LastUsedPlatform>Any CPU</LastUsedPlatform>
         <ExcludeApp_Data>False</ExcludeApp_Data>
         <DeleteExistingFiles>False</DeleteExistingFiles>
-        <ExcludeFilesFromDeployment>@(SitecoreAssemblies)</ExcludeFilesFromDeployment>
+        <ExcludeFilesFromDeployment></ExcludeFilesFromDeployment>
     </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Sitecore.Assemblies.Platform" />
+    </ItemGroup>
 
     <ItemGroup>
         <Reference Include="Microsoft.CSharp" />
