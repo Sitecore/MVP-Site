@@ -88,7 +88,7 @@ finally {
 $cmHost = "mvp-cm.sc.localhost"
 $cdHost = "mvp-cd.sc.localhost" 
 $idHost = "mvp-id.sc.localhost"
-$renderingHost = "mvp.sc.localhost"
+$mvprenderingHost = "mvp.sc.localhost"
 
 Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 Add-HostsEntry $cmHost
