@@ -43,7 +43,7 @@ services:
       ASPNETCORE_ENVIRONMENT: "Development"
       ASPNETCORE_URLS: "http://*:80"
       Sitecore__InstanceUri: "http://cd"
-      Sitecore__RenderingHostUri: "https://${RENDERING_HOST}"
+      Sitecore__RenderingHostUri: "https://${MVP_RENDERING_HOST}"
       Sitecore__EnableExperienceEditor: "true"
       Okta__OktaDomain: ${OKTA_DOMAIN}
       Okta__ClientId: ${OKTA_CLIENT_ID}
@@ -55,17 +55,18 @@ services:
       Application_User_Password: ${SITECORE_APPLICATION_USER_PASSWORD}
       Application_User_Domain: ${SITECORE_APPLICATION_USER_DOMAIIN}
       Application_CMS_URL: ${SITECORE_Application_CMS_URL}
+    mem_limit: ${MEM_LIMIT_RENDERING:-1GB}           
     depends_on:
       - solutionBuildOutput
       - cm
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.rendering-secure.entrypoints=websecure"
-      - "traefik.http.routers.rendering-secure.rule=Host(`${RENDERING_HOST}`)"
+      - "traefik.http.routers.rendering-secure.rule=Host(`${MVP_RENDERING_HOST}`)"
       - "traefik.http.routers.rendering-secure.tls=true"
       - "traefik.http.routers.rendering.entrypoints=web"
-      - "traefik.http.routers.rendering.rule=Host(`${RENDERING_HOST}`)"
-      - "traefik.http.routers.rendering.tls=false"
+      - "traefik.http.routers.rendering.rule=Host(`${MVP_RENDERING_HOST}`)"
+      - "traefik.http.routers.rendering.tls=false"  
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/healthz"]
       interval: 60s
@@ -83,6 +84,7 @@ services:
       - type: bind
         source: .\docker\data\sql
         target: c:\data
+    mem_limit: ${MEM_LIMIT_SQL:-2GB}        
   
   mssql-init:
     isolation: ${ISOLATION}
@@ -93,19 +95,12 @@ services:
         BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-mssql-init:${SITECORE_VERSION}
         HEADLESS_SERVICES_RESOURCES_IMAGE: ${HEADLESS_SERVICES_RESOURCES_IMAGE}
         SPE_RESOURCES_IMAGE: ${SPE_RESOURCES_IMAGE}
-    environment:
-      SQL_SERVER: mssql
-      SQL_ADMIN_LOGIN: sa
-      SQL_ADMIN_PASSWORD: ${SQL_SA_PASSWORD}
-      sitecore_admin_password: ${SITECORE_ADMIN_PASSWORD}
-    depends_on:
-      mssql:
-        condition: service_healthy
 
   solr:
     volumes:            
       - ${LOCAL_DATA_PATH}\solr:c:\data  
-   
+    mem_limit: ${MEM_LIMIT_SOLR:-1GB}  
+
   solr-init:
     image: ${MVP_DOCKER_REGISTRY}mvp-solr-init:${SITECORE_VERSION}
     build:
@@ -114,7 +109,7 @@ services:
         BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-solr-init:${SITECORE_VERSION}                
   
   id:
-    image: ${MVP_DOCKER_REGISTRY}mvp-id:${SITECORE_VERSION}
+    image: ${MVP_DOCKER_REGISTRY}mvp-id6:${SITECORE_VERSION}
     build:
       context: ./docker/build/id
       args:
@@ -138,9 +133,7 @@ services:
         HEADLESS_SERVICES_RESOURCES_IMAGE: ${HEADLESS_SERVICES_RESOURCES_IMAGE}
     depends_on:
       solutionBuildOutput:
-        condition: service_started
-      mssql-init:
-        condition: service_completed_successfully
+        condition: service_completed_successfully 
     volumes:
       - ${LOCAL_DEPLOY_PATH}\platform:C:\deploy
       - ${LOCAL_DATA_PATH}\cd:C:\inetpub\wwwroot\App_Data\logs
@@ -154,6 +147,8 @@ services:
       Okta__AuthorizationServerId: ${OKTA_AUTH_SERVER_ID}
       Okta__RedirectUri: "https://${CD_HOST}/identity/externallogincallback"
       Sitecore__ExternalCdUrl: "${CD_HOST}"
+      MVP_RENDERING_HOST_PUBLIC_URI: ${MVP_RENDERING_HOST}      
+    mem_limit: ${MEM_LIMIT_CD:-2GB}      
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
     labels:
       - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
@@ -176,9 +171,7 @@ services:
         SPE_RESOURCES_IMAGE: ${SPE_RESOURCES_IMAGE}
     depends_on:
       solutionBuildOutput:
-        condition: service_started
-      mssql-init:
-        condition: service_completed_successfully    
+        condition: service_completed_successfully  
     volumes:
       - ${LOCAL_DEPLOY_PATH}\platform:C:\deploy
       - ${LOCAL_DATA_PATH}\cm:C:\inetpub\wwwroot\App_Data\logs
@@ -195,6 +188,8 @@ services:
       Sitecore__ExternalCdUrl: "${CD_HOST}"
       SSC__AllowAnonymousAccess: "${SSC_AllowAnonymousAccess}"
       SSC__AnonymousUser: "${SSC_AnonymousUser}"
+      MVP_RENDERING_HOST_PUBLIC_URI: https://${MVP_RENDERING_HOST}
+    mem_limit: ${MEM_LIMIT_CD:-4GB}        
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
  
 networks:

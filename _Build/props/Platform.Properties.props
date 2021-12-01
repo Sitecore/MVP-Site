@@ -7,7 +7,7 @@
         <AppConfig>$(SolutionDir)\_Build\props\Platform.AssemblyBindings.config</AppConfig>
     </PropertyGroup>
 
-    <PropertyGroup  Condition="'$(IsLocalDockerDeploy)'=='true'">
+    <PropertyGroup Condition="'$(IsLocalDockerDeploy)'=='true'">
         <publishUrl>$(SolutionDir)docker\deploy\$(SitecoreRoleType)</publishUrl>
         <BuildingInsideVisualStudio Condition="'$(DeployOnBuild)'=='true'">False</BuildingInsideVisualStudio>
         <WebPublishMethod>FileSystem</WebPublishMethod>
@@ -20,6 +20,7 @@
 
     <ItemGroup>
         <PackageReference Include="Sitecore.Assemblies.Platform" />
+        <PackageReference Include="Sitecore.Assemblies.SitecoreHeadlessServicesServer" />
     </ItemGroup>
 
     <ItemGroup>
