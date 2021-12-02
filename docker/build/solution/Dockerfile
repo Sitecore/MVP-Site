@@ -9,7 +9,9 @@ ARG BUILD_IMAGE
 
 FROM ${BUILD_IMAGE} AS nuget-prep
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
 # Gather only artifacts necessary for NuGet restore, retaining directory structure
+COPY _Build/ /nuget/_Build/
 COPY *.sln nuget.config Directory.Build.targets *.props /nuget/
 COPY src/ /temp/
 RUN Invoke-Expression 'robocopy C:/temp C:/nuget/src /s /ndl /njh /njs *.csproj Packages.props'
