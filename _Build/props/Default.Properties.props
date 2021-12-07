@@ -1,0 +1,30 @@
+<Project>
+
+    <PropertyGroup>
+        <EnableCentralPackageVersions>True</EnableCentralPackageVersions>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug'">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+        <OutputPath>.\bin\Debug\</OutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DebugSymbols>false</DebugSymbols>
+        <OutputPath>.\bin\Release\</OutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(UsingMicrosoftNETSdk)' == 'true'">
+        <DefaultItemExcludes>$(DefaultItemExcludes);$(MSBuildProjectDirectory)/obj/**/*</DefaultItemExcludes>
+        <DefaultItemExcludes>$(DefaultItemExcludes);$(MSBuildProjectDirectory)/bin/**/*</DefaultItemExcludes>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(UsingMicrosoftNETSdk)' == 'true' AND '$(DOTNET_RUNNING_IN_CONTAINER)' == 'true'">
+        <BaseIntermediateOutputPath>$(MSBuildProjectDirectory)/obj/container/</BaseIntermediateOutputPath>
+        <BaseOutputPath>$(MSBuildProjectDirectory)/bin/container/</BaseOutputPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(UsingMicrosoftNETSdk)' == 'true' AND '$(DOTNET_RUNNING_IN_CONTAINER)' != 'true'">
+        <BaseIntermediateOutputPath>$(MSBuildProjectDirectory)/obj/local/</BaseIntermediateOutputPath>
+        <BaseOutputPath>$(MSBuildProjectDirectory)/bin/local/</BaseOutputPath>
+    </PropertyGroup>
+</Project>

@@ -16,7 +16,7 @@ ENTRYPOINT ["dotnet", "watch", "-v", "--project", ".\\Project\\MvpSite\\renderin
 FROM ${SOLUTION_IMAGE} as solution
 FROM ${RELEASE_BASE_IMAGE} as release
 WORKDIR /app
-COPY --from=solution /artifacts/rendering/ ./
+COPY --from=solution /artifacts/mvp-rendering/ ./
 EXPOSE 80
 EXPOSE 443
 ENTRYPOINT ["dotnet", "Mvp.Project.MvpSite.dll"]

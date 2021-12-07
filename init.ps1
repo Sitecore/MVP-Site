@@ -88,13 +88,13 @@ finally {
 $cmHost = "mvp-cm.sc.localhost"
 $cdHost = "mvp-cd.sc.localhost" 
 $idHost = "mvp-id.sc.localhost"
-$renderingHost = "mvp.sc.localhost"
+$mvprenderingHost = "mvp.sc.localhost"
 
 Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 Add-HostsEntry $cmHost
 Add-HostsEntry $cdHost
 Add-HostsEntry $idHost
-Add-HostsEntry $renderingHost
+Add-HostsEntry $mvprenderingHost
 
 #########################################################
 # Tell git to ignore changes to .env
@@ -111,7 +111,7 @@ Write-Host "Populating required .env file values..." -ForegroundColor Green
 Set-DockerComposeEnvFileVariable "HOST_LICENSE_FOLDER" -Value $LicenseXmlPath
 Set-DockerComposeEnvFileVariable "CM_HOST" -Value $cmHost
 Set-DockerComposeEnvFileVariable "ID_HOST" -Value $idHost
-Set-DockerComposeEnvFileVariable "RENDERING_HOST" -Value $renderingHost
+Set-DockerComposeEnvFileVariable "MVP_RENDERING_HOST" -Value $mvprenderingHost
 Set-DockerComposeEnvFileVariable "CD_HOST" -Value $cdHost
 Set-DockerComposeEnvFileVariable "TELERIK_ENCRYPTION_KEY" -Value (Get-SitecoreRandomString 128)
 Set-DockerComposeEnvFileVariable "SITECORE_IDSECRET" -Value (Get-SitecoreRandomString 64 -DisallowSpecial)

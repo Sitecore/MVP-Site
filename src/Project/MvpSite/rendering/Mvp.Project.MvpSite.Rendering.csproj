@@ -3,6 +3,9 @@
 	<PropertyGroup>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 		<UserSecretsId>{BB638E63-026A-4E83-A108-6DACB910C4B0}</UserSecretsId>
+		<SitecoreRoleType>rendering</SitecoreRoleType>
+		<IsDeploymentModule>true</IsDeploymentModule>
+		<OutputFolderName>mvp-rendering</OutputFolderName>
 		<DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
 		<DockerfileContext>..\..\..\..\..</DockerfileContext>
 		<AssemblyName>Mvp.Project.MvpSite</AssemblyName>
@@ -26,16 +29,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="BuildWebCompiler" Version="1.12.394" />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.1" />
-		<PackageReference Include="Microsoft.Extensions.Http" Version="3.1.1" />
-		<PackageReference Include="Microsoft.Identity.Web" Version="1.11.0" />
-		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
-		<PackageReference Include="Sitecore.LayoutService.Client" Version="14.0.1" />
-		<PackageReference Include="Sitecore.AspNet.RenderingEngine" Version="14.0.1" />
-		<PackageReference Include="Sitecore.AspNet.ExperienceEditor" Version="14.0.1" />
+		<PackageReference Include="BuildWebCompiler" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson"  />
+		<PackageReference Include="Microsoft.AspNetCore.Session"  />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+		<PackageReference Include="Microsoft.Extensions.Http" />
+		<PackageReference Include="Microsoft.Identity.Web" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
+		<PackageReference Include="Sitecore.LayoutService.Client" />
+		<PackageReference Include="Sitecore.AspNet.RenderingEngine" />
+		<PackageReference Include="Sitecore.AspNet.ExperienceEditor" />
 	</ItemGroup>
 
 	<ItemGroup>

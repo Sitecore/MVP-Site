@@ -9,10 +9,12 @@ ARG BUILD_IMAGE
 
 FROM ${BUILD_IMAGE} AS nuget-prep
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
 # Gather only artifacts necessary for NuGet restore, retaining directory structure
-COPY *.sln nuget.config /nuget/
+COPY _Build/ /nuget/_Build/
+COPY *.sln nuget.config Directory.Build.targets *.props /nuget/
 COPY src/ /temp/
-RUN Invoke-Expression 'robocopy C:/temp C:/nuget/src /s /ndl /njh /njs *.csproj *.scproj packages.config'
+RUN Invoke-Expression 'robocopy C:/temp C:/nuget/src /s /ndl /njh /njs *.csproj Packages.props'
 
 FROM ${BUILD_IMAGE} AS builder
 ARG BUILD_CONFIGURATION
@@ -25,24 +27,20 @@ WORKDIR /build
 COPY --from=nuget-prep ./nuget ./
 
 # Restore NuGet packages
-RUN dotnet restore
+RUN nuget restore -Verbosity quiet
 
 # Copy remaining source code
 COPY src/ ./src/
 
-# Publish the Sitecore & Identity Artifacts
-RUN msbuild .\src\Environment\sitecore\Mvp.Environment.Sitecore.csproj /p:Configuration=Release /restore /m /p:DeployOnBuild=true /p:PublishProfile=Local
-RUN msbuild .\src\Environment\identity\Mvp.Environment.Identity.csproj /p:Configuration=Release /restore /m /p:DeployOnBuild=true /p:PublishProfile=Local
+# Ensure deploy folders exist
+RUN mkdir ./docker/deploy/platform; mkdir ./docker/deploy/mvp-rendering; mkdir ./docker/deploy/identity
 
-# Publish the Rendering Host Artifacts
-WORKDIR .\src\Project\MvpSite\rendering\
-RUN dotnet publish -c Release -o /build/rendering
+# Build and publish the solution
+RUN msbuild .\Mvp.sln /restore /m /v:m /p:Configuration=$env:BUILD_CONFIGURATION /p:IsLocalDockerDeploy=true
 
-# Start new Stage
+# Final solution assets image
 FROM ${BASE_IMAGE}
 WORKDIR /artifacts
 
 # Copy in all artifacts for sitecore, identity & rendering host
-COPY --from=builder /build/docker/deploy/sitecore ./sitecore/
-COPY --from=builder /build/docker/deploy/identity/Config ./identity/Config
-COPY --from=builder /build/rendering ./rendering/
+COPY --from=builder /build/docker/deploy/ ./

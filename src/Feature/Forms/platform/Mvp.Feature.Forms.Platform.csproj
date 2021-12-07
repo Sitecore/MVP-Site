@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <RootNamespace>Mvp.Feature.Forms</RootNamespace>
+    <AssemblyName>Mvp.Feature.Forms</AssemblyName>
+    <SitecoreRoleType>platform</SitecoreRoleType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SupportsSystemWeb" />
+  </ItemGroup>
+    <ItemGroup>
+    <PackageReference Include="Sitecore.Kernel" />
+    <PackageReference Include="Sitecore.LayoutService" />
+    <PackageReference Include="Sitecore.ContentSearch" />
+  </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\shared\Mvp.Feature.Forms.Shared.csproj" />
+    </ItemGroup>
+</Project>

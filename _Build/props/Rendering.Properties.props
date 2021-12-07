@@ -1,0 +1,7 @@
+<Project>
+    <PropertyGroup Condition="'$(IsDeploymentModule)' == 'true'">
+        <PublishOnBuild>true</PublishOnBuild>
+        <OutputFolderName Condition="'$(OutputFolderName)'==''" >rendering</OutputFolderName>
+        <PublishDir>$(SolutionDir)docker\deploy\$(OutputFolderName)</PublishDir>
+    </PropertyGroup>
+</Project>

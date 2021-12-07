@@ -1,4 +1,30 @@
 <Project>
+  <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.0.79" />
+
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <!-- Auto publish on build-->
+  <Target Name="AutoPublish" AfterTargets="Build">
+    <PropertyGroup>
+      <publishUrl Condition="!HasTrailingSlash('$(publishUrl)')">$(publishUrl)/</publishUrl>
+      <PublishDir Condition="!HasTrailingSlash('$(PublishDir)')">$(PublishDir)/</PublishDir>
+    </PropertyGroup>
+    <CallTarget Targets="WebPublish" Condition="'$(WebPublishOnBuild)'=='True'" />
+    <CallTarget Targets="Publish" Condition="'$(PublishOnBuild)'=='True'" />
+  </Target>
+
+  <ItemGroup>
+    <!-- TODO: Remove this itemgroup and reference Sitecore.Assemblies.SitecoreHeadlessServicesServer nuget when layoutservice is upgraded -->
+    <SitecoreAssemblies Include="Sitecore.LayoutService.dll" />
+    <SitecoreAssemblies Include="Sitecore.LayoutService.Mvc.dll" />
+  </ItemGroup>
+
+  <Target Name="RemoveAssembliesFromPublish" AfterTargets="ResolveReferences">
+    <ItemGroup>
+      <_IgnoredFiles Include="@(SitecoreAssemblies)" Condition="'@(SitecoreAssemblies)' != ''" />
+      <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)" Condition="'%(Filename)' != '' and '@(_IgnoredFiles)' != ''" />
+    </ItemGroup>
+  </Target>
+
   <!--
       Workaround for 'dotnet watch' issue with referenced MVC projects.
       https://github.com/dotnet/aspnetcore/issues/22219

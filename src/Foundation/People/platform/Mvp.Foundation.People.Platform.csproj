@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <RootNamespace>Mvp.Foundation.People</RootNamespace>
+    <AssemblyName>Mvp.Foundation.People</AssemblyName>
+    <SitecoreRoleType>platform</SitecoreRoleType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SupportsSystemWeb" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Sitecore.Kernel" />
+    <PackageReference Include="Sitecore.LayoutService" />
+    <PackageReference Include="Sitecore.ContentSearch" />
+    <PackageReference Include="Sitecore.Services.GraphQL" />
+    <PackageReference Include="Sitecore.Services.GraphQL.ContentSchema" />
+  </ItemGroup>
+</Project>

@@ -9,8 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".SolutionItems", ".Solution
 		azure-pipelines.yml = azure-pipelines.yml
 		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
 		CONTRIBUTING.md = CONTRIBUTING.md
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
 		init.ps1 = init.ps1
 		nuget.config = nuget.config
+		Packages.props = Packages.props
 		README.md = README.md
 		sitecore.json = sitecore.json
 		up.ps1 = up.ps1
@@ -49,9 +52,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cm", "cm", "{C3047BDB-95AB-
 		docker\build\cm\Dockerfile = docker\build\cm\Dockerfile
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Environment.Sitecore", "src\Environment\sitecore\Mvp.Environment.Sitecore.csproj", "{2424E8B4-0111-4306-9603-0D2702EA60C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Environment.Platform", "src\Environment\platform\Mvp.Environment.Platform.csproj", "{2424E8B4-0111-4306-9603-0D2702EA60C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Project.MvpSite.Sitecore", "src\Project\MvpSite\sitecore\Mvp.Project.MvpSite.Sitecore.csproj", "{AD9A7A76-AAE5-4336-9E8F-8327498845D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Project.MvpSite.Platform", "src\Project\MvpSite\platform\Mvp.Project.MvpSite.Platform.csproj", "{AD9A7A76-AAE5-4336-9E8F-8327498845D1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MvpSite", "MvpSite", "{E3ED70EC-3845-46E0-B18A-2EC8077C83A2}"
 	ProjectSection(SolutionItems) = preProject
@@ -72,7 +75,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "rendering", "rendering", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.Navigation.Rendering", "src\Feature\Navigation\rendering\Mvp.Feature.Navigation.Rendering.csproj", "{3B79ADFB-5EEF-4892-A4DE-CAAF6EA5141D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Feature.Navigation.Sitecore", "src\Feature\Navigation\sitecore\Mvp.Feature.Navigation.Sitecore.csproj", "{DE98D5C9-5350-4457-AC65-63BC6A3BA0E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.Navigation.Platform", "src\Feature\Navigation\platform\Mvp.Feature.Navigation.Platform.csproj", "{DE98D5C9-5350-4457-AC65-63BC6A3BA0E9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Navigation", "Navigation", "{8DE4BCBC-3DDF-402C-BE7A-DFE00CC3FF58}"
 	ProjectSection(SolutionItems) = preProject
@@ -95,7 +98,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.BasicContent.Re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.BasicContent.Shared", "src\Feature\BasicContent\shared\Mvp.Feature.BasicContent.Shared.csproj", "{EAB0A752-8515-42F2-B21B-8D63ADAAF461}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Feature.BasicContent.Sitecore", "src\Feature\BasicContent\sitecore\Mvp.Feature.BasicContent.Sitecore.csproj", "{E878C143-E4D5-4BA9-AA69-D7FE0772C92C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.BasicContent.Platform", "src\Feature\BasicContent\platform\Mvp.Feature.BasicContent.Platform.csproj", "{E878C143-E4D5-4BA9-AA69-D7FE0772C92C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{F09E0330-CC9A-4E60-9223-E5B7C1CEB12B}"
 	ProjectSection(SolutionItems) = preProject
@@ -143,7 +146,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "secrets", "secrets", "{41F5
 		k8s\specs\secrets\sitecore-web-database-username.txt = k8s\specs\secrets\sitecore-web-database-username.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Environment.Identity", "src\Environment\identity\Mvp.Environment.Identity.csproj", "{F8DD20AE-80CA-4958-9467-E24AA81AB2BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Environment.Identity", "src\Environment\identity\Mvp.Environment.Identity.csproj", "{F8DD20AE-80CA-4958-9467-E24AA81AB2BA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "id", "id", "{2147C0EA-2D89-42EA-AE8A-0716AF345394}"
 	ProjectSection(SolutionItems) = preProject
@@ -178,7 +181,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Social", "Social", "{ADF0A3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.Social.Rendering", "src\Feature\Social\rendering\Mvp.Feature.Social.Rendering.csproj", "{6ECE05BD-EF3A-4BE6-A08A-8CE61A2ADF98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Feature.Social.Sitecore", "src\Feature\Social\sitecore\Mvp.Feature.Social.Sitecore.csproj", "{0F081C40-E712-4028-B0D1-A78FF7A26F21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.Social.Platform", "src\Feature\Social\platform\Mvp.Feature.Social.Platform.csproj", "{0F081C40-E712-4028-B0D1-A78FF7A26F21}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.Social.Shared", "src\Feature\Social\shared\Mvp.Feature.Social.Shared.csproj", "{B67E05A0-2819-4339-9046-E2A9C51B90CA}"
 EndProject
@@ -218,17 +221,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVP.Feature.Forms.Rendering
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.Forms.Shared", "src\Feature\Forms\shared\Mvp.Feature.Forms.Shared.csproj", "{9F5BB0CF-E81B-4EF6-BD4B-76B41F55B2DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Feature.Forms.Sitecore", "src\Feature\Forms\sitecore\Mvp.Feature.Forms.Sitecore.csproj", "{879015AD-6375-40BB-86B5-BCDA7686CA0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.Forms.Platform", "src\Feature\Forms\platform\Mvp.Feature.Forms.Platform.csproj", "{879015AD-6375-40BB-86B5-BCDA7686CA0B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SitecoreExtensions", "SitecoreExtensions", "{BFAFE9BC-9FE7-402B-8B2E-0016531C8E49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Foundation.SitecoreExtensions.Sitecore", "src\Foundation\SitecoreExtensions\sitecore\Mvp.Foundation.SitecoreExtensions.Sitecore.csproj", "{B4344483-4E6E-4939-9187-87B56788A94E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Foundation.SitecoreExtensions.Platform", "src\Foundation\SitecoreExtensions\platform\Mvp.Foundation.SitecoreExtensions.Platform.csproj", "{B4344483-4E6E-4939-9187-87B56788A94E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Foundation.People.Sitecore", "src\Foundation\People\sitecore\Mvp.Foundation.People.Sitecore.csproj", "{0E9F5316-E987-457D-B458-B5412C49242B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Foundation.People.Platform", "src\Foundation\People\platform\Mvp.Foundation.People.Platform.csproj", "{0E9F5316-E987-457D-B458-B5412C49242B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Foundation.People.Rendering", "src\Foundation\People\rendering\Mvp.Foundation.People.Rendering.csproj", "{4356764C-5C21-43E2-9226-17E80425BDA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Foundation.User.Sitecore", "src\Foundation\User\sitecore\Mvp.Foundation.User.Sitecore.csproj", "{6A918C58-705F-45AE-A04D-974320671724}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Foundation.User.Platform", "src\Foundation\User\platform\Mvp.Foundation.User.Platform.csproj", "{F5CC4C6C-0B6D-4610-B7B7-61B87242647A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -316,10 +319,10 @@ Global
 		{4356764C-5C21-43E2-9226-17E80425BDA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4356764C-5C21-43E2-9226-17E80425BDA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4356764C-5C21-43E2-9226-17E80425BDA9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6A918C58-705F-45AE-A04D-974320671724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A918C58-705F-45AE-A04D-974320671724}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6A918C58-705F-45AE-A04D-974320671724}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6A918C58-705F-45AE-A04D-974320671724}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5CC4C6C-0B6D-4610-B7B7-61B87242647A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5CC4C6C-0B6D-4610-B7B7-61B87242647A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5CC4C6C-0B6D-4610-B7B7-61B87242647A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5CC4C6C-0B6D-4610-B7B7-61B87242647A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -373,7 +376,7 @@ Global
 		{B4344483-4E6E-4939-9187-87B56788A94E} = {BFAFE9BC-9FE7-402B-8B2E-0016531C8E49}
 		{0E9F5316-E987-457D-B458-B5412C49242B} = {3B0E8E42-A529-409C-86D4-E4DC77C5EB62}
 		{4356764C-5C21-43E2-9226-17E80425BDA9} = {3B0E8E42-A529-409C-86D4-E4DC77C5EB62}
-		{6A918C58-705F-45AE-A04D-974320671724} = {C567479E-39AD-4C55-8B54-E9A4908D0339}
+		{F5CC4C6C-0B6D-4610-B7B7-61B87242647A} = {C567479E-39AD-4C55-8B54-E9A4908D0339}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3377439-FD7A-4F3E-8011-06175E0E3100}

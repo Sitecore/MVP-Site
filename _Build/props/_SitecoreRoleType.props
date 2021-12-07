@@ -1,0 +1,17 @@
+<Project>
+    <PropertyGroup>
+        <SitecoreRoleType Condition="'$(SitecoreRoleType)' == '' AND '$(PublishTargetType)' != ''" >$(PublishTargetType)</SitecoreRoleType>
+        <SitecoreRoleType Condition="'$(SitecoreRoleType)' == ''" >none</SitecoreRoleType>
+        <_SitecoreRoleTypeUserProps>$(SitecoreRoleType).*.user</_SitecoreRoleTypeUserProps>
+    </PropertyGroup>
+
+    <!-- Import build properties for individual project publish target type -->
+    <Import Project="$(SitecoreRoleType).*.props" 
+                Condition="'$(SitecoreRoleType)' != ''" />
+
+    <!-- Import user properties for  individual project publish target type 
+            project publish target type -->
+    <Import Project="$(_SitecoreRoleTypeUserProps)" 
+            Condition="'$(SitecoreRoleType)' != '' AND exists('$(_SitecoreRoleTypeUserProps)')" />
+
+</Project>

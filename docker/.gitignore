@@ -9,3 +9,7 @@
 
 /deploy/platform/*
 !/deploy/platform/.gitkeep
+/deploy/identity/*
+!/deploy/identity/.gitkeep
+/deploy/mvp-rendering/*
+!/deploy/mvp-rendering/.gitkeep
