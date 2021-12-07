@@ -8,7 +8,7 @@ images:
   newName: $(ACR_ENDPOINT)/mvp-cm
   newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
 - name: sitecore-mvp-id
-  newName: $(ACR_ENDPOINT)/mvp-id
+  newName: $(ACR_ENDPOINT)/mvp-id6
   newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
 - name: sitecore-mvp-rendering
   newName: $(ACR_ENDPOINT)/mvp-rendering
