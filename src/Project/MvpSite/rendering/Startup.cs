@@ -142,8 +142,9 @@ namespace Mvp.Project.MvpSite.Rendering
 
             //Add recirects for old mvp pages
             var options = new RewriteOptions()
-                            .AddRedirect("mvps/(.*)", "Search?fc_personyear=$1")
-                            .AddRedirect("mvps$", "Search");
+                            .AddRedirect("mvps/(.*)", "Directory?fc_personyear=$1")
+                            .AddRedirect("mvps$", "Directory")
+                            .AddRedirect("Search(.*)", "Directory$1");
             app.UseRewriter(options);
             // The Experience Editor endpoint should not be enabled in production DMZ.
             // See the SDK documentation for details.
