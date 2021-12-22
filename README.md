@@ -45,7 +45,7 @@ The Sitecore MVP site is an Open Source project and as such we welcome community
     ```
 
 3. At the bottom of the `.env` file you'll find the section for your Okta developer account details. You will need to populate the following values:
-   - OKTA_DOMAIN
+   - OKTA_DOMAIN (*must* include protocol, e.g. `OKTA_DOMAIN=https://dev-your-id.okta.com`)
    - OKTA_CLIENT_ID
    - OKTA_CLIENT_SECRET
 
