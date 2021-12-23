@@ -17,7 +17,7 @@ namespace Mvp.Feature.Social.Providers
 
         public RssProvider(string rssUrl)
         {
-            this.RssUrl = rssUrl;
+            RssUrl = rssUrl;
         }
 
         public IList<FeedItem> GetFeedItems()
@@ -28,46 +28,44 @@ namespace Mvp.Feature.Social.Providers
 
         public IList<FeedItem> GetFeedItems(int cacheInterval, int count)
         {
-            string key = $"{this.CacheKey}_{count}_{cacheInterval}";
-            string key_backup = $"{this.CacheKey}_{count}_{cacheInterval}_backup";
-            IList<FeedItem> source = HttpContext.Current.Cache[key] as IList<FeedItem>;
+            var key = $"{CacheKey}_{count}_{cacheInterval}";
+            var keyBackup = $"{CacheKey}_{count}_{cacheInterval}_backup";
 
-            if (source == null)
+            if (HttpContext.Current.Cache[key] is IList<FeedItem> source) return source.Take(count).ToList();
+            source = HttpContext.Current.Cache[key] as List<FeedItem>;
+            if (source != null) return source.Take(count).ToList();
+
+            source = LoadFeed();
+            if (source.Any())
             {
-                source = (IList<FeedItem>)(HttpContext.Current.Cache[key] as List<FeedItem>);
-                if (source == null)
-                {
-                    source = this.LoadFeed();
-                    if (source.Any<FeedItem>())
-                    {
-                        HttpContext.Current.Cache.Add(key, source, null, DateTime.UtcNow.AddMinutes((double)cacheInterval), Cache.NoSlidingExpiration, CacheItemPriority.Normal, null);
-                        HttpContext.Current.Cache.Add(key_backup, source, null, Cache.NoAbsoluteExpiration, Cache.NoSlidingExpiration, CacheItemPriority.Normal, null);
-                    }
-                    else if (HttpContext.Current.Cache[key_backup] != null)
-                    {
-                        source = HttpContext.Current.Cache[key_backup] as IList<FeedItem>;
-                        Sitecore.Diagnostics.Log.Warn("There was an problem with loading RSS feed items so getting them from backup cache", this);
-                    }
-                }
+              HttpContext.Current.Cache.Add(key, source, null, DateTime.UtcNow.AddMinutes(cacheInterval), Cache.NoSlidingExpiration, CacheItemPriority.Normal, null);
+              HttpContext.Current.Cache.Add(keyBackup, source, null, Cache.NoAbsoluteExpiration, Cache.NoSlidingExpiration, CacheItemPriority.Normal, null);
             }
-            return source.Take<FeedItem>(count).ToList<FeedItem>();
+
+            else if (HttpContext.Current.Cache[keyBackup] != null)
+            {
+              source = HttpContext.Current.Cache[keyBackup] as IList<FeedItem>;
+              Sitecore.Diagnostics.Log.Warn("There was an problem with loading RSS feed items so getting them from backup cache", this);
+            }
+
+            return source?.Take(count).ToList();
         }
 
         private List<FeedItem> LoadFeed()
         {
             // Load the actual RSS feed
-            XmlReader reader = XmlReader.Create(this.RssUrl);
-            SyndicationFeed feed = SyndicationFeed.Load(reader);
+            var reader = XmlReader.Create(RssUrl);
+            var feed = SyndicationFeed.Load(reader);
             reader.Close();
 
             var list = new List<FeedItem>();
-            foreach (SyndicationItem item in feed.Items)
+            foreach (var item in feed.Items)
             {
                 var feedItem = new FeedItem()
                 {
                     Title = item.Title.Text,
                     Description = item.Summary.Text,
-                    Url = item.Links.FirstOrDefault().Uri.ToString(),
+                    Url = item.Links.FirstOrDefault()?.Uri.ToString(),
                     Timestamp = item.PublishDate.DateTime
                 };
                 list.Add(feedItem);

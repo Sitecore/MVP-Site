@@ -1,0 +1,33 @@
+/* line 1, ../../sass/components/half-width-banner.scss */
+.half-width-banner { padding-top: 50px; padding-bottom: 50px; }
+/* line 5, ../../sass/components/half-width-banner.scss */
+.half-width-banner p { line-height: 33px; }
+/* line 9, ../../sass/components/half-width-banner.scss */
+.half-width-banner .image { padding-right: 0; -ms-flex-align: center; align-items: center; display: -ms-flexbox; display: flex; position: relative; }
+/* line 17, ../../sass/components/half-width-banner.scss */
+.half-width-banner .image img { display: block; margin-left: auto; margin-right: auto; max-width: 100%; width: auto; }
+/* line 26, ../../sass/components/half-width-banner.scss */
+.half-width-banner .order-1.order-md-1 .image { padding-right: 30px; }
+/* line 30, ../../sass/components/half-width-banner.scss */
+.half-width-banner .text { padding-top: 80px; padding-bottom: 80px; }
+/* line 35, ../../sass/components/half-width-banner.scss */
+.half-width-banner h2 { margin-bottom: 30px; line-height: 49px; }
+/* line 40, ../../sass/components/half-width-banner.scss */
+.half-width-banner ul { padding-left: 15px; margin-bottom: 80px; }
+/* line 44, ../../sass/components/half-width-banner.scss */
+.half-width-banner ul li p { font-size: 18px; }
+
+@media (max-width: 991.98px) { /* line 51, ../../sass/components/half-width-banner.scss */
+  .half-width-banner { padding-top: 40px; padding-bottom: 15px; } }
+@media (max-width: 1199.98px) { /* line 58, ../../sass/components/half-width-banner.scss */
+  .half-width-banner .image { padding-right: 15px; } }
+@media (max-width: 1199.98px) { /* line 64, ../../sass/components/half-width-banner.scss */
+  .half-width-banner .order-1.order-md-1 .image { padding-right: 15px; } }
+@media (max-width: 991.98px) { /* line 70, ../../sass/components/half-width-banner.scss */
+  .half-width-banner .text { padding-top: 25px; padding-bottom: 25px; } }
+@media (max-width: 767.98px) { /* line 77, ../../sass/components/half-width-banner.scss */
+  .global-search .link-group { padding-left: 25px; }
+  /* line 81, ../../sass/components/half-width-banner.scss */
+  .half-width-banner h2 { line-height: 30px; } }
+
+/*# sourceMappingURL=half-width-banner.css.map */

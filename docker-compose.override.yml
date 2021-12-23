@@ -35,8 +35,9 @@ services:
         DEBUG_BASE_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-dotnetsdk:${SITECORE_VERSION}
         RELEASE_BASE_IMAGE: mcr.microsoft.com/dotnet/core/aspnet:3.1
         SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution:${SITECORE_VERSION}
-    ports:
-      - "8091:80"
+        ENTRYPOINT_PROJECT_FOLDER: MvpSite
+        ENTRYPOINT_ASSEMBLY_NAME: Mvp.Project.MvpSite
+        ARTIFACTS_FOLDER: /artifacts/mvp-rendering
     volumes:
       - .\:C:\solution
     environment:
@@ -55,22 +56,41 @@ services:
       Application_User_Password: ${SITECORE_APPLICATION_USER_PASSWORD}
       Application_User_Domain: ${SITECORE_APPLICATION_USER_DOMAIIN}
       Application_CMS_URL: ${SITECORE_Application_CMS_URL}
+    ports:
+      - "80"      
     mem_limit: ${MEM_LIMIT_RENDERING:-1GB}           
     depends_on:
       - solutionBuildOutput
       - cm
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.rendering-secure.entrypoints=websecure"
-      - "traefik.http.routers.rendering-secure.rule=Host(`${MVP_RENDERING_HOST}`)"
-      - "traefik.http.routers.rendering-secure.tls=true"
-      - "traefik.http.routers.rendering.entrypoints=web"
-      - "traefik.http.routers.rendering.rule=Host(`${MVP_RENDERING_HOST}`)"
-      - "traefik.http.routers.rendering.tls=false"  
+      - "traefik.http.routers.mvp-rendering-secure.entrypoints=websecure"
+      - "traefik.http.routers.mvp-rendering-secure.rule=Host(`${MVP_RENDERING_HOST}`)"
+      - "traefik.http.routers.mvp-rendering-secure.tls=true"
+      - "traefik.http.routers.mvp-rendering.entrypoints=web"
+      - "traefik.http.routers.mvp-rendering.rule=Host(`${MVP_RENDERING_HOST}`)"
+      - "traefik.http.routers.mvp-rendering.tls=false"  
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/healthz"]
       interval: 60s
       timeout: 30s
+
+  sugcon-rendering:
+    container_name: sugcon-rendering
+    image: ${MVP_DOCKER_REGISTRY}sugcon-rendering:${SITECORE_VERSION} 
+    build:
+      context: ./docker/build/rendering
+      target: ${BUILD_CONFIGURATION}
+      args:
+        DEBUG_BASE_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-dotnetsdk:${SITECORE_VERSION}
+        RELEASE_BASE_IMAGE: mcr.microsoft.com/dotnet/core/aspnet:3.1
+        SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution:${SITECORE_VERSION}
+        ENTRYPOINT_PROJECT_FOLDER: Sugcon
+        ENTRYPOINT_ASSEMBLY_NAME: Mvp.Project.Sugcon.Rendering
+        ARTIFACTS_FOLDER: /artifacts/sugcon-rendering
+    depends_on:
+      - solutionBuildOutput           
+    scale: 0
 
   traefik:
     volumes:

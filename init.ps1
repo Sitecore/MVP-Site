@@ -89,12 +89,16 @@ $cmHost = "mvp-cm.sc.localhost"
 $cdHost = "mvp-cd.sc.localhost" 
 $idHost = "mvp-id.sc.localhost"
 $mvprenderingHost = "mvp.sc.localhost"
+$sugconEurenderingHost = "sugcon-eu.sc.localhost"
+$sugconAnzrenderingHost = "sugcon-anz.sc.localhost"
 
 Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 Add-HostsEntry $cmHost
 Add-HostsEntry $cdHost
 Add-HostsEntry $idHost
 Add-HostsEntry $mvprenderingHost
+Add-HostsEntry $sugconEurenderingHost
+Add-HostsEntry $sugconAnzrenderingHost
 
 #########################################################
 # Tell git to ignore changes to .env
@@ -112,6 +116,8 @@ Set-DockerComposeEnvFileVariable "HOST_LICENSE_FOLDER" -Value $LicenseXmlPath
 Set-DockerComposeEnvFileVariable "CM_HOST" -Value $cmHost
 Set-DockerComposeEnvFileVariable "ID_HOST" -Value $idHost
 Set-DockerComposeEnvFileVariable "MVP_RENDERING_HOST" -Value $mvprenderingHost
+Set-DockerComposeEnvFileVariable "SUGCON_EU_RENDERING_HOST" -Value $sugconEurenderingHost
+Set-DockerComposeEnvFileVariable "SUGCON_ANZ_RENDERING_HOST" -Value $sugconAnzrenderingHost
 Set-DockerComposeEnvFileVariable "CD_HOST" -Value $cdHost
 Set-DockerComposeEnvFileVariable "TELERIK_ENCRYPTION_KEY" -Value (Get-SitecoreRandomString 128)
 Set-DockerComposeEnvFileVariable "SITECORE_IDSECRET" -Value (Get-SitecoreRandomString 64 -DisallowSpecial)

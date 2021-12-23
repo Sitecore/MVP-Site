@@ -15,9 +15,13 @@ namespace Mvp.Feature.BasicContent.Extensions
                    .AddModelBoundView<ImageTeaser>("ImageTeaser")
                    .AddModelBoundView<VideoTeaser>("VideoTeaser")
                    .AddPartialView("ColumnContainer")
-                   .AddPartialView("PageOverviewPanel");
+                   .AddPartialView("PageOverviewPanel")
 
-            return options;
+            .AddModelBoundView<HeroBig>("HeroBig")
+              .AddModelBoundView<HeroMedium>("HeroMedium");
+
+
+      return options;
         }
     }
 }

@@ -1,12 +1,12 @@
-﻿using Mvp.Feature.Navigation.Models;
+﻿using System.Collections.Generic;
+using Mvp.Feature.Navigation.Models;
 using Sitecore.Data.Items;
-using Sitecore.Mvc.Presentation;
-using System.Collections.Generic;
 
 namespace Mvp.Feature.Navigation.Services
 {
-    public interface INavigationBuilder
-    {
-        IList<Link> GetNavigationLinks(Item contextItem, Rendering rendering);
-    }
+  public interface INavigationBuilder
+  {
+    IList<Link> GetNavigationLinks(Item contextItem);
+    Item GetNavigationRootItem(Item contextItem);
+  }
 }

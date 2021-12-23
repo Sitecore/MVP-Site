@@ -1,0 +1,35 @@
+﻿---
+ID: "f80c1fef-699c-4056-9f38-38640c187209"
+Parent: "8b348a8f-a9f0-4856-9348-98c98cd9e599"
+Template: "161f0b91-74e6-4f6b-a0aa-e37b17ea29a4"
+Path: "/sitecore/content/Sugcon-EU/Home"
+BranchID: "2c0aba33-8eca-4745-98fa-eb6f30347ca2"
+SharedFields:
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{7326F924-453C-42A9-8306-77A3AA94029E}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0fe8dc75-b7a3-4a47-b84b-f0c04b7493e2"
+      Hint: Logo
+      Value: |
+        <image mediaid="{2296514D-117F-4CC0-83DD-D7A5E0BD42D1}" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211203T095330Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "99a24f37-d755-4604-8233-1abc22a48783"
+    - ID: "b1ece12f-b2c9-44e6-92a3-c5dfd6514b59"
+      Hint: Menu Title
+      Value: Home
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211203T095715Z

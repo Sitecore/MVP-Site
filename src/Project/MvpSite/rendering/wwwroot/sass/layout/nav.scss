@@ -25,6 +25,10 @@ $sc-font-color: #212529;
         nav.navbar {
             padding: 0px;
 
+            logo {
+                min-height: 3.5em;
+            }
+
             li.nav-item {
                 a {
                     font-size: 1.2em;

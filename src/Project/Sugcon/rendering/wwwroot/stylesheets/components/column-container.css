@@ -1,0 +1,12 @@
+/* line 1, ../../sass/components/column-container.scss */
+.column-container { padding-top: 20px; padding-bottom: 20px; }
+/* line 5, ../../sass/components/column-container.scss */
+.column-container h2 { padding-top: 50px; padding-bottom: 10px; }
+
+/* line 11, ../../sass/components/column-container.scss */
+.hero.medium + .column-container { padding-top: 70px; }
+
+@media (max-width: 767.98px) { /* line 15, ../../sass/components/column-container.scss */
+  .hero.medium + .column-container { padding-top: 40px; } }
+
+/*# sourceMappingURL=column-container.css.map */

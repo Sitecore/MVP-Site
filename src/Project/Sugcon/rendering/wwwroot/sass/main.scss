@@ -1,0 +1,38 @@
+
+@import 'fonts/AvenirNext.scss'
+; /* Brand Colors */
+$sc-red: #fe2911;
+$sc-teal: #1ca6a3;
+$sc-charcoal: #232323;
+$sc-black: #000000;
+$sc-white: #ffffff;
+$sc-gray1: #f0f0f0;
+$sc-gray2: #cccccc;
+$sc-gray3: #999999;
+$sc-gray4: #707070;
+$sc-gray5: #333333; /* Site Colors */
+$sc-topbar-bg: #666;
+$sc-content-bg: #F6F6F6;
+$sc-font-color: #212529; 
+
+//Import Layout & Components 
+@import 'layout/layout.scss';
+@import 'layout/header.scss';
+@import 'layout/footer.scss';
+@import 'layout/nav.scss';
+
+//Component Layouts
+@import 'components/hero.scss';
+@import 'components/cta.scss';
+@import 'components/application.scss';
+@import 'components/announcement-bar.scss';
+@import 'components/thee-column-info.scss';
+@import 'components/half-width-banner.scss';
+@import 'components/cta-overlapped-image.scss';
+@import 'components/column-container.scss';
+@import 'components/feature-panel.scss';
+@import 'components/page-overview-panel.scss';
+@import 'components/video.scss';
+@import 'components/search-results.scss';
+@import 'components/login.scss';
+

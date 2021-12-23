@@ -1,0 +1,28 @@
+﻿---
+ID: "7326f924-453c-42a9-8306-77a3aa94029e"
+Parent: "b02fc204-ae56-463e-a49a-d904d5ef83aa"
+Template: "161f0b91-74e6-4f6b-a0aa-e37b17ea29a4"
+Path: /sitecore/templates/Branches/Project/Sugcon/SUGCON Site/$name/Home
+BranchID: "576c6a63-c974-452f-b8c4-2cb607c4c07f"
+SharedFields:
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{6477F9F3-DB68-4D97-9AB9-E21A02F6C6E1}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211203T094016Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "793cb8a2-572d-4bdf-9ea2-be491c0efd64"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211203T094016Z

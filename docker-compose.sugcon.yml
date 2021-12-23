@@ -1,0 +1,84 @@
+version: "2.4"
+services:
+
+#  > docker-compose -f docker-compose.yml -f docker-compose.override.yml -f docker-compose.sugcon.yml up -d
+
+  # mvp-rendering:
+  #   scale: 0
+
+  sugcon-eu-rendering:
+    container_name: sugcon-eu-rendering
+    image: ${MVP_DOCKER_REGISTRY}sugcon-rendering:${SITECORE_VERSION}
+    volumes:
+      - .\:C:\solution
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://*:80"
+      Sitecore__InstanceUri: "http://cd"
+      Sitecore__RenderingHostUri: "https://${SUGCON_EU_RENDERING_HOST}"
+      Sitecore__EnableExperienceEditor: "true"
+      Sitecore__DefaultSiteName: "sugcon-eu"
+      Application_User_Name: ${SITECORE_APPLICATION_USER_NAME}
+      Application_User_Password: ${SITECORE_APPLICATION_USER_PASSWORD}
+      Application_User_Domain: ${SITECORE_APPLICATION_USER_DOMAIIN}
+      Application_CMS_URL: ${SITECORE_Application_CMS_URL}
+    ports:
+      - "80"      
+    mem_limit: ${MEM_LIMIT_RENDERING:-1GB}           
+    depends_on:
+      - sugcon-rendering
+      - cm
+      - cd
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sugcon-eu-rendering-secure.entrypoints=websecure"
+      - "traefik.http.routers.sugcon-eu-rendering-secure.rule=Host(`${SUGCON_EU_RENDERING_HOST}`)"
+      - "traefik.http.routers.sugcon-eu-rendering-secure.tls=true"
+      - "traefik.http.routers.sugcon-eu-rendering.entrypoints=web"
+      - "traefik.http.routers.sugcon-eu-rendering.rule=Host(`${SUGCON_EU_RENDERING_HOST}`)"
+      - "traefik.http.routers.sugcon-eu-rendering.tls=false"  
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/healthz"]
+      interval: 60s
+      timeout: 30s
+
+  # sugcon-anz-rendering:
+  #   container_name: sugcon-anz-rendering
+  #   image: ${MVP_DOCKER_REGISTRY}sugcon-rendering:${SITECORE_VERSION}
+  #   volumes:
+  #     - .\:C:\solution
+  #   environment:
+  #     ASPNETCORE_ENVIRONMENT: "Development"
+  #     ASPNETCORE_URLS: "http://*:80"
+  #     Sitecore__InstanceUri: "http://cd"
+  #     Sitecore__RenderingHostUri: "https://${SUGCON_ANZ_RENDERING_HOST}"
+  #     Sitecore__EnableExperienceEditor: "true"
+  #     Sitecore__DefaultSiteName: "sugcon-anz"
+  #     Application_User_Name: ${SITECORE_APPLICATION_USER_NAME}
+  #     Application_User_Password: ${SITECORE_APPLICATION_USER_PASSWORD}
+  #     Application_User_Domain: ${SITECORE_APPLICATION_USER_DOMAIIN}
+  #     Application_CMS_URL: ${SITECORE_Application_CMS_URL}
+  #   ports:
+  #     - "80"      
+  #   mem_limit: ${MEM_LIMIT_RENDERING:-1GB}           
+  #   depends_on:
+  #     - sugcon-rendering
+  #     - cm
+  #     - cd
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.sugcon-anz-rendering-secure.entrypoints=websecure"
+  #     - "traefik.http.routers.sugcon-anz-rendering-secure.rule=Host(`${SUGCON_ANZ_RENDERING_HOST}`)"
+  #     - "traefik.http.routers.sugcon-anz-rendering-secure.tls=true"
+  #     - "traefik.http.routers.sugcon-anz-rendering.entrypoints=web"
+  #     - "traefik.http.routers.sugcon-anz-rendering.rule=Host(`${SUGCON_ANZ_RENDERING_HOST}`)"
+  #     - "traefik.http.routers.sugcon-anz-rendering.tls=false"  
+  #   healthcheck:
+  #     test: ["CMD", "curl", "-f", "http://localhost/healthz"]
+  #     interval: 60s
+  #     timeout: 30s      
+
+  cm:
+    environment:
+      SUGCON_EU_RENDERING_HOST_PUBLIC_URI: https://${SUGCON_EU_RENDERING_HOST}
+#      SUGCON_ANZ_RENDERING_HOST_PUBLIC_URI: https://${SUGCON_ANZ_RENDERING_HOST}      

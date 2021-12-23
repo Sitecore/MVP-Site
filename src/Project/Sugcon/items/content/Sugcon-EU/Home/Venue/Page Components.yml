@@ -1,0 +1,36 @@
+﻿---
+ID: "025660b5-b770-46e9-92f6-5ab512e8f8e4"
+Parent: "98ea160f-477f-438c-a1d9-d6d43ff58711"
+Template: "6aec120a-7222-42c6-a8e8-53f9354aef53"
+Path: "/sitecore/content/Sugcon-EU/Home/Venue/Page Components"
+BranchID: "3164213a-4e9d-4c68-b7bf-6b224e23445c"
+SharedFields:
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{1F17DF31-EBA6-4804-9257-B524EE497903}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211203T095517Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "86ef0ab4-3b72-4df9-a120-cf715dbb056e"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211203T095517Z

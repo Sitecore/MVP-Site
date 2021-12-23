@@ -1,0 +1,128 @@
+/* Brand Colors */
+$sc-red: #fe2911;
+$sc-teal: #1ca6a3;
+$sc-charcoal: #232323;
+$sc-black: #000000;
+$sc-white: #ffffff;
+$sc-gray1: #f0f0f0;
+$sc-gray2: #cccccc;
+$sc-gray3: #999999;
+$sc-gray4: #707070;
+$sc-gray5: #333333;
+/* Site Colors */
+$sc-topbar-bg: #666;
+$sc-content-bg: #F6F6F6;
+$sc-font-color: #212529;
+
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    margin-bottom: 56px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    overflow-x: hidden;
+    color: $sc-font-color;
+    background-color: $sc-white;
+}
+
+* {
+    font-family: 'AvenirNextW05-Medium';
+}
+
+p {
+    font-family: 'AvenirNextW05-Regular';
+    color: $sc-gray4;
+    font-size: 18px;
+}
+
+select {
+    font-family: 'AvenirNextW05-Regular';
+    color: $sc-gray4;
+    font-size: 18px;
+}
+
+i {
+    font-family: 'AvenirNextW05-Italic';
+    color: $sc-gray4;
+}
+
+h1 {
+    color: $sc-charcoal;
+    font-weight: 900;
+    font-family: 'AvenirNextW05-Bold';
+    font-size: 48px;
+    line-height: 50px;
+}
+
+h2 {
+    color: $sc-charcoal;
+    font-weight: 900;
+    font-family: 'AvenirNextW05-Bold';
+    font-size: 36px;
+}
+
+h3 {
+    color: $sc-charcoal;
+    font-weight: 900;
+    font-family: 'AvenirNextW05-Bold';
+    font-size: 24px;
+}
+
+h4 {
+    color: $sc-charcoal;
+    font-weight: 900;
+    font-family: 'AvenirNextW05-Bold';
+    font-size: 18px;
+}
+
+.bg-teal {
+    background: $sc-teal;
+    color: $sc-white;
+}
+
+.bg-gray4 {
+    background: $sc-gray4;
+    color: $sc-white;
+}
+
+.background-white {
+    background-color: $sc-white;
+}
+
+section.background-white {
+    background-color: $sc-white;
+}
+
+.background-grey {
+    background-color: $sc-content-bg;
+}
+
+section.background-grey {
+    background-color: $sc-content-bg;
+}
+
+main {
+    #content {
+        background-color: $sc-content-bg;
+    }
+
+    @media (max-width: 767.98px) {
+        h2 {
+            font-size: 22px;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        h4 {
+            font-size: 16px;
+        }
+    }
+}

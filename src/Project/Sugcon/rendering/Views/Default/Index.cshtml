@@ -1,0 +1,18 @@
+﻿@model Route
+
+@{
+    ViewData["Title"] = Model.ReadField<TextField>("Menu Title")?.Value ?? Model.ReadField<TextField>("Title")?.Value ?? string.Empty;
+}
+
+<header>
+    <sc-placeholder name="header"></sc-placeholder>
+</header>
+
+<main>
+    <div id="content">
+        <sc-placeholder name="main"></sc-placeholder>
+    </div>
+</main>
+
+<!--Footer Rendering-->
+<sc-placeholder name="footer"></sc-placeholder>
