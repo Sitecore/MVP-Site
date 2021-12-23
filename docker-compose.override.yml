@@ -62,12 +62,9 @@ services:
       - cm
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.mvp-rendering-secure.entrypoints=websecure"
-      - "traefik.http.routers.mvp-rendering-secure.rule=Host(`${MVP_RENDERING_HOST}`)"
-      - "traefik.http.routers.mvp-rendering-secure.tls=true"
-      - "traefik.http.routers.mvp-rendering.entrypoints=web"
-      - "traefik.http.routers.mvp-rendering.rule=Host(`${MVP_RENDERING_HOST}`)"
-      - "traefik.http.routers.mvp-rendering.tls=false"  
+      - "traefik.http.routers.mvp-secure.entrypoints=websecure"
+      - "traefik.http.routers.mvp-secure.rule=Host(`${MVP_RENDERING_HOST}`)"
+      - "traefik.http.routers.mvp-secure.tls=true"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/healthz"]
       interval: 60s

@@ -31,12 +31,9 @@ services:
       - cd
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.sugcon-eu-rendering-secure.entrypoints=websecure"
-      - "traefik.http.routers.sugcon-eu-rendering-secure.rule=Host(`${SUGCON_EU_RENDERING_HOST}`)"
-      - "traefik.http.routers.sugcon-eu-rendering-secure.tls=true"
-      - "traefik.http.routers.sugcon-eu-rendering.entrypoints=web"
-      - "traefik.http.routers.sugcon-eu-rendering.rule=Host(`${SUGCON_EU_RENDERING_HOST}`)"
-      - "traefik.http.routers.sugcon-eu-rendering.tls=false"  
+      - "traefik.http.routers.sugcon-eu-secure.entrypoints=websecure"
+      - "traefik.http.routers.sugcon-eu-secure.rule=Host(`${SUGCON_EU_RENDERING_HOST}`)"
+      - "traefik.http.routers.sugcon-eu-secure.tls=true"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/healthz"]
       interval: 60s
@@ -66,13 +63,10 @@ services:
   #     - cm
   #     - cd
   #   labels:
-  #     - "traefik.enable=true"
-  #     - "traefik.http.routers.sugcon-anz-rendering-secure.entrypoints=websecure"
-  #     - "traefik.http.routers.sugcon-anz-rendering-secure.rule=Host(`${SUGCON_ANZ_RENDERING_HOST}`)"
-  #     - "traefik.http.routers.sugcon-anz-rendering-secure.tls=true"
-  #     - "traefik.http.routers.sugcon-anz-rendering.entrypoints=web"
-  #     - "traefik.http.routers.sugcon-anz-rendering.rule=Host(`${SUGCON_ANZ_RENDERING_HOST}`)"
-  #     - "traefik.http.routers.sugcon-anz-rendering.tls=false"  
+  #    - "traefik.enable=true"
+  #    - "traefik.http.routers.sugcon-anz-secure.entrypoints=websecure"
+  #    - "traefik.http.routers.sugcon-anz-secure.rule=Host(`${SUGCON_ANZ_RENDERING_HOST}`)"
+  #    - "traefik.http.routers.sugcon-anz-secure.tls=true"
   #   healthcheck:
   #     test: ["CMD", "curl", "-f", "http://localhost/healthz"]
   #     interval: 60s
