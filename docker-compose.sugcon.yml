@@ -74,6 +74,9 @@ services:
   #    - "traefik.http.routers.sugcon-anz-secure.entrypoints=websecure"
   #    - "traefik.http.routers.sugcon-anz-secure.rule=Host(`${SUGCON_ANZ_RENDERING_HOST}`)"
   #    - "traefik.http.routers.sugcon-anz-secure.tls=true"
+  #    - "traefik.http.routers.sugcon-anz.entrypoints=web"
+  #    - "traefik.http.routers.sugcon-anz.rule=Host(`${SUGCON_ANZ_RENDERING_HOST}`)"
+  #    - "traefik.http.routers.sugcon-anz.tls=false"  
   #   healthcheck:
   #     test: ["CMD", "curl", "-f", "http://localhost/healthz"]
   #     interval: 60s
