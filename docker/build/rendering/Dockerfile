@@ -17,7 +17,6 @@ WORKDIR /solution/src
 ENV ENTRYPOINT_PROJECT_PATH="Project/${ENTRYPOINT_PROJECT_FOLDER}/rendering"
 RUN echo $env:ENTRYPOINT_PROJECT_PATH
 EXPOSE 80
-EXPOSE 443
 ENTRYPOINT dotnet watch -v --project .\$env:ENTRYPOINT_PROJECT_PATH run --no-launch-profile
 
 FROM ${SOLUTION_IMAGE} as solution

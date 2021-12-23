@@ -64,10 +64,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.mvp-secure.entrypoints=websecure"
       - "traefik.http.routers.mvp-secure.rule=Host(`${MVP_RENDERING_HOST}`)"
-      - "traefik.http.routers.mvp-secure.tls=true"
-      - "traefik.http.routers.mvp.entrypoints=web"
-      - "traefik.http.routers.mvp.rule=Host(`${SUGCON_EU_RENDERING_HOST}`)"
-      - "traefik.http.routers.mvp.tls=false"      
+      - "traefik.http.routers.mvp-secure.tls=true"   
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/healthz"]
       interval: 60s
