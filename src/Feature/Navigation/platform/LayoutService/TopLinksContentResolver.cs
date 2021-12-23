@@ -7,16 +7,16 @@ namespace Mvp.Feature.Navigation.LayoutService
 {
     public class TopLinksContentResolver : RenderingContentsResolver
     {
-        private readonly ITopLinksBuilder topLinksBuilder;
+        private readonly ITopLinksBuilder _topLinksBuilder;
 
         public TopLinksContentResolver(ITopLinksBuilder topLinksBuilder)
         {
-            this.topLinksBuilder = topLinksBuilder;
+            _topLinksBuilder = topLinksBuilder;
         }
 
         public override object ResolveContents(Rendering rendering, IRenderingConfiguration renderingConfig)
         {
-            var topLinks = topLinksBuilder.GetTopLinks(GetContextItem(rendering, renderingConfig), rendering);
+            var topLinks = _topLinksBuilder.GetTopLinks(GetContextItem(rendering, renderingConfig), rendering);
             return new
             {
                 links = topLinks

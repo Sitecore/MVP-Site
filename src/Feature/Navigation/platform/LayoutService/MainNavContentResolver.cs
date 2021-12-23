@@ -7,11 +7,11 @@ namespace Mvp.Feature.Navigation.LayoutService
 {
     public class MainNavContentResolver : RenderingContentsResolver
     {
-        private readonly INavigationBuilder navigationBuilder;
+        private readonly INavigationBuilder _navigationBuilder;
 
         public MainNavContentResolver(INavigationBuilder navigationBuilder)
         {
-            this.navigationBuilder = navigationBuilder;
+            _navigationBuilder = navigationBuilder;
         }
 
         public override object ResolveContents(Rendering rendering, IRenderingConfiguration renderingConfig)
@@ -19,7 +19,7 @@ namespace Mvp.Feature.Navigation.LayoutService
             var contextItem = GetContextItem(rendering, renderingConfig);
             return new
             {
-                Links = navigationBuilder.GetNavigationLinks(contextItem, rendering)
+                Links = _navigationBuilder.GetNavigationLinks(contextItem, rendering)
             };
         }
     }

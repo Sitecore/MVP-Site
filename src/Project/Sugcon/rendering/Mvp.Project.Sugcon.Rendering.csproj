@@ -30,8 +30,8 @@
 
 	<ItemGroup>
 		<PackageReference Include="BuildWebCompiler" />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson"  />
-		<PackageReference Include="Microsoft.AspNetCore.Session"  />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
+		<PackageReference Include="Microsoft.AspNetCore.Session" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
 		<PackageReference Include="Microsoft.Extensions.Http" />
 		<PackageReference Include="Microsoft.Identity.Web" />
@@ -43,8 +43,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\Feature\BasicContent\rendering\Mvp.Feature.BasicContent.Rendering.csproj" />
-		<ProjectReference Include="..\..\..\Feature\Forms\rendering\MVP.Feature.Forms.Rendering.csproj" />
-		<ProjectReference Include="..\..\..\Feature\Hero\rendering\Mvp.Feature.Hero.Rendering.csproj" />
 		<ProjectReference Include="..\..\..\Feature\Navigation\rendering\Mvp.Feature.Navigation.Rendering.csproj" />
 		<ProjectReference Include="..\..\..\Feature\Social\rendering\Mvp.Feature.Social.Rendering.csproj" />
 	</ItemGroup>

@@ -12,26 +12,16 @@
 		<RootNamespace>Mvp.Project.MvpSite</RootNamespace>
 	</PropertyGroup>
 
-	<Target Name="FixDotnetWatch" AfterTargets="_CoreCollectWatchItems">
-		<ItemGroup>
-			<_WatchRelativePath Include="@(Watch)" Condition="'%(Identity)' != '%(Watch.FullPath)'" />
-			<Watch Remove="@(_WatchRelativePath)" />
-			<Watch Include="%(_WatchRelativePath.FullPath)" />
-		</ItemGroup>
-	</Target>
-
-	<ItemGroup>
+  <ItemGroup>
 	  <Content Remove="compilerconfig.json" />
+    <None Include="compilerconfig.json" />
 	</ItemGroup> 
 
-	<ItemGroup>
-	  <None Include="compilerconfig.json" />
-	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="BuildWebCompiler" />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson"  />
-		<PackageReference Include="Microsoft.AspNetCore.Session"  />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
+		<PackageReference Include="Microsoft.AspNetCore.Session" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
 		<PackageReference Include="Microsoft.Extensions.Http" />
 		<PackageReference Include="Microsoft.Identity.Web" />
@@ -44,7 +34,6 @@
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\Feature\BasicContent\rendering\Mvp.Feature.BasicContent.Rendering.csproj" />
 		<ProjectReference Include="..\..\..\Feature\Forms\rendering\MVP.Feature.Forms.Rendering.csproj" />
-		<ProjectReference Include="..\..\..\Feature\Hero\rendering\Mvp.Feature.Hero.Rendering.csproj" />
 		<ProjectReference Include="..\..\..\Feature\Navigation\rendering\Mvp.Feature.Navigation.Rendering.csproj" />
 		<ProjectReference Include="..\..\..\Feature\Social\rendering\Mvp.Feature.Social.Rendering.csproj" />
 		<ProjectReference Include="..\..\..\Foundation\User\rendering\Mvp.Foundation.User.Rendering.csproj" />
