@@ -1,0 +1,90 @@
+/* Brand Colors */
+/* Site Colors */
+html {
+  position: relative;
+  min-height: 100%; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin-bottom: 56px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  overflow-x: hidden;
+  color: #212529;
+  background-color: #ffffff; }
+
+* {
+  font-family: 'AvenirNextW05-Medium'; }
+
+p {
+  font-family: 'AvenirNextW05-Regular';
+  color: #707070;
+  font-size: 18px; }
+
+select {
+  font-family: 'AvenirNextW05-Regular';
+  color: #707070;
+  font-size: 18px; }
+
+i {
+  font-family: 'AvenirNextW05-Italic';
+  color: #707070; }
+
+h1 {
+  color: #232323;
+  font-weight: 900;
+  font-family: 'AvenirNextW05-Bold';
+  font-size: 48px;
+  line-height: 50px; }
+
+h2 {
+  color: #232323;
+  font-weight: 900;
+  font-family: 'AvenirNextW05-Bold';
+  font-size: 36px; }
+
+h3 {
+  color: #232323;
+  font-weight: 900;
+  font-family: 'AvenirNextW05-Bold';
+  font-size: 24px; }
+
+h4 {
+  color: #232323;
+  font-weight: 900;
+  font-family: 'AvenirNextW05-Bold';
+  font-size: 18px; }
+
+.bg-teal {
+  background: #1ca6a3;
+  color: #ffffff; }
+
+.bg-gray4 {
+  background: #707070;
+  color: #ffffff; }
+
+.background-white {
+  background-color: #ffffff; }
+
+section.background-white {
+  background-color: #ffffff; }
+
+.background-grey {
+  background-color: #F6F6F6; }
+
+section.background-grey {
+  background-color: #F6F6F6; }
+
+main #content {
+  background-color: #F6F6F6; }
+
+@media (max-width: 767.98px) {
+  main h2 {
+    font-size: 22px; }
+  main h3 {
+    font-size: 18px; }
+  main h4 {
+    font-size: 16px; } }
+
+/*# sourceMappingURL=../maps/layout/layout.css.map */

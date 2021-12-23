@@ -1,0 +1,30 @@
+﻿---
+ID: "f0405635-3140-4a50-808e-f5b523cca43f"
+Parent: "f463e2de-6f77-4293-88d4-5eaa153038a1"
+Template: "f463e2de-6f77-4293-88d4-5eaa153038a1"
+Path: /sitecore/templates/Feature/BasicContent/Hero Folder/__Standard Values
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/window_dialog.png
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: "{86864760-3B8B-4E79-927E-0ADDCD14055D}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200624T083400Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f7b6c009-3cf3-4c5b-b2a0-520f6693d392"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200624T084718Z

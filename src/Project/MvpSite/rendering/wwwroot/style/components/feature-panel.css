@@ -232,6 +232,9 @@
   .feature-panel-image .text a.link-arrow {
     max-width: 100%; } }
 
+.feature-panel-text.with-background.no-number h2 {
+  padding-top: 0; }
+
 .feature-panel-text {
   padding-top: 130px;
   padding-bottom: 50px;
@@ -245,8 +248,11 @@
     margin-bottom: 30px; }
     .feature-panel-text.with-background .counter {
       top: -121px; }
+  .feature-panel-text p + a {
+    margin-top: 24px;
+    float: none; }
   .feature-panel-text h4 {
-    margin-bottom: 20px;
+    margin-top: 20px;
     position: relative;
     line-height: 45px;
     z-index: 2; }
@@ -265,7 +271,8 @@
       font-weight: 900;
       font-family: AvenirNextW05-Heavy;
       margin-bottom: 0;
-      z-index: 1; }
+      z-index: 1;
+      letter-spacing: -7px; }
       .feature-panel-text h3.counter i {
         color: #fff; }
   .feature-panel-text a:not(.cta):not(.link-arrow) {

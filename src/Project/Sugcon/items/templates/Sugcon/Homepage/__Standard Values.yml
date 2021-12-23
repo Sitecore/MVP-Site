@@ -15,19 +15,9 @@ SharedFields:
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
         l="{2A629F93-718A-4DBA-9155-393C870457F9}">
         <r
-          ds="{C4DADD5E-1521-4C6D-AFCE-39D237751541}"
-          id="{A4F28B31-5D18-4158-92AB-F4D2ECA6D2BE}"
-          par=""
-          ph="header"
-          uid="{19CCAD6A-4C17-48CC-B78A-5CE8415E279F}" />
-        <r
           id="{C9593FF9-14AC-4C8E-B217-D85C05ADEAD7}"
           ph="header"
           uid="{D842E8EB-450E-4348-A54A-E60CF16E9E52}" />
-        <r
-          id="{437CCC09-AB5D-47B3-96D7-2B05BDFF5324}"
-          ph="footer"
-          uid="{64CD74AD-6939-48FB-ABB9-33F2403ED031}" />
       </d>
     </r>
 Languages:
@@ -48,11 +38,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c7f59599-839b-41c3-8e75-4584adc6cda6"
+      Value: "5d8b51c9-e732-4590-a36e-d5e61453b3ee"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211203T095434Z
+      Value: 20211223T115117Z

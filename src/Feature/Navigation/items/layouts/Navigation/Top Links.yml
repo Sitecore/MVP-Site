@@ -12,7 +12,7 @@ SharedFields:
   Value: Office/32x32/document_header.png
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
-  Value: /sitecore/templates/Feature/Navigation/Top Links/Top Links Collection
+  Value: /sitecore/templates/Feature/Navigation/Top Links Collection
 - ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
   Hint: Rendering Contents Resolver
   Value: "{EC9857DA-2613-4347-96CD-F4AF2CC837E7}"
@@ -29,11 +29,11 @@ Languages:
       Value: 20200528T045802Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1cf5003e-162a-4db9-839f-8d071464ccbe"
+      Value: "16386a52-6f0c-4154-904c-8ddb435a3515"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200529T005756Z
+      Value: 20211203T132436Z

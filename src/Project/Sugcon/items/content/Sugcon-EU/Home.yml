@@ -5,6 +5,38 @@ Template: "161f0b91-74e6-4f6b-a0aa-e37b17ea29a4"
 Path: "/sitecore/content/Sugcon-EU/Home"
 BranchID: "2c0aba33-8eca-4745-98fa-eb6f30347ca2"
 SharedFields:
+- ID: "8e50d26e-5046-490d-8d62-113d2821ad38"
+  Hint: Logo SVG path
+  Value: "/images/sugcon-eu.svg"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{20706185-AC42-461F-934D-8B02AE636131}"
+          p:after="r[@uid='{D842E8EB-450E-4348-A54A-E60CF16E9E52}']"
+          s:cac="1"
+          s:ds="{C80F34C0-BFAE-470B-A556-C135938ACC8C}"
+          s:id="{DF79486F-2E7B-4EC8-8EFC-C9E6DFE813B7}"
+          s:par=""
+          s:ph="main"
+          s:vbd="1"
+          s:ccb="Clear on publish" />
+        <r
+          uid="{3CAD9101-B194-47EC-ADAE-53D74CB67F6D}"
+          p:after="*[1=2]"
+          s:cac="1"
+          s:ds="{7B13066D-5248-4FC5-AFD5-C896C5F3CA59}"
+          s:id="{248BDE7D-D010-4D02-95E8-2578A03A2D2D}"
+          s:par=""
+          s:ph="main"
+          s:vbd="1"
+          s:ccb="Clear on publish" />
+      </d>
+    </r>
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{7326F924-453C-42A9-8306-77A3AA94029E}"
@@ -13,16 +45,12 @@ Languages:
   Versions:
   - Version: 1
     Fields:
-    - ID: "0fe8dc75-b7a3-4a47-b84b-f0c04b7493e2"
-      Hint: Logo
-      Value: |
-        <image mediaid="{2296514D-117F-4CC0-83DD-D7A5E0BD42D1}" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20211203T095330Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "99a24f37-d755-4604-8233-1abc22a48783"
+      Value: "dd43b0b2-5957-4d68-9b26-02a45b5f3f42"
     - ID: "b1ece12f-b2c9-44e6-92a3-c5dfd6514b59"
       Hint: Menu Title
       Value: Home
@@ -32,4 +60,4 @@ Languages:
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211203T095715Z
+      Value: 20211223T130342Z
