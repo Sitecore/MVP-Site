@@ -1,6 +1,15 @@
 version: "2.4"
 services:
 
+  traefik:
+    environment: 
+      logLevel: DEBUG  
+    depends_on:
+      sugcon-eu-rendering:
+        condition: service_started
+      # sugcon-anz-rendering:
+      #   condition: service_started
+
 ## Usage: 
 #   $> docker-compose -f docker-compose.yml -f docker-compose.override.yml -f docker-compose.sugcon.yml up -d
 # .. and to bring all containers down again
