@@ -1,7 +1,11 @@
 version: "2.4"
 services:
 
-#  > docker-compose -f docker-compose.yml -f docker-compose.override.yml -f docker-compose.sugcon.yml up -d
+## Usage: 
+#   $> docker-compose -f docker-compose.yml -f docker-compose.override.yml -f docker-compose.sugcon.yml up -d
+# .. and to bring all containers down again
+#   $> docker-compose -f docker-compose.yml -f docker-compose.override.yml -f docker-compose.sugcon.yml down
+##
 
   # mvp-rendering:
   #   scale: 0
@@ -34,6 +38,9 @@ services:
       - "traefik.http.routers.sugcon-eu-secure.entrypoints=websecure"
       - "traefik.http.routers.sugcon-eu-secure.rule=Host(`${SUGCON_EU_RENDERING_HOST}`)"
       - "traefik.http.routers.sugcon-eu-secure.tls=true"
+      - "traefik.http.routers.sugcon-eu.entrypoints=web"
+      - "traefik.http.routers.sugcon-eu.rule=Host(`${SUGCON_EU_RENDERING_HOST}`)"
+      - "traefik.http.routers.sugcon-eu.tls=false"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/healthz"]
       interval: 60s
