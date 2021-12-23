@@ -17,19 +17,12 @@ namespace Mvp.Feature.Navigation.Services
             _linkManager = linkManager;
         }
 
-        public IList<Link> GetNavigationLinks(Item contextItem, Rendering rendering)
+        public IList<Link> GetNavigationLinks(Item navigationRootItem)
         {
-            var homeItem = GetHomePage(contextItem);
-            return homeItem.Children.Where(x => x.DescendsFrom(Templates.Navigation.TemplateId) && MainUtil.GetBool(x[Templates.Navigation.Fields.IncludeInMenu], false))
+          return navigationRootItem.Children.Where(x => x.DescendsFrom(Templates.Navigation.TemplateId) && MainUtil.GetBool(x[Templates.Navigation.Fields.IncludeInMenu], false))
                                     .Select(x => new Link { Title = x[Templates.Navigation.Fields.MenuTitle], Url = _linkManager.GetItemUrl(x) })
                                     .ToList();
         }
 
-        private Item GetHomePage(Item contextItem)
-        {
-            return contextItem.DescendsFrom(Templates.NavigationRootItem.TemplateId) 
-                   ? contextItem
-                   : contextItem.Axes.GetAncestors().LastOrDefault(x => x.DescendsFrom(Templates.NavigationRootItem.TemplateId));
-        }
     }
 }
