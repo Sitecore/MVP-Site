@@ -1,36 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Mvp.Feature.Navigation.Models;
+﻿using Mvp.Feature.Navigation.Models;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 using Sitecore.Mvc.Presentation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Mvp.Feature.Navigation.Services
 {
-  public class TopLinksBuilder : ITopLinksBuilder
-  {
-    public IList<Link> GetTopLinks(Item contextItem, Rendering rendering)
+    public class TopLinksBuilder : ITopLinksBuilder
     {
-      var dataSourceItem = contextItem?.Database?.GetItem(rendering.DataSource);
-      if (dataSourceItem == null) throw new NullReferenceException();
-      return GetValidTopLinkItems(dataSourceItem).Select(GetLink).ToList();
-    }
+        public IList<Link> GetTopLinks(Item contextItem, Rendering rendering)
+        {
+            var dataSourceItem = contextItem?.Database?.GetItem(rendering.DataSource);
+            if (dataSourceItem == null)
+            {
+                throw new NullReferenceException();
+            }
 
-    private Link GetLink(Item item)
-    {
-      var linkField = (LinkField)item.Fields[Templates.HasLink.Fields.Link];
-      return new Link
-      {
-        Title = linkField?.Title,
-        Url = linkField?.Url
-      };
-    }
+            var links = new List<Link>();
+            foreach (var child in GetValidTopLinkItems(dataSourceItem))
+            {
+                links.Add(new Link
+                {
+                    Title = ((LinkField)child.Fields[Constants.FieldNames.Link]).Title,
+                    Url = ((LinkField)child.Fields[Constants.FieldNames.Link]).Url
+                });
+            }
 
-    private IEnumerable<Item> GetValidTopLinkItems(Item dataSourceItem)
-    {
-      return dataSourceItem.Children.Where(x => x.TemplateID == Templates.TopLink.TemplateId
-                                                && !string.IsNullOrWhiteSpace(x[Templates.HasLink.Fields.Link]));
+            return links;
+        }
+
+        private IEnumerable<Item> GetValidTopLinkItems(Item dataSourceItem)
+        {
+            return dataSourceItem.Children.Where(x => x.TemplateID == Constants.Templates.TopLink 
+                                                 && !string.IsNullOrWhiteSpace(x[Constants.FieldNames.Link]));
+        }
     }
-  }
 }
