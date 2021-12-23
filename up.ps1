@@ -1,3 +1,9 @@
+[CmdletBinding(DefaultParameterSetName = "no-arguments")]
+Param (
+    [Parameter(HelpMessage = "Starts the rendering containers for SUGCON sites.")]
+    [switch]$IncludeSugconSites
+)
+
 # ENSURE ENV FILE EXISTS
 if(-not (Test-Path .env)) {
     Write-Host "Docker Env file not found. Have you run init.ps1 first? Refer to README.md for details" -ForegroundColor Red
@@ -15,7 +21,13 @@ if ($LASTEXITCODE -ne 0)
 }
 
 # Run the docker containers
-docker-compose up -d
+if ($IncludeSugconSites) {
+    Write-Host "Including SUGCON Site containers. Remember to down containers again using file args to bring down all containers." -ForegroundColor Green
+    docker-compose -f docker-compose.yml -f docker-compose.override.yml -f docker-compose.sugcon.yml up -d
+} else {
+    docker-compose up -d
+}
+
 
 # Wait for Traefik to expose CM route
 Write-Host "Waiting for CM to become available..." -ForegroundColor Green
