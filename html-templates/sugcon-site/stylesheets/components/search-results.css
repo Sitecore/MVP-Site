@@ -1,0 +1,65 @@
+/* line 1, ../../sass/components/search-results.scss */
+section { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/* line 6, ../../sass/components/search-results.scss */
+#mvp-search { padding: 0 0 60px 0; }
+/* line 9, ../../sass/components/search-results.scss */
+#mvp-search input#search { padding: 35px; border-radius: 0; background-color: #F6F6F6; font-size: 17px; border: none; font-family: 'AvenirNextGEOW05-Medium'; }
+
+/* line 20, ../../sass/components/search-results.scss */
+section#mvp-search a.btn.btn-flat { background-color: #1ca6a3 !important; height: 70px; width: 70px; border-radius: 0; line-height: 52px; color: #fff; position: absolute; right: 15px; top: 0; display: inline-block; background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNTAiIGhlaWdodD0iNTAiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE3MnYtMTcyaDE3MnYxNzJ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTcyLjI0LDEwLjMyYy0zMi4zMzA2MiwwIC01OC40OCwyNi4xNDkzOCAtNTguNDgsNTguNDhjMCwzMi4zMzA2MyAyNi4xNDkzOCw1OC40OCA1OC40OCw1OC40OGMxMS41NDI4MSwwIDIyLjIyNTYzLC0zLjM4NjI1IDMxLjI4MjUsLTkuMTM3NWw0Mi4yNDc1LDQyLjI0NzVsMTQuNjIsLTE0LjYybC00MS43MSwtNDEuNjAyNWM3LjQ5ODEzLC05LjgzNjI1IDEyLjA0LC0yMi4wMjQwNiAxMi4wNCwtMzUuMzY3NWMwLC0zMi4zMzA2MiAtMjYuMTQ5MzcsLTU4LjQ4IC01OC40OCwtNTguNDh6TTcyLjI0LDI0LjA4YzI0Ljc2NTMxLDAgNDQuNzIsMTkuOTU0NjkgNDQuNzIsNDQuNzJjMCwyNC43NjUzMSAtMTkuOTU0NjksNDQuNzIgLTQ0LjcyLDQ0LjcyYy0yNC43NjUzMSwwIC00NC43MiwtMTkuOTU0NjkgLTQ0LjcyLC00NC43MmMwLC0yNC43NjUzMSAxOS45NTQ2OSwtNDQuNzIgNDQuNzIsLTQ0LjcyeiI+PC9wYXRoPjwvZz48L2c+PC9zdmc+") 50% 50% no-repeat; background-size: 25px; }
+
+/* line 36, ../../sass/components/search-results.scss */
+.mvp-results-toolbar.row { margin: 20px 0; }
+
+/* line 40, ../../sass/components/search-results.scss */
+.mvp-results-summary { font-size: 15px; line-height: normal; color: #999999; font-family: 'AvenirNextGEOW05-Medium'; }
+
+/* line 48, ../../sass/components/search-results.scss */
+.mvp-filter p.panel-heading { font-size: 18px; font-weight: 600; line-height: 1.5; color: #232323; margin: 0 0 10px; border-bottom: 1px solid #e1e1e1; padding-bottom: 15px; }
+/* line 58, ../../sass/components/search-results.scss */
+.mvp-filter article.panel { margin-bottom: 30px; }
+/* line 62, ../../sass/components/search-results.scss */
+.mvp-filter p.control.has-icons-left { padding: 9px 0; padding: 14px 0; margin: 0; font-size: 16px; font-weight: 500; line-height: 20.8px; color: #212529; }
+/* line 72, ../../sass/components/search-results.scss */
+.mvp-filter input[type="checkbox"] { margin-right: 13px; }
+
+/* line 78, ../../sass/components/search-results.scss */
+.mvp-results-entries .card { margin-bottom: 20px; }
+/* line 82, ../../sass/components/search-results.scss */
+.mvp-results-entries .card a:hover { text-decoration: none; }
+/* line 86, ../../sass/components/search-results.scss */
+.mvp-results-entries .card a .mvp-category { font-family: 'AvenirNextW05-Regular'; color: #707070; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 5px; font-size: 13px; }
+/* line 95, ../../sass/components/search-results.scss */
+.mvp-results-entries .card a .mvp-year { position: absolute; font-size: 16px; color: #ffffff; background-color: #1ca6a3; border-radius: 2px; padding: 2px 9px; top: 13px; left: 13px; }
+/* line 106, ../../sass/components/search-results.scss */
+.mvp-results-entries .card a .card-title { font-size: 23px; margin-bottom: 5px; font-family: 'AvenirNextGEOW05-Bold'; line-height: 1.3; color: #232323; }
+/* line 114, ../../sass/components/search-results.scss */
+.mvp-results-entries .card a .card-text { font-size: 14px; font-family: 'AvenirNextW05-Regular'; line-height: 16px; margin-top: 20px; }
+/* line 121, ../../sass/components/search-results.scss */
+.mvp-results-entries .card a .card-body { padding: 15px 26px; }
+/* line 126, ../../sass/components/search-results.scss */
+.mvp-results-entries .card .card-img-top { border-radius: 0; }
+/* line 131, ../../sass/components/search-results.scss */
+.mvp-results-entries .mvp-facet-results { margin: 0px 0 20px 0px; }
+/* line 134, ../../sass/components/search-results.scss */
+.mvp-results-entries .mvp-facet-results .badge-primary { color: #fff; background-color: #1ca6a3; padding: 5px 15px 6px 15px; font-family: 'AvenirNextW05-Light'; }
+/* line 143, ../../sass/components/search-results.scss */
+.mvp-results-entries .badge-primary a { margin-left: 8px; font-size: 10px; font-family: 'AvenirNextGEOW05-Medium'; color: #ffffff; }
+/* line 149, ../../sass/components/search-results.scss */
+.mvp-results-entries .badge-primary a:hover { text-decoration: none; }
+
+/* line 156, ../../sass/components/search-results.scss */
+.mvp-pagination a.page-link { padding: 3px 6px; color: #1ca6a3; border-radius: 2px; padding: 5px 8px; color: #1ca6a3; border-radius: 2px; font-size: 17px; }
+/* line 166, ../../sass/components/search-results.scss */
+.mvp-pagination .pagination { flex: 0 0 auto; list-style: none; padding: 0; margin: 25px 0px 30px; }
+/* line 173, ../../sass/components/search-results.scss */
+.mvp-pagination .pagination .page-item.page-next a { border: none; background: none; }
+/* line 180, ../../sass/components/search-results.scss */
+.mvp-pagination .pagination .page-item.page-previous a { border: none; background: none; }
+/* line 188, ../../sass/components/search-results.scss */
+.mvp-pagination .page-item.active .page-link { background-color: #1ca6a3; border: none; border-radius: 0; padding: 6px 9px; }
+/* line 196, ../../sass/components/search-results.scss */
+.mvp-pagination li.page-item { margin: 0px 6px; }
+
+/*# sourceMappingURL=search-results.css.map */

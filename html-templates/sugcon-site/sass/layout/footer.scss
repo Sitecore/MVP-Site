@@ -1,0 +1,39 @@
+
+/* Brand Colors */
+$sc-red: #fe2911;
+$sc-teal: #1ca6a3;
+$sc-charcoal: #232323;
+$sc-black: #000000;
+$sc-white: #ffffff;
+$sc-gray1: #f0f0f0;
+$sc-gray2: #cccccc;
+$sc-gray3: #999999;
+$sc-gray4: #707070;
+$sc-gray5: #333333;
+/* Site Colors */
+$sc-topbar-bg: #666;
+$sc-content-bg: #F6F6F6;
+$sc-font-color: #212529;
+
+
+.fixed-footer {
+    position: absolute;
+    //bottom: 0;
+    width: 100%;
+    height: 56px; /* Set the fixed height of the footer here */
+    .footer-copyright {
+        font-size: 0.9em;
+
+        a:link, a:visited {
+            color: $sc-white;
+            margin: 3px;
+        }
+    }
+
+    .footer-social-link {
+        &:link, &:visited, i {
+            color: $sc-white;
+            margin: 0px 5px;
+        }
+    }
+}
