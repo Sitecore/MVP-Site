@@ -1,0 +1,27 @@
+/* Brand Colors */
+/* Site Colors */
+/* line 18, ../../sass/layout/nav.scss */
+.main-nav { padding-top: 25px; padding-bottom: 35px; }
+/* line 22, ../../sass/layout/nav.scss */
+.main-nav #main-menu { padding: 0px; }
+/* line 25, ../../sass/layout/nav.scss */
+.main-nav #main-menu nav.navbar { padding: 0px; }
+/* line 29, ../../sass/layout/nav.scss */
+.main-nav #main-menu nav.navbar li.nav-item a { font-size: 1.2em; font-weight: 600; color: #000000; }
+/* line 35, ../../sass/layout/nav.scss */
+.main-nav #main-menu nav.navbar li.nav-item a.dropdown-item { font-size: 1.0em; font-weight: 400; color: #000000; }
+/* line 40, ../../sass/layout/nav.scss */
+.main-nav #main-menu nav.navbar li.nav-item a.dropdown-item:hover { text-decoration: underline; background: none; }
+
+/* line 50, ../../sass/layout/nav.scss */
+#topbar { background: #666; font-size: 0.9em; height: 40px; }
+/* line 55, ../../sass/layout/nav.scss */
+#topbar a:link, #topbar a:visited { color: #ffffff; }
+/* line 59, ../../sass/layout/nav.scss */
+#topbar a:link { color: #ffffff; }
+/* line 65, ../../sass/layout/nav.scss */
+#topbar a.dropdown-item:link, #topbar a.dropdown-item:visited { color: #333333; }
+/* line 70, ../../sass/layout/nav.scss */
+#topbar ul.nav.navbar-nav li a { padding-left: 10px; }
+
+/*# sourceMappingURL=nav.css.map */
