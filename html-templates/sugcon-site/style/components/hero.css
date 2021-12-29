@@ -1,7 +1,8 @@
 .hero {
   padding-top: 10%;
   padding-bottom: 12%;
-  position: relative; }
+  position: relative;
+  z-index: 1; }
   .hero a.cta, .hero div.hero-event-button a.cta {
     margin-top: 30px; }
   .hero .share-wrapper {
@@ -37,13 +38,22 @@
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center; }
+    background-position: center;
+    z-index: -1; }
     .hero .background-image.desktop {
       display: block; }
     .hero .background-image.tablet {
       display: none; }
     .hero .background-image.mobile {
       display: block; }
+  .hero .hero-backdrop {
+    width: 60%;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.85); }
+    .hero .hero-backdrop h1, .hero .hero-backdrop h1.static, .hero .hero-backdrop p {
+      width: auto; }
+    .hero .hero-backdrop p {
+      color: #232323; }
   .hero select {
     width: 100%; }
   .hero .sitecore-overview-selects {
@@ -100,14 +110,6 @@
       word-break: break-word; }
       .hero h1.static + p {
         margin-top: 15px; }
-      .hero h1.static:after {
-        content: " ";
-        background-image: url(../images/icon-hero.png);
-        position: absolute;
-        width: 76px;
-        height: 53px;
-        top: -9px;
-        left: -93px; }
   .hero img {
     display: block;
     width: auto; }
@@ -250,7 +252,9 @@
   .hero p {
     width: 60%;
     font-size: 16px;
-    line-height: 33px; } }
+    line-height: 33px; }
+  .hero .hero-backdrop {
+    width: 100%; } }
 
 @media (max-width: 991.98px) {
   .hero p.top {

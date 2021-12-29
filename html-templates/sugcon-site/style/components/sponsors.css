@@ -1,0 +1,14 @@
+.sponsors__item > a {
+  background-color: #fff; }
+
+@media (min-width: 992px) {
+  .sponsors--silver .sponsors__item {
+    flex-basis: calc(100% / 6);
+    max-width: calc(100% / 6); } }
+
+@media (min-width: 992px) {
+  .sponsors--bronze .sponsors__item {
+    flex-basis: calc(100% / 8);
+    max-width: calc(100% / 8); } }
+
+/*# sourceMappingURL=../maps/components/sponsors.css.map */

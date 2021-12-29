@@ -35,4 +35,8 @@ $sc-font-color: #212529;
 @import 'components/video.scss';
 @import 'components/search-results.scss';
 @import 'components/login.scss';
+@import 'components/card.scss';
+@import 'components/sponsors.scss';
 
+//Common
+@import 'common/aspect-ratio.scss';
