@@ -241,7 +241,8 @@ header {
 .hero {
   padding-top: 10%;
   padding-bottom: 12%;
-  position: relative; }
+  position: relative;
+  z-index: 1; }
   .hero a.cta, .hero div.hero-event-button a.cta {
     margin-top: 30px; }
   .hero .share-wrapper {
@@ -277,13 +278,22 @@ header {
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center; }
+    background-position: center;
+    z-index: -1; }
     .hero .background-image.desktop {
       display: block; }
     .hero .background-image.tablet {
       display: none; }
     .hero .background-image.mobile {
       display: block; }
+  .hero .hero-backdrop {
+    width: 60%;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.85); }
+    .hero .hero-backdrop h1, .hero .hero-backdrop h1.static, .hero .hero-backdrop p {
+      width: auto; }
+    .hero .hero-backdrop p {
+      color: #232323; }
   .hero select {
     width: 100%; }
   .hero .sitecore-overview-selects {
@@ -340,14 +350,6 @@ header {
       word-break: break-word; }
       .hero h1.static + p {
         margin-top: 15px; }
-      .hero h1.static:after {
-        content: " ";
-        background-image: url(../images/icon-hero.png);
-        position: absolute;
-        width: 76px;
-        height: 53px;
-        top: -9px;
-        left: -93px; }
   .hero img {
     display: block;
     width: auto; }
@@ -490,7 +492,9 @@ header {
   .hero p {
     width: 60%;
     font-size: 16px;
-    line-height: 33px; } }
+    line-height: 33px; }
+  .hero .hero-backdrop {
+    width: 100%; } }
 
 @media (max-width: 991.98px) {
   .hero p.top {
@@ -1340,7 +1344,8 @@ form#confirmationForm [type="checkbox"]:checked {
   cursor: pointer; }
 
 .announcement-bar {
-  display: none; }
+  display: none;
+  overflow: hidden; }
   .announcement-bar .container {
     padding-top: 1em;
     padding-bottom: 1em; }
@@ -2848,5 +2853,66 @@ ul.nav.navbar-nav {
     display: none; }
   ul.nav.navbar-nav .nav-item.nav-link {
     padding: 10px 18px 7px; }
+
+.card--org {
+  border: none; }
+  .card--org .card-body a {
+    color: #19a5a2; }
+
+.card--video {
+  border: none; }
+
+.sponsors__item > a {
+  background-color: #fff; }
+
+@media (min-width: 992px) {
+  .sponsors--silver .sponsors__item {
+    flex-basis: calc(100% / 6);
+    max-width: calc(100% / 6); } }
+
+@media (min-width: 992px) {
+  .sponsors--bronze .sponsors__item {
+    flex-basis: calc(100% / 8);
+    max-width: calc(100% / 8); } }
+
+.ar {
+  position: relative; }
+  .ar--rounded img,
+  .ar--rounded picture {
+    border-radius: 6px; }
+  .ar.ar--logo > .ar__content {
+    top: 10%;
+    bottom: 10%;
+    left: 10%;
+    right: 10%; }
+    .ar.ar--logo > .ar__content img, .ar.ar--logo > .ar__content picture {
+      object-fit: contain; }
+  .ar > .ar__content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+    .ar > .ar__content > * {
+      height: 100%; }
+    .ar > .ar__content img,
+    .ar > .ar__content picture,
+    .ar > .ar__content iframe,
+    .ar > .ar__content video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
+  .ar:before {
+    content: '';
+    display: block;
+    width: 100%; }
+  .ar.ar--16-9:before {
+    padding-top: 56.25%; }
+  .ar.ar--4-3:before {
+    padding-top: 75%; }
+  .ar.ar--3-2:before {
+    padding-top: 66.66667%; }
+  .ar.ar--1-1:before {
+    padding-top: 100%; }
 
 /*# sourceMappingURL=maps/main.css.map */
