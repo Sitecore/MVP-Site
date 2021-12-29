@@ -1,0 +1,19 @@
+$namespace: 'card';
+
+.#{$namespace} {
+
+  &--org {
+    border: none;
+
+    .#{$namespace}-body {
+
+      a {
+        color: #19a5a2;
+      }
+    }
+  }
+
+  &--video {
+    border: none;
+  }
+}
