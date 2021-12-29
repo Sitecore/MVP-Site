@@ -1,0 +1,33 @@
+$namespace: 'sponsors';
+
+.#{$namespace} {
+
+  &__item {
+
+    > a {
+      background-color: #fff;
+    }
+  }
+  
+  &--silver {
+
+    .#{$namespace}__item {
+
+      @media (min-width: 992px) {
+        flex-basis: calc(100% / 6);
+        max-width: calc(100% / 6);
+      }
+    }
+  }
+
+  &--bronze {
+
+    .#{$namespace}__item {
+
+      @media (min-width: 992px) {
+        flex-basis: calc(100% / 8);
+        max-width: calc(100% / 8);
+      }
+    }
+  }
+}

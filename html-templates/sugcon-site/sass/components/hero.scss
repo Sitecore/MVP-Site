@@ -2,6 +2,7 @@
     padding-top: 10%;
     padding-bottom: 12%;
     position: relative;
+    z-index: 1;
   
     a.cta, div.hero-event-button a.cta {
       margin-top: 30px;
@@ -57,6 +58,7 @@
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
+      z-index: -1;
   
       &.desktop {
         display: block;
@@ -68,6 +70,20 @@
   
       &.mobile {
         display: block;
+      }
+    }
+
+    .hero-backdrop {
+      width: 60%;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, .85);
+
+      h1, h1.static, p {
+        width: auto;
+      }
+
+      p {
+        color: #232323;
       }
     }
   
@@ -153,16 +169,6 @@
   
         + p {
           margin-top: 15px;
-        }
-  
-        &:after {
-          content: " ";
-          background-image: url(../images/icon-hero.png);
-          position: absolute;
-          width: 76px;
-          height: 53px;
-          top: -9px;
-          left: -93px;
         }
       }
     }
@@ -392,6 +398,10 @@
       width: 60%;
       font-size: 16px;
       line-height: 33px;
+    }
+
+    .hero .hero-backdrop {
+      width: 100%;
     }
   }
   
