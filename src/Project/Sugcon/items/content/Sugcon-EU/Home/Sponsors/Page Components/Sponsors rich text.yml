@@ -1,0 +1,283 @@
+﻿---
+ID: "4d82db8b-5365-4edf-bd7c-c91da9beb7e7"
+Parent: "003110c6-f0e0-4800-a00a-b67a491c5b44"
+Template: "64ad1284-23fb-4b76-85b3-c6dfb1b322bf"
+Path: "/sitecore/content/Sugcon-EU/Home/Sponsors/Page Components/Sponsors rich text"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211228T170117Z
+    - ID: "5098b799-31dd-4c1b-9955-3e8598caa21f"
+      Hint: Content
+      Value: |
+        <h2>Gold sponsors</h2>
+        
+        <div class="row sponsors sponsors--gold mb-4">
+                          <div class="col-12 col-md-6 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://www.americaneagle.com/platforms/sitecore">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                 <img alt="" src="-/media/B4515C24614849F48E65A8FE3105CAC4.ashx" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-12 col-md-6 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-12 col-md-6 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-12 col-md-6 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+        
+        <h2>Silver sponsors</h2>
+        <div class="row sponsors sponsors--silver mb-4">
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://www.americaneagle.com/platforms/sitecore">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img alt="" src="-/media/B4515C24614849F48E65A8FE3105CAC4.ashx" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+        
+        <h2>Bronze sponsors</h2>
+        <div class="row sponsors sponsors--bronze mb-4">
+                          <div class="col-4 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://www.americaneagle.com/platforms/sitecore">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img alt="" src="-/media/B4515C24614849F48E65A8FE3105CAC4.ashx" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+        <h2>Community sponsors</h2>
+        <div class="row sponsors sponsors--bronze mb-4">
+                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
+                            <a class="d-block mb-4" href="https://www.americaneagle.com/platforms/sitecore">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img alt="" src="-/media/B4515C24614849F48E65A8FE3105CAC4.ashx" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
+                            <a class="d-block mb-4" href="">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a7f411cb-1615-4295-84f6-05f521ce9bfb"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211230T110612Z

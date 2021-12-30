@@ -11,6 +11,10 @@ Languages:
     - ID: "00f0228c-aff3-4ab7-ac98-e4175a53bf32"
       Hint: HeroTitle
       Value: Budapest Congress Center
+    - ID: "066f7e92-30ad-4198-b138-b40ccaec6d20"
+      Hint: HeroLink
+      Value: |
+        <link text="Book Accomodation" linktype="external" url="https://bit.ly/SUGCONEurope2022Hotel" anchor="" class="cta primary" target="" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20211223T115819Z
@@ -26,11 +30,11 @@ Languages:
       Value: "Budapest, Jagelló út 1-3, 1123, Hungary"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "169ba421-b965-44c8-91fa-27619477a94c"
+      Value: "9cc2311c-51c9-4abc-9564-8d946bca712a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211223T121214Z
+      Value: 20211230T110323Z

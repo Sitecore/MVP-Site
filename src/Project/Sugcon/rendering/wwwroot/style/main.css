@@ -180,6 +180,10 @@ main #content {
   main h4 {
     font-size: 16px; } }
 
+@media (min-width: 1400px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1140px; } }
+
 /* Brand Colors */
 /* Site Colors */
 header {
@@ -212,9 +216,9 @@ header {
     .main-nav #main-menu nav.navbar {
       padding: 0px; }
       .main-nav #main-menu nav.navbar .logo {
-        min-height: 6em; }
+        min-height: 4em; }
       .main-nav #main-menu nav.navbar li.nav-item a {
-        font-size: 1.2em;
+        font-size: 1.0em;
         font-weight: 600;
         color: #000000; }
       .main-nav #main-menu nav.navbar li.nav-item a.dropdown-item {
@@ -1517,6 +1521,9 @@ form#confirmationForm [type="checkbox"]:checked {
     position: absolute;
     top: 90px;
     left: 15px;
+    width: auto;
+    margin: 0;
+    padding: 0;
     z-index: 3;
     opacity: 0; }
     .cta-overlapped-image .floated img {
@@ -2612,9 +2619,10 @@ form#confirmationForm [type="checkbox"]:checked {
   .autoplay-video .container {
     position: relative; }
   .autoplay-video .text {
+    position: relative;
     top: 0;
     opacity: 0;
-    width: 53%;
+    width: 50%;
     background-color: #fff;
     z-index: 3;
     padding: 60px 60px 60px 75px; }
@@ -2635,6 +2643,8 @@ form#confirmationForm [type="checkbox"]:checked {
       margin-bottom: 0; }
   .autoplay-video .video {
     z-index: 4; }
+    .autoplay-video .video iframe {
+      max-width: 100%; }
   .autoplay-video .thumbnail {
     cursor: pointer; }
     .autoplay-video .thumbnail .play-button-wrapper {
@@ -2861,6 +2871,21 @@ ul.nav.navbar-nav {
 
 .card--video {
   border: none; }
+  .card--video .card-body {
+    height: 128px;
+    overflow: hidden; }
+    @media (max-width: 767.98px) {
+      .card--video .card-body {
+        height: auto; } }
+    .card--video .card-body h4 {
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden; }
+      @media (max-width: 767.98px) {
+        .card--video .card-body h4 {
+          -webkit-line-clamp: initial;
+          overflow: visible; } }
 
 .sponsors__item > a {
   background-color: #fff; }

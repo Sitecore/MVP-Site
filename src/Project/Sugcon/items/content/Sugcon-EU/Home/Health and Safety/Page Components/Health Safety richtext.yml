@@ -1,0 +1,44 @@
+﻿---
+ID: "5f37fb25-274b-4da2-8d4e-df3f66cdb367"
+Parent: "e86f96e7-de1f-4e16-94fd-fc7a456cf5af"
+Template: "64ad1284-23fb-4b76-85b3-c6dfb1b322bf"
+Path: "/sitecore/content/Sugcon-EU/Home/Health and Safety/Page Components/Health Safety richtext"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211228T160937Z
+    - ID: "5098b799-31dd-4c1b-9955-3e8598caa21f"
+      Hint: Content
+      Value: |
+        <p>We understand that this in-person event is organized in a time where Covid is still daily news. To be sure that this event can take place in March next year; we want to reassure everyone that all necessary precautions will be taken for having a safe conference. This means that all regulations that Hungary enforces for large events will be applied. Unfortunately we cannot predict which regulations will be in place for March. Currently it is mandatory to wear a mask during the event. Since these regulations can change, we will keep all participants informed when regulations change before the event.</p>
+        <p>Next to this, we can also inform you about the venue itself, the Budapest Congress Center. Which is large enough for 2000 visitors. Based on previous SUGCON's, we expect around 400 - 500 participants and no other events should take place at the same time. The rooms themselves still need to be selected. But we'll look at the number of participants to decide the best option. Our current suggestion is to use the larger rooms to ensure enough space. And people can more easily decide to keep enough distance.</p>
+        <p><a href="https://www.bcc.hu/congress-center/meeting-rooms-capacity/">Information on the room capacity&nbsp;</a></p>
+        <p>Lunch is also served during the event. And the decision was made to do this in 2 separate locations: the Aula (400 people) and Mirror Corridor (600 people). Again to provide options and to split the attendees between 2 rooms making it easier to keep your distance if wanted.</p>
+        <p>Regarding travel to Hungary, you also have to take the necessary regulations into account. Please consult this official European website for travel from within Europe: <a href="https://reopen.europa.eu">reopen.europa.eu</a><br />
+        If you are travelling from outside Europe, please consult this specific page: <a href="https://reopen.europa.eu/en/from-to/OTC/HUN">reopen.europa.eu/en/from-to/OTC/HUN</a></p>
+        <p>In short, an official European Union Covid card is needed to enter Hungary. OR an accepted non-EU Covid card from this list: <a href="https://kormany.hu/kulgazdasagi-es-kulugyminiszterium/vedettsegi-igazolasok">kormany.hu/kulgazdasagi-es-kulugyminiszterium/vedettsegi-igazolasok</a><br />
+        OR with present a negative Covid test.</p>
+        <p>Consult this page for more information: <a href="https://www.police.hu/en/content/information-on-general-rules-of-border-crossing">www.police.hu/en/content/information-on-general-rules-of-border-crossing</a></p>
+        <p>Rest assured, we will do everything to have everyone safe. Should you have any further questions, please do not hesitate to reach out.</p>
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "94fb3215-a16c-4ab7-94a9-dc3b70e6f0e4"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211228T165809Z

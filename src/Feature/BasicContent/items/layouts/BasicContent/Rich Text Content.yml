@@ -16,6 +16,9 @@ SharedFields:
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
   Value: "./Page Components|query:./ancestor-or-self::*[@@templatename='Site']/Shared Content/Rich Text Content"
+- ID: "e441abe7-2ca3-4640-ae26-3789967925d7"
+  Hint: Compatible Renderings
+  Value: "{D9671DA7-6ABA-468B-9AA9-C60BBA8BDDEE}"
 Languages:
 - Language: en
   Fields:
@@ -30,11 +33,11 @@ Languages:
       Value: 20200625T231057Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "151bc2f9-f520-4642-8496-3db57cec4799"
+      Value: "9ffba175-65c0-4794-8bab-79ec1cfb0f19"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\admin
+        sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200721T114020Z
+      Value: 20211229T171429Z

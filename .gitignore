@@ -381,3 +381,4 @@ FodyWeavers.xsd
 # ignore sitecore asset cache & itempackages
 .sitecore/package-cache/
 *.itempackage
+/license.xml

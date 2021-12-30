@@ -1,0 +1,37 @@
+﻿---
+ID: "bd018923-0625-4544-ba16-cc0397713339"
+Parent: "30330c93-f043-4abb-93dd-e20fcb3a46bf"
+Template: "a94acaec-6552-47d1-90b7-f54283868b3f"
+Path: "/sitecore/content/Sugcon-EU/Shared Content/Video Teaser/Join event video promo"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200721T141229Z
+    - ID: "2aaa4a8c-e077-45ec-9439-f151435673d7"
+      Hint: TeaserLink
+      Value: |
+        <link text="Purchase tickets now" linktype="external" url="https://www.google.com" anchor="" target="_blank" />
+    - ID: "87d60910-c481-42a7-8eb6-68e96b0f7cba"
+      Hint: TeaserEmbed
+      Value: |
+        <iframe width="560" height="420" src="https://www.youtube.com/embed/sdqA-r2f3V8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "43524b7a-db91-45c0-9ecb-f2b83b4081a9"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211228T184525Z
+    - ID: "efc256c0-d388-4966-9340-a4508104de04"
+      Hint: TeaserTitle
+      Value: Join the largest Sitecore Community event of the year
+    - ID: "f4d03e52-cb74-4aba-8969-3c49e2541ac2"
+      Hint: TeaserText
+      Value: Purchase your early bird tickets until January 24th 2022 to save 100Euro

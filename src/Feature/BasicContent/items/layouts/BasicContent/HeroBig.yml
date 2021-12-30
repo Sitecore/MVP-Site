@@ -21,7 +21,9 @@ SharedFields:
   Value: "./Page Components|query:./ancestor-or-self::*[@@templatename='Site']/Shared Content"
 - ID: "e441abe7-2ca3-4640-ae26-3789967925d7"
   Hint: Compatible Renderings
-  Value: "{248BDE7D-D010-4D02-95E8-2578A03A2D2D}"
+  Value: |
+    {248BDE7D-D010-4D02-95E8-2578A03A2D2D}
+    {A72EE580-D7EA-4425-AFDE-3F921CD29DFE}
 Languages:
 - Language: en
   Versions:
@@ -32,11 +34,11 @@ Languages:
       Value: 20200625T081003Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "aaa1a94e-a145-4582-b01a-6c20c98a507b"
+      Value: "69a2aaa1-5e4c-4105-a7b0-aced051bd29a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211223T121505Z
+      Value: 20211229T170704Z

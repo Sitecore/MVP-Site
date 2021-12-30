@@ -8,9 +8,10 @@
   .autoplay-video .container {
     position: relative; }
   .autoplay-video .text {
+    position: relative;
     top: 0;
     opacity: 0;
-    width: 53%;
+    width: 50%;
     background-color: #fff;
     z-index: 3;
     padding: 60px 60px 60px 75px; }
@@ -31,6 +32,8 @@
       margin-bottom: 0; }
   .autoplay-video .video {
     z-index: 4; }
+    .autoplay-video .video iframe {
+      max-width: 100%; }
   .autoplay-video .thumbnail {
     cursor: pointer; }
     .autoplay-video .thumbnail .play-button-wrapper {

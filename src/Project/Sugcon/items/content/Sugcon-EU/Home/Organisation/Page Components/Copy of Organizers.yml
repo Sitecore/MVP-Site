@@ -1,0 +1,49 @@
+﻿---
+ID: "230b5c2b-cdca-4ce8-b8b0-dfd1b5781f10"
+Parent: "11df7346-3bda-4a2e-ad35-fca917c38888"
+Template: "64ad1284-23fb-4b76-85b3-c6dfb1b322bf"
+Path: "/sitecore/content/Sugcon-EU/Home/Organisation/Page Components/Copy of Organizers"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211228T170117Z
+    - ID: "5098b799-31dd-4c1b-9955-3e8598caa21f"
+      Hint: Content
+      Value: |
+        <p><img alt="" src="-/media/F249C5167795400287C4F04956B293DD.ashx?h=300&amp;w=300" style="height: 300px; width: 300px;" /></p>
+        <p><img alt="" src="-/media/69EEF0009FCA4111A2AE05E467782C7F.ashx?h=303&amp;w=300" style="height: 303px; width: 300px;" /></p>
+        <p><img alt="" src="-/media/36F5125345424C8AABB46AD62A3BDF33.ashx?h=300&amp;w=300" style="height: 300px; width: 300px;" /></p>
+        <p><img alt="" src="-/media/91E728FD6EA64848B0A04CC7F75275E6.ashx?h=300&amp;w=300" style="height: 300px; width: 300px;" /></p>
+        <p><img alt="" src="-/media/44578539D58D4C8FA73DBBBA7AECBF5C.ashx?h=290&amp;w=300" style="height: 290px; width: 300px;" /></p>
+        <p><a title="Hyperlink Manager" class="reTool" href="/EditorPage.aspx?da=core&amp;id=%7B230B5C2B-CDCA-4CE8-B8B0-DFD1B5781F10%7D&amp;ed=FIELD547347&amp;vs&amp;la=en&amp;fld=%7B5098B799-31DD-4C1B-9955-3E8598CAA21F%7D&amp;so&amp;di=0&amp;hdl=H547436&amp;mo&amp;pe=0&amp;fbd=1#" unselectable="on"><span class="LinkManager" unselectable="on"></span></a><img alt="" src="-/media/CFDDBC080DD744618298C0FF82B2E1A7.ashx?h=300&amp;w=300" style="height: 300px; width: 300px;" /></p>
+        <p><img alt="" src="-/media/C8439C954C7649069BA7DC17BA8549BB.ashx?h=300&amp;w=300" style="height: 300px; width: 300px;" /></p>
+        <p>batch 2</p>
+        <p><img alt="" src="-/media/BACD37AC910B41FA9266B87240BBFEEE.ashx?h=300&amp;w=300" style="height: 300px; width: 300px;" /></p>
+        <p>&nbsp;</p>
+        <p><img alt="" src="-/media/8D287878DEF544D498A8DCB0EA9FF7F7.ashx?h=290&amp;w=290" style="height:290px; width:290px;" /></p>
+        <p><img alt="" src="-/media/2F9E811844CE49E695D8C811B2680D22.ashx?h=300&amp;w=300" style="height: 300px; width: 300px;" /></p>
+        <p><img alt="" src="-/media/0B57DBA2F0C84F8DB5C7BB505492B0C3.ashx?h=300&amp;w=300" style="height: 300px; width: 300px;" /></p>
+        <p><img alt="" src="-/media/FD3742E20CA84EFBB174AE07E062B5B4.ashx?h=300&amp;w=300" style="height: 300px; width: 300px;" /></p>
+        <p><img alt="" src="-/media/8EEA243F840B4F5CAD528002A72C2909.ashx" style="height:300px; width:300px;" /></p>
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e3309ca8-286f-4e64-9d36-dab51cefb206"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211230T103024Z

@@ -15,5 +15,26 @@ $namespace: 'card';
 
   &--video {
     border: none;
+	
+	.#{$namespace}-body {
+		height: 128px;
+		overflow: hidden;
+		
+		@media (max-width: 767.98px) {
+			height: auto;
+		}
+		
+		h4 {
+			display: -webkit-box;
+			-webkit-line-clamp: 4;
+			-webkit-box-orient: vertical;  
+			overflow: hidden;
+			
+			  @media (max-width: 767.98px) {
+				-webkit-line-clamp: initial;
+				overflow: visible;
+			  }
+		}
+	}
   }
 }
