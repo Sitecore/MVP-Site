@@ -1,0 +1,39 @@
+﻿---
+ID: "4759ede4-f98d-4950-85b7-8a848a02d33f"
+Parent: "c7efeb44-513f-48db-8104-ffd32fbe3833"
+Template: "86864760-3b8b-4e79-927e-0addcd14055d"
+Path: "/sitecore/content/Sugcon-EU/Shared Content/Hero Banners/Become a sponsor"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "00f0228c-aff3-4ab7-ac98-e4175a53bf32"
+      Hint: HeroTitle
+      Value: Become a Sponsor for SUGON Europe 2022
+    - ID: "066f7e92-30ad-4198-b138-b40ccaec6d20"
+      Hint: HeroLink
+      Value: |
+        <link text="Download Sponsorship prospectus" linktype="media" target="_blank" id="{3AA0C930-1683-49E1-AF7D-A84987DE563B}" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211223T113349Z
+    - ID: "3489c7a2-efe1-49e0-a3d7-271183c4f255"
+      Hint: HeroImage
+      Value: 
+    - ID: "53ee3e16-ba10-4013-959e-9a652a533845"
+      Hint: HeroSubtitle
+      Value: #SUGCON
+    - ID: "69db2d7e-db5e-4a02-8580-0bcfb77b5482"
+      Hint: HeroDescription
+      Value: 
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "3fb342be-018f-4c86-b004-638664304d73"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211230T110713Z

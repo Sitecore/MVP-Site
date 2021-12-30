@@ -12,13 +12,15 @@ namespace Mvp.Feature.BasicContent.Extensions
                    .AddModelBoundView<HalfWidthBanner>("HalfWidthBanner")
                    .AddModelBoundView<ContentList>("ContentList")
                    .AddModelBoundView<RichTextContent>("RichTextContent")
+                   .AddModelBoundView<RichTextContent>("SugconRichText")
                    .AddModelBoundView<ImageTeaser>("ImageTeaser")
                    .AddModelBoundView<VideoTeaser>("VideoTeaser")
                    .AddPartialView("ColumnContainer")
                    .AddPartialView("PageOverviewPanel")
 
             .AddModelBoundView<HeroBig>("HeroBig")
-              .AddModelBoundView<HeroMedium>("HeroMedium");
+              .AddModelBoundView<HeroMedium>("HeroMedium")
+              .AddModelBoundView<SugconHero>("SugconHero");
 
 
       return options;

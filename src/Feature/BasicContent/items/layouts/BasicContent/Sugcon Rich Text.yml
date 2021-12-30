@@ -1,0 +1,43 @@
+﻿---
+ID: "d9671da7-6aba-468b-9aa9-c60bba8bddee"
+Parent: "d377fb5c-efcf-4a89-ac65-77dadf04edd7"
+Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
+Path: /sitecore/layout/Renderings/Feature/BasicContent/Sugcon Rich Text
+SharedFields:
+- ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
+  Hint: componentName
+  Value: SugconRichText
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/font.png
+- ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
+  Hint: Datasource Template
+  Value: /sitecore/templates/Feature/BasicContent/Rich Text Content
+- ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
+  Hint: Datasource Location
+  Value: "./Page Components|query:./ancestor-or-self::*[@@templatename='Site']/Shared Content/Rich Text Content"
+- ID: "e441abe7-2ca3-4640-ae26-3789967925d7"
+  Hint: Compatible Renderings
+  Value: "{D9671DA7-6ABA-468B-9AA9-C60BBA8BDDEE}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Sugcon Rich Text
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200625T231057Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d2600a29-ae3e-4316-ae39-c711cff4d02b"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211229T171508Z

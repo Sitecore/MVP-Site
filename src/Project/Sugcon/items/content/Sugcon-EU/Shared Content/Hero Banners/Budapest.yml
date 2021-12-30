@@ -11,6 +11,10 @@ Languages:
     - ID: "00f0228c-aff3-4ab7-ac98-e4175a53bf32"
       Hint: HeroTitle
       Value: "24-25 March 2022"
+    - ID: "066f7e92-30ad-4198-b138-b40ccaec6d20"
+      Hint: HeroLink
+      Value: |
+        <link text="Purchase tickets now" linktype="external" url="https://bit.ly/SUGCONEurope2022Hotel" anchor="" target="" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20211223T113349Z
@@ -26,11 +30,11 @@ Languages:
       Value: The Sitecore User Group Conference (SUGCON) brings the Sitecore user community together and provides the perfect platform to gain knowledge and get inspired by the potential within Sitecore Experience Cloud, Experience Commerce, Content Hub and more. After many very successful events, we are expecting over 500 attendees to attend
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "66c01361-17a7-440e-a60a-2019233c4f5e"
+      Value: "ff68c538-2fe1-47a5-b350-f5063c6938b6"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211223T115758Z
+      Value: 20211230T105525Z

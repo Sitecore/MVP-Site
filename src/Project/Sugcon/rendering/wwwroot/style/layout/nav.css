@@ -8,9 +8,9 @@
     .main-nav #main-menu nav.navbar {
       padding: 0px; }
       .main-nav #main-menu nav.navbar .logo {
-        min-height: 6em; }
+        min-height: 4em; }
       .main-nav #main-menu nav.navbar li.nav-item a {
-        font-size: 1.2em;
+        font-size: 1.0em;
         font-weight: 600;
         color: #000000; }
       .main-nav #main-menu nav.navbar li.nav-item a.dropdown-item {

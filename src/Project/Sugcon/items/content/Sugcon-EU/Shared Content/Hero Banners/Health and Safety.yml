@@ -1,0 +1,36 @@
+﻿---
+ID: "1e50e3d4-8a28-4032-b157-fcf476cc2375"
+Parent: "c7efeb44-513f-48db-8104-ffd32fbe3833"
+Template: "86864760-3b8b-4e79-927e-0addcd14055d"
+Path: "/sitecore/content/Sugcon-EU/Shared Content/Hero Banners/Health and Safety"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "00f0228c-aff3-4ab7-ac98-e4175a53bf32"
+      Hint: HeroTitle
+      Value: Health & Safety
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211223T113349Z
+    - ID: "3489c7a2-efe1-49e0-a3d7-271183c4f255"
+      Hint: HeroImage
+      Value: |
+        <image mediaid="{5D3FD6D8-CE43-4899-BAB3-301EF5217FB4}" />
+    - ID: "53ee3e16-ba10-4013-959e-9a652a533845"
+      Hint: HeroSubtitle
+      Value: 
+    - ID: "69db2d7e-db5e-4a02-8580-0bcfb77b5482"
+      Hint: HeroDescription
+      Value: 
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1c9d3ec1-cca7-4876-9389-97854ade0aa8"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211228T164341Z
