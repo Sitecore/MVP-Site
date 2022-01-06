@@ -22,6 +22,7 @@
         <PackageReference Update="Sitecore.Owin.Authentication" Version="$(PlatformVersion)" />
         <PackageReference Update="Sitecore.ContentSearch" Version="$(PlatformVersion)" />
         <PackageReference Update="Sitecore.LayoutService" Version="8.0.*" />
+        <PackageReference Update="Sitecore.LayoutService.Mvc" Version="8.0.*" />
         <PackageReference Update="Sitecore.Services.GraphQL" Version="6.0.*" />
         <PackageReference Update="Sitecore.Services.GraphQL.ContentSchema" Version="6.0.*" />
 
