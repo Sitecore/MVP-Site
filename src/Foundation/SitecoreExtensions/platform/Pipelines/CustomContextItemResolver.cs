@@ -7,6 +7,7 @@ using Sitecore.LayoutService.Mvc.ItemResolving;
 using Sitecore.LayoutService.Mvc.Pipelines.RequestBegin;
 using Sitecore.LayoutService.Mvc.Routing;
 using Sitecore.Mvc.Pipelines.Request.RequestBegin;
+using System.Net;
 
 namespace Mvp.Foundation.SitecoreExtensions.Pipelines
 {
@@ -43,6 +44,9 @@ namespace Mvp.Foundation.SitecoreExtensions.Pipelines
                 ID targetID = database.Aliases.GetTargetID(path);
                 if (targetID.IsNull)
                 {
+                    Context.Item = Context.Database.GetItem(string.Concat(Context.Site.StartPath,Settings.GetSetting("Mvp.404PageName")));
+                    args.RequestContext.HttpContext.Response.StatusCode = (int)HttpStatusCode.NotFound;
+
                     string message = string.Concat("An alias for \"", path, "\" exists, but points to a non-existing item.");
                     Log.Info(message, this);
                     return;

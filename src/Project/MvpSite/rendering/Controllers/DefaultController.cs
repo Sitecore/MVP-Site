@@ -33,7 +33,7 @@ namespace Mvp.Project.MvpSite.Controllers
                     {
                         case ItemNotFoundSitecoreLayoutServiceClientException notFound:
                             Response.StatusCode = (int)HttpStatusCode.NotFound;
-                            return View("NotFound", request.Response.Content.Sitecore.Context);
+                            break;
                         case InvalidRequestSitecoreLayoutServiceClientException badRequest:
                         case CouldNotContactSitecoreLayoutServiceClientException transportError:
                         case InvalidResponseSitecoreLayoutServiceClientException serverError:
