@@ -51,6 +51,7 @@ Note that DOCKER_RESTART defaults to no but can point to always or other values 
     ```ps1
     .\up.ps1
     ```
+Note that the up.ps1 script now automatically detects and stops IIS if it is running in the machine!
 
 4. When prompted, log into Sitecore via your browser, and
    accept the device authorization.
