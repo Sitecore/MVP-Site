@@ -14,6 +14,15 @@ if ($LASTEXITCODE -ne 0)
     Write-Error "Container build failed, see errors above."
 }
 
+# Stop IIS if running in this computer
+$service=get-service w3svc  -ErrorAction SilentlyContinue
+if ($null -ne $service.Name) {
+	if ($service.Status -eq 'Running') {        		
+		$svcStatus=iisreset /stop
+		Write-Host "IIS Stopped..." -ForegroundColor Green
+	}
+}
+
 # Run the docker containers
 docker-compose up -d
 
