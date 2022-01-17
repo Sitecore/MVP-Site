@@ -2,7 +2,6 @@ services:
   traefik:
     isolation: ${TRAEFIK_ISOLATION}
     image: ${TRAEFIK_IMAGE}
-    restart: ${DOCKER_RESTART}
     command:
       - "--ping"
       - "--api.insecure=true"
@@ -31,11 +30,9 @@ services:
   redis:
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}sitecore-redis:${SITECORE_VERSION}
-    restart: ${DOCKER_RESTART}
   mssql:
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}nonproduction/mssql-developer:2017-${SITECORE_VERSION}
-    restart: ${DOCKER_RESTART}
     environment:
       SA_PASSWORD: ${SQL_SA_PASSWORD}
       ACCEPT_EULA: "Y"
@@ -48,7 +45,6 @@ services:
   mssql-init:
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-mssql-init:${SITECORE_VERSION}
-    restart: ${DOCKER_RESTART}
     environment:
       SQL_SERVER: ${SQL_SERVER}
       SQL_ADMIN_LOGIN: ${SQL_SA_LOGIN}
@@ -65,7 +61,6 @@ services:
   solr:
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}nonproduction/solr:8.8.2-${SITECORE_VERSION}
-    restart: ${DOCKER_RESTART}
     ports:
       - "8984:8983"
     volumes:
@@ -79,7 +74,6 @@ services:
   solr-init:
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-solr-init:${SITECORE_VERSION}
-    restart: ${DOCKER_RESTART}
     environment:
       SITECORE_SOLR_CONNECTION_STRING: http://solr:8983/solr
       SOLR_CORE_PREFIX_NAME: ${SOLR_CORE_PREFIX_NAME}
@@ -89,7 +83,6 @@ services:
   id:
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}sitecore-id6:${SITECORE_VERSION}
-    restart: ${DOCKER_RESTART}
     environment:
       Sitecore_Sitecore__IdentityServer__SitecoreMemberShipOptions__ConnectionString: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Core;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD}
       Sitecore_Sitecore__IdentityServer__AccountOptions__PasswordRecoveryUrl: https://${CM_HOST}/sitecore/login?rc=1
@@ -113,7 +106,6 @@ services:
   cd:
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-cd:${SITECORE_VERSION}
-    restart: ${DOCKER_RESTART}
     depends_on:
       mssql-init:
         condition: service_healthy
@@ -142,7 +134,6 @@ services:
   cm:
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-cm:${SITECORE_VERSION}
-    restart: ${DOCKER_RESTART}
     depends_on:
       mssql-init:
         condition: service_healthy
