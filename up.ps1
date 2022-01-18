@@ -4,6 +4,9 @@ if(-not (Test-Path .env)) {
     exit
 }
 
+# Comment the following line in case if you want to manually switch to windows container!
+ & "C:\Program Files\Docker\Docker\DockerCli.exe" -SwitchWindowsEngine
+
 # Restore dotnet tool for sitecore login and serialization
 dotnet tool restore
 

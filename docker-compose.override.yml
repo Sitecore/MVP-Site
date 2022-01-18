@@ -95,7 +95,6 @@ services:
   mssql-init:
     isolation: ${ISOLATION}
     image: ${MVP_DOCKER_REGISTRY}mvp-mssql-init:${SITECORE_VERSION}
-    restart: ${DOCKER_RESTART}
     build:
       context: ./docker/build/mssql-init
       args:
@@ -111,7 +110,6 @@ services:
 
   solr-init:
     image: ${MVP_DOCKER_REGISTRY}mvp-solr-init:${SITECORE_VERSION}
-    restart: ${DOCKER_RESTART}
     build:
       context: ./docker/build/solr-init
       args:
