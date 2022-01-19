@@ -1,8 +1,6 @@
 # 🥇 Sitecore MVP Program Site
 
-This is the new Sitecore MVP site - build against Sitecore 10.1 utillising the new .NET Core development experience.
-
-🚧🚧🚧 This is a work in progress and as such will probably contain some errors, bugs etc that will _hopefully_ be fixed before go live 🚧🚧🚧
+This repository for the [Sitecore MVP site](https://mvp.sitecore.com). It is built using Sitecore 10.2.
 
 # 💗 Contributions
 
