@@ -10,6 +10,9 @@ if(-not (Test-Path .env)) {
     exit
 }
 
+# Comment the following line in case if you want to manually switch to windows container!
+ & "C:\Program Files\Docker\Docker\DockerCli.exe" -SwitchWindowsEngine
+
 # Restore dotnet tool for sitecore login and serialization
 dotnet tool restore
 
@@ -18,6 +21,15 @@ docker-compose build
 if ($LASTEXITCODE -ne 0)
 {
     Write-Error "Container build failed, see errors above."
+}
+
+# Stop IIS if running in this computer
+$service=get-service w3svc  -ErrorAction SilentlyContinue
+if ($null -ne $service.Name) {
+	if ($service.Status -eq 'Running') {        		
+		$svcStatus=iisreset /stop
+		Write-Host "IIS Stopped..." -ForegroundColor Green
+	}
 }
 
 # Run the docker containers

@@ -28,6 +28,7 @@ services:
   mvp-rendering:
     container_name: mvp-rendering
     image: ${MVP_DOCKER_REGISTRY}mvp-rendering:${SITECORE_VERSION}
+    restart: ${DOCKER_RESTART}
     build:
       context: ./docker/build/rendering
       target: ${BUILD_CONFIGURATION}
@@ -88,13 +89,18 @@ services:
     scale: 0
 
   traefik:
+    restart: ${DOCKER_RESTART}
     volumes:
       - ./docker/traefik:C:/etc/traefik
     depends_on:
       mvp-rendering:
         condition: service_started
 
+  redis:
+    restart: ${DOCKER_RESTART}
+
   mssql:
+    restart: ${DOCKER_RESTART}
     volumes:
       - type: bind
         source: .\docker\data\sql
@@ -112,6 +118,7 @@ services:
         SPE_RESOURCES_IMAGE: ${SPE_RESOURCES_IMAGE}
 
   solr:
+    restart: ${DOCKER_RESTART}
     volumes:            
       - ${LOCAL_DATA_PATH}\solr:c:\data  
     mem_limit: ${MEM_LIMIT_SOLR:-1GB}  
@@ -125,6 +132,7 @@ services:
   
   id:
     image: ${MVP_DOCKER_REGISTRY}mvp-id6:${SITECORE_VERSION}
+    restart: ${DOCKER_RESTART}
     build:
       context: ./docker/build/id
       args:
@@ -139,6 +147,7 @@ services:
 
   cd:
     image: ${MVP_DOCKER_REGISTRY}mvp-cd:${SITECORE_VERSION}
+    restart: ${DOCKER_RESTART}
     build:
       context: ./docker/build/cd
       args:
@@ -175,6 +184,7 @@ services:
 
   cm:
     image: ${MVP_DOCKER_REGISTRY}mvp-cm:${SITECORE_VERSION}
+    restart: ${DOCKER_RESTART}
     build:
       context: ./docker/build/cm
       args:
