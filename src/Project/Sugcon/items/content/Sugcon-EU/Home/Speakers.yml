@@ -1,0 +1,53 @@
+﻿---
+ID: "82b1a950-e267-4e8a-b212-f6bc21f9f3d0"
+Parent: "f80c1fef-699c-4056-9f38-38640c187209"
+Template: "07336b1b-1ccb-4f7d-a49b-a61cdd10c4cc"
+Path: "/sitecore/content/Sugcon-EU/Home/Speakers"
+BranchID: "3164213a-4e9d-4c68-b7bf-6b224e23445c"
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: |
+    {6AEC120A-7222-42C6-A8E8-53F9354AEF53}
+    {07336B1B-1CCB-4F7D-A49B-A61CDD10C4CC}
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{A11CE578-AB92-46CE-967B-91ECEDBC3F8A}"
+          p:after="*[1=2]"
+          s:ds="{DC7304F3-ED0B-4BB1-8987-2B2BBD629A10}"
+          s:id="{E275C475-C17D-49AA-BDF7-8AF17D8596C3}"
+          s:par=""
+          s:ph="main"
+          s:ccb="Clear on publish" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{6D7EC563-33FF-4CAB-99AF-2296CF3DEA41}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220119T190628Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "36585c15-0698-459a-a2e4-bcb7671ebbec"
+    - ID: "b1ece12f-b2c9-44e6-92a3-c5dfd6514b59"
+      Hint: Menu Title
+      Value: Speakers
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220119T193832Z

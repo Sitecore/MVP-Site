@@ -15,6 +15,7 @@ namespace Mvp.Feature.BasicContent.Extensions
                    .AddModelBoundView<RichTextContent>("SugconRichText")
                    .AddModelBoundView<ImageTeaser>("ImageTeaser")
                    .AddModelBoundView<VideoTeaser>("VideoTeaser")
+                   .AddModelBoundView<EmbedContent>("EmbedContent")
                    .AddPartialView("ColumnContainer")
                    .AddPartialView("PageOverviewPanel")
 
