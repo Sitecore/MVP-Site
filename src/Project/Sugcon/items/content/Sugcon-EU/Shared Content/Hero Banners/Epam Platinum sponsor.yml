@@ -27,14 +27,14 @@ Languages:
       Value: Platinum Sponsor
     - ID: "69db2d7e-db5e-4a02-8580-0bcfb77b5482"
       Hint: HeroDescription
-      Value: 
+      Value: "https://www.epam.com/"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "933ec927-6bab-42aa-bf01-dbf946c1ce05"
+      Value: "dd07a521-c4ba-4d0d-81ee-ec80b5cc9d23"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211228T173443Z
+      Value: 20220126T155201Z

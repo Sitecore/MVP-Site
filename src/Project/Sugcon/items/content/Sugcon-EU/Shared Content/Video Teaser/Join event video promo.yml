@@ -14,21 +14,21 @@ Languages:
     - ID: "2aaa4a8c-e077-45ec-9439-f151435673d7"
       Hint: TeaserLink
       Value: |
-        <link text="Purchase tickets now" linktype="external" url="https://www.google.com" anchor="" target="_blank" />
+        <link text="Purchase tickets now" linktype="external" url="https://sugcon2022.rentit.hu/" anchor="" target="_blank" />
     - ID: "87d60910-c481-42a7-8eb6-68e96b0f7cba"
       Hint: TeaserEmbed
       Value: |
         <iframe width="560" height="420" src="https://www.youtube.com/embed/sdqA-r2f3V8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "43524b7a-db91-45c0-9ecb-f2b83b4081a9"
+      Value: "47a1d078-88a6-40fd-b966-2312f681f178"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211228T184525Z
+      Value: 20220126T155848Z
     - ID: "efc256c0-d388-4966-9340-a4508104de04"
       Hint: TeaserTitle
       Value: Join the largest Sitecore Community event of the year

@@ -18,44 +18,19 @@ Languages:
         
         <div class="row sponsors sponsors--gold mb-4">
                           <div class="col-12 col-md-6 col-lg-3 sponsors__item">
-                            <a class="d-block mb-4" href="https://www.americaneagle.com/platforms/sitecore">
+                            <a class="d-block mb-4" href="https://www.searchstax.com/">
                               <div class="ar ar--logo ar--16-9">
                                 <div class="ar__content">
-                                 <img alt="" src="-/media/B4515C24614849F48E65A8FE3105CAC4.ashx" />
+                                 <img alt="" src="-/media/5D2CC6E692264BF0A9338506F1C63CE2.ashx" />
                                 </div>
                               </div>
                             </a>
                           </div>
-                          <div class="col-12 col-md-6 col-lg-3 sponsors__item">
-                            <a class="d-block mb-4" href="">
-                              <div class="ar ar--logo ar--16-9">
-                                <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <div class="col-12 col-md-6 col-lg-3 sponsors__item">
-                            <a class="d-block mb-4" href="">
-                              <div class="ar ar--logo ar--16-9">
-                                <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <div class="col-12 col-md-6 col-lg-3 sponsors__item">
-                            <a class="d-block mb-4" href="">
-                              <div class="ar ar--logo ar--16-9">
-                                <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                        </div>
+                          
+                          
+        </div>
         
-        <h2>Silver sponsors</h2>
+        <h2>Silver & Bronze sponsors</h2>
         <div class="row sponsors sponsors--silver mb-4">
                           <div class="col-6 col-md-4 col-lg-3 sponsors__item">
                             <a class="d-block mb-4" href="https://www.americaneagle.com/platforms/sitecore">
@@ -67,202 +42,80 @@ Languages:
                             </a>
                           </div>
                           <div class="col-6 col-md-4 col-lg-3 sponsors__item">
-                            <a class="d-block mb-4" href="">
+                            <a class="d-block mb-4" href="https://sagittarius.agency/">
                               <div class="ar ar--logo ar--16-9">
                                 <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                  <img src="-/media/C25C776C69994D85BC49F379820FDF68.ashx" alt="" />
                                 </div>
                               </div>
                             </a>
                           </div>
-                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
-                            <a class="d-block mb-4" href="">
-                              <div class="ar ar--logo ar--16-9">
-                                <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
-                            <a class="d-block mb-4" href="">
-                              <div class="ar ar--logo ar--16-9">
-                                <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
-                            <a class="d-block mb-4" href="">
-                              <div class="ar ar--logo ar--16-9">
-                                <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
-                            <a class="d-block mb-4" href="">
-                              <div class="ar ar--logo ar--16-9">
-                                <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                        </div>
+                          
+                          
+        </div>
         
-        <h2>Bronze sponsors</h2>
-        <div class="row sponsors sponsors--bronze mb-4">
-                          <div class="col-4 col-md-4 col-lg-3 sponsors__item">
-                            <a class="d-block mb-4" href="https://www.americaneagle.com/platforms/sitecore">
-                              <div class="ar ar--logo ar--16-9">
-                                <div class="ar__content">
-                                  <img alt="" src="-/media/B4515C24614849F48E65A8FE3105CAC4.ashx" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
-                            <a class="d-block mb-4" href="">
-                              <div class="ar ar--logo ar--16-9">
-                                <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
-                            <a class="d-block mb-4" href="">
-                              <div class="ar ar--logo ar--16-9">
-                                <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
-                            <a class="d-block mb-4" href="">
-                              <div class="ar ar--logo ar--16-9">
-                                <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
-                            <a class="d-block mb-4" href="">
-                              <div class="ar ar--logo ar--16-9">
-                                <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
-                            <a class="d-block mb-4" href="">
-                              <div class="ar ar--logo ar--16-9">
-                                <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
-                            <a class="d-block mb-4" href="">
-                              <div class="ar ar--logo ar--16-9">
-                                <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
-                            <a class="d-block mb-4" href="">
-                              <div class="ar ar--logo ar--16-9">
-                                <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                        </div>
         <h2>Community sponsors</h2>
-        <div class="row sponsors sponsors--bronze mb-4">
-                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
-                            <a class="d-block mb-4" href="https://www.americaneagle.com/platforms/sitecore">
+        <div class="row sponsors sponsors--silver mb-4">
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://www.sitecore-usergroup.de/">
                               <div class="ar ar--logo ar--16-9">
                                 <div class="ar__content">
-                                  <img alt="" src="-/media/B4515C24614849F48E65A8FE3105CAC4.ashx" />
+                                  <img alt="" src="-/media/9CE9705CA883450DA728440EAB9DF596.ashx" />
                                 </div>
                               </div>
                             </a>
                           </div>
-                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
-                            <a class="d-block mb-4" href="">
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://www.kuehlhaus.com/">
                               <div class="ar ar--logo ar--16-9">
                                 <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                  <img src="-/media/2F780060EE5345A799772093352EED74.ashx" alt="" />
                                 </div>
                               </div>
                             </a>
                           </div>
-                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
-                            <a class="d-block mb-4" href="">
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://pentia.dk/">
                               <div class="ar ar--logo ar--16-9">
                                 <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                  <img src="-/media/73650ED6461C49719E8915239E0D6769.ashx" alt="" />
                                 </div>
                               </div>
                             </a>
                           </div>
-                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
-                            <a class="d-block mb-4" href="">
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://www.webit.de/">
                               <div class="ar ar--logo ar--16-9">
                                 <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                  <img src="-/media/A86B0F2EFBAC498787F9BB3A58604A5E.ashx" alt="" />
                                 </div>
                               </div>
                             </a>
                           </div>
-                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
-                            <a class="d-block mb-4" href="">
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://www.brimit.com/">
                               <div class="ar ar--logo ar--16-9">
                                 <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                  <img src="-/media/7BA906F77736462582E3D46D848AE268.ashx" alt="" />
                                 </div>
                               </div>
                             </a>
                           </div>
-                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
-                            <a class="d-block mb-4" href="">
+        
+        <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://www.macaw.net/">
                               <div class="ar ar--logo ar--16-9">
                                 <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
+                                  <img src="-/media/2382D8C220A04EE3A90012FE38F2B712.ashx" alt="" />
                                 </div>
                               </div>
                             </a>
                           </div>
-                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
-                            <a class="d-block mb-4" href="">
-                              <div class="ar ar--logo ar--16-9">
-                                <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <div class="col-4 col-md-4 col-lg-2 sponsors__item">
-                            <a class="d-block mb-4" href="">
-                              <div class="ar ar--logo ar--16-9">
-                                <div class="ar__content">
-                                  <img src="http://via.placeholder.com/320x180" alt="" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                        </div>
+        
+                          
+        </div>
+        
+        
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -273,11 +126,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a7f411cb-1615-4295-84f6-05f521ce9bfb"
+      Value: "583723bb-9774-4df9-8556-1f229502c3c9"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211230T110612Z
+      Value: 20220126T154801Z
