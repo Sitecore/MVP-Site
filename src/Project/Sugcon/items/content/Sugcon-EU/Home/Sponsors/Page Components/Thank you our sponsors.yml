@@ -1,0 +1,37 @@
+﻿---
+ID: "2601c59c-09ae-4caf-a409-0839c6771543"
+Parent: "003110c6-f0e0-4800-a00a-b67a491c5b44"
+Template: "64ad1284-23fb-4b76-85b3-c6dfb1b322bf"
+Path: "/sitecore/content/Sugcon-EU/Home/Sponsors/Page Components/Thank you our sponsors"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220126T154959Z
+    - ID: "5098b799-31dd-4c1b-9955-3e8598caa21f"
+      Hint: Content
+      Value: |
+        <h2>WE WOULD LIKE TO THANK AND EXPRESS OUR GRATITUDE TO OUR SPONSORS</h2>
+        <p>Without the help of these amazing sponsors we couldn&rsquo;t organize such a great event like SUGCON Europe 2022!<br />
+        The entire conference is run by the Sitecore community for the Sitecore community.</p>
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9f8d0de7-bd97-43b4-a89c-64e1acd339ed"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220126T155042Z

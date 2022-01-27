@@ -105,10 +105,6 @@ Languages:
               s:ph="/main/column-container-{D2DE8BE0-C911-46EB-9A32-DB8B4863AB2B}-0" />
           </d>
         </r>
-    - ID: "0fe8dc75-b7a3-4a47-b84b-f0c04b7493e2"
-      Hint: Logo
-      Value: |
-        <image mediaid="{2D7FB4CE-987A-4CF1-AA42-13B9BE66EDE8}" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20200513T045800Z

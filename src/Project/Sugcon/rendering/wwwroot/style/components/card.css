@@ -1,0 +1,24 @@
+.card--org {
+  border: none; }
+  .card--org .card-body a {
+    color: #19a5a2; }
+
+.card--video {
+  border: none; }
+  .card--video .card-body {
+    height: 128px;
+    overflow: hidden; }
+    @media (max-width: 767.98px) {
+      .card--video .card-body {
+        height: auto; } }
+    .card--video .card-body h4 {
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden; }
+      @media (max-width: 767.98px) {
+        .card--video .card-body h4 {
+          -webkit-line-clamp: initial;
+          overflow: visible; } }
+
+/*# sourceMappingURL=../maps/components/card.css.map */

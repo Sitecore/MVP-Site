@@ -1,0 +1,36 @@
+﻿---
+ID: "161f0b91-74e6-4f6b-a0aa-e37b17ea29a4"
+Parent: "26fe85ae-7f50-4184-8695-e69e84c579ef"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Project/Sugcon/Homepage
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/office_building2.png
+- ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
+  Hint: __Base template
+  Value: |
+    {1930BBEB-7805-471A-A3BE-4858AC7CF696}
+    {AD1CB5AB-CB35-4107-BD11-793053B31A38}
+    {2FA21400-EB0C-4339-ADC0-71FB2D762256}
+- ID: "f7d48a55-2158-4f02-9356-756654404f73"
+  Hint: __Standard values
+  Value: "{B70BB943-D9FB-4810-A823-EB1A7757C518}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200513T045547Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a104fbdb-fe24-44f8-b689-23b170338e48"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211203T093748Z

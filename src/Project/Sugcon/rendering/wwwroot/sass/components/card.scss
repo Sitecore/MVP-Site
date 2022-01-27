@@ -1,0 +1,40 @@
+$namespace: 'card';
+
+.#{$namespace} {
+
+  &--org {
+    border: none;
+
+    .#{$namespace}-body {
+
+      a {
+        color: #19a5a2;
+      }
+    }
+  }
+
+  &--video {
+    border: none;
+	
+	.#{$namespace}-body {
+		height: 128px;
+		overflow: hidden;
+		
+		@media (max-width: 767.98px) {
+			height: auto;
+		}
+		
+		h4 {
+			display: -webkit-box;
+			-webkit-line-clamp: 4;
+			-webkit-box-orient: vertical;  
+			overflow: hidden;
+			
+			  @media (max-width: 767.98px) {
+				-webkit-line-clamp: initial;
+				overflow: visible;
+			  }
+		}
+	}
+  }
+}

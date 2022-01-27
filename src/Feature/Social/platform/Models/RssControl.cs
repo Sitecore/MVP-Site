@@ -1,7 +1,4 @@
-﻿using Mvp.Feature.Social.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Mvp.Feature.Social.Models
 {

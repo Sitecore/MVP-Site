@@ -9,20 +9,20 @@ Languages:
   - Version: 1
     Fields:
     - ID: "0953b42d-91ac-4644-9a4e-38fd3fc91eb7"
-      Hint: FeatureTitle
+      Hint: ItemTitle
       Value: Commerce
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20200629T111550Z
     - ID: "8948fc61-e65e-4215-8365-ed0951155ec5"
-      Hint: FeatureLink
+      Hint: ItemLink
       Value: |
         <link text="Learn more" anchor="" linktype="internal" class="" title=""  querystring="" id="{FA048086-14BC-4E7D-9987-59F8B4ADC286}" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "85b06610-7b5b-4f1c-92c8-84bfa8cc6261"
     - ID: "aeb48911-54fc-479c-966d-1808cbba333c"
-      Hint: FeatureText
+      Hint: ItemText
       Value: An individual who actively participates in online and offline communities to share their Sitecore Experience Commerce knowledge and expertise with developers, other Sitecore partners and customers.
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by

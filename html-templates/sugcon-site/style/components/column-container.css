@@ -1,0 +1,15 @@
+.column-container {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  .column-container h2 {
+    padding-top: 50px;
+    padding-bottom: 10px; }
+
+.hero.medium + .column-container {
+  padding-top: 70px; }
+
+@media (max-width: 767.98px) {
+  .hero.medium + .column-container {
+    padding-top: 40px; } }
+
+/*# sourceMappingURL=../maps/components/column-container.css.map */

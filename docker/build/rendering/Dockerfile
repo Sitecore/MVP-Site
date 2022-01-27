@@ -10,13 +10,25 @@ ARG RELEASE_BASE_IMAGE
 ARG SOLUTION_IMAGE
 
 FROM ${DEBUG_BASE_IMAGE} as debug
+ARG ENTRYPOINT_PROJECT_FOLDER
+
 WORKDIR /solution/src
-ENTRYPOINT ["dotnet", "watch", "-v", "--project", ".\\Project\\MvpSite\\rendering", "run", "--no-launch-profile"]
+
+ENV ENTRYPOINT_PROJECT_PATH="Project/${ENTRYPOINT_PROJECT_FOLDER}/rendering"
+RUN echo $env:ENTRYPOINT_PROJECT_PATH
+EXPOSE 80
+ENTRYPOINT dotnet watch -v --project .\$env:ENTRYPOINT_PROJECT_PATH run --no-launch-profile
 
 FROM ${SOLUTION_IMAGE} as solution
 FROM ${RELEASE_BASE_IMAGE} as release
+
+ARG ENTRYPOINT_ASSEMBLY_NAME
+ARG ARTIFACTS_FOLDER=/artifacts/rendering/
+
+ENV ENTRYPOINT_ASSEMBLY="${ENTRYPOINT_ASSEMBLY_NAME}.dll"
+
 WORKDIR /app
-COPY --from=solution /artifacts/mvp-rendering/ ./
+COPY --from=solution ${ARTIFACTS_FOLDER} ./
 EXPOSE 80
 EXPOSE 443
-ENTRYPOINT ["dotnet", "Mvp.Project.MvpSite.dll"]
+ENTRYPOINT dotnet %ENTRYPOINT_ASSEMBLY%

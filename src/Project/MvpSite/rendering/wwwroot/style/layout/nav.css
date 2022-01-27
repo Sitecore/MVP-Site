@@ -1,0 +1,37 @@
+/* Brand Colors */
+/* Site Colors */
+.main-nav {
+  padding-top: 25px;
+  padding-bottom: 35px; }
+  .main-nav #main-menu {
+    padding: 0px; }
+    .main-nav #main-menu nav.navbar {
+      padding: 0px; }
+      .main-nav #main-menu nav.navbar .logo {
+        min-height: 3.5em; }
+      .main-nav #main-menu nav.navbar li.nav-item a {
+        font-size: 1.2em;
+        font-weight: 600;
+        color: #000000; }
+      .main-nav #main-menu nav.navbar li.nav-item a.dropdown-item {
+        font-size: 1.0em;
+        font-weight: 400;
+        color: #000000; }
+        .main-nav #main-menu nav.navbar li.nav-item a.dropdown-item:hover {
+          text-decoration: underline;
+          background: none; }
+
+#topbar {
+  background: #666;
+  font-size: 0.9em;
+  height: 40px; }
+  #topbar a:link, #topbar a:visited {
+    color: #ffffff; }
+  #topbar a:link {
+    color: #ffffff; }
+  #topbar a.dropdown-item:link, #topbar a.dropdown-item:visited {
+    color: #333333; }
+  #topbar ul.nav.navbar-nav li a {
+    padding-left: 10px; }
+
+/*# sourceMappingURL=../maps/layout/nav.css.map */

@@ -7,6 +7,6 @@ namespace Mvp.Feature.Navigation.Services
 {
     public interface INavigationBuilder
     {
-        IList<Link> GetNavigationLinks(Item contextItem, Rendering rendering);
+        IList<Link> GetNavigationLinks(Item navigationRootItem);
     }
 }

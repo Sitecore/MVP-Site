@@ -1,0 +1,36 @@
+﻿---
+ID: "f653ad6d-f185-4ff1-a0b9-5038886e1cd4"
+Parent: "025660b5-b770-46e9-92f6-5ab512e8f8e4"
+Template: "64ad1284-23fb-4b76-85b3-c6dfb1b322bf"
+Path: "/sitecore/content/Sugcon-EU/Home/Venue/Page Components/Map rich text"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211228T170117Z
+    - ID: "5098b799-31dd-4c1b-9955-3e8598caa21f"
+      Hint: Content
+      Value: |
+        <h2>Venue Map</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2696.075092541101!2d19.019860115773245!3d47.48845047917701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc2c20373ce9%3A0xbdf70bb1c14bd46a!2sBudapest%20Kongresszusi%20K%C3%B6zpont!5e0!3m2!1sen!2sby!4v1640710908111!5m2!1sen!2sby" width="1100" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1321ac91-7383-41da-bfeb-f3e2cc8ea2c9"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211228T170424Z

@@ -1,0 +1,40 @@
+﻿---
+ID: "c80f34c0-bfae-470b-a556-c135938acc8c"
+Parent: "c7efeb44-513f-48db-8104-ffd32fbe3833"
+Template: "86864760-3b8b-4e79-927e-0addcd14055d"
+Path: "/sitecore/content/Sugcon-EU/Shared Content/Hero Banners/Budapest"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "00f0228c-aff3-4ab7-ac98-e4175a53bf32"
+      Hint: HeroTitle
+      Value: "24-25 March 2022"
+    - ID: "066f7e92-30ad-4198-b138-b40ccaec6d20"
+      Hint: HeroLink
+      Value: |
+        <link text="Purchase tickets now" linktype="external" url="https://sugcon2022.rentit.hu/" anchor="" target="" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211223T113349Z
+    - ID: "3489c7a2-efe1-49e0-a3d7-271183c4f255"
+      Hint: HeroImage
+      Value: |
+        <image mediaid="{5D7A1513-2C01-42B4-968C-F956AAD5E343}" />
+    - ID: "53ee3e16-ba10-4013-959e-9a652a533845"
+      Hint: HeroSubtitle
+      Value: SUGCON Europe
+    - ID: "69db2d7e-db5e-4a02-8580-0bcfb77b5482"
+      Hint: HeroDescription
+      Value: The Sitecore User Group Conference (SUGCON) brings the Sitecore user community together and provides the perfect platform to gain knowledge and get inspired by the potential within Sitecore Experience Cloud, Experience Commerce, Content Hub and more. After many very successful events, we are expecting over 500 attendees to attend
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "29252209-f51f-42f5-b2c9-df1eb1ac605a"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220126T160421Z

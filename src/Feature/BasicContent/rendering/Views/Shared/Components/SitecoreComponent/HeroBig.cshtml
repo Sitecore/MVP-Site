@@ -1,0 +1,22 @@
+﻿@model Mvp.Feature.BasicContent.Models.HeroBig
+
+<section class="hero background-white">
+    @if (!string.IsNullOrEmpty(Model.HeroImage?.Value.Src)) {
+    <div class="background-image" data-module="image-src" style="background-image: url('@Model.HeroImage?.Value?.Src'); background-position: right;"></div>
+    }
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p class="top" asp-for="HeroSubtitle"></p>
+                <h1 class="static" asp-for="HeroTitle"></h1>
+
+                <p asp-for="HeroDescription"></p>
+                @if (!string.IsNullOrWhiteSpace(Model.HeroLink.Value.Href)) {
+                    <a asp-for="HeroLink" data-module="cta-button" data-goals="" class="cta primary" aria-label="@Model.HeroLink.Value.Title">
+                        @Model.HeroLink.Value.Text
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</section>

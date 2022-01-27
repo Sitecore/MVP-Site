@@ -1,0 +1,64 @@
+﻿---
+ID: "4a0b5bad-e08a-4d30-acbe-883ffcbeb712"
+Parent: "f80c1fef-699c-4056-9f38-38640c187209"
+Template: "07336b1b-1ccb-4f7d-a49b-a61cdd10c4cc"
+Path: "/sitecore/content/Sugcon-EU/Home/Past Events"
+BranchID: "3164213a-4e9d-4c68-b7bf-6b224e23445c"
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: |
+    {6AEC120A-7222-42C6-A8E8-53F9354AEF53}
+    {07336B1B-1CCB-4F7D-A49B-A61CDD10C4CC}
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 600
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{6D7EC563-33FF-4CAB-99AF-2296CF3DEA41}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{A299E23D-DEE5-4FF0-9DC2-64AD603E9A4E}"
+              p:before="*"
+              s:ds="{09FA207B-9EA4-4AAE-942D-B8D3CBDE7E89}"
+              s:id="{AA449EA4-0695-4D4C-9CD3-E582738A355E}"
+              s:par=""
+              s:ph="/main/page-overview-panel-{32A3434C-B68F-473F-9AB8-66228C51501A}-0"
+              s:ccb="Clear on publish" />
+            <r
+              uid="{D842E8EB-450E-4348-A54A-E60CF16E9E52}"
+              p:after="r[@uid='{001823AD-9D35-4B58-A73F-73A4C0B115F6}']" />
+            <r
+              uid="{32A3434C-B68F-473F-9AB8-66228C51501A}"
+              p:after="*[1=2]"
+              s:id="{DF26CA0D-A60B-4349-8908-E7A62F7E7272}"
+              s:ph="main" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211203T095517Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a2bea15a-6e5f-410e-aa94-30a1d87e0552"
+    - ID: "b1ece12f-b2c9-44e6-92a3-c5dfd6514b59"
+      Hint: Menu Title
+      Value: Past events
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211228T184320Z

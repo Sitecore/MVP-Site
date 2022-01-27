@@ -1,0 +1,78 @@
+
+/* Brand Colors */
+$sc-red: #fe2911;
+$sc-teal: #1ca6a3;
+$sc-charcoal: #232323;
+$sc-black: #000000;
+$sc-white: #ffffff;
+$sc-gray1: #f0f0f0;
+$sc-gray2: #cccccc;
+$sc-gray3: #999999;
+$sc-gray4: #707070;
+$sc-gray5: #333333;
+/* Site Colors */
+$sc-topbar-bg: #666;
+$sc-content-bg: #F6F6F6;
+$sc-font-color: #212529;
+
+.main-nav {
+    padding-top: 25px;
+    padding-bottom: 35px;
+
+    #main-menu {
+        padding: 0px;
+
+        nav.navbar {
+            padding: 0px;
+            .logo {
+                min-height: 4em;
+            }
+            li.nav-item {
+                a {
+                    font-size: 1.0em;
+                    font-weight: 600;
+                    color: $sc-black;
+                }
+
+                a.dropdown-item {
+                    font-size: 1.0em;
+                    font-weight: 400;
+                    color: $sc-black;
+
+                    &:hover {
+                        text-decoration: underline;
+                        background: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#topbar {
+    background: $sc-topbar-bg;
+    font-size: 0.9em;
+    height: 40px;
+
+    a:link, a:visited {
+        color: $sc-white;
+    }
+
+    a:link {
+        color: $sc-white;
+       // padding: 10px 18px 7px;
+    }
+
+    a.dropdown-item {
+        &:link, &:visited {
+            color: $sc-gray5;
+        }
+    }
+
+    ul.nav.navbar-nav li a {
+        padding-left: 10px;
+    }
+}
+
+
+

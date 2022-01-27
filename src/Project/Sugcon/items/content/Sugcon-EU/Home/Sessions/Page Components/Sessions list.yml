@@ -1,0 +1,27 @@
+﻿---
+ID: "88f4627f-1bfb-4d94-9070-abe972081e78"
+Parent: "21df0be4-fea8-45d6-95f7-946b4429de8a"
+Template: "e55a415d-4a75-40d2-8145-6cc79a4ed1e3"
+Path: "/sitecore/content/Sugcon-EU/Home/Sessions/Page Components/Sessions list"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220119T193738Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "778ea966-ca45-45b0-9058-112c42af13be"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9218843-78e1-418d-9b0d-7c511ca15f82"
+      Hint: EmbedCode
+      Value: |
+        <div class="container" style="padding:0;"><script type="text/javascript" src="https://sessionize.com/api/v2/kntodhjc/view/Sessions"></script></div>
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220126T152150Z

@@ -9,7 +9,9 @@ SharedFields:
   Value: Office/32x32/movie.png
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
-  Value: "{1930BBEB-7805-471A-A3BE-4858AC7CF696}"
+  Value: |
+    {1930BBEB-7805-471A-A3BE-4858AC7CF696}
+    {E187527A-43E7-41B0-8A43-51837814942F}
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 125
@@ -34,11 +36,11 @@ Languages:
         sitecore\admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "89bba15d-ed35-4212-974d-3b55b0e154c1"
+      Value: "84f329da-9355-4a28-b03c-5be6af4b3c5e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\admin
+        sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200721T141139Z
+      Value: 20211206T141437Z

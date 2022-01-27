@@ -1,0 +1,55 @@
+.no-overhang + .page-overview-panel, .no-overhang + .partners {
+  padding-top: 80px; }
+
+.page-overview-panel {
+  background-color: #f6f6f6;
+  padding-top: 143px;
+  padding-bottom: 70px; }
+  .page-overview-panel .image {
+    padding-top: 80px; }
+    .page-overview-panel .image img {
+      display: block;
+      width: 85%; }
+  .page-overview-panel h2 {
+    margin-bottom: 30px;
+    max-width: 720px; }
+  .page-overview-panel h3 {
+    font-size: 1.2em; }
+    .page-overview-panel h3 a:link, .page-overview-panel h3 a:visited {
+      color: #000; }
+  .page-overview-panel ol {
+    padding-left: 25px; }
+  .page-overview-panel ul {
+    padding-left: 25px; }
+    .page-overview-panel ul li {
+      list-style-type: none;
+      position: relative;
+      margin-bottom: 1rem;
+      font-family: AvenirNextW05-Regular;
+      color: #707070;
+      font-size: 18px; }
+      .page-overview-panel ul li:before {
+        content: " ";
+        position: absolute;
+        left: -29px;
+        top: 9px;
+        width: 7px;
+        height: 7px;
+        background-color: #19a5a2;
+        border-radius: 150px;
+        background-repeat: no-repeat; }
+      .page-overview-panel ul li p {
+        color: #707070;
+        margin-bottom: 0; }
+
+@media (max-width: 767.98px) {
+  .page-overview-panel .image {
+    padding-top: 40px; }
+    .page-overview-panel .image img {
+      padding-bottom: 40px;
+      border-bottom: 1px solid #e1e1e1;
+      width: 100%; }
+  .page-overview-panel ul li {
+    font-size: 16px; } }
+
+/*# sourceMappingURL=../maps/components/page-overview-panel.css.map */

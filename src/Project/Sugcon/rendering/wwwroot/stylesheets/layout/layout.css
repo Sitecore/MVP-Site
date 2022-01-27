@@ -1,0 +1,60 @@
+/* Brand Colors */
+/* Site Colors */
+/* line 18, ../../sass/layout/layout.scss */
+html { position: relative; min-height: 100%; }
+
+/* line 23, ../../sass/layout/layout.scss */
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; margin-bottom: 56px; font-size: 1rem; font-weight: 400; line-height: 1.5; overflow-x: hidden; color: #212529; background-color: #ffffff; }
+
+/* line 34, ../../sass/layout/layout.scss */
+* { font-family: 'AvenirNextW05-Medium'; }
+
+/* line 38, ../../sass/layout/layout.scss */
+p { font-family: 'AvenirNextW05-Regular'; color: #707070; font-size: 18px; }
+
+/* line 44, ../../sass/layout/layout.scss */
+select { font-family: 'AvenirNextW05-Regular'; color: #707070; font-size: 18px; }
+
+/* line 50, ../../sass/layout/layout.scss */
+i { font-family: 'AvenirNextW05-Italic'; color: #707070; }
+
+/* line 55, ../../sass/layout/layout.scss */
+h1 { color: #232323; font-weight: 900; font-family: 'AvenirNextW05-Bold'; font-size: 48px; line-height: 50px; }
+
+/* line 63, ../../sass/layout/layout.scss */
+h2 { color: #232323; font-weight: 900; font-family: 'AvenirNextW05-Bold'; font-size: 36px; }
+
+/* line 70, ../../sass/layout/layout.scss */
+h3 { color: #232323; font-weight: 900; font-family: 'AvenirNextW05-Bold'; font-size: 24px; }
+
+/* line 77, ../../sass/layout/layout.scss */
+h4 { color: #232323; font-weight: 900; font-family: 'AvenirNextW05-Bold'; font-size: 18px; }
+
+/* line 84, ../../sass/layout/layout.scss */
+.bg-teal { background: #1ca6a3; color: #ffffff; }
+
+/* line 89, ../../sass/layout/layout.scss */
+.bg-gray4 { background: #707070; color: #ffffff; }
+
+/* line 94, ../../sass/layout/layout.scss */
+.background-white { background-color: #ffffff; }
+
+/* line 98, ../../sass/layout/layout.scss */
+section.background-white { background-color: #ffffff; }
+
+/* line 102, ../../sass/layout/layout.scss */
+.background-grey { background-color: #F6F6F6; }
+
+/* line 106, ../../sass/layout/layout.scss */
+section.background-grey { background-color: #F6F6F6; }
+
+/* line 111, ../../sass/layout/layout.scss */
+main #content { background-color: #F6F6F6; }
+@media (max-width: 767.98px) { /* line 116, ../../sass/layout/layout.scss */
+  main h2 { font-size: 22px; }
+  /* line 120, ../../sass/layout/layout.scss */
+  main h3 { font-size: 18px; }
+  /* line 124, ../../sass/layout/layout.scss */
+  main h4 { font-size: 16px; } }
+
+/*# sourceMappingURL=layout.css.map */

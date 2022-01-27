@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".SolutionItems", ".SolutionItems", "{FE951C1D-8EC7-419E-A7A2-A0175125BCBB}"
 	ProjectSection(SolutionItems) = preProject
@@ -81,13 +81,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Navigation", "Navigation", 
 	ProjectSection(SolutionItems) = preProject
 		src\Feature\Navigation\Navigation.module.json = src\Feature\Navigation\Navigation.module.json
 	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hero", "Hero", "{17BD7D19-AD78-4D67-9087-65F0047B67F5}"
-	ProjectSection(SolutionItems) = preProject
-		src\Feature\Hero\Hero.module.json = src\Feature\Hero\Hero.module.json
-	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Feature.Hero.Rendering", "src\Feature\Hero\rendering\Mvp.Feature.Hero.Rendering.csproj", "{C635C132-79EE-4E73-8215-493D6FC20E5D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BasicContent", "BasicContent", "{7C3FF05D-1EDE-48E2-9B07-3119D8433291}"
 	ProjectSection(SolutionItems) = preProject
@@ -233,6 +226,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Foundation.People.Rende
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Foundation.User.Platform", "src\Foundation\User\platform\Mvp.Foundation.User.Platform.csproj", "{F5CC4C6C-0B6D-4610-B7B7-61B87242647A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sugcon", "Sugcon", "{AA548973-F076-4C7F-9DE6-4A288212EE4E}"
+	ProjectSection(SolutionItems) = preProject
+		src\Project\Sugcon\Mvp.Project.Sugcon.module.json = src\Project\Sugcon\Mvp.Project.Sugcon.module.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Project.Sugcon.Platform", "src\Project\Sugcon\platform\Mvp.Project.Sugcon.Platform.csproj", "{66B58C57-CDEC-4E95-BB53-ED49E75DE640}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Project.Sugcon.Rendering", "src\Project\Sugcon\rendering\Mvp.Project.Sugcon.Rendering.csproj", "{72CECEF1-DA07-487B-A1C4-9D4EA8BAA206}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -259,10 +261,6 @@ Global
 		{DE98D5C9-5350-4457-AC65-63BC6A3BA0E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE98D5C9-5350-4457-AC65-63BC6A3BA0E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE98D5C9-5350-4457-AC65-63BC6A3BA0E9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C635C132-79EE-4E73-8215-493D6FC20E5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C635C132-79EE-4E73-8215-493D6FC20E5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C635C132-79EE-4E73-8215-493D6FC20E5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C635C132-79EE-4E73-8215-493D6FC20E5D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FB7AC742-AE9A-4CD4-A279-C0A546495823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FB7AC742-AE9A-4CD4-A279-C0A546495823}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB7AC742-AE9A-4CD4-A279-C0A546495823}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -323,6 +321,14 @@ Global
 		{F5CC4C6C-0B6D-4610-B7B7-61B87242647A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5CC4C6C-0B6D-4610-B7B7-61B87242647A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5CC4C6C-0B6D-4610-B7B7-61B87242647A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66B58C57-CDEC-4E95-BB53-ED49E75DE640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66B58C57-CDEC-4E95-BB53-ED49E75DE640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66B58C57-CDEC-4E95-BB53-ED49E75DE640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66B58C57-CDEC-4E95-BB53-ED49E75DE640}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72CECEF1-DA07-487B-A1C4-9D4EA8BAA206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72CECEF1-DA07-487B-A1C4-9D4EA8BAA206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72CECEF1-DA07-487B-A1C4-9D4EA8BAA206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72CECEF1-DA07-487B-A1C4-9D4EA8BAA206}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -342,8 +348,6 @@ Global
 		{3B79ADFB-5EEF-4892-A4DE-CAAF6EA5141D} = {8DE4BCBC-3DDF-402C-BE7A-DFE00CC3FF58}
 		{DE98D5C9-5350-4457-AC65-63BC6A3BA0E9} = {8DE4BCBC-3DDF-402C-BE7A-DFE00CC3FF58}
 		{8DE4BCBC-3DDF-402C-BE7A-DFE00CC3FF58} = {F1800335-D16A-4FB6-B213-1885963E283D}
-		{17BD7D19-AD78-4D67-9087-65F0047B67F5} = {F1800335-D16A-4FB6-B213-1885963E283D}
-		{C635C132-79EE-4E73-8215-493D6FC20E5D} = {17BD7D19-AD78-4D67-9087-65F0047B67F5}
 		{7C3FF05D-1EDE-48E2-9B07-3119D8433291} = {F1800335-D16A-4FB6-B213-1885963E283D}
 		{FB7AC742-AE9A-4CD4-A279-C0A546495823} = {7C3FF05D-1EDE-48E2-9B07-3119D8433291}
 		{EAB0A752-8515-42F2-B21B-8D63ADAAF461} = {7C3FF05D-1EDE-48E2-9B07-3119D8433291}
@@ -377,6 +381,9 @@ Global
 		{0E9F5316-E987-457D-B458-B5412C49242B} = {3B0E8E42-A529-409C-86D4-E4DC77C5EB62}
 		{4356764C-5C21-43E2-9226-17E80425BDA9} = {3B0E8E42-A529-409C-86D4-E4DC77C5EB62}
 		{F5CC4C6C-0B6D-4610-B7B7-61B87242647A} = {C567479E-39AD-4C55-8B54-E9A4908D0339}
+		{AA548973-F076-4C7F-9DE6-4A288212EE4E} = {94C82DDA-FE0D-4EBF-AEAA-81E13CB07FE5}
+		{66B58C57-CDEC-4E95-BB53-ED49E75DE640} = {AA548973-F076-4C7F-9DE6-4A288212EE4E}
+		{72CECEF1-DA07-487B-A1C4-9D4EA8BAA206} = {AA548973-F076-4C7F-9DE6-4A288212EE4E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3377439-FD7A-4F3E-8011-06175E0E3100}

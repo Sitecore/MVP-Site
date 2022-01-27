@@ -1,0 +1,27 @@
+﻿---
+ID: "dc7304f3-ed0b-4bb1-8987-2b2bbd629a10"
+Parent: "b5dfa063-6530-4e14-af50-9ca8ccb8a212"
+Template: "e55a415d-4a75-40d2-8145-6cc79a4ed1e3"
+Path: "/sitecore/content/Sugcon-EU/Home/Speakers/Page Components/Speakers list"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220119T193738Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "46baa8ba-b93b-4d0b-80ae-392c32ba6a73"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9218843-78e1-418d-9b0d-7c511ca15f82"
+      Hint: EmbedCode
+      Value: |
+        <div class="container" style="padding:0;"><script type="text/javascript" src="https://sessionize.com/api/v2/kntodhjc/view/Speakers"></script></div>
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220126T151916Z

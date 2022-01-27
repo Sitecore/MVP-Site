@@ -3,6 +3,10 @@ ID: "ef8dd6f4-1bb8-4831-a1a6-defa3594051a"
 Parent: "ded0a36b-436c-4ea4-ab3f-5c08de7dfcb5"
 Template: "35e75c72-4985-4e09-88c3-0eac6cd1e64f"
 Path: /sitecore/templates/Branches/Project/MvpSite/Page
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/document_text.png
 Languages:
 - Language: en
   Versions:
@@ -21,11 +25,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "462fcb7d-221a-4f35-87dd-c48aab0d5c9e"
+      Value: "dce6d872-79cf-49c0-86eb-4425608369e5"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200728T082026Z
+      Value: 20211202T192320Z

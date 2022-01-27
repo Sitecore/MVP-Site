@@ -1,0 +1,53 @@
+{
+  "namespace": "Project.Sugcon",
+  "items": {
+    "includes": [
+      {
+        "name": "layouts",
+        "path": "/sitecore/layout/Layouts/Project/Sugcon",
+        "allowedPushOperations": "CreateUpdateAndDelete"
+      },
+      {
+        "name": "placeholders",
+        "path": "/sitecore/layout/Placeholder Settings/Project/Sugcon",
+        "allowedPushOperations": "CreateUpdateAndDelete"
+      },
+      {
+        "name": "media",
+        "path": "/sitecore/media library/Sugcon",
+        "allowedPushOperations": "CreateOnly"
+      },
+      {
+        "name": "forms",
+        "path": "/sitecore/Forms/Sugcon",
+        "allowedPushOperations": "CreateOnly"
+      },
+      {
+        "name": "dictionary",
+        "path": "/sitecore/system/Dictionary/Sugcon",
+        "allowedPushOperations": "CreateOnly"
+      },
+      {
+        "name": "templates",
+        "path": "/sitecore/templates/Project/Sugcon",
+        "allowedPushOperations": "CreateUpdateAndDelete"
+      },
+      {
+        "name": "branches",
+        "path": "/sitecore/templates/Branches/Project/Sugcon",
+        "allowedPushOperations": "CreateUpdateAndDelete"
+      },
+      {
+        "name": "content",
+        "path": "/sitecore/content/Sugcon-eu",
+        "allowedPushOperations": "CreateOnly"
+      },
+      {
+        "name": "apikey",
+        "path": "/sitecore/system/Settings/Services/API Keys/Sugcon",
+        "allowedPushOperations": "CreateUpdateAndDelete"
+      }
+    ]
+  }
+}
+

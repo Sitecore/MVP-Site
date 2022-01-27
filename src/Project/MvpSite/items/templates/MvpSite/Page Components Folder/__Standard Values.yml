@@ -1,0 +1,44 @@
+﻿---
+ID: "4945aff9-04d7-4d12-8536-ba227a125c4e"
+Parent: "6aec120a-7222-42c6-a8e8-53f9354aef53"
+Template: "6aec120a-7222-42c6-a8e8-53f9354aef53"
+Path: /sitecore/templates/Project/MvpSite/Page Components Folder/__Standard Values
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: 
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: "{64AD1284-23FB-4B76-85B3-C6DFB1B322BF}"
+- ID: "a791f095-2521-4b4d-bef9-21dda221f608"
+  Hint: __Style
+  Value: "font-size: 90%; font-style: italic;"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 10000
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200721T113049Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "05d737b9-c9fd-469e-b900-3b71966d81ea"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211223T112314Z

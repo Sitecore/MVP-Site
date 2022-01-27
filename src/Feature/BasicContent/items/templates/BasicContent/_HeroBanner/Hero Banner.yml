@@ -1,0 +1,23 @@
+﻿---
+ID: "e1b05489-b139-4d62-9eb5-64040fa48f6d"
+Parent: "2ec82cb8-6a77-4a64-bc88-b3cd2c477cd9"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/Feature/BasicContent/_HeroBanner/Hero Banner
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200624T084832Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "3dd63405-ee9f-405b-89c4-ec396294cb0d"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211206T085022Z

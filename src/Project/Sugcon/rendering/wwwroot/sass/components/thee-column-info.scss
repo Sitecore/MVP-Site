@@ -1,0 +1,116 @@
+.three-column-info {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    +cta-overlapped-image.reverse {
+        padding-top: 0;
+        margin-top: -50px;
+    }
+
+    h2 {
+        margin-bottom: 35px;
+    }
+
+    >.container>p {
+        margin-bottom: 50px;
+        font-size: 18px;
+    }
+
+    .row .col-md-4 {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .item {
+        margin-bottom: 20px;
+        padding-bottom: 30px;
+        position: relative;
+
+        h3 {
+            margin-bottom: 20px;
+            width: 106%;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 35px;
+            color: #707070;
+            width: 90%;
+        }
+
+        a:not(.cta):not(.link-arrow) {
+            color: #000;
+
+            &:hover {
+                border-bottom: 1px solid #000;
+                text-decoration: none;
+                color: #000;
+            }
+        }
+
+        .image {
+            margin-bottom: 30px;
+            height: 102px;
+
+            img {
+                width: auto;
+                height: 100%;
+            }
+        }
+
+        a {
+
+            &.cta,
+            &.link-arrow {
+                position: absolute;
+                bottom: -10px;
+                float: none;
+                clear: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .three-column-info {
+        padding-bottom: 25px;
+
+        >.container>p {
+            font-size: 16px;
+        }
+
+        .row .col-md-4:last-child .item {
+            padding-bottom: 40px;
+            border-bottom: 1px solid #e1e1e1;
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .three-column-info .item {
+        height: auto !important;
+        padding-bottom: 0;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .three-column-info .item p {
+        width: 100%;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .three-column-info .item a {
+
+        &.cta,
+        &.link-arrow {
+            bottom: -22px;
+        }
+    }
+}
+
+.hero.medium+.three-column-info {
+    padding-top: 100px;
+}

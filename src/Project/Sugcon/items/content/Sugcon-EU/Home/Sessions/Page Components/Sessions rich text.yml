@@ -1,0 +1,37 @@
+﻿---
+ID: "fd13d0d3-a72b-4ffc-a6ce-58a9c616feb7"
+Parent: "21df0be4-fea8-45d6-95f7-946b4429de8a"
+Template: "64ad1284-23fb-4b76-85b3-c6dfb1b322bf"
+Path: "/sitecore/content/Sugcon-EU/Home/Sessions/Page Components/Sessions rich text"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211228T170117Z
+    - ID: "5098b799-31dd-4c1b-9955-3e8598caa21f"
+      Hint: Content
+      Value: |
+        <h1>SUGCON 2022 Sessions</h1>
+        
+        
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "39fdebb5-e957-439e-872c-8bd419023d03"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220126T152608Z

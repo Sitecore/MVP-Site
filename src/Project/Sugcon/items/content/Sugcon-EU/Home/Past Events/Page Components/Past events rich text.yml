@@ -1,0 +1,157 @@
+﻿---
+ID: "09fa207b-9ea4-4aae-942d-b8d3cbde7e89"
+Parent: "5583c084-021d-45c7-ba96-12f8e66e3bff"
+Template: "64ad1284-23fb-4b76-85b3-c6dfb1b322bf"
+Path: "/sitecore/content/Sugcon-EU/Home/Past Events/Page Components/Past events rich text"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211228T170117Z
+    - ID: "5098b799-31dd-4c1b-9955-3e8598caa21f"
+      Hint: Content
+      Value: |
+        <h2>SUGCON Global 2021 (Online)</h2>
+        <p>The Global Virtual Sitecore User Group conference (SUGCON Global) is a free online event where the sun never sets. It will run for 24 continuous hours featuring presentations from well-known</p>
+        <div class="row mb-5">
+        
+        <div class="col-12 col-md-6 col-lg-3">
+                              <div class="card card--video mb-4">
+                                <div class="ar ar--16-9">
+                                  <div class="ar__content">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/by5HcZKcfNo" title="Sitecore & SaaS, our shared journey | Pieter Brinkman & Rob Earlam" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                                  </div>
+                                </div>
+                                <div class="card-body">
+                                  <h4>Sitecore & SaaS, our shared journey | Pieter Brinkman & Rob Earlam</h4>
+                                  <p class="mb-0" />
+                                </div>
+                              </div>
+                            </div>
+        
+        <div class="col-12 col-md-6 col-lg-3">
+                              <div class="card card--video mb-4">
+                                <div class="ar ar--16-9">
+                                  <div class="ar__content">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/YpxQX3MnV4c" title="Getting Started with Docker in an Existing Sitecore Project | Dylan Young" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                                  </div>
+                                </div>
+                                <div class="card-body">
+                                  <h4>Getting Started with Docker in an Existing Sitecore Project | Dylan Young</h4>
+                                  <p class="mb-0" />
+                                </div>
+                              </div>
+                            </div>
+        
+        <div class="col-12 col-md-6 col-lg-3">
+                              <div class="card card--video mb-4">
+                                <div class="ar ar--16-9">
+                                  <div class="ar__content">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ee7YYDasEe0" title="Real world content Modelling with Content Hub and Sitecore | Daria Bogdanova & Sumith Damodaran" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                                  </div>
+                                </div>
+                                <div class="card-body">
+                                  <h4>Real world content Modelling with Content Hub and Sitecore | Daria Bogdanova & Sumith Damodaran</h4>
+                                  <p class="mb-0" />
+                                </div>
+                              </div>
+                            </div>
+        
+        <div class="col-12 col-md-6 col-lg-3">
+                              <div class="card card--video mb-4">
+                                <div class="ar ar--16-9">
+                                  <div class="ar__content">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/L7dSuzArVx4" title="Creating and Using Implicit Personalization Strategies in Sitecore XP | Jacqueline Baxter" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                                  </div>
+                                </div>
+                                <div class="card-body">
+                                  <h4>Creating and Using Implicit Personalization Strategies in Sitecore XP | Jacqueline Baxter</h4>
+                                  <p class="mb-0" />
+                                </div>
+                              </div>
+                            </div>
+        
+        </div>
+        <h2>SUGCON Global 2020 (Online)</h2>
+        <p>The Global Virtual Sitecore User Group conference (SUGCON Global) is a free online event where the sun never sets. It will run for 24 continuous hours featuring presentations from well-known</p>
+        <div class="row mb-5">
+        
+        <div class="col-12 col-md-6 col-lg-3">
+                              <div class="card card--video mb-4">
+                                <div class="ar ar--16-9">
+                                  <div class="ar__content">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/THacqPsudyI" title="Virtual SUGCON 2020 - Opening Intro and Welcome" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                                  </div>
+                                </div>
+                                <div class="card-body">
+                                  <h4>Virtual SUGCON 2020 - Opening Intro and Welcome</h4>
+                                  <p class="mb-0">
+        </p>
+                                </div>
+                              </div>
+                            </div>
+        
+        <div class="col-12 col-md-6 col-lg-3">
+                              <div class="card card--video mb-4">
+                                <div class="ar ar--16-9">
+                                  <div class="ar__content">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Gja_bAV15HM" title="Virtual SUGCON 2020 - Alistair Deneys - Unit Testing your Sitecore Components" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                                  </div>
+                                </div>
+                                <div class="card-body">
+                                  <h4>Virtual SUGCON 2020 - Alistair Deneys - Unit Testing your Sitecore Components</h4>
+                                  <p class="mb-0" />
+                                </div>
+                              </div>
+                            </div>
+        
+        <div class="col-12 col-md-6 col-lg-3">
+                              <div class="card card--video mb-4">
+                                <div class="ar ar--16-9">
+                                  <div class="ar__content">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/JzmP0jvmjxQ" title="Virtual SUGCON 2020 - Rob Earlam - An introduction to Docker & Containers" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                                  </div>
+                                </div>
+                                <div class="card-body">
+                                  <h4>Virtual SUGCON 2020 - Rob Earlam - An introduction to Docker & Containers</h4>
+                                  <p class="mb-0" />
+                                </div>
+                              </div>
+                            </div>
+        
+        <div class="col-12 col-md-6 col-lg-3">
+                              <div class="card card--video mb-4">
+                                <div class="ar ar--16-9">
+                                  <div class="ar__content">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/m4VR2PER-Kw" title="Virtual SUGCON 2020 - S. Sreenivasan & Khushboo Sorthiya - Troubleshooting Sitecore on Azure PaaS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                                  </div>
+                                </div>
+                                <div class="card-body">
+                                  <h4>Virtual SUGCON 2020 - S. Sreenivasan & Khushboo Sorthiya - Troubleshooting Sitecore on Azure PaaS</h4>
+                                  <p class="mb-0" />
+                                </div>
+                              </div>
+                            </div>
+        
+        </div>
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1d09c1b2-578e-4f08-8ffe-6f63d267672a"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211230T073524Z

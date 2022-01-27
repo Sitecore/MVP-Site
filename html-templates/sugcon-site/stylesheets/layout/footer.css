@@ -1,0 +1,12 @@
+/* Brand Colors */
+/* Site Colors */
+/* line 19, ../../sass/layout/footer.scss */
+.fixed-footer { position: absolute; width: 100%; height: 56px; /* Set the fixed height of the footer here */ }
+/* line 24, ../../sass/layout/footer.scss */
+.fixed-footer .footer-copyright { font-size: 0.9em; }
+/* line 27, ../../sass/layout/footer.scss */
+.fixed-footer .footer-copyright a:link, .fixed-footer .footer-copyright a:visited { color: #ffffff; margin: 3px; }
+/* line 34, ../../sass/layout/footer.scss */
+.fixed-footer .footer-social-link:link, .fixed-footer .footer-social-link:visited, .fixed-footer .footer-social-link i { color: #ffffff; margin: 0px 5px; }
+
+/*# sourceMappingURL=footer.css.map */

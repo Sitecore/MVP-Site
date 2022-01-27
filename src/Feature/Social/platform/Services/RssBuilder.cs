@@ -1,17 +1,11 @@
-﻿using Sitecore.Data.Fields;
-using Sitecore.Data.Items;
+﻿using Sitecore.Data.Items;
 using System.Diagnostics;
-using Sitecore.Links;
 using Sitecore.Mvc.Presentation;
 using Mvp.Feature.Social.Models;
 using System;
 using System.Collections.Generic;
 using Mvp.Feature.Social.Providers;
 using Newtonsoft.Json.Linq;
-using System.Linq;
-using System.ServiceModel.Syndication;
-using System.Xml;
-using System.Web;
 
 namespace Mvp.Feature.Social.Services
 {
@@ -21,7 +15,7 @@ namespace Mvp.Feature.Social.Services
         {
             Debug.Assert(contextItem != null);
 
-            Item datasource = GetDatasourceItem(contextItem, rendering);
+            var datasource = GetDatasourceItem(contextItem, rendering);
 
             return new RssControl
             {
@@ -31,18 +25,18 @@ namespace Mvp.Feature.Social.Services
 
         public IList<FeedItem> GetFeedItems(Item datasourceItem)
         {
-            var rssUrl = datasourceItem.Fields[Constants.FieldNames.RssUrl].Value;
+            var rssUrl = datasourceItem.Fields[Templates.RssFeed.Fields.RssUrl].Value;
 
-            RssProvider rssProvider = new RssProvider(rssUrl);
+            var rssProvider = new RssProvider(rssUrl);
             return rssProvider.GetFeedItems(10, 10);
         }
 
         public JArray GetFeedItemsAsJson(Item datasourceItem)
         {
-            var feedItems = this.GetFeedItems(datasourceItem);
-            var rssUrl = datasourceItem.Fields[Constants.FieldNames.RssUrl].Value;
+            var feedItems = GetFeedItems(datasourceItem);
+            var rssUrl = datasourceItem.Fields[Templates.RssFeed.Fields.RssUrl].Value;
 
-            RssProvider rssProvider = new RssProvider(rssUrl);
+            var rssProvider = new RssProvider(rssUrl);
 
             var itemsArray = new JArray();
 

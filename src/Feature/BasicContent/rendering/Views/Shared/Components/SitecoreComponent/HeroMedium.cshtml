@@ -1,0 +1,26 @@
+﻿@model Mvp.Feature.BasicContent.Models.HeroBase
+
+<section class="hero background-white medium">
+    <div class="background-image" min_desktop_width="1199.98px" min_tablet_width="767.98px" desktop_src="" tablet_src="" mobile_src="" data-module="image-src"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <p class="top" asp-for="HeroSubtitle"></p>
+                <h1 class="static" asp-for="HeroTitle"></h1>
+                <p asp-for="HeroDescription"></p>
+            </div>
+
+            <div class="col-12 col-md-6 image">
+                <div class="outer">
+                    <div class="wrapper">
+                        <picture>
+                            <source media="(min-width:  1199.98px)" srcset="@Model.HeroImage?.Value?.Src">
+                            <source media="(min-width: 767.98px)" srcset="<source media="(min-width:  1199.98px)" srcset="@Model.HeroImage?.Value?.Src">
+                            <img src="<source media="(min-width:  1199.98px)" srcset="@Model.HeroImage?.Value?.Src">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
