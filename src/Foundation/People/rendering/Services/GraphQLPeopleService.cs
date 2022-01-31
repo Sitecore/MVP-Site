@@ -29,7 +29,7 @@ namespace Mvp.Foundation.People.Services
 		{
 			return new SearchParams()
 			{
-				FacetOn = new List<string>() { "personaward", "personyear", "personawardyear" }
+				FacetOn = new List<string>() { "personaward", "personyear", "personyearaward" }
 			};
 
 		}
@@ -95,7 +95,7 @@ namespace Mvp.Foundation.People.Services
 				}
 			}
 			result.Facets = result.Facets.Select(fc => UpdateFacetValuesOrder(fc)).ToList();
-			result.Facets.Remove(result.Facets.Where(x => x.name == "personawardyear").FirstOrDefault());
+			result.Facets.Remove(result.Facets.Where(x => x.name == "personyearaward").FirstOrDefault());
 			return result;
 		}
 
@@ -119,7 +119,7 @@ namespace Mvp.Foundation.People.Services
 					foreach (string filterValueYear in personyear.Value)
 					{
 						FieldFilter ff = new FieldFilter();
-						ff.name = "personawardyear";
+						ff.name = "personyearaward";
 						ff.value = filterValueYear + " " + filterValueAward;
 						fieldFilters.Add(ff);
 					}
