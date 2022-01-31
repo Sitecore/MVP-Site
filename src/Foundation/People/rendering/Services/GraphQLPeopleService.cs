@@ -29,7 +29,7 @@ namespace Mvp.Foundation.People.Services
 		{
 			return new SearchParams()
 			{
-				FacetOn = new List<string>() { "personaward", "personyear" }
+				FacetOn = new List<string>() { "personaward", "personyear", "personawardyear" }
 			};
 
 		}
@@ -95,13 +95,38 @@ namespace Mvp.Foundation.People.Services
 				}
 			}
 			result.Facets = result.Facets.Select(fc => UpdateFacetValuesOrder(fc)).ToList();
+			result.Facets.Remove(result.Facets.Where(x => x.name == "personawardyear").FirstOrDefault());
 			return result;
 		}
 
 		private List<FieldFilter> AddFacetFilters(List<KeyValuePair<string, string[]>> facetFilters)
 		{
 			List<FieldFilter> fieldFilters = new List<FieldFilter>();
-			foreach (KeyValuePair<string, string[]> filter in facetFilters)
+			var specialFilters = facetFilters.Where(elem => elem.Key == "personaward" || elem.Key == "personyear");
+
+			List<KeyValuePair<string, string[]>> copyfacetFilters = new List<KeyValuePair<string, string[]>>();
+			copyfacetFilters.AddRange(facetFilters);
+
+			if (specialFilters.Count() == 2)
+			{
+				var personyear = copyfacetFilters.Where(elem => elem.Key == "personyear").FirstOrDefault();
+				var personaward = copyfacetFilters.Where(elem => elem.Key == "personaward").FirstOrDefault();
+				copyfacetFilters.Remove(personyear);
+				copyfacetFilters.Remove(personaward);
+
+				foreach (string filterValueAward in personaward.Value)
+				{
+					foreach (string filterValueYear in personyear.Value)
+					{
+						FieldFilter ff = new FieldFilter();
+						ff.name = "personawardyear";
+						ff.value = filterValueYear + " " + filterValueAward;
+						fieldFilters.Add(ff);
+					}
+				}
+			}
+
+			foreach (KeyValuePair<string, string[]> filter in copyfacetFilters)
 			{
 				foreach( string filterValue in filter.Value)
 				{
