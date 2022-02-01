@@ -29,7 +29,7 @@ namespace Mvp.Foundation.People.Services
 		{
 			return new SearchParams()
 			{
-				FacetOn = new List<string>() { "personaward", "personyear" }
+				FacetOn = new List<string>() { "personaward", "personyear", "personcountry" }
 			};
 
 		}
@@ -143,7 +143,11 @@ namespace Mvp.Foundation.People.Services
 				facet.values = facet.values.OrderByDescending(v => GetYearValue(v.value)).ToList();
 				facet.DisplayName = "Year";
 			}
-
+			else if (facet.name == "personcountry")
+			{
+				facet.values = facet.values.OrderByDescending(v => v.count).ToList();
+				facet.DisplayName = "Country";
+			}
 			return facet;
 		}
 
