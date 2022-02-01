@@ -12,5 +12,6 @@
     <PackageReference Include="Sitecore.Kernel" />
     <PackageReference Include="Sitecore.LayoutService" />
     <PackageReference Include="Sitecore.LayoutService.Mvc" />
+    <PackageReference Include="xsitemap" />
   </ItemGroup>
 </Project>

@@ -19,6 +19,7 @@
 
 
 	<ItemGroup>
+    <PackageReference Include="AspNetCore.SEOHelper" />
 		<PackageReference Include="BuildWebCompiler" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
 		<PackageReference Include="Microsoft.AspNetCore.Session" />

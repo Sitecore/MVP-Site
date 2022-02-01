@@ -25,6 +25,7 @@
         <PackageReference Update="Sitecore.LayoutService.Mvc" Version="8.0.*" />
         <PackageReference Update="Sitecore.Services.GraphQL" Version="6.0.*" />
         <PackageReference Update="Sitecore.Services.GraphQL.ContentSchema" Version="6.0.*" />
+        <PackageReference Update="xsitemap" Version="2.1.0" />
 
         <PackageReference Update="GraphQL.Client" Version="3.1.6" />
         <PackageReference Update="GraphQL.Client.Serializer.Newtonsoft" Version="3.1.6" />
@@ -42,5 +43,6 @@
         <PackageReference Update="Microsoft.Extensions.Http" Version="3.1.1" />
         <PackageReference Update="Microsoft.Identity.Web" Version="1.11.0" />
         <PackageReference Update="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+        <PackageReference Update="AspNetCore.SEOHelper"  Version="1.0.1"  />
     </ItemGroup>
 </Project>

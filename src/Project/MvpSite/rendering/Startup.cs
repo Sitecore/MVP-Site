@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Globalization;
+using AspNetCore.SEOHelper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -150,6 +151,7 @@ namespace Mvp.Project.MvpSite.Rendering
       // Standard ASP.NET Core routing and static file support.
       app.UseRouting();
       app.UseStaticFiles();
+      app.UseXMLSitemap(env.ContentRootPath);
 
       // Enable ASP.NET Core Localization, which is required for Sitecore content localization.
       app.UseRequestLocalization(options =>
