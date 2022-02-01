@@ -1,5 +1,12 @@
 ﻿$(document).ready(function () {
 
+    $("#search").keyup(function (event) {
+        if (event.which === 13) {
+            event.preventDefault();
+            $("#gosearch").click();
+        }
+    });
+
     if (document.getElementById("application-form") == null) {
         return;
     }
