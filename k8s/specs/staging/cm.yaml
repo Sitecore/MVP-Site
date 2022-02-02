@@ -184,6 +184,10 @@ spec:
           value: "false"
         - name: SSC__AnonymousUser
           value: sitecore\ServicesAPI
+        - name: MVP_RENDERING_HOST_PUBLIC_URI
+          value: https://$(STAGING_HOST)
+        - name: SUGCON_EU_RENDERING_HOST_PUBLIC_URI
+          value: https://$(STAGING_SUGCON_EU_HOST)
         livenessProbe:
           httpGet:
             path: /healthz/live
