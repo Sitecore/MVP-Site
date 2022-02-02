@@ -49,28 +49,28 @@
             <div class="col-md-3 col-xs-12 mvp-filter">
                 @foreach (var facet in Model.Facets)
 		        {
-                <article class="panel">
-                    <p class="panel-heading">
-                        @facet.DisplayName
-                    </p>
-
-                    @foreach (var facetValue in facet.values)
-				{
-					string checkedValue = facetValue.isChecked ? "checked" : "";
-
-
-                    <div class="panel-block">
-                        <p class="control has-icons-left">
-                            <label class="checkbox">
-                                <input type="checkbox"
-                                       onclick="window.location.assign(decodeURIComponent('@this.Context.Request.UpdateFacetsInUrl($"fc_{facet.name}", facetValue.value, !facetValue.isChecked)'))"
-                                       @checkedValue>
-                                @facetValue.value.ToUpper() (@facetValue.count)
-                            </label>
+                    <article class="panel">
+                        <p class="panel-heading">
+                            @facet.DisplayName
                         </p>
-                    </div>
-				}
-                </article>
+
+                        @foreach (var facetValue in facet.values)
+                        {
+                            string checkedValue = facetValue.isChecked ? "checked" : "";
+
+
+                            <div class="panel-block">
+                                <p class="control has-icons-left">
+                                    <label class="checkbox">
+                                        <input type="checkbox"
+                                            onclick="window.location.assign(decodeURIComponent('@this.Context.Request.UpdateFacetsInUrl($"fc_{facet.name}", facetValue.value, !facetValue.isChecked)'))"
+                                            @checkedValue>
+                                        @facetValue.value.ToUpper() (@facetValue.count)
+                                    </label>
+                                </p>
+                            </div>
+                        }
+                    </article>
 		        }
             </div>
             
@@ -102,7 +102,7 @@
                                 <div class="card-body">
                                     <div class="mvp-category">@person.mvpCategory</div>
                                     <h5 class="card-title">@person.firstName.value @person.lastName.value </h5>
-                                    <p class="card-text">@person.country?.targetItem?.name</p>
+                                    @* <p class="card-text">@person.country?.targetItem?.name</p> *@
                                 </div>
                             </a>
                         </div>
