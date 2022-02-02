@@ -26,12 +26,13 @@ namespace Mvp.Foundation.SitecoreExtensions.Pipelines
     {
         public override void Process(HttpRequestArgs args)
         {
+            Assert.ArgumentNotNull(args, "args");
+
             if (!string.IsNullOrWhiteSpace(args.LocalPath) && args.LocalPath.Contains("healthz") || string.IsNullOrWhiteSpace(args.LocalPath)) return;
             //This check will verify if the physical path of the request exists or not.
             if (!System.IO.File.Exists(args.HttpContext.Request.PhysicalPath) &&
                 !System.IO.Directory.Exists(args.HttpContext.Request.PhysicalPath))
             {
-                Assert.ArgumentNotNull(args, "args");
                 try
                 {
                     // Homepage of the Website.
@@ -76,12 +77,8 @@ namespace Mvp.Foundation.SitecoreExtensions.Pipelines
         }
 
         ///
-
         /// Crete Absolute url as per the site
         /// 
-
-        ///
-        ///
         private static string GetAbsoluteLink(string relativeUrl)
         {
             var site = Sitecore.Configuration.Factory.GetSite("mvp-site");            
@@ -89,23 +86,16 @@ namespace Mvp.Foundation.SitecoreExtensions.Pipelines
         }
 
         ///
-
         /// Append language or not in URL to return language specific sitemap.xml
         /// 
-
-        ///
         private static int AppendLanguage()
         {
             return string.IsNullOrWhiteSpace(Sitecore.Configuration.Settings.GetSetting("Mvp.LanguageEmbedForSitemap")) ? 0 : System.Convert.ToInt32((Sitecore.Configuration.Settings.GetSetting("Mvp.LanguageEmbedForSitemap")));
         }
 
         ///
-
         /// This method will get a list of excluding template ids and will check if the passed item is in
         /// 
-
-        ///
-        ///
         private static bool ExcludeItemFromSitemap(Item objItem)
         {
             //Check if the item is having any version
