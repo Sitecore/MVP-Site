@@ -81,6 +81,10 @@ section#mvp-search {
         }
 
         height: 100%;
+        
+        &--wrapper {
+            margin-bottom: 20px;
+        } 
 
         a {
             &:hover {
@@ -116,22 +120,23 @@ section#mvp-search {
             }
 
             .card-text {
-		padding: 0 0 0 20px;
+                padding: 0 0 0 20px;
                 font-size: 14px;
                 font-family: 'AvenirNextW05-Regular';
                 line-height: 16px;
                 margin-top: 20px;
-		background-image: url(../images/icon-globe.svg);
-		border-radius: unset;
-		background-position: left 50%;
-		background-repeat: no-repeat;
-		color: #fff;
-		-webkit-filter:brightness(0) saturate(100%) invert(8%) sepia(0) saturate(1211%) hue-rotate(166deg) brightness(101%) contrast(87%);
-		filter:brightness(0) saturate(100%) invert(8%) sepia(0) saturate(1211%) hue-rotate(166deg) brightness(101%) contrast(87%)
+                background-image: url(../images/icon-globe.svg);
+                border-radius: unset;
+                background-position: left 50%;
+                background-repeat: no-repeat;
+                color: #fff;
+                -webkit-filter:brightness(0) saturate(100%) invert(8%) sepia(0) saturate(1211%) hue-rotate(166deg) brightness(101%) contrast(87%);
+                filter:brightness(0) saturate(100%) invert(8%) sepia(0) saturate(1211%) hue-rotate(166deg) brightness(101%) contrast(87%)
             }
 
             .card-body {
                 padding: 15px 26px;
+                border-top: 1px solid rgba(#000, .125);
             }
         }
 
