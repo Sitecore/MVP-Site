@@ -22,6 +22,19 @@ namespace Mvp.Foundation.People.ComputedFields
 						{
 							mvpTags.Add(award.Parent.Name);
 						}
+						else if (tagType == TagType.YearWithAwardType)
+						{
+							var mvptype = ((ReferenceField)award.Fields[Constants.FieldNames.Type]).TargetItem;
+							if (mvptype != null && mvptype.TemplateID.Equals(Constants.Templates.MVPType))
+							{
+								// year awardType
+								mvpTags.Add(award.Parent.Name + " " + mvptype.Name);
+							}
+							else
+							{
+								mvpTags.Add(award.Parent.Name);
+							}
+						}
 						else
 						{
 							var mvptype = ((ReferenceField)award.Fields[Constants.FieldNames.Type]).TargetItem;
@@ -39,6 +52,6 @@ namespace Mvp.Foundation.People.ComputedFields
 	}
 	public enum TagType
 	{
-		Year=0, AwardType = 1
+		Year = 0, AwardType = 1, YearWithAwardType = 2
 	}
 }
