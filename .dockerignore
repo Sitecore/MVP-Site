@@ -17,6 +17,5 @@ docker-compose*
 *.ps1
 
 # static asset genetators
-**/sass
 **/package.json
 **/gulpfile.js

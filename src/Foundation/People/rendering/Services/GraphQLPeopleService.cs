@@ -29,7 +29,7 @@ namespace Mvp.Foundation.People.Services
 		{
 			return new SearchParams()
 			{
-				FacetOn = new List<string>() { "personaward", "personyear", "personyearaward", "personcountry" }
+				FacetOn = new List<string>() { "personaward", "personyear", "personyearaward" /*, "personcountry" */ }
 			};
 
 		}

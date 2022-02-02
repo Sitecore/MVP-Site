@@ -12,12 +12,22 @@
 		<RootNamespace>Mvp.Project.MvpSite</RootNamespace>
 	</PropertyGroup>
 
-  <ItemGroup>
+	<Target Name="FixDotnetWatch" AfterTargets="_CoreCollectWatchItems">
+		<ItemGroup>
+			<_WatchRelativePath Include="@(Watch)" Condition="'%(Identity)' != '%(Watch.FullPath)'" />
+			<Watch Remove="@(_WatchRelativePath)" />
+			<Watch Include="%(_WatchRelativePath.FullPath)" />
+		</ItemGroup>
+	</Target>
+
+	<ItemGroup>
 	  <Content Remove="compilerconfig.json" />
-    <None Include="compilerconfig.json" />
 	</ItemGroup> 
 
-
+	<ItemGroup>
+	  <None Include="compilerconfig.json" />
+	</ItemGroup>
+	
 	<ItemGroup>
 		<PackageReference Include="BuildWebCompiler" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
