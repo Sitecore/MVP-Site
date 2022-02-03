@@ -2,7 +2,7 @@
 ID: "f6323fdf-e75d-4878-9b8c-72c6a7677cf3"
 Parent: "67ba86b6-4adf-422b-bd31-1c17336c5fbf"
 Template: "6aec120a-7222-42c6-a8e8-53f9354aef53"
-Path: /sitecore/content/MvpSite/Home/Search/Page Components
+Path: /sitecore/content/MvpSite/Home/Directory/Page Components
 BranchID: "ef8dd6f4-1bb8-4831-a1a6-defa3594051a"
 SharedFields:
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"

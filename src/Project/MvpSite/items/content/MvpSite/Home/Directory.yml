@@ -2,7 +2,7 @@
 ID: "67ba86b6-4adf-422b-bd31-1c17336c5fbf"
 Parent: "94de9ac3-a9f7-40ab-ae90-acda364b9c40"
 Template: "a054184c-3b20-4c2b-ab04-c8a03acd5522"
-Path: /sitecore/content/MvpSite/Home/Search
+Path: /sitecore/content/MvpSite/Home/Directory
 BranchID: "ef8dd6f4-1bb8-4831-a1a6-defa3594051a"
 SharedFields:
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
@@ -32,14 +32,14 @@ Languages:
       Value: 20211103T205042Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "cbba7d4c-ae8b-49f7-a303-e0b7d64ddbd8"
+      Value: "3fd07bf5-2c76-4ccb-9950-be4a2346d12e"
     - ID: "b1ece12f-b2c9-44e6-92a3-c5dfd6514b59"
       Hint: Menu Title
-      Value: Search
+      Value: Directory
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211103T205107Z
+      Value: 20220203T232916Z
