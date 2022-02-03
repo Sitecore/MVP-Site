@@ -132,6 +132,10 @@ spec:
           value: https://$(PROD_CD_HOST)/identity/externallogincallback
         - name: Sitecore__ExternalCdUrl
           value: $(PROD_CD_HOST)
+        - name: MVP_RENDERING_HOST_PUBLIC_URI
+          value: https://$(PROD_HOST)
+        - name: SUGCON_EU_RENDERING_HOST_PUBLIC_URI
+          value: https://$(PROD_SUGCON_EU_HOST)          
         livenessProbe:
           httpGet:
             path: /healthz/live

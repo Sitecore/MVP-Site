@@ -41,3 +41,10 @@ spec:
         backend:
           serviceName: cm
           servicePort: 80
+  - host: $(PROD_SUGCON_EU_HOST)
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: sugcon-eu-rendering
+          servicePort: 80

@@ -1,0 +1,106 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sugcon-eu-rendering
+spec:
+  selector:
+    app: sugcon-eu-rendering
+  ports:
+  - protocol: TCP
+    port: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sugcon-eu-rendering
+  labels:
+    app: sugcon-eu-rendering
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sugcon-eu-rendering
+  template:
+    metadata:
+      labels:
+        app: sugcon-eu-rendering
+    spec:
+      nodeSelector:
+        kubernetes.io/os: windows
+      containers:
+      - name: sitecore-sugcon-eu-rendering
+        image: sitecore-sugcon-eu-rendering
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Release
+        - name: ASPNETCORE_URLS
+          value: http://*:80
+        - name: Sitecore__InstanceUri
+          value: http://cd
+        - name: Sitecore__RenderingHostUri
+          value: https://$(PROD_SUGCON_EU_HOST)/
+        - name: Sitecore__EnableExperienceEditor
+          value: "true"
+        - name: Sitecore__DefaultSiteName
+          value: sugcon-eu
+        - name: Sitecore_License
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-license
+              key: sitecore-license.txt
+        - name: Okta__OktaDomain
+          valueFrom:
+            secretKeyRef:
+              name: okta
+              key: okta-domain.txt
+        - name: Okta__ClientId
+          valueFrom:
+            secretKeyRef:
+              name: okta
+              key: okta-client-id.txt
+        - name: Okta__ClientSecret
+          valueFrom:
+            secretKeyRef:
+              name: okta
+              key: okta-client-secret.txt
+        - name: Okta__AuthorizationServerId
+          valueFrom:
+            secretKeyRef:
+              name: okta
+              key: okta-auth-server-id.txt
+        - name: PeopleGraphQL__UrlLive
+          value: http://cd/api/content/people
+        - name: PeopleGraphQL__UrlEdit
+          value: http://cd/api/content/people
+        - name: Application_User_Name
+          valueFrom:
+            secretKeyRef:
+              name: mvp-application-user
+              key: application_user_name.txt
+        - name: Application_User_Password
+          valueFrom:
+            secretKeyRef:
+              name: mvp-application-user
+              key: application_user_password.txt
+        - name: Application_User_Domain
+          valueFrom:
+            secretKeyRef:
+              name: mvp-application-user
+              key: application_user_domain.txt
+        - name: Application_CMS_URL
+          value: http://cm
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+            httpHeaders:
+            - name: X-Kubernetes-Probe
+              value: Liveness           
+          timeoutSeconds: 60
+          periodSeconds: 30
+          failureThreshold: 3
+      imagePullSecrets:
+      - name: regcred
