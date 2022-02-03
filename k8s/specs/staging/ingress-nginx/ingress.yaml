@@ -43,6 +43,13 @@ spec:
         backend:
           serviceName: cm
           servicePort: 80
+  - host: $(STAGING_SUGCON_EU_HOST)
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: sugcon-eu-rendering
+          servicePort: 80
   tls:
   - secretName: sitecoredemo-tls
     hosts:
@@ -50,3 +57,4 @@ spec:
     - $(STAGING_ID_HOST)
     - $(STAGING_CD_HOST)
     - $(STAGING_CM_HOST)
+    - $(STAGING_SUGCON_EU_HOST)
