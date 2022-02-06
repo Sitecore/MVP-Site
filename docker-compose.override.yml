@@ -85,6 +85,8 @@ services:
         ARTIFACTS_FOLDER: /artifacts/sugcon-rendering
     environment:
       ENTRYPOINT_ASSEMBLY: Mvp.Project.Sugcon.Rendering.dll
+    volumes:
+      - ${LOCAL_DEPLOY_PATH}\sugcon-rendering:C:\deploy      
     depends_on:
       - solutionBuildOutput           
     scale: 0
