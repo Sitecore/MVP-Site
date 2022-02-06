@@ -1,4 +1,5 @@
-# Homemade dotnet "watch" script, watches the deploy folder for file changes. @anderslaub
+# Homemade dotnet "watch" script, watches the deploy folder for changes to assembly files. 
+# Stops the running app, syncs the changed files and starts the app up again. @anderslaub
 
 [CmdletBinding()]
 param(
@@ -32,7 +33,7 @@ function Start-DotNetApp  {
         $AppJobName
     )
     $AppProcess = Start-Process "dotnet" -WorkingDirectory C:\app\ -NoNewWindow -Args $AppJobName -PassThru
-    Write-Host ("$(Get-Timestamp): App '$($AppJobName)' started in process '$($AppProcessId)'..") -ForegroundColor Green
+    Write-Host ("$(Get-Timestamp): App '$($AppJobName)' started in process '$($AppProcess.Id)'..") -ForegroundColor Green
     $AppProcess.Id
 }
 
@@ -66,6 +67,14 @@ function Sync-Delta {
     }
 }
 
+function Get-WatchedFiles {
+    param (
+        [Parameter(Mandatory = $true)]
+        $RootFolder
+    )
+    (Get-ChildItem $RootFolder\*.dll) + (Get-ChildItem $RootFolder\wwwroot\*.* -Recurse)
+}
+
 function Sync {
     param(
         [Parameter(Mandatory = $true)]
@@ -78,8 +87,8 @@ function Sync {
         $AppProcessId
     )
 
-    $SourceFiles = ls $Path\*.dll | % { Get-FileHash -Path $_.FullName }
-    $DestinationFiles = ls $Destination\*.dll | % { Get-FileHash -Path $_.FullName }
+    $SourceFiles = Get-WatchedFiles -RootFolder $Path | ForEach-Object { Get-FileHash -Path $_.FullName }
+    $DestinationFiles = Get-WatchedFiles -RootFolder $Destination | ForEach-Object { Get-FileHash -Path $_.FullName }
 
     if ($null -eq $DestinationFiles) {
         $Deltas = $SourceFiles
@@ -112,11 +121,7 @@ Write-Host ("$(Get-Timestamp): Sitecore Development ENTRYPOINT, starting...")
 
 try {
     Write-Host ("$(Get-Timestamp): Changes on '$($Path)', will deploy to '$($Destination)'...")
-    
-    $LastRunSourceFiles = ls $Path\*.dll | % { Get-FileHash -Path $_.FullName }
-    if ($null -eq $LastRunSourceFiles) {
-        $LastRunSourceFiles = ls C:\App\*.dll | % { Get-FileHash -Path $_.FullName }
-    }
+    $LastRunSourceFiles = Get-WatchedFiles -RootFolder $Destination | ForEach-Object { Get-FileHash -Path $_.FullName }
     $ProcessId = Start-DotNetApp -AppJobName $ENV:ENTRYPOINT_ASSEMBLY
     Start-Sleep -Milliseconds $SleepMilliseconds
     
