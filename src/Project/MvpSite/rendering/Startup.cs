@@ -152,6 +152,7 @@ namespace Mvp.Project.MvpSite.Rendering
       app.UseRouting();
       app.UseStaticFiles();
       app.UseXMLSitemap(env.ContentRootPath);
+      app.UseRobotsTxt(env.ContentRootPath);
 
       // Enable ASP.NET Core Localization, which is required for Sitecore content localization.
       app.UseRequestLocalization(options =>

@@ -1,0 +1,12 @@
+{
+    "namespace": "Foundation.BasicContent",
+    "items": {
+        "includes": [
+            {
+                "name": "templates",
+                "path": "/sitecore/templates/Foundation/BasicContent",
+                "allowedPushOperations": "CreateUpdateAndDelete"
+            }
+        ]
+    }
+}

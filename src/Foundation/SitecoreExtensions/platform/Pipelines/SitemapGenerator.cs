@@ -2,21 +2,14 @@
 using Sitecore;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
-using Sitecore.Layouts;
 using Sitecore.Links;
 using Sitecore.Links.UrlBuilders;
 using Sitecore.Pipelines.HttpRequest;
 using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web;
-using System.Xml;
-using System.Xml.Linq;
-using System.Xml.Serialization;
 using X.Web.Sitemap;
-using X.Web.Sitemap.Extensions;
 #endregion
 
 #region Main Code
@@ -29,50 +22,87 @@ namespace Mvp.Foundation.SitecoreExtensions.Pipelines
             Assert.ArgumentNotNull(args, "args");
 
             if (!string.IsNullOrWhiteSpace(args.LocalPath) && args.LocalPath.Contains("healthz") || string.IsNullOrWhiteSpace(args.LocalPath)) return;
-            //This check will verify if the physical path of the request exists or not.
-            if (!System.IO.File.Exists(args.HttpContext.Request.PhysicalPath) &&
-                !System.IO.Directory.Exists(args.HttpContext.Request.PhysicalPath))
+
+            if (HttpContext.Current.Cache["SitemapSaved"] != null) return;
+
+            if (string.IsNullOrWhiteSpace(Context.Site.StartPath)) return;
+
+            try
             {
-                try
+                // Homepage of the Website.
+                var homepage = Context.Database.GetItem(Context.Site.StartPath);
+                if (homepage==null) return;
+
+                var sitemap = new Sitemap();
+
+                //Create node of Homepage in Sitemap.
+                var config = AppendLanguage();
+
+                if (!ExcludeItemFromSitemap(homepage))
                 {
-                    // Homepage of the Website.
-                    // Start path will give homepage including Multisite.
-                    var homepage = Context.Database.GetItem(Context.Site.StartPath);
-                    var sitemap = new Sitemap();
-
-                    //Create node of Homepage in Sitemap.
-                    var config = AppendLanguage();
-
-                    if (!ExcludeItemFromSitemap(homepage))
+                    sitemap.Add(new Url
                     {
-                        sitemap.Add(new Url
-                        {
-                            ChangeFrequency = ChangeFrequency.Daily,
-                            Location = GetAbsoluteLink(LinkManager.GetItemUrl(homepage, new ItemUrlBuilderOptions() { LanguageEmbedding = config == 2 ? LanguageEmbedding.Always : (config == 1 ? LanguageEmbedding.AsNeeded : LanguageEmbedding.Never) })),
-                            Priority = 0.5,
-                            TimeStamp = homepage.Statistics.Updated
-                        });
-                    }
-
-                    // Get all decendants of Homepage to create full Sitemap.
-                    var childrens = homepage.Axes.GetDescendants();
-                    //Remove the items whose templateid is in exclude list
-                    var finalcollection = childrens.Where(x => !ExcludeItemFromSitemap(x)).ToList();
-
-                    sitemap.AddRange(finalcollection.Select(childItem => new Url
-                    {
-                        Location = GetAbsoluteLink(LinkManager.GetItemUrl(childItem, new ItemUrlBuilderOptions() { LanguageEmbedding = (config == 2 ? LanguageEmbedding.Always : (config == 1 ? LanguageEmbedding.AsNeeded : LanguageEmbedding.Never)) })),
-                        TimeStamp = childItem.Statistics.Updated
-                    }));
-
-                    var dockerPath = string.IsNullOrWhiteSpace(Sitecore.Configuration.Settings.GetSetting("Mvp.DockerSitemapPath")) ? "c:\\solution\\src\\Project\\MvpSite\\rendering\\sitemap.xml" : Sitecore.Configuration.Settings.GetSetting("Mvp.DockerSitemapPath");
-
-                    sitemap.SaveAsync(dockerPath);
+                        ChangeFrequency = ChangeFrequency.Daily,
+                        Location = GetAbsoluteLink(LinkManager.GetItemUrl(homepage, new ItemUrlBuilderOptions() { LanguageEmbedding = config == 2 ? LanguageEmbedding.Always : (config == 1 ? LanguageEmbedding.AsNeeded : LanguageEmbedding.Never) })),
+                        Priority = 0.5,
+                        TimeStamp = homepage.Statistics.Updated
+                    });
                 }
-                catch (Exception ex)
+
+                // Get all decendants of Homepage to create full Sitemap.
+                var childrens = homepage.Axes.GetDescendants();
+                //Remove the items whose templateid is in exclude list
+                var finalcollection = childrens.Where(x => !ExcludeItemFromSitemap(x)).ToList();
+
+                sitemap.AddRange(finalcollection.Select(childItem => new Url
                 {
-                    Log.Error("Error creating Sitemap.xml.", ex, this);
-                }
+                    Location = GetAbsoluteLink(LinkManager.GetItemUrl(childItem, new ItemUrlBuilderOptions() { LanguageEmbedding = (config == 2 ? LanguageEmbedding.Always : (config == 1 ? LanguageEmbedding.AsNeeded : LanguageEmbedding.Never)) })),
+                    TimeStamp = childItem.Statistics.Updated
+                }));
+
+                var dockerPath = string.IsNullOrWhiteSpace(Sitecore.Configuration.Settings.GetSetting("Mvp.DockerSitemapPath")) ? "c:\\solution\\src\\Project\\MvpSite\\rendering\\" : Sitecore.Configuration.Settings.GetSetting("Mvp.DockerSitemapPath");
+
+                sitemap.SaveAsync($"{dockerPath}sitemap.xml");
+                SaveRobotTxtFile(dockerPath);
+
+                HttpContext.Current.Cache["SitemapSaved"]=1;
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error creating Sitemap.xml.", ex, this);
+            }
+        }
+
+        private string RobotTxtContent
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(Sitecore.Configuration.Settings.GetSetting("Mvp.RobotsTxtItemId"))) return null;
+
+                var robotcontentitem = Context.Database.GetItem(new Sitecore.Data.ID(Sitecore.Configuration.Settings.GetSetting("Mvp.RobotsTxtItemId")));
+
+                if (robotcontentitem == null) return null;
+
+                return robotcontentitem["Content"];
+            }
+        }
+
+        private void SaveRobotTxtFile(string filepath)
+        {
+            string robottxtcontent = RobotTxtContent;
+
+            if (string.IsNullOrWhiteSpace(robottxtcontent))
+            {
+                robottxtcontent += "User-agent: *";
+                robottxtcontent += "\nAllow: /";
+            }
+
+            robottxtcontent += $"\nSitemap: {GetAbsoluteLink("/sitemap.xml")}";
+
+            // Write the specified text to a new file named "robots.txt".
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(filepath, "robots.txt")))
+            {
+                outputFile.WriteAsync(robottxtcontent);
             }
         }
 

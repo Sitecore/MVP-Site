@@ -1,0 +1,45 @@
+﻿---
+ID: "2757f089-47ef-4d6b-909f-1aa7d5f01650"
+Parent: "6603cfda-189c-4fb4-9179-a480731af21d"
+Template: "6603cfda-189c-4fb4-9179-a480731af21d"
+Path: /sitecore/templates/Foundation/BasicContent/Multiline Text/__Standard Values
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "09cea486-3785-4845-8349-576263e84017"
+      Hint: Content
+      Value: |
+        User-agent: *
+        Disallow: /sitecore
+        Disallow: /Sitecore
+        Disallow: /sitecore_files/
+        Disallow: /sitecore modules/
+        Disallow: /App_Browsers/
+        Disallow: /App_config/
+        Disallow: /App_Data/
+        Disallow: /temp/
+        Disallow: /upload/
+        Disallow: /xsl/
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220205T230511Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a1128d13-58f2-499c-b53a-dda8bd08e253"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220205T230713Z
