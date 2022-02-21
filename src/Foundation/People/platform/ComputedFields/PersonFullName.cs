@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Sitecore.Data.Items;
+using System.Globalization;
 
 namespace Mvp.Foundation.People.ComputedFields
 {
@@ -15,7 +16,8 @@ namespace Mvp.Foundation.People.ComputedFields
             Item item = (Item)(indexable as SitecoreIndexableItem);
             if (item != null && item.TemplateID.Equals(Constants.Templates.Person))
             {
-                return item["First Name"] + item["Last Name"];
+                var personFullNameSimple = item["First Name"] + " " + item["Last Name"];
+                return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(personFullNameSimple);
             }
             return false;
         }
