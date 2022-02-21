@@ -64,6 +64,8 @@ section#mvp-search a.btn.btn-flat {
   @media screen and (max-height: 425px) {
     .mvp-results-entries .card {
       margin-bottom: 20px; } }
+  .mvp-results-entries .card--wrapper {
+    margin-bottom: 20px; }
   .mvp-results-entries .card a:hover {
     text-decoration: none; }
   .mvp-results-entries .card a .mvp-category {
@@ -102,7 +104,8 @@ section#mvp-search a.btn.btn-flat {
     -webkit-filter: brightness(0) saturate(100%) invert(8%) sepia(0) saturate(1211%) hue-rotate(166deg) brightness(101%) contrast(87%);
     filter: brightness(0) saturate(100%) invert(8%) sepia(0) saturate(1211%) hue-rotate(166deg) brightness(101%) contrast(87%); }
   .mvp-results-entries .card a .card-body {
-    padding: 15px 26px; }
+    padding: 15px 26px;
+    border-top: 1px solid rgba(0, 0, 0, 0.125); }
   .mvp-results-entries .card .card-img-top {
     border-radius: 0; }
 
