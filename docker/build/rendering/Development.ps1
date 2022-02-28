@@ -1,5 +1,5 @@
 # Homemade dotnet "watch" script, watches the deploy folder for changes to assembly files. 
-# Stops the running app, syncs the changed files and starts the app up again. @anderslaub
+# Stops the running app, syncs the changed files and starts the app up again. No  Author: @anderslaub
 
 [CmdletBinding()]
 param(
@@ -72,7 +72,10 @@ function Get-WatchedFiles {
         [Parameter(Mandatory = $true)]
         $RootFolder
     )
-    (Get-ChildItem $RootFolder\*.dll) + (Get-ChildItem $RootFolder\wwwroot\*.* -Recurse)
+    if (Test-Path $RootFolder\wwwroot\) {
+        return (Get-ChildItem $RootFolder\*.dll,$RootFolder\*.json) + (Get-ChildItem $RootFolder\wwwroot\*.* -Recurse)
+    }
+    Get-ChildItem $RootFolder\*.dll,$RootFolder\*.json
 }
 
 function Sync {
@@ -87,9 +90,15 @@ function Sync {
         $AppProcessId
     )
 
-    $SourceFiles = Get-WatchedFiles -RootFolder $Path | ForEach-Object { Get-FileHash -Path $_.FullName }
-    $DestinationFiles = Get-WatchedFiles -RootFolder $Destination | ForEach-Object { Get-FileHash -Path $_.FullName }
+    $files = Get-WatchedFiles -RootFolder $Path
 
+    $SourceFiles = $files | ForEach-Object { Get-FileHash -Path $_.FullName }
+    if ($null -eq $SourceFiles -or $SourceFiles.Count -eq 0) {
+        return $null
+    }
+
+    $DestinationFiles = Get-WatchedFiles -RootFolder $Destination | ForEach-Object { Get-FileHash -Path $_.FullName }
+    
     if ($null -eq $DestinationFiles) {
         $Deltas = $SourceFiles
     }
@@ -119,6 +128,11 @@ function Sync {
 
 Write-Host ("$(Get-Timestamp): Sitecore Development ENTRYPOINT, starting...")
 
+if ($null -eq $ENV:ENTRYPOINT_ASSEMBLY -or !(Test-Path "C:\App\$($ENV:ENTRYPOINT_ASSEMBLY)")) {
+    Write-Host ("$(Get-Timestamp): ENTRYPOINT_ASSEMBLY environment variable is not set or the dll does not exist. Exiting..") -ForegroundColor Red
+    Exit 1
+}
+
 try {
     Write-Host ("$(Get-Timestamp): Changes on '$($Path)', will deploy to '$($Destination)'...")
     $LastRunSourceFiles = Get-WatchedFiles -RootFolder $Destination | ForEach-Object { Get-FileHash -Path $_.FullName }
@@ -127,8 +141,10 @@ try {
     
     while ($true) {    
         $SyncState = Sync -Path $Path -Destination $Destination -LastRunSourceFiles $LastRunSourceFiles -AppProcessId $ProcessId
-        $LastRunSourceFiles = $SyncState.SourceFiles
-        $ProcessId = $SyncState.AppProcessId
+        if ($null -ne $SyncState) {
+            $LastRunSourceFiles = $SyncState.SourceFiles
+            $ProcessId = $SyncState.AppProcessId
+        }
         Start-Sleep -Milliseconds $SleepMilliseconds
     }
 }
