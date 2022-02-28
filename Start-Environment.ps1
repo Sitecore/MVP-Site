@@ -100,7 +100,6 @@ if ($startAll -or $StartSugconSites) {
 Start-Docker -Build -ComposeFiles $composeFiles
 Push-Items -IdHost "https://id.$($HostDomain)" -CmHost "https://cm.$($HostDomain)"
 
-
 Write-Host "Opening site..." -ForegroundColor Green
 
 Start-Process https://cm.$HostDomain/sitecore/

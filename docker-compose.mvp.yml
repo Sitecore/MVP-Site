@@ -1,0 +1,19 @@
+version: "2.4"
+services:
+
+  traefik: 
+    depends_on:
+      mvp-rendering:
+        condition: service_started
+
+
+  mvp-rendering:
+    scale: 1
+
+  cm:
+    environment:
+      MVP_RENDERING_HOST_PUBLIC_URI: ${MVP_RENDERING_HOST}
+
+  cd:
+    environment:
+      MVP_RENDERING_HOST_PUBLIC_URI: ${MVP_RENDERING_HOST}  

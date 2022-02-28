@@ -70,6 +70,7 @@ services:
       test: ["CMD", "curl", "-f", "http://localhost/healthz"]
       interval: 60s
       timeout: 30s
+    scale: 0
 
   sugcon-rendering:
     container_name: sugcon-rendering
@@ -92,9 +93,6 @@ services:
     restart: ${DOCKER_RESTART}
     volumes:
       - ./docker/traefik:C:/etc/traefik
-    depends_on:
-      mvp-rendering:
-        condition: service_started
 
   redis:
     restart: ${DOCKER_RESTART}
