@@ -44,7 +44,7 @@ The Sitecore MVP site is an Open Source project and as such we welcome community
 5. 🛑 To Stop the environment again  
    
    ```ps1
-   .\Stop-Environment
+   .\Stop-Environment.ps1
    ```  
 
 ### 🎭 Site switches
