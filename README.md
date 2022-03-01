@@ -16,9 +16,9 @@ The Sitecore MVP site is an Open Source project and as such we welcome community
 1. 🏃‍♂️ Run the Start-Environment script from an _elevated_ PowerShell terminal 
 
     ```ps1
-    .\Start-Environment -LicenseXmlPath "C:\path\to\license.xml"
+    .\Start-Environment -LicensePath "C:\path\to\license.xml"
     ```
-   _note:_  The LicenseXmlPath argument only has to be used on the initial run of the script. The license file must be named `license.xml`, the script copies it to the folder `.\docker\license` where it also can be placed or updated manually.  
+   _note:_ The LicensePath argument only has to be used on the initial run of the script. The license file must be named `license.xml`, the script copies it to the folder `.\docker\license` where it also can be placed or updated manually.  
 
    > You **must** use an elevated/Administrator PowerShell terminal  
    > [Windows Terminal](https://github.com/microsoft/terminal/releases) looks best but the built-in Windows Powershell 5.1 terminal works too.
@@ -28,7 +28,8 @@ The Sitecore MVP site is an Open Source project and as such we welcome community
    Note that you will be asked to fill in the following values with your Okta developer account details:
       - OKTA_DOMAIN (*must* include protocol, e.g. `OKTA_DOMAIN=https://dev-your-id.okta.com`)
       - OKTA_CLIENT_ID
-      - OKTA_CLIENT_SECRET
+      - OKTA_CLIENT_SECRET  
+   [Sign up for an Okta Developer Account](https://developer.okta.com/signup/)
 
    _If the wizard is aborted prematurely or if the container build fails then use the `-InitializeEnvFile` switch to re-run the full wizard._
 

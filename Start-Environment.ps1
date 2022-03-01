@@ -5,7 +5,7 @@ param (
     $ComposeProjectName="sc-mvp",
     [ValidateNotNullOrEmpty()]
     [string] 
-    $LicensePath,
+    $LicensePath = "c:\sitecore\license.xml",
     [switch]
     $InitializeEnvFile,
     [Switch]
@@ -26,7 +26,7 @@ if (!(Test-Path ".\docker\license\license.xml")) {
     Write-Host "License.xml not found in .\docker\license\" -ForegroundColor Yellow
     
     if (!(Test-Path $LicensePath)) {
-        Write-Host "Please copy a valid Sitecore license file to this folder or supply a path to license file using the -LicensePath arg.." -ForegroundColor Red
+        Write-Host "Please copy a valid Sitecore license file to .\docker\license\ or supply a path to license file using the -LicensePath arg.." -ForegroundColor Red
         exit 0
     }
     
