@@ -57,9 +57,9 @@ If none of these are passed to the script all rendering containers are started.
 
 _Example:_
 
-    ```ps1
-    .\Start-Environment -StartSugconSites
-    ```  
+```ps1
+.\Start-Environment -StartSugconSites
+```  
 
 ## ⚠️ Troubleshooting
 
