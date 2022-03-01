@@ -90,10 +90,12 @@ $composeFiles = @(".\docker-compose.yml", ".\docker-compose.override.yml")
 $startAll = !$StartMvpSite -and !$StartSugconSites
 
 if ($startAll -or $StartMvpSite) {
+    Write-Host "MVP Rendering host will be accessible on https://mvp.$HostDomain/"
     $composeFiles += ".\docker-compose.mvp.yml"
 } 
 
 if ($startAll -or $StartSugconSites) {
+    Write-Host "SUGCON EU Rendering host will be accessible on https://sugcon-eu.$HostDomain/"
     $composeFiles += ".\docker-compose.sugcon.yml"
 } 
 
@@ -103,11 +105,16 @@ dotnet tool restore
 Start-Docker -Build -ComposeFiles $composeFiles
 Push-Items -IdHost "https://id.$($HostDomain)" -CmHost "https://cm.$($HostDomain)"
 
-Write-Host "Opening site..." -ForegroundColor Green
+if ($startAll -or $StartMvpSite) {
+    Write-Host "`nMVP site is accessible on https://mvp.$HostDomain/"  -ForegroundColor Magenta
+} 
 
+if ($startAll -or $StartSugconSites) {
+    Write-Host "`nSUGCON EU site is accessible on https://sugcon-eu.$HostDomain/"  -ForegroundColor Magenta
+} 
+
+Write-Host "Opening cm in browser..." -ForegroundColor Green
 Start-Process https://cm.$HostDomain/sitecore/
 
-Write-Host ""
-Write-Host "Use the following command to monitor your Rendering Host:" -ForegroundColor Green
-Write-Host "docker-compose logs -f mvp-rendering"
-Write-Host ""
+Write-Host "`n`nUse the following command to monitor your Rendering Host:" -ForegroundColor Green
+Write-Host "docker-compose logs -f mvp-rendering`n`n"
