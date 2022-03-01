@@ -18,14 +18,14 @@ The Sitecore MVP site is an Open Source project and as such we welcome community
     ```ps1
     .\Start-Environment -LicensePath "C:\path\to\license.xml"
     ```
-   _note:_ The LicensePath argument only has to be used on the initial run of the script. The license file must be named `license.xml`, the script copies it to the folder `.\docker\license` where it also can be placed or updated manually.  
+   _Note:_  The LicensePath argument only has to be used on the initial run of the script. The license file must be named `license.xml`, the script copies it to the folder `.\docker\license` where it also can be placed or updated manually.  
 
    > You **must** use an elevated/Administrator PowerShell terminal  
    > [Windows Terminal](https://github.com/microsoft/terminal/releases) looks best but the built-in Windows Powershell 5.1 terminal works too.
 
 2. ☕ Follow the on screen instructions.  
 
-   Note that you will be asked to fill in the following values with your Okta developer account details:
+   _Note:_ that you will be asked to fill in the following values with your Okta developer account details:
       - OKTA_DOMAIN (*must* include protocol, e.g. `OKTA_DOMAIN=https://dev-your-id.okta.com`)
       - OKTA_CLIENT_ID
       - OKTA_CLIENT_SECRET  
@@ -49,7 +49,11 @@ The Sitecore MVP site is an Open Source project and as such we welcome community
 
 ### 🎭 Site switches
 
-If you only want to start either the MVP or the SUGCON rendering container(s), you can use pass in one of the following switch args `-StartSugconSites` and `-StartMvpSite`. If none of these are passed to the script all rendering containers are started.
+If you only want to start either the MVP or the SUGCON rendering container(s), you can use pass in one of the following switch args  
+* `-StartSugconSites` 
+* `-StartMvpSite`  
+
+If none of these are passed to the script all rendering containers are started.
 
 _Example:_
 
