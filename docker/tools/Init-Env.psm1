@@ -102,7 +102,7 @@ function Initialize-EnvFile {
     Set-EnvFileVariable "SITECORE_ID_CERTIFICATE" -Value (Get-SitecoreCertificateAsBase64String -DnsName "localhost" -Password (ConvertTo-SecureString -String $idCertPassword -Force -AsPlainText))
     Set-EnvFileVariable "SITECORE_ID_CERTIFICATE_PASSWORD" -Value $idCertPassword
     Set-EnvFileVariable "SQL_SA_PASSWORD" -Value (Get-SitecoreRandomString 19 -DisallowSpecial -EnforceComplexity)
-    Set-EnvFileVariable "SITECORE_VERSION" -Value (Read-ValueFromHost -Question "Sitecore image version (10.2-ltsc2019, 10.2-1909, 10.2-2004, 10.2-20H2)" -DefaultValue "10.2-ltsc2019" -Required)
+    Set-EnvFileVariable "SITECORE_VERSION" -Value (Read-ValueFromHost -Question "Sitecore image version (10.2-ltsc2019, 10.2009, 10.2-20H2)" -DefaultValue "10.2-ltsc2019" -Required)
     Set-EnvFileVariable "SITECORE_ADMIN_PASSWORD" -Value (Read-ValueFromHost -Question "Sitecore admin password" -DefaultValue "b" -Required)
 
     if (Confirm -Question "Would you like to adjust common environment settings?") {
