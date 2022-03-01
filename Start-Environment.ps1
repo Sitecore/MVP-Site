@@ -97,6 +97,9 @@ if ($startAll -or $StartSugconSites) {
     $composeFiles += ".\docker-compose.sugcon.yml"
 } 
 
+# Restore dotnet tool for sitecore login and serialization
+dotnet tool restore
+
 Start-Docker -Build -ComposeFiles $composeFiles
 Push-Items -IdHost "https://id.$($HostDomain)" -CmHost "https://cm.$($HostDomain)"
 
