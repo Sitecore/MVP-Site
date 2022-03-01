@@ -22,8 +22,9 @@ services:
     container_name: sugcon-eu-rendering
     image: ${MVP_DOCKER_REGISTRY}sugcon-rendering:${SITECORE_VERSION}
     volumes:
-      - .\:C:\solution
+      - ${LOCAL_DEPLOY_PATH}\sugcon-rendering:C:\deploy
     environment:
+      ENTRYPOINT_ASSEMBLY: Mvp.Project.Sugcon.Rendering.dll
       ASPNETCORE_ENVIRONMENT: "Development"
       ASPNETCORE_URLS: "http://*:80"
       Sitecore__InstanceUri: "http://cd"

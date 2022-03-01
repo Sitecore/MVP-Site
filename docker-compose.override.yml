@@ -33,15 +33,15 @@ services:
       context: ./docker/build/rendering
       target: ${BUILD_CONFIGURATION}
       args:
-        DEBUG_BASE_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-dotnetsdk:${SITECORE_VERSION}
+        DEBUG_BASE_IMAGE: ${NETCORE_BUILD_IMAGE}
         RELEASE_BASE_IMAGE: mcr.microsoft.com/dotnet/core/aspnet:3.1
         SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution:${SITECORE_VERSION}
-        ENTRYPOINT_PROJECT_FOLDER: MvpSite
-        ENTRYPOINT_ASSEMBLY_NAME: Mvp.Project.MvpSite
+        ENTRYPOINT_ASSEMBLY: Mvp.Project.MvpSite.dll
         ARTIFACTS_FOLDER: /artifacts/mvp-rendering
     volumes:
-      - .\:C:\solution
+      - ${LOCAL_DEPLOY_PATH}\mvp-rendering:C:\deploy
     environment:
+      ENTRYPOINT_ASSEMBLY: Mvp.Project.MvpSite.dll
       ASPNETCORE_ENVIRONMENT: "Development"
       ASPNETCORE_URLS: "http://*:80"
       Sitecore__InstanceUri: "http://cd"
@@ -79,12 +79,15 @@ services:
       context: ./docker/build/rendering
       target: ${BUILD_CONFIGURATION}
       args:
-        DEBUG_BASE_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-dotnetsdk:${SITECORE_VERSION}
+        DEBUG_BASE_IMAGE: ${NETCORE_BUILD_IMAGE}
         RELEASE_BASE_IMAGE: mcr.microsoft.com/dotnet/core/aspnet:3.1
         SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution:${SITECORE_VERSION}
-        ENTRYPOINT_PROJECT_FOLDER: Sugcon
-        ENTRYPOINT_ASSEMBLY_NAME: Mvp.Project.Sugcon.Rendering
+        ENTRYPOINT_ASSEMBLY: Mvp.Project.Sugcon.Rendering.dll
         ARTIFACTS_FOLDER: /artifacts/sugcon-rendering
+    environment:
+      ENTRYPOINT_ASSEMBLY: Mvp.Project.Sugcon.Rendering.dll
+    volumes:
+      - ${LOCAL_DEPLOY_PATH}\sugcon-rendering:C:\deploy      
     depends_on:
       - solutionBuildOutput           
     scale: 0
