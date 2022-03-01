@@ -49,7 +49,7 @@ The Sitecore MVP site is an Open Source project and as such we welcome community
 
 ### 🎭 Site switches
 
-If you only want to start either the MVP or the SUGCON rendering container(s), you can use pass in one of the following switch args  
+If you only want to start either the MVP or the SUGCON rendering container(s), you can use one of the following switch args  
 * `-StartSugconSites` 
 * `-StartMvpSite`  
 
