@@ -1,0 +1,39 @@
+﻿---
+ID: "c7504499-8e01-4ffe-8d3a-dda942f6ed19"
+Parent: "b0e33d20-0402-4194-b132-a6d523ecef24"
+Template: "da6d1712-0553-4d55-a861-8f646003a469"
+Path: "/sitecore/content/Sugcon-EU/Shared Content/Footer Content"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220302T083733Z
+    - ID: "2d0a5d7e-65b6-4eb2-b2a6-012a0453a253"
+      Hint: CopyrightText
+      Value: Sitecore User Group Conference &copy; 2022
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "513e6ef2-583a-497b-9dcf-d4d1d0c51d68"
+    - ID: "adec49d5-e4dd-420e-9225-db7fd95f8633"
+      Hint: Social Media Links
+      Value: |
+        {489A196E-6566-4F6E-ADD7-970592718BDF}
+        {58AA0AAC-CD5F-4048-A5DB-6C675BA2D546}
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220302T091802Z

@@ -1,0 +1,26 @@
+﻿---
+ID: "58aa0aac-cd5f-4048-a5db-6c675ba2d546"
+Parent: "c7504499-8e01-4ffe-8d3a-dda942f6ed19"
+Template: "50c6077c-1c0c-4873-b6af-7b8d164636d4"
+Path: "/sitecore/content/Sugcon-EU/Shared Content/Footer Content/Email Us"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220302T091656Z
+    - ID: "88e27f7a-42b7-4fdf-af70-e4c2a153b743"
+      Hint: Link
+      Value: "<link text='Contact Us' linktype='mailto' style='' url='mailto:enquiries@sugcon.events'  title='' />"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "b12f731f-5756-45d5-aeea-7339f1d038bd"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220302T091740Z
