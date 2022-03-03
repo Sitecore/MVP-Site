@@ -11,17 +11,17 @@ Set-StrictMode -Version Latest
 
 function Stop-IisIfRunning {
     $iisService = Get-Service w3svc  -ErrorAction SilentlyContinue
-    if ($null -eq $iisService -bor ($null -eq $iisService.Status) -bor ($iisService.Status -ne 'Running')) {
-        Write-Host "`nIIS is not running on local machine...`n" -ForegroundColor Green
+    if ($null -eq $iisService -or $null -eq $iisService.Status -or $iisService.Status -ne 'Running') {
+        Write-Host "IIS is not running on local machine..." -ForegroundColor Green
         return;
     }
-    $stopIis = Confirm -Question "`nIIS is currently running on the local machine.`n`nWould you like to stop IIS to avoid port conflicts?" -DefaultYes
+    $stopIis = Confirm -Question "IIS is currently running on the local machine.`n`nWould you like to stop IIS to avoid port conflicts?" -DefaultYes
     if (!$stopIis) {
         Write-Host "Warning; if IIS use port 443, traefik will fail to start." -ForegroundColor Red
         return;
     }
     iisreset /stop
-    Write-Host "`nIIS Stopped...`n" -ForegroundColor Green
+    Write-Host "IIS Stopped..." -ForegroundColor Green
 }
 
 

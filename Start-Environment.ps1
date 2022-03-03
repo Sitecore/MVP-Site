@@ -83,12 +83,10 @@ $composeFiles = @(".\docker-compose.yml", ".\docker-compose.override.yml")
 $startAll = !$StartMvpSite -and !$StartSugconSites
 
 if ($startAll -or $StartMvpSite) {
-    Write-Host "MVP Rendering host will be accessible on https://mvp.$HostDomain/"
     $composeFiles += ".\docker-compose.mvp.yml"
 } 
 
 if ($startAll -or $StartSugconSites) {
-    Write-Host "SUGCON EU Rendering host will be accessible on https://sugcon-eu.$HostDomain/"
     $composeFiles += ".\docker-compose.sugcon.yml"
 } 
 
@@ -96,6 +94,7 @@ if ($startAll -or $StartSugconSites) {
 dotnet tool restore
 
 Start-Docker -Build -ComposeFiles $composeFiles
+
 Push-Items -IdHost "https://id.$($HostDomain)" -CmHost "https://cm.$($HostDomain)"
 
 #TODO: this will be generalized when more sugcon sites are added.
