@@ -101,13 +101,13 @@ Push-Items -IdHost "https://id.$($HostDomain)" -CmHost "https://cm.$($HostDomain
 if ($startAll -or $StartMvpSite) {
     Write-Host "`nMVP site is accessible on https://mvp.$HostDomain/`n`nUse the following command to monitor:"  -ForegroundColor Magenta
     Write-PrePrompt
-    Write-Host "docker logs mvp-rendering`n"
+    Write-Host "docker logs -f mvp-rendering`n"
 } 
 
 if ($startAll -or $StartSugconSites) {
     Write-Host "`nSUGCON EU site is accessible on https://sugcon-eu.$HostDomain/`n`nUse the following command to monitor:"  -ForegroundColor Magenta
     Write-PrePrompt
-    Write-Host "docker logs sugcon-eu-rendering`n"
+    Write-Host "docker logs -f sugcon-eu-rendering`n"
 } 
 
 Write-Host "Opening cm in browser..." -ForegroundColor Green
