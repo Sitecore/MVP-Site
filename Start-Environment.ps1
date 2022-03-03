@@ -34,14 +34,7 @@ if (!(Test-Path ".\docker\license\license.xml")) {
     Copy-Item $LicensePath ".\docker\license\license.xml"
 }
 
-# Stop IIS if running in this computer
-$service=get-service w3svc  -ErrorAction SilentlyContinue
-if ($null -ne $service.Name) {
-	if ($service.Status -eq 'Running') {        		
-		iisreset /stop
-		Write-Host "IIS Stopped..." -ForegroundColor Green
-	}
-}
+Stop-IisIfRunning
 
 $HostDomain = "$($ComposeProjectName.ToLower()).localhost"
 
@@ -105,16 +98,18 @@ dotnet tool restore
 Start-Docker -Build -ComposeFiles $composeFiles
 Push-Items -IdHost "https://id.$($HostDomain)" -CmHost "https://cm.$($HostDomain)"
 
+#TODO: this will be generalized when more sugcon sites are added.
 if ($startAll -or $StartMvpSite) {
-    Write-Host "`nMVP site is accessible on https://mvp.$HostDomain/"  -ForegroundColor Magenta
+    Write-Host "`nMVP site is accessible on https://mvp.$HostDomain/`n`nUse the following command to monitor:"  -ForegroundColor Magenta
+    Write-PrePrompt
+    Write-Host "docker logs mvp-rendering`n"
 } 
 
 if ($startAll -or $StartSugconSites) {
-    Write-Host "`nSUGCON EU site is accessible on https://sugcon-eu.$HostDomain/"  -ForegroundColor Magenta
+    Write-Host "`nSUGCON EU site is accessible on https://sugcon-eu.$HostDomain/`n`nUse the following command to monitor:"  -ForegroundColor Magenta
+    Write-PrePrompt
+    Write-Host "docker logs sugcon-eu-rendering`n"
 } 
 
 Write-Host "Opening cm in browser..." -ForegroundColor Green
 Start-Process https://cm.$HostDomain/sitecore/
-
-Write-Host "`n`nUse the following command to monitor your Rendering Host:" -ForegroundColor Green
-Write-Host "docker-compose logs -f mvp-rendering`n`n"
