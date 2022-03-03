@@ -12,7 +12,7 @@ namespace Mvp.Foundation.User.Extensions
     {
         public static RenderingEngineOptions AddFoundationUser(this RenderingEngineOptions options)
         {
-            options.AddPartialView("SignIn");
+            options.AddPartialView("~/Views/Shared/Components/SignIn.cshtml");
 
             AddOktaAuthHeaders(options);
 

@@ -25,6 +25,28 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{3EF8E34A-B17B-4512-B395-953C511698AE}"
+              p:before="*"
+              s:ds="{CD0DE92E-4D6A-4681-B30B-3D0259EF0233}"
+              s:id="{A4F28B31-5D18-4158-92AB-F4D2ECA6D2BE}"
+              s:par=""
+              s:ph="header"
+              s:ccb="Clear on publish" />
+            <r
+              uid="{94A9B396-B137-47B0-B1BD-8BA53A5774DB}"
+              p:after="*[1=2]"
+              s:id="{437CCC09-AB5D-47B3-96D7-2B05BDFF5324}"
+              s:ph="footer" />
+          </d>
+        </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20200513T045748Z
@@ -38,11 +60,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5d8b51c9-e732-4590-a36e-d5e61453b3ee"
+      Value: "a28b6c07-78e0-4188-a3be-c61fc136f687"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211223T115117Z
+      Value: 20220303T111541Z
