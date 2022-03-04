@@ -1,8 +1,8 @@
 ﻿---
 ID: "7d2e0682-4c33-439d-9db7-e6b18c0c1ac0"
-Parent: "5b281a5c-0050-4e34-8b10-702d4e402ae4"
+Parent: "4dd9c102-16d9-49f6-99a2-af261ccd7806"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Feature/Navigation/Social Media Link/Social Media/Icon
+Path: /sitecore/templates/Feature/Navigation/_LinkIcon/Navigation/Icon
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type

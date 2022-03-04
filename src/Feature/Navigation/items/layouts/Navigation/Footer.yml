@@ -10,6 +10,9 @@ SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: Office/32x32/document_footer.png
+- ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
+  Hint: Rendering Contents Resolver
+  Value: "{51104EE3-12B4-45E7-8859-B61E23F5230C}"
 Languages:
 - Language: en
   Versions:
@@ -20,11 +23,11 @@ Languages:
       Value: 20200528T045508Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "dd9ed571-fe4a-45f7-96b2-dc217d8b1d10"
+      Value: "e2373c52-3009-4c92-a7c0-e0fd4bdef120"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200528T045750Z
+      Value: 20220302T112520Z

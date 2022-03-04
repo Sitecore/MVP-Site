@@ -14,17 +14,17 @@ Languages:
     - ID: "7d2e0682-4c33-439d-9db7-e6b18c0c1ac0"
       Hint: Icon
       Value: twitter
-    - ID: "88e27f7a-42b7-4fdf-af70-e4c2a153b743"
-      Hint: Link
-      Value: |
-        <link text="Go to Sitecore MVP on Twitter" linktype="external" url="https://twitter.com/SitecoreMVP" anchor="" target="_blank" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a790eb5b-14b9-42e8-b8ff-473f03a88558"
+      Value: "0ad2ad89-4261-4ac4-9b83-3b0c1fb98bb8"
+    - ID: "aff6fd57-80bd-4b53-adb9-164b922d5763"
+      Hint: Link
+      Value: |
+        <link text="Go to Sitecore MVP on Twitter" linktype="external" url="https://twitter.com/SitecoreMVP" anchor="" title="Go to Sitecore MVP on Twitter" target="_blank" />
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220302T085528Z
+      Value: 20220303T133818Z

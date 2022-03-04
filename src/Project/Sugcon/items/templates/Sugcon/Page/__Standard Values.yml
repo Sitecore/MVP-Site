@@ -27,6 +27,10 @@ SharedFields:
           ph="main"
           uid="{001823AD-9D35-4B58-A73F-73A4C0B115F6}"
           ccb="Clear on publish" />
+        <r
+          id="{437CCC09-AB5D-47B3-96D7-2B05BDFF5324}"
+          ph="footer"
+          uid="{E5DD80A0-A1AD-49F5-83A6-9D356BF001D9}" />
       </d>
     </r>
 Languages:
@@ -47,7 +51,7 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "48e90552-0682-4114-b56f-4a48a7699c65"
+      Value: "4cfe4045-6be5-4615-aa96-18fadfab2bca"
     - ID: "b1ece12f-b2c9-44e6-92a3-c5dfd6514b59"
       Hint: Menu Title
       Value: $name
@@ -57,7 +61,7 @@ Languages:
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211228T165617Z
+      Value: 20220303T140249Z
     - ID: "efc0a3c7-6993-47d2-ba85-10b44961916e"
       Hint: Include in Menu
       Value: 1

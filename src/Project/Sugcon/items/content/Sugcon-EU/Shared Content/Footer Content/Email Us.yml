@@ -11,16 +11,19 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20220302T091656Z
-    - ID: "88e27f7a-42b7-4fdf-af70-e4c2a153b743"
-      Hint: Link
-      Value: "<link text='Contact Us' linktype='mailto' style='' url='mailto:enquiries@sugcon.events'  title='' />"
+    - ID: "7d2e0682-4c33-439d-9db7-e6b18c0c1ac0"
+      Hint: Icon
+      Value: envelope
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b12f731f-5756-45d5-aeea-7339f1d038bd"
+      Value: "168d9f26-2e7f-4b63-8a63-dc16100d476d"
+    - ID: "aff6fd57-80bd-4b53-adb9-164b922d5763"
+      Hint: Link
+      Value: "<link text='Contact Us' linktype='mailto' style='' url='mailto:enquiries@sugcon.events'  title='' />"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220302T091740Z
+      Value: 20220303T133721Z
