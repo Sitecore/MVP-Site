@@ -26,7 +26,7 @@ namespace Mvp.Feature.Navigation.LayoutService
 
             return new
             {
-                CopyrightText = footerRootItem.Fields[Templates.FooterContent.Fields.CopyrightText].Value,
+                CopyrightText = footerRootItem.Fields[Templates.Content.Fields.Content].Value,
                 SocialLinks = socialLinks
             };
         }

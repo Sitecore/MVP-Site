@@ -1,15 +1,8 @@
 ﻿---
-ID: "2d0a5d7e-65b6-4eb2-b2a6-012a0453a253"
-Parent: "02a6871c-52d1-464f-bc1c-8f52ace1179e"
-Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Feature/Navigation/Footer Content/Content/CopyrightText
-SharedFields:
-- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
-  Hint: Type
-  Value: Rich Text
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 100
+ID: "02a6871c-52d1-464f-bc1c-8f52ace1179e"
+Parent: "eb06fc78-74d1-4684-9860-7966f0586bc9"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/Feature/Navigation/_Content/Content
 Languages:
 - Language: en
   Versions:
@@ -28,7 +21,7 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "12eed1ca-ba27-483d-8e11-e9774586ca21"
+      Value: "2777eb24-f1a6-440d-952b-c49744ddc4f2"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |

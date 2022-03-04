@@ -57,7 +57,6 @@ namespace Mvp.Feature.Navigation
             public struct Fields
             {
                 public static readonly ID SocialMediaLinks = new ID("{ADEC49D5-E4DD-420E-9225-DB7FD95F8633}");
-                public static readonly ID CopyrightText = new ID("{2D0A5D7E-65B6-4EB2-B2A6-012A0453A253}");
             }
         }
 
@@ -73,6 +72,16 @@ namespace Mvp.Feature.Navigation
             public struct Fields
             {
                 public static readonly ID Icon = new ID("{7D2E0682-4C33-439D-9DB7-E6B18C0C1AC0}");
+            }
+        }
+
+        public static class Content
+        {
+            public static readonly ID TemplateId = ID.Parse("{EB06FC78-74D1-4684-9860-7966F0586BC9}");
+
+            public struct Fields
+            {
+                public static readonly ID Content = new ID("{2D0A5D7E-65B6-4EB2-B2A6-012A0453A253}");
             }
         }
     }

@@ -1,21 +1,12 @@
 ﻿---
-ID: "da6d1712-0553-4d55-a861-8f646003a469"
+ID: "646aecf9-b0ce-47da-9b30-97db1e8e8df7"
 Parent: "9d7d9c8c-caa6-48ff-a3f9-403782fa0811"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
-Path: /sitecore/templates/Feature/Navigation/Footer Content
+Path: /sitecore/templates/Feature/Navigation/_SocialMediaLinks
 SharedFields:
-- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
-  Hint: __Icon
-  Value: WordProcessing/32x32/footer.png
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
-  Value: |
-    {1930BBEB-7805-471A-A3BE-4858AC7CF696}
-    {EB06FC78-74D1-4684-9860-7966F0586BC9}
-    {646AECF9-B0CE-47DA-9B30-97DB1E8E8DF7}
-- ID: "f7d48a55-2158-4f02-9356-756654404f73"
-  Hint: __Standard values
-  Value: "{88E6DE4C-A8FB-435B-ABD1-39666575E723}"
+  Value: "{1930BBEB-7805-471A-A3BE-4858AC7CF696}"
 Languages:
 - Language: en
   Versions:
@@ -23,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220302T083414Z
+      Value: 20220304T145356Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -34,11 +25,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "3d92f1eb-f370-442c-a8dd-4b629b6e3ea1"
+      Value: "2e45bdbb-35f8-4306-989d-2fc2728863ac"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220304T145414Z
+      Value: 20220304T145356Z
