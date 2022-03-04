@@ -1,5 +1,4 @@
 ﻿using Mvp.Feature.Navigation.Services;
-using Sitecore.Data.Items;
 using Sitecore.LayoutService.Configuration;
 using Sitecore.LayoutService.ItemRendering.ContentsResolvers;
 using Sitecore.Mvc.Presentation;
@@ -10,15 +9,17 @@ namespace Mvp.Feature.Navigation.LayoutService
     public class FooterContentResolver : RenderingContentsResolver
     {
         private readonly ISocialLinksBuilder _socialLinksBuilder;
+        private readonly IItemTools _itemTools;
 
-        public FooterContentResolver(ISocialLinksBuilder socialLinksBuilder)
+        public FooterContentResolver(IItemTools itemTools, ISocialLinksBuilder socialLinksBuilder)
         {
+            _itemTools = itemTools;
             _socialLinksBuilder = socialLinksBuilder;
         }
 
         public override object ResolveContents(Rendering rendering, IRenderingConfiguration renderingConfig)
         {
-            var rootItem = GetNavigationRootItem(GetContextItem(rendering, renderingConfig));
+            var rootItem = _itemTools.GetNavigationRootItem(GetContextItem(rendering, renderingConfig));
 
             var footerRootItem = rootItem.Parent.Children.FirstOrDefault(x => x.Key == "shared content").Children.FirstOrDefault(y => y.TemplateID == Templates.FooterContent.TemplateId);
             var socialLinks = _socialLinksBuilder.GetSocialLinks(footerRootItem);
@@ -28,13 +29,6 @@ namespace Mvp.Feature.Navigation.LayoutService
                 CopyrightText = footerRootItem.Fields[Templates.FooterContent.Fields.CopyrightText].Value,
                 SocialLinks = socialLinks
             };
-        }
-
-        private Item GetNavigationRootItem(Item contextItem)
-        {
-            return contextItem.DescendsFrom(Templates.NavigationRootItem.TemplateId)
-              ? contextItem
-              : contextItem.Axes.GetAncestors().LastOrDefault(x => x.DescendsFrom(Templates.NavigationRootItem.TemplateId));
         }
     }
 }

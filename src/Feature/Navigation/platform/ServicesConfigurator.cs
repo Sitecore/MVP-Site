@@ -8,6 +8,7 @@ namespace Mvp.Feature.Navigation
     {
         public void Configure(IServiceCollection serviceCollection)
         {
+            serviceCollection.AddTransient<IItemTools, ItemTools>();
             serviceCollection.AddTransient<ITopLinksBuilder, TopLinksBuilder>();
             serviceCollection.AddTransient<INavigationBuilder, NavigationBuilder>();
             serviceCollection.AddTransient<ISocialLinksBuilder, SocialLinksBuilder>();
