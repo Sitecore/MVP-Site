@@ -2,6 +2,7 @@
 using Sitecore.LayoutService.Configuration;
 using Sitecore.LayoutService.ItemRendering.ContentsResolvers;
 using Sitecore.Mvc.Presentation;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Mvp.Feature.Navigation.LayoutService
@@ -21,14 +22,25 @@ namespace Mvp.Feature.Navigation.LayoutService
         {
             var rootItem = _itemTools.GetNavigationRootItem(GetContextItem(rendering, renderingConfig));
 
-            var footerRootItem = rootItem.Parent.Children.FirstOrDefault(x => x.Key == "shared content").Children.FirstOrDefault(y => y.TemplateID == Templates.FooterContent.TemplateId);
-            var socialLinks = _socialLinksBuilder.GetSocialLinks(footerRootItem);
-
-            return new
+            var footerRootItem = rootItem.Parent.Children.FirstOrDefault(x => x.Key == "shared content")?.Children.FirstOrDefault(x => x.DescendsFrom(Templates.SocialMediaLinks.TemplateId));
+            if (footerRootItem != null)
             {
-                CopyrightText = footerRootItem.Fields[Templates.Content.Fields.Content].Value,
-                SocialLinks = socialLinks
-            };
+                var socialLinks = _socialLinksBuilder.GetSocialLinks(footerRootItem);
+
+                return new
+                {
+                    CopyrightText = footerRootItem.Fields[Templates.Content.Fields.Content].Value,
+                    SocialLinks = socialLinks
+                };
+            }
+            else
+            {
+                return new
+                {
+                    CopyrightText = "",
+                    SocialLinks = new List<Models.SocialLink>() { }
+                };
+            }
         }
     }
 }

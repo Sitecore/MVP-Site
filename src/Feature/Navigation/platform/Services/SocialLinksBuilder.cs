@@ -12,7 +12,7 @@ namespace Mvp.Feature.Navigation.Services
     {
         public IList<SocialLink> GetSocialLinks(Item footerRootItem)
         {
-            var allSocialLinks = ((MultilistField)footerRootItem.Fields[Templates.FooterContent.Fields.SocialMediaLinks]).GetItems().Where(i => i.TemplateID == Templates.SocialMediaLink.TemplateId);
+            var allSocialLinks = ((MultilistField)footerRootItem.Fields[Templates.SocialMediaLinks.Fields.SocialMediaLinks]).GetItems().Where(i => i.TemplateID == Templates.SocialMediaLink.TemplateId);
             var socialLinks = new List<SocialLink>();
             foreach(var socialLink in allSocialLinks)
             {

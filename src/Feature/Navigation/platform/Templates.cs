@@ -53,11 +53,6 @@ namespace Mvp.Feature.Navigation
         public static class FooterContent
         {
             public static readonly ID TemplateId = ID.Parse("{DA6D1712-0553-4D55-A861-8F646003A469}");
-
-            public struct Fields
-            {
-                public static readonly ID SocialMediaLinks = new ID("{ADEC49D5-E4DD-420E-9225-DB7FD95F8633}");
-            }
         }
 
         public static class SocialMediaLink
@@ -82,6 +77,15 @@ namespace Mvp.Feature.Navigation
             public struct Fields
             {
                 public static readonly ID Content = new ID("{2D0A5D7E-65B6-4EB2-B2A6-012A0453A253}");
+            }
+        }
+        public static class SocialMediaLinks
+        {
+            public static readonly ID TemplateId = ID.Parse("{DA6D1712-0553-4D55-A861-8F646003A469}");
+
+            public struct Fields
+            {
+                public static readonly ID SocialMediaLinks = new ID("{ADEC49D5-E4DD-420E-9225-DB7FD95F8633}");
             }
         }
     }

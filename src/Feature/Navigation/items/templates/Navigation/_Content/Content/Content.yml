@@ -2,7 +2,7 @@
 ID: "2d0a5d7e-65b6-4eb2-b2a6-012a0453a253"
 Parent: "02a6871c-52d1-464f-bc1c-8f52ace1179e"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Feature/Navigation/_Content/Content/CopyrightText
+Path: /sitecore/templates/Feature/Navigation/_Content/Content/Content
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
