@@ -47,7 +47,7 @@ if (!(Test-Path ".\.env") -or $InitializeEnvFile) {
     Set-EnvFileVariable "SUGCON_ANZ_RENDERING_HOST" -Value "sugcon-anz.$($HostDomain)"
 
     # OKTA Dev stuff...
-    Set-EnvFileVariable "OKTA_DOMAIN" -Value (Read-ValueFromHost -Question "OKTA Domain" -Required)
+    Set-EnvFileVariable "OKTA_DOMAIN" -Value (Read-ValueFromHost -Question "OKTA Domain (has to start with https://)" -ValidationRegEx "https://.{8,}" -Required )
     Set-EnvFileVariable "OKTA_CLIENT_ID" -Value (Read-ValueFromHost -Question "OKTA Client ID" -Required)
     Set-EnvFileVariable "OKTA_CLIENT_SECRET" -Value (Read-ValueFromHost -Question "OKTA Client Secret" -Required)
 }

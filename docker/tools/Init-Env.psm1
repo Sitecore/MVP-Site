@@ -129,7 +129,7 @@ function Initialize-EnvFile {
         Set-EnvFileVariable "MEM_LIMIT_SQL" -Value (Read-ValueFromHost -Question "SQL Server memory limit" -DefaultValue "4GB" -Required)
         Set-EnvFileVariable "MEM_LIMIT_SOLR" -Value (Read-ValueFromHost -Question "Solr memory limit" -DefaultValue "2GB" -Required)
         Set-EnvFileVariable "MEM_LIMIT_CM" -Value (Read-ValueFromHost -Question "CM Server memory limit" -DefaultValue "6GB" -Required)
-        Set-EnvFileVariable "MEM_LIMIT_RENDERING" -Value (Read-ValueFromHost -Question "CM Server memory limit" -DefaultValue "2GB" -Required)
+        Set-EnvFileVariable "MEM_LIMIT_RENDERING" -Value (Read-ValueFromHost -Question "Rendering host(s) memory limit" -DefaultValue "2GB" -Required)
     }
     Pop-Location
 }

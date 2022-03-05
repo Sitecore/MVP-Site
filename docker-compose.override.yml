@@ -172,7 +172,7 @@ services:
       Okta__AuthorizationServerId: ${OKTA_AUTH_SERVER_ID}
       Okta__RedirectUri: "https://${CD_HOST}/identity/externallogincallback"
       Sitecore__ExternalCdUrl: "${CD_HOST}"
-      MVP_RENDERING_HOST_PUBLIC_URI: ${MVP_RENDERING_HOST}      
+      MVP_RENDERING_HOST_PUBLIC_URI: https://${MVP_RENDERING_HOST}      
     mem_limit: ${MEM_LIMIT_CD:-2GB}      
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
     labels:

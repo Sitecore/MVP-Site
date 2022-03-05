@@ -12,8 +12,8 @@ services:
 
   cm:
     environment:
-      MVP_RENDERING_HOST_PUBLIC_URI: ${MVP_RENDERING_HOST}
+      MVP_RENDERING_HOST_PUBLIC_URI: https://${MVP_RENDERING_HOST}
 
   cd:
     environment:
-      MVP_RENDERING_HOST_PUBLIC_URI: ${MVP_RENDERING_HOST}  
+      MVP_RENDERING_HOST_PUBLIC_URI: https://${MVP_RENDERING_HOST}  
