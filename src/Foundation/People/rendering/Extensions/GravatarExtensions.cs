@@ -14,7 +14,7 @@ namespace Mvp.Foundation.People.Extensions
         {
             var result = string.Format("{0}://gravatar.com/avatar/{1}?s={2}{3}",
                                "https",
-                               GetMd5Hash(email),
+                               GetMd5Hash(email.ToLowerInvariant()),
                                ImageSize,
                                "&d=" + (!string.IsNullOrEmpty(DefaultImageUrl) ? HtmlEncoder.Default.Encode(DefaultImageUrl) : DefaultImage.Default.GetDescription())
                            );
