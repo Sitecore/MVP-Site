@@ -127,7 +127,7 @@ namespace Mvp.Foundation.User.Extensions
         {
 
             // Convert the input string to a byte array and compute the hash.
-            byte[] data = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(input));
+            byte[] data = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(input.ToLowerInvariant()));
 
             // Create a new Stringbuilder to collect the bytes
             // and create a string.
