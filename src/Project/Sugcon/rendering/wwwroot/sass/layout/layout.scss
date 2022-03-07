@@ -127,18 +127,6 @@ main {
     }
 }
 
-.agenda .sz-session__card .sz-session__title {
-    color: $sc-white;
-}
-
-.agenda .sz-session__card .sz-session__speakers li a{
-    color: $sc-gray2 !important;
-}
-
-.agenda .sz-session__card .sz-session__tags li {
-    color: $sc-white !important;
-}
-
 @media (min-width: 1400px) {
 	.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
 		max-width: 1140px;
