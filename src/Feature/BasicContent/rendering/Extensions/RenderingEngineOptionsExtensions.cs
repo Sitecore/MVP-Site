@@ -21,10 +21,10 @@ namespace Mvp.Feature.BasicContent.Extensions
 
             .AddModelBoundView<HeroBig>("HeroBig")
               .AddModelBoundView<HeroMedium>("HeroMedium")
+              .AddModelBoundView<HeroMediumWithLink>("HeroMediumWithLink")
               .AddModelBoundView<SugconHero>("SugconHero");
 
-
-      return options;
+            return options;
         }
     }
 }
