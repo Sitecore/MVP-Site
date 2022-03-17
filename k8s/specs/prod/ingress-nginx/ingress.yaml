@@ -48,3 +48,7 @@ spec:
         backend:
           serviceName: sugcon-eu-rendering
           servicePort: 80
+  tls:
+  - secretName: sugcon-eu-tls
+    hosts:
+    - $(PROD_SUGCON_EU_HOST)
