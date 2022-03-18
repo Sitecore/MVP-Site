@@ -10,7 +10,7 @@ using Mvp.Foundation.People.ComputedFields;
 
 namespace Mvp.Foundation.People.Extensions
 {
-	public class CustomSchemaExtender: SchemaExtender
+	public class CustomSchemaExtender : SchemaExtender
 	{
 		public CustomSchemaExtender()
 		{
@@ -26,6 +26,14 @@ namespace Mvp.Foundation.People.Extensions
 			{
 				// add a new field to the field object type
 				// note the resolve method's Source property is the Field so you can get at its data
+				type.Field<StringGraphType>("mvpCount",
+					description: "MVP Count",
+					resolve: context => GetLatestMvpYearList(context.Source));
+			});
+			ExtendTypes<ObjectGraphType<Item>>(type =>
+			{
+				// add a new field to the field object type
+				// note the resolve method's Source property is the Field so you can get at its data
 				type.Field<StringGraphType>("mvpCategory",
 					description: "MVP Person category",
 					resolve: context => GetLatestMvpCategory(context.Source));
@@ -35,11 +43,21 @@ namespace Mvp.Foundation.People.Extensions
 		private string GetLatestMvpYear(Sitecore.Data.Items.Item personItem)
 		{
 			var awards = GetAwardsTags(personItem);
-			if(awards.Any())
+			if (awards.Any())
 			{
 				return awards.First().Key.ToString();
 			}
 			return "";
+		}
+
+		private string GetLatestMvpYearList(Sitecore.Data.Items.Item personItem)
+		{
+			var years = string.Empty;
+
+			var awards = GetAwardsTags(personItem);
+			years = awards.Count().ToString();
+
+			return years;
 		}
 
 		private string GetLatestMvpCategory(Sitecore.Data.Items.Item personItem)
@@ -51,7 +69,7 @@ namespace Mvp.Foundation.People.Extensions
 			}
 			return "";
 		}
-		private Dictionary<int,string> GetAwardsTags(Sitecore.Data.Items.Item personItem)
+		private Dictionary<int, string> GetAwardsTags(Sitecore.Data.Items.Item personItem)
 		{
 			Dictionary<int, string> mvpTags = new Dictionary<int, string>();
 			if (personItem != null && personItem.TemplateID.Equals(Constants.Templates.Person))
@@ -63,7 +81,7 @@ namespace Mvp.Foundation.People.Extensions
 					int mvpyear = 0;
 					if (award.TemplateID.Equals(Constants.Templates.YearCategory))
 					{
-						Int32.TryParse( award.Parent.Name, out mvpyear);
+						Int32.TryParse(award.Parent.Name, out mvpyear);
 
 						var mvptype = ((ReferenceField)award.Fields[Constants.FieldNames.Type]).TargetItem;
 						if (mvptype != null && mvptype.TemplateID.Equals(Constants.Templates.MVPType))
@@ -73,7 +91,7 @@ namespace Mvp.Foundation.People.Extensions
 					}
 					if (!string.IsNullOrEmpty(mvpaward) && mvpyear > 0)
 					{
-						if(mvpTags.ContainsKey(mvpyear))
+						if (mvpTags.ContainsKey(mvpyear))
 						{
 							mvpTags[mvpyear] += ", " + mvpaward;
 						}
@@ -84,7 +102,7 @@ namespace Mvp.Foundation.People.Extensions
 					}
 				}
 			}
-			return mvpTags.OrderByDescending(mvp=>mvp.Key).ToDictionary(obj => obj.Key, obj => obj.Value);
+			return mvpTags.OrderByDescending(mvp => mvp.Key).ToDictionary(obj => obj.Key, obj => obj.Value);
 		}
 	}
 }

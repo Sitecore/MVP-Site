@@ -155,6 +155,7 @@ namespace Mvp.Foundation.People.Models
 		public string url { get; set; }
 		public Country country { get; set; }
 		public string mvpYear { get; set; }
+		public string mvpCount { get; set; }
 		public string mvpCategory { get; set; }
 	}
 

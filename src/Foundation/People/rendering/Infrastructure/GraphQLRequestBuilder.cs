@@ -27,7 +27,7 @@ namespace Mvp.Foundation.People.Infrastructure
         protected string GetOperationResource(GraphQLFiles queryFile)
         {
             return _query;
-            
+
         }
         private string _query = @"query MVPSearch(
                                                    $language: String!
@@ -78,6 +78,7 @@ namespace Mvp.Foundation.People.Infrastructure
                                                             url
                                                             mvpCategory
                                                             mvpYear
+                                                            mvpCount
                                                             country{targetItem{name}}
             
                                                           }
