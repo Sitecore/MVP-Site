@@ -28,7 +28,7 @@ namespace Mvp.Foundation.People.Extensions
 				// note the resolve method's Source property is the Field so you can get at its data
 				type.Field<StringGraphType>("mvpCount",
 					description: "MVP Count",
-					resolve: context => GetLatestMvpYearList(context.Source));
+					resolve: context => GetAwardsCount(context.Source));
 			});
 			ExtendTypes<ObjectGraphType<Item>>(type =>
 			{
@@ -50,14 +50,10 @@ namespace Mvp.Foundation.People.Extensions
 			return "";
 		}
 
-		private string GetLatestMvpYearList(Sitecore.Data.Items.Item personItem)
+		private string GetAwardsCount(Sitecore.Data.Items.Item personItem)
 		{
-			var years = string.Empty;
-
 			var awards = GetAwardsTags(personItem);
-			years = awards.Count().ToString();
-
-			return years;
+			return awards.Count().ToString();
 		}
 
 		private string GetLatestMvpCategory(Sitecore.Data.Items.Item personItem)
