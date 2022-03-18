@@ -1,0 +1,27 @@
+﻿---
+ID: "62230d0e-cf18-4349-a2fa-1d18820041d7"
+Parent: "a24e8414-02a0-47e0-b75b-fa34f0777163"
+Template: "e55a415d-4a75-40d2-8145-6cc79a4ed1e3"
+Path: "/sitecore/content/Sugcon-EU/Home/Agenda/Page Components/Agenda list"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220119T193738Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "34821862-c4dd-4066-aea5-afc008d46ced"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\sugcon
+    - ID: "d9218843-78e1-418d-9b0d-7c511ca15f82"
+      Hint: EmbedCode
+      Value: |
+        <div class="container agenda" style="padding:0;"><script type="text/javascript" src="https://sessionize.com/api/v2/kntodhjc/view/GridSmart"></script> </div>
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220303T093919Z
