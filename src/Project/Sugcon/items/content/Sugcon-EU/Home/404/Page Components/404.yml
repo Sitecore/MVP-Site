@@ -1,8 +1,8 @@
 ﻿---
-ID: "4759ede4-f98d-4950-85b7-8a848a02d33f"
-Parent: "c7efeb44-513f-48db-8104-ffd32fbe3833"
+ID: "6c3fcbbd-72fd-4418-8ee9-b7f495f00b12"
+Parent: "848cac00-a305-42b8-bf02-fce9535153d7"
 Template: "86864760-3b8b-4e79-927e-0addcd14055d"
-Path: "/sitecore/content/Sugcon-EU/Shared Content/Hero Banners/Become a sponsor"
+Path: "/sitecore/content/Sugcon-EU/Home/404/Page Components/404"
 Languages:
 - Language: en
   Versions:
@@ -10,30 +10,27 @@ Languages:
     Fields:
     - ID: "00f0228c-aff3-4ab7-ac98-e4175a53bf32"
       Hint: HeroTitle
-      Value: Become a Sponsor for SUGON Europe 2022
-    - ID: "066f7e92-30ad-4198-b138-b40ccaec6d20"
-      Hint: HeroLink
-      Value: |
-        <link text="Open Sponsorship prospectus" linktype="external" url="https://sitecore.box.com/v/SUGCONEurope2022Sponsorship" anchor="" target="_blank" />
+      Value: Page Not Found
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20211223T113349Z
+      Value: 20200625T215654Z
     - ID: "3489c7a2-efe1-49e0-a3d7-271183c4f255"
       Hint: HeroImage
-      Value: 
+      Value: |
+        <image mediaid="{045B045E-C29E-4D85-A80E-592075755FFD}" />
     - ID: "53ee3e16-ba10-4013-959e-9a652a533845"
       Hint: HeroSubtitle
-      Value: #SUGCON
+      Value: The page is missing
     - ID: "69db2d7e-db5e-4a02-8580-0bcfb77b5482"
       Hint: HeroDescription
-      Value: 
+      Value: Please check the url you have typed in or try again later
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "61b89c1e-cc57-459b-bc63-a80972cbeff9"
+      Value: "43b681f3-8401-4272-96b4-9901c135a00b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\sugcon
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220303T082058Z
+      Value: 20220318T121359Z

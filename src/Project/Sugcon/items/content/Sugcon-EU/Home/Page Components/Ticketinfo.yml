@@ -1,0 +1,39 @@
+﻿---
+ID: "e4b9039b-9889-4ff9-856d-00b51dd87c31"
+Parent: "4910f9b0-e241-413f-9753-74a5d941e95b"
+Template: "64ad1284-23fb-4b76-85b3-c6dfb1b322bf"
+Path: "/sitecore/content/Sugcon-EU/Home/Page Components/Ticketinfo"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220207T134424Z
+    - ID: "5098b799-31dd-4c1b-9955-3e8598caa21f"
+      Hint: Content
+      Value: |
+        <h2>Ticket sales is open!</h2>
+        <p>The normal ticket price is &euro;500. Sitecore MVPs (2019, 2020, 2021, 2022) will receive 30% discount from the ticket price. </p>
+        <h4>You can also sign up for a Certification Exam at a discounted price of &euro;100.</h4>
+        <p>The above prices are without the Hungarian VAT.&nbsp;</p>
+        <p>Platinum and Gold partners can use Co-Op funds to pay for conference tickets. Platinum partners can buy up to 25 and Gold partners up to 10 full price tickets using Co-Op funds. The partners need purchase the tickets first and create a training co-op request with their invoice.</p>
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\sugcon
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\sugcon
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "993fb910-f9eb-4b7f-bc37-e73831be121b"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\sugcon
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220303T081324Z

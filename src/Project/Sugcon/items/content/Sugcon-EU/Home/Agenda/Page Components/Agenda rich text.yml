@@ -1,12 +1,8 @@
 ﻿---
-ID: "b195ed4d-3edc-4686-bdd4-08e22143ac08"
-Parent: "6a1519ae-502f-4e52-8e0f-42605c65c03f"
-Template: "fe5dd826-48c6-436d-b87a-7c4210c7413b"
-Path: /sitecore/media library/Sugcon/EU/Organizers
-SharedFields:
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 200
+ID: "15341ef2-e614-4d1e-8749-852631d5da62"
+Parent: "a24e8414-02a0-47e0-b75b-fa34f0777163"
+Template: "64ad1284-23fb-4b76-85b3-c6dfb1b322bf"
+Path: "/sitecore/content/Sugcon-EU/Home/Agenda/Page Components/Agenda rich text"
 Languages:
 - Language: en
   Versions:
@@ -14,7 +10,14 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20211229T131032Z
+      Value: 20211228T170117Z
+    - ID: "5098b799-31dd-4c1b-9955-3e8598caa21f"
+      Hint: Content
+      Value: |
+        <h1>SUGCON 2022 Agenda</h1>
+        <p>We reserve the right to make changes!</p>
+        
+        
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -25,11 +28,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "86383fa5-815e-49c0-84df-83dca4767093"
+      Value: "375795ba-d2c1-465c-a7c0-36dacf70934f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\sugcon
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220216T213936Z
+      Value: 20220207T133703Z
