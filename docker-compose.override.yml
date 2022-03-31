@@ -70,6 +70,7 @@ services:
       test: ["CMD", "curl", "-f", "http://localhost/healthz"]
       interval: 60s
       timeout: 30s
+    scale: 0
 
   sugcon-rendering:
     container_name: sugcon-rendering
@@ -95,9 +96,6 @@ services:
     restart: ${DOCKER_RESTART}
     volumes:
       - ./docker/traefik:C:/etc/traefik
-    depends_on:
-      mvp-rendering:
-        condition: service_started
 
   redis:
     restart: ${DOCKER_RESTART}
@@ -174,7 +172,7 @@ services:
       Okta__AuthorizationServerId: ${OKTA_AUTH_SERVER_ID}
       Okta__RedirectUri: "https://${CD_HOST}/identity/externallogincallback"
       Sitecore__ExternalCdUrl: "${CD_HOST}"
-      MVP_RENDERING_HOST_PUBLIC_URI: ${MVP_RENDERING_HOST}      
+      MVP_RENDERING_HOST_PUBLIC_URI: https://${MVP_RENDERING_HOST}      
     mem_limit: ${MEM_LIMIT_CD:-2GB}      
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
     labels:
