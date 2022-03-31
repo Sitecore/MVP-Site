@@ -22,7 +22,7 @@ stages:
     - task: CmdLine@2
       displayName: Create .env file
       inputs:
-        script: ren $(build.artifactstagingdirectory)\.env.template $(build.artifactstagingdirectory)\.env
+        script: ren ./.env.template ./.env
     - task: DockerCompose@0
       displayName: "Build Images"
       inputs:
