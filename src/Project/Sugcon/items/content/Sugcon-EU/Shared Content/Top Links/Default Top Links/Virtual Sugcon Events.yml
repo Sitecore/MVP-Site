@@ -1,0 +1,31 @@
+﻿---
+ID: "4cdd279c-a3ef-4bfa-843b-69536c2f71fb"
+Parent: "cd0de92e-4d6a-4681-b30b-3d0259ef0233"
+Template: "e4986869-e4b1-4990-8669-52abf69cd9cf"
+Path: "/sitecore/content/Sugcon-EU/Shared Content/Top Links/Default Top Links/Virtual Sugcon Events"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200528T230523Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "7c5fdacf-efaa-4eb0-acb7-a7daffc016a7"
+    - ID: "aff6fd57-80bd-4b53-adb9-164b922d5763"
+      Hint: Link
+      Value: |
+        <link text="SUGCON Events Virtual" linktype="external" url="https://virtual.sugcon.events/" anchor="" title="SUGCON Events Virtual" target="_blank" />
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220303T115437Z

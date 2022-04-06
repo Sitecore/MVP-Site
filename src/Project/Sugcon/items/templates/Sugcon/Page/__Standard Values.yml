@@ -34,6 +34,23 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{016B8CC9-F309-4FCA-AAA5-788CC75C5016}"
+              p:before="*"
+              s:ds="{CD0DE92E-4D6A-4681-B30B-3D0259EF0233}"
+              s:id="{A4F28B31-5D18-4158-92AB-F4D2ECA6D2BE}"
+              s:par=""
+              s:ph="header"
+              s:ccb="Clear on publish" />
+          </d>
+        </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20200604T041834Z
@@ -47,7 +64,7 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "48e90552-0682-4114-b56f-4a48a7699c65"
+      Value: "6e037877-ab09-4e04-99a0-58bf4c8d4cf5"
     - ID: "b1ece12f-b2c9-44e6-92a3-c5dfd6514b59"
       Hint: Menu Title
       Value: $name
@@ -57,7 +74,7 @@ Languages:
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211228T165617Z
+      Value: 20220303T125723Z
     - ID: "efc0a3c7-6993-47d2-ba85-10b44961916e"
       Hint: Include in Menu
       Value: 1
