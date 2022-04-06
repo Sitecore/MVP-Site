@@ -100,7 +100,7 @@ namespace Mvp.Foundation.User.Extensions
                 string.Format("{0}://{1}.gravatar.com/avatar/{2}?s={3}{4}{5}{6}",
                     htmlHelper.ViewContext.HttpContext.Request.IsHttps || forceSecureRequest ? "https" : "http",
                     htmlHelper.ViewContext.HttpContext.Request.IsHttps || forceSecureRequest ? "secure" : "www",
-                    GetMd5Hash(emailAddress),
+                    GetMd5Hash(emailAddress.ToLowerInvariant()),
                     size.ToString(),
                     "&d=" + (!string.IsNullOrEmpty(defaultImageUrl) ? htmlHelper.UrlEncoder.Encode(defaultImageUrl) : defaultImage.GetDescription()),
                     forceDefaultImage ? "&f=y" : "",
