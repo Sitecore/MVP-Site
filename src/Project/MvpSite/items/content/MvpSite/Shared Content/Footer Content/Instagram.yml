@@ -1,0 +1,30 @@
+﻿---
+ID: "85e4402a-8cb4-414f-bdd4-9306809022ef"
+Parent: "a1943e00-819f-41f7-a8c2-86f65e7e8306"
+Template: "50c6077c-1c0c-4873-b6af-7b8d164636d4"
+Path: /sitecore/content/MvpSite/Shared Content/Footer Content/Instagram
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220302T091113Z
+    - ID: "7d2e0682-4c33-439d-9db7-e6b18c0c1ac0"
+      Hint: Icon
+      Value: instagram
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a0b92f27-d0ed-4fc4-b9ec-c51852d23406"
+    - ID: "aff6fd57-80bd-4b53-adb9-164b922d5763"
+      Hint: Link
+      Value: |
+        <link text="Go to Sitecore on Instagram" linktype="external" url="https://www.instagram.com/sitecore/" anchor="" title="Go to Sitecore on Instagram" target="_blank" />
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220303T133839Z

@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using Mvp.Feature.Navigation.Services;
-using Sitecore.Data.Items;
+﻿using Mvp.Feature.Navigation.Services;
 using Sitecore.Diagnostics;
 using Sitecore.LayoutService.Configuration;
 using Sitecore.LayoutService.ItemRendering.ContentsResolvers;
@@ -8,31 +6,26 @@ using Sitecore.Mvc.Presentation;
 
 namespace Mvp.Feature.Navigation.LayoutService
 {
-  public class MainNavContentResolver : RenderingContentsResolver
-  {
-    private readonly INavigationBuilder _navigationBuilder;
-
-    public MainNavContentResolver(INavigationBuilder navigationBuilder)
+    public class MainNavContentResolver : RenderingContentsResolver
     {
-      _navigationBuilder = navigationBuilder;
-    }
+        private readonly INavigationBuilder _navigationBuilder;
+        private readonly IItemTools _itemTools;
 
-    public override object ResolveContents(Rendering rendering, IRenderingConfiguration renderingConfig)
-    {
-      var rootItem = GetNavigationRootItem(GetContextItem(rendering, renderingConfig));
-      Assert.IsNotNull(rootItem, "Could not locate a navigation root item.");
-      return new
-      {
-        LogoSvgPath = rootItem[Templates.NavigationRootItem.Fields.LogoSvgPath],
-        Links = _navigationBuilder.GetNavigationLinks(rootItem)
-      };
-    }
+        public MainNavContentResolver(IItemTools itemTools, INavigationBuilder navigationBuilder)
+        {
+            _itemTools = itemTools;
+            _navigationBuilder = navigationBuilder;
+        }
 
-    private Item GetNavigationRootItem(Item contextItem)
-    {
-      return contextItem.DescendsFrom(Templates.NavigationRootItem.TemplateId)
-        ? contextItem
-        : contextItem.Axes.GetAncestors().LastOrDefault(x => x.DescendsFrom(Templates.NavigationRootItem.TemplateId));
+        public override object ResolveContents(Rendering rendering, IRenderingConfiguration renderingConfig)
+        {
+            var rootItem = _itemTools.GetNavigationRootItem(GetContextItem(rendering, renderingConfig));
+            Assert.IsNotNull(rootItem, "Could not locate a navigation root item.");
+            return new
+            {
+                LogoSvgPath = rootItem[Templates.NavigationRootItem.Fields.LogoSvgPath],
+                Links = _navigationBuilder.GetNavigationLinks(rootItem)
+            };
+        }
     }
-  }
 }

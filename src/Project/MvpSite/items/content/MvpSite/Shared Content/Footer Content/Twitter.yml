@@ -1,0 +1,30 @@
+﻿---
+ID: "8b0a36d6-11b8-48a0-b2a5-3e6c4196bd32"
+Parent: "a1943e00-819f-41f7-a8c2-86f65e7e8306"
+Template: "50c6077c-1c0c-4873-b6af-7b8d164636d4"
+Path: /sitecore/content/MvpSite/Shared Content/Footer Content/Twitter
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220302T085419Z
+    - ID: "7d2e0682-4c33-439d-9db7-e6b18c0c1ac0"
+      Hint: Icon
+      Value: twitter
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "0ad2ad89-4261-4ac4-9b83-3b0c1fb98bb8"
+    - ID: "aff6fd57-80bd-4b53-adb9-164b922d5763"
+      Hint: Link
+      Value: |
+        <link text="Go to Sitecore MVP on Twitter" linktype="external" url="https://twitter.com/SitecoreMVP" anchor="" title="Go to Sitecore MVP on Twitter" target="_blank" />
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220303T133818Z
