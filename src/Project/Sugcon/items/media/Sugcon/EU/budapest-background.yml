@@ -26,6 +26,9 @@ SharedFields:
 - ID: "b0145335-8735-414b-9169-a1d4e4dc9641"
   Hint: Software
   Value: Adobe Photoshop 22.0 (Windows)
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
 - ID: "c06867fe-9a43-4c7d-b739-48780492d06f"
   Hint: Extension
   Value: jpg
@@ -53,11 +56,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "60ec9243-a3c9-4f40-8ecf-423a3641d943"
+      Value: "23743f83-a426-418b-b4aa-be8975820bf6"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\sugcon
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211223T130448Z
+      Value: 20220216T213936Z

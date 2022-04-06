@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -122,9 +123,14 @@ namespace Mvp.Project.Sugcon.Rendering
           builder => builder.UseHttpsRedirection());
       }
 
-      // The Experience Editor endpoint should not be enabled in production DMZ.
-      // See the SDK documentation for details.
-      if (Configuration.EnableExperienceEditor)
+        //Add recirects for old mvp pages
+        var options = new RewriteOptions()
+            .AddRedirect("Registration$", "https://sugcon2022.rentit.hu/")
+            .AddRedirect("Registration(.*)", "https://sugcon2022.rentit.hu/");
+        app.UseRewriter(options);
+            // The Experience Editor endpoint should not be enabled in production DMZ.
+            // See the SDK documentation for details.
+        if (Configuration.EnableExperienceEditor)
         // Enable the Sitecore Experience Editor POST endpoint.
         app.UseSitecoreExperienceEditor();
 

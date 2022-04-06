@@ -3,6 +3,10 @@ ID: "a95eac08-9804-4f76-9e0a-e09dd3bb7e61"
 Parent: "6a1519ae-502f-4e52-8e0f-42605c65c03f"
 Template: "fe5dd826-48c6-436d-b87a-7c4210c7413b"
 Path: /sitecore/media library/Sugcon/EU/2022
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
 Languages:
 - Language: en
   Versions:
@@ -21,11 +25,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "55de591a-6078-46cc-822b-9dab7b72b9fb"
+      Value: "8fe67340-d5e1-4744-b4b1-8e7068d25b35"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\sugcon
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211203T094401Z
+      Value: 20220216T213936Z

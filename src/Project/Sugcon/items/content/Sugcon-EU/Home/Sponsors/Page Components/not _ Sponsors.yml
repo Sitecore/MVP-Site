@@ -1,0 +1,48 @@
+﻿---
+ID: "8fa50340-d2e8-4457-971f-037f9b58d84d"
+Parent: "003110c6-f0e0-4800-a00a-b67a491c5b44"
+Template: "64ad1284-23fb-4b76-85b3-c6dfb1b322bf"
+Path: "/sitecore/content/Sugcon-EU/Home/Sponsors/Page Components/not _ Sponsors"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211228T170117Z
+    - ID: "5098b799-31dd-4c1b-9955-3e8598caa21f"
+      Hint: Content
+      Value: |
+        <p><img alt="" src="-/media/B4515C24614849F48E65A8FE3105CAC4.ashx?h=170&amp;w=320" style="height:170px; width:320px;" /></p>
+        <p><img alt="" src="-/media/5D2CC6E692264BF0A9338506F1C63CE2.ashx" style="height:122px; width:391px;" /></p>
+        <p><img alt="" src="-/media/C25C776C69994D85BC49F379820FDF68.ashx" style="height:122px; width:290px;" /></p>
+        <p><img alt="" src="-/media/9CE9705CA883450DA728440EAB9DF596.ashx" style="height:122px; width:401px;" /></p>
+        <p><img alt="" src="-/media/73650ED6461C49719E8915239E0D6769.ashx" style="height:122px; width:214px;" /></p>
+        <p><img alt="" src="-/media/A86B0F2EFBAC498787F9BB3A58604A5E.ashx" style="height:122px; width:376px;" /></p>
+        <p>&nbsp;</p>
+        <p><img alt="" src="-/media/7BA906F77736462582E3D46D848AE268.ashx" style="height:146px; width:450px;" /></p>
+        <p><img alt="" src="-/media/2F780060EE5345A799772093352EED74.ashx" style="height:122px; width:262px;" /></p>
+        <p><img alt="" src="-/media/2382D8C220A04EE3A90012FE38F2B712.ashx" style="height:122px; width:316px;" /></p>
+        <p><img alt="" src="-/media/CAC7C251DF3D4EC9A8C29FAC4E3D9881.ashx" style="height:80px; width:438px;" /></p>
+        <p><img alt="" src="-/media/72D0F1A081E246BA9494B091B0A9DE41.ashx" style="height:80px; width:294px;" /></p>
+        <p><img alt="" src="-/media/BD3AA7CE64C44EE2BC8C0D979D97EA13.ashx" style="height:80px; width:460px;" /></p>
+        <p><img alt="" src="-/media/EEA60E3C3B274B87884EC4DC9C05F25A.ashx" style="height:122px; width:122px;" /></p>
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "16d68d6a-469e-4b8a-b7dc-1ff8dd4d0dde"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\sugcon
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220303T081532Z

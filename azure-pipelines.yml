@@ -19,6 +19,10 @@ stages:
     displayName: Build
     pool: $(AGENT_POOL_NAME)
     steps:
+    - task: CmdLine@2
+      displayName: Create .env file
+      inputs:
+        script: ren .env.template .env
     - task: DockerCompose@0
       displayName: "Build Images"
       inputs:

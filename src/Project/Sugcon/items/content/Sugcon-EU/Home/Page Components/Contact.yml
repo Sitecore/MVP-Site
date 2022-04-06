@@ -20,18 +20,18 @@ Languages:
         <link text="SUGCON Sitecore slack channel" linktype="external" url="https://sitecorechat.slack.com/archives/C0C973QJ0" anchor="" target="" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d2c505c8-5dc6-45f9-bda1-6dc68bef5301"
+      Value: "2465264a-a08e-478a-b518-d48ed0e6378a"
     - ID: "9b1f902b-cfcf-4965-b4d0-3880f610272d"
       Hint: TeaserImage
       Value: |
-        <image mediaid="{27598A1B-CD28-445E-B784-5337BE020B73}" ></image>
+        <image mediaid="{027122E8-F2E6-4A8B-A523-84B227D9EC7C}" />
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\sugcon
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211230T111028Z
+      Value: 20220216T215556Z
     - ID: "fa7c2f07-7f57-49f9-9f94-d5e9631d110d"
       Hint: TeaserText
       Value: |

@@ -40,3 +40,6 @@ $sc-font-color: #212529;
 
 //Common
 @import 'common/aspect-ratio.scss';
+
+//Sessionize Embeds
+@import "sessionize/sessionize.embeds.scss";

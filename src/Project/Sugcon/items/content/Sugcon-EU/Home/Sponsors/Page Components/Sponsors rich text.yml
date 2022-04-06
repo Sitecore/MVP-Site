@@ -53,14 +53,93 @@ Languages:
                           
                           
         </div>
-        
-        <h2>Community sponsors</h2>
+        <h2>Breakout Room sponsor</h2>
         <div class="row sponsors sponsors--silver mb-4">
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://www.alpha-solutions.com/">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img alt="" src="-/media/CAC7C251DF3D4EC9A8C29FAC4E3D9881.ashx" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>            
+                          
+        </div>
+        
+        <h2>Lanyard sponsor</h2>
+        <div class="row sponsors sponsors--silver mb-4">
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://assurex.co/">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img alt="" src="-/media/72D0F1A081E246BA9494B091B0A9DE41.ashx" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>            
+                          
+        </div>
+        
+        <h2>Video Recording sponsor</h2>
+        <div class="row sponsors sponsors--silver mb-4">
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://www.blastic.com/">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img alt="" src="-/media/BD3AA7CE64C44EE2BC8C0D979D97EA13.ashx" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>            
+                          
+        </div>
+        <h2>Community plus sponsors</h2>
+        <div class="row sponsors sponsors--silver mb-4">
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://www.allwin.hu/en">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="-/media/3B114C1B96DC405D949C74B4A44259AC.ashx" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://www.brimit.com/">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="-/media/7BA906F77736462582E3D46D848AE268.ashx" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://www.delaware.pro/">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="-/media/83E51D4469A340DABA5010E47F7C6EFE.ashx?h=100" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>				  
                           <div class="col-6 col-md-4 col-lg-3 sponsors__item">
                             <a class="d-block mb-4" href="https://www.sitecore-usergroup.de/">
                               <div class="ar ar--logo ar--16-9">
                                 <div class="ar__content">
                                   <img alt="" src="-/media/9CE9705CA883450DA728440EAB9DF596.ashx" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>				  
+        </div>
+        <h2>Community sponsors</h2>
+        <div class="row sponsors sponsors--silver mb-4">
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://www.applez.tech/">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="-/media/7B540D3903DC4EA59F2316CDBF1207BB.ashx" alt="" />
                                 </div>
                               </div>
                             </a>
@@ -75,6 +154,15 @@ Languages:
                             </a>
                           </div>
                           <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://www.macaw.net/">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="-/media/2382D8C220A04EE3A90012FE38F2B712.ashx" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>				  
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
                             <a class="d-block mb-4" href="https://pentia.dk/">
                               <div class="ar ar--logo ar--16-9">
                                 <div class="ar__content">
@@ -83,6 +171,17 @@ Languages:
                               </div>
                             </a>
                           </div>
+        
+                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://www.valtech.com/">
+                              <div class="ar ar--logo ar--16-9">
+                                <div class="ar__content">
+                                  <img src="-/media/8A0820093CBF4D5091F3039B88399DD2.ashx" alt="" />
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+        
                           <div class="col-6 col-md-4 col-lg-3 sponsors__item">
                             <a class="d-block mb-4" href="https://www.webit.de/">
                               <div class="ar ar--logo ar--16-9">
@@ -92,26 +191,15 @@ Languages:
                               </div>
                             </a>
                           </div>
-                          <div class="col-6 col-md-4 col-lg-3 sponsors__item">
-                            <a class="d-block mb-4" href="https://www.brimit.com/">
+        				<div class="col-6 col-md-4 col-lg-3 sponsors__item">
+                            <a class="d-block mb-4" href="https://www.linkedin.com/in/jasonmwilkerson">
                               <div class="ar ar--logo ar--16-9">
                                 <div class="ar__content">
-                                  <img src="-/media/7BA906F77736462582E3D46D848AE268.ashx" alt="" />
+                                  <img src="-/media/EEA60E3C3B274B87884EC4DC9C05F25A.ashx" alt="" />
                                 </div>
                               </div>
                             </a>
                           </div>
-        
-        <div class="col-6 col-md-4 col-lg-3 sponsors__item">
-                            <a class="d-block mb-4" href="https://www.macaw.net/">
-                              <div class="ar ar--logo ar--16-9">
-                                <div class="ar__content">
-                                  <img src="-/media/2382D8C220A04EE3A90012FE38F2B712.ashx" alt="" />
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-        
                           
         </div>
         
@@ -126,11 +214,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "583723bb-9774-4df9-8556-1f229502c3c9"
+      Value: "7b99e6a5-14bf-4427-b988-a09c2a580ac3"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\sugcon
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220126T154801Z
+      Value: 20220318T120525Z

@@ -12,7 +12,7 @@ SharedFields:
     {07336B1B-1CCB-4F7D-A49B-A61CDD10C4CC}
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 250
+  Value: 400
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{6D7EC563-33FF-4CAB-99AF-2296CF3DEA41}"
@@ -66,14 +66,14 @@ Languages:
       Value: 20211203T095517Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f71d3744-3433-4115-b5da-1ff19ad8e0a9"
+      Value: "1b40ce5e-09e9-424c-8ad5-5f28d3e5df51"
     - ID: "b1ece12f-b2c9-44e6-92a3-c5dfd6514b59"
       Hint: Menu Title
       Value: Venue
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\sugcon
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211230T110340Z
+      Value: 20220207T133623Z

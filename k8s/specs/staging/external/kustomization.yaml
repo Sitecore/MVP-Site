@@ -4,7 +4,7 @@ kind: Kustomization
 images:
 - name: solr
   newName: solr
-  newTag: 8.4.0
+  newTag: 8.8.2
 
 resources:
   - solr.yaml

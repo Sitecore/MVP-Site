@@ -8,56 +8,58 @@ The Sitecore MVP site is an Open Source project and as such we welcome community
 
 # ✋ PreRequisites
 - [.NET Core (>= v 3.1) and .NET Framework 4.8](https://dotnet.microsoft.com/download)
-- [MKCert](https://github.com/FiloSottile/mkcert)
 - Approx 40gb HD space
 - [Okta Developer Account](https://developer.okta.com/signup/)
-
+- Valid Sitecore license
 # 💻 Initial Setup
 
-1. Before you can run the solution, you will need to prepare the following
-   for the Sitecore container environment:
-   * A valid/trusted wildcard certificate for `*.sc.localhost`
-   * Hosts file entries for
-     * mvp-cd.sc.localhost
-     * mvp-cm.sc.localhost
-     * mvp-id.sc.localhost
-     * mvp.sc.localhost
-    
-   * Required environment variable values in `.env` for the Sitecore instance
-     * (Can be done once, then checked into source control.)
-
-   See Sitecore Containers documentation for more information on these
-   preparation steps. The provided `init.ps1` will take care of them,
-   but **you should review its contents before running.**
-
-   > You must use an elevated/Administrator Windows PowerShell 5.1 prompt for
-   > this command, PowerShell 7 is not supported at this time.
+1. 🏃‍♂️ Run the Start-Environment script from an _elevated_ PowerShell terminal 
 
     ```ps1
-    .\init.ps1 -InitEnv -LicenseXmlPath "C:\path\to\license.xml" -AdminPassword "DesiredAdminPassword"
+    .\Start-Environment -LicensePath "C:\path\to\license.xml"
     ```
+   _Note:_  The LicensePath argument only has to be used on the initial run of the script. The license file must be named `license.xml`, the script copies it to the folder `.\docker\license` where it also can be placed or updated manually.  
 
-2. At the bottom of the `.env` file you'll find the section for your Okta developer account details. You will need to populate the following values:
-   - OKTA_DOMAIN (*must* include protocol, e.g. `OKTA_DOMAIN=https://dev-your-id.okta.com`)
-   - OKTA_CLIENT_ID
-   - OKTA_CLIENT_SECRET
+   > You **must** use an elevated/Administrator PowerShell terminal  
+   > [Windows Terminal](https://github.com/microsoft/terminal/releases) looks best but the built-in Windows Powershell 5.1 terminal works too.
 
-Note that DOCKER_RESTART defaults to no but can point to always or other values as per this page - https://docs.docker.com/config/containers/start-containers-automatically/
+2. ☕ Follow the on screen instructions.  
 
-3.   After completing this environment preparation, run the startup script
-   from the solution root:
+   _Note:_ that you will be asked to fill in the following values with your Okta developer account details:
+      - OKTA_DOMAIN (*must* include protocol, e.g. `OKTA_DOMAIN=https://dev-your-id.okta.com`)
+      - OKTA_CLIENT_ID
+      - OKTA_CLIENT_SECRET  
+   [Sign up for an Okta Developer Account](https://developer.okta.com/signup/)
+
+   _If the wizard is aborted prematurely or if the container build fails then use the `-InitializeEnvFile` switch to re-run the full wizard._
+
     ```ps1
-    .\up.ps1
-    ```
-Note that the up.ps1 script now automatically detects:
-- if running Docker linux daemon and switches to Windows
-- and stops IIS if it is running in the machine
+    .\Start-Environment.ps1 -InitializeEnvFile
+    ```  
 
-4. When prompted, log into Sitecore via your browser, and
-   accept the device authorization.
+3. 🔑 When prompted, log into Sitecore via your browser, and accept the device authorization.  
 
-5. Wait for the startup script to open browser tabs for the rendered site
-   and Sitecore Launchpad.
+4. 🚀 Wait for the startup script to open a browser tab with the Sitecore Launchpad.  
+
+5. 🛑 To Stop the environment again  
+   
+   ```ps1
+   .\Stop-Environment.ps1
+   ```  
+
+### 🎭 Site switches
+
+If you only want to start either the MVP or the SUGCON rendering container(s), you can use one of the following switch args  
+* `-StartSugconSites` 
+* `-StartMvpSite`  
+
+If none of these are passed to the script all rendering containers are started.
+
+_Example:_
+
+```ps1
+.\Start-Environment -StartSugconSites
+```  
 
 ## ⚠️ Troubleshooting
 
