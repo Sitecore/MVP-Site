@@ -1,0 +1,58 @@
+﻿---
+ID: "f575fcaa-a94b-406c-b82e-70abce7d2f54"
+Parent: "f80c1fef-699c-4056-9f38-38640c187209"
+Template: "07336b1b-1ccb-4f7d-a49b-a61cdd10c4cc"
+Path: "/sitecore/content/Sugcon-EU/Home/Registration"
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: |
+    {6AEC120A-7222-42C6-A8E8-53F9354AEF53}
+    {07336B1B-1CCB-4F7D-A49B-A61CDD10C4CC}
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 50
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{6D7EC563-33FF-4CAB-99AF-2296CF3DEA41}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{F85FAFEB-E871-4C0F-98B1-3B21D2A0F403}"
+              p:after="*[1=2]"
+              s:ds="{022E5FE9-F8C2-4113-ACF9-E3AA9CDED163}"
+              s:id="{248BDE7D-D010-4D02-95E8-2578A03A2D2D}"
+              s:par=""
+              s:ph="main"
+              s:ccb="Clear on publish" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211203T095528Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a4b4015c-605d-4373-b842-d092fa5c66ae"
+    - ID: "b1ece12f-b2c9-44e6-92a3-c5dfd6514b59"
+      Hint: Menu Title
+      Value: Registration
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\sugcon
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220318T121541Z
+    - ID: "efc0a3c7-6993-47d2-ba85-10b44961916e"
+      Hint: Include in Menu
+      Value: 

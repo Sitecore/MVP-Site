@@ -15,9 +15,6 @@ services:
       # sugcon-anz-rendering:
       #   condition: service_started
 
-  # mvp-rendering:
-  #   scale: 0
-
   sugcon-eu-rendering:
     container_name: sugcon-eu-rendering
     image: ${MVP_DOCKER_REGISTRY}sugcon-rendering:${SITECORE_VERSION}

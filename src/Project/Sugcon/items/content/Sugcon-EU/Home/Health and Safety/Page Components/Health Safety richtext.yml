@@ -14,15 +14,26 @@ Languages:
     - ID: "5098b799-31dd-4c1b-9955-3e8598caa21f"
       Hint: Content
       Value: |
+        <h2>UPDATE - 2022 March 7th:</h2>
+        <p>Since 2022 March 7th, all restrictions related to the corona virus in Hungary has been <a rel="noopener noreferrer" href="https://www.police.hu/en/content/for-the-attention-of-travelers" target="_blank">lifted</a>. At the same time, COVID entry rules has been repealed. It is possible to enter the country without restrictions. Corona virus protection measures is also lifted. From now on, events can be held without restriction, and the obligation to wear a mask has been abolished.</p>
+        <p>We will still do everything to have everyone safe, whoever wants can of course wear a mask. We will take extra hygiene actions, e.g. hand sanitizers in all rooms and hallways. We will still ensure there is sufficient space to keep distance.</p>
+        <p><strong>The situation in Ukraine:</strong><br />
+        As organization we cannot ignore the recent Russian war that started in Ukraine, a neighboring country of Hungary. First of all, we want to express our sincerest support for everyone impacted by this! Furthermore, not only has Hungary - as many other countries - condemned the military actions taken by Russia, but Hungary is part of the EU and NATO and it will support the standpoints and sanctions regarding this conflict. Hungary will focus mainly on the assistance of Ukrainian refugees who try to find a safe space within the EU borders. The SUGCON event itself is still planned and will take place in Budapest. Which is the capital of Hungary and at a distance from the Ukrainian border. Some travel advice from around the world:<br />
+        - <a rel="noopener noreferrer" href="https://www.gov.uk/foreign-travel-advice/hungary" target="_blank">United Kingdom</a> <br />
+        - <a rel="noopener noreferrer" href="https://travel.gc.ca/destinations/hungary" target="_blank">Canada</a> <br />
+        - <a rel="noopener noreferrer" href="https://um.dk/rejse-og-ophold/rejse-til-udlandet/rejsevejledninger/ungarn" target="_blank">Denmark</a> <br />
+        - <a rel="noopener noreferrer" href="https://diplomatie.belgium.be/nl/Diensten/Op_reis_in_het_buitenland/reisadviezen/hongarije" target="_blank">Belgium</a> <br />
+        - <a rel="noopener noreferrer" href="https://www.smartraveller.gov.au/destinations/europe/hungary" target="_blank">Australia</a></p>
+        <h2>UPDATE - 2022 January 21th:</h2>
         <p>We understand that this in-person event is organized in a time where Covid is still daily news. To be sure that this event can take place in March next year; we want to reassure everyone that all necessary precautions will be taken for having a safe conference. This means that all regulations that Hungary enforces for large events will be applied. Unfortunately we cannot predict which regulations will be in place for March. Currently it is mandatory to wear a mask during the event. Since these regulations can change, we will keep all participants informed when regulations change before the event.</p>
         <p>Next to this, we can also inform you about the venue itself, the Budapest Congress Center. Which is large enough for 2000 visitors. Based on previous SUGCON's, we expect around 400 - 500 participants and no other events should take place at the same time. The rooms themselves still need to be selected. But we'll look at the number of participants to decide the best option. Our current suggestion is to use the larger rooms to ensure enough space. And people can more easily decide to keep enough distance.</p>
-        <p><a href="https://www.bcc.hu/congress-center/meeting-rooms-capacity/">Information on the room capacity&nbsp;</a></p>
+        <p><a rel="noopener noreferrer" href="https://www.bcc.hu/congress-center/meeting-rooms-capacity/" target="_blank">Information on the room capacity&nbsp;</a></p>
         <p>Lunch is also served during the event. And the decision was made to do this in 2 separate locations: the Aula (400 people) and Mirror Corridor (600 people). Again to provide options and to split the attendees between 2 rooms making it easier to keep your distance if wanted.</p>
-        <p>Regarding travel to Hungary, you also have to take the necessary regulations into account. Please consult this official European website for travel from within Europe: <a href="https://reopen.europa.eu">reopen.europa.eu</a><br />
-        If you are travelling from outside Europe, please consult this specific page: <a href="https://reopen.europa.eu/en/from-to/OTC/HUN">reopen.europa.eu/en/from-to/OTC/HUN</a></p>
-        <p>In short, an official European Union Covid card is needed to enter Hungary. OR an accepted non-EU Covid card from this list: <a href="https://kormany.hu/kulgazdasagi-es-kulugyminiszterium/vedettsegi-igazolasok">kormany.hu/kulgazdasagi-es-kulugyminiszterium/vedettsegi-igazolasok</a><br />
+        <p>Regarding travel to Hungary, you also have to take the necessary regulations into account. Please consult this official European website for travel from within Europe: <a rel="noopener noreferrer" href="https://reopen.europa.eu" target="_blank">reopen.europa.eu</a><br />
+        If you are travelling from outside Europe, please consult this specific page: <a rel="noopener noreferrer" href="https://reopen.europa.eu/en/from-to/OTC/HUN" target="_blank">reopen.europa.eu/en/from-to/OTC/HUN</a></p>
+        <p>In short, an official European Union Covid card is needed to enter Hungary. OR an accepted non-EU Covid card from this list: <a rel="noopener noreferrer" href="https://kormany.hu/kulgazdasagi-es-kulugyminiszterium/vedettsegi-igazolasok" target="_blank">kormany.hu/kulgazdasagi-es-kulugyminiszterium/vedettsegi-igazolasok</a><br />
         OR with present a negative Covid test.</p>
-        <p>Consult this page for more information: <a href="https://www.police.hu/en/content/information-on-general-rules-of-border-crossing">www.police.hu/en/content/information-on-general-rules-of-border-crossing</a></p>
+        <p>Consult this page for more information: <a rel="noopener noreferrer" href="https://www.police.hu/en/content/information-on-general-rules-of-border-crossing" target="_blank">www.police.hu/en/content/information-on-general-rules-of-border-crossing</a></p>
         <p>Rest assured, we will do everything to have everyone safe. Should you have any further questions, please do not hesitate to reach out.</p>
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
@@ -34,11 +45,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "94fb3215-a16c-4ab7-94a9-dc3b70e6f0e4"
+      Value: "58f7edbf-e5c4-4384-9902-5c17c957efb0"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\sugcon
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211228T165809Z
+      Value: 20220317T092942Z

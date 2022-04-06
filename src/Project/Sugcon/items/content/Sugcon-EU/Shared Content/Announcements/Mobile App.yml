@@ -1,0 +1,30 @@
+﻿---
+ID: "b03426ca-74d7-4e6b-82ce-f4c010acd0d6"
+Parent: "d33de2bc-d264-4f47-b77c-da6aa6447efa"
+Template: "fd88ad0e-f5a8-4ab2-a02c-164f33d7c307"
+Path: "/sitecore/content/Sugcon-EU/Shared Content/Announcements/Mobile App"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211228T165324Z
+    - ID: "3192e490-54f8-4acd-902a-50992102646a"
+      Hint: AnnouncementText
+      Value: "Attending the event?"
+    - ID: "89288dd4-7723-4262-a906-f67cedca28bb"
+      Hint: AnnouncementLink
+      Value: |
+        <link text="Get the mobile app here" linktype="external" url="https://sugcon-europe-2022.sessionize.com/" anchor="" target="_blank" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "56d46a12-74bf-4f66-a0ee-15664524dc60"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\sugcon
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220317T124605Z

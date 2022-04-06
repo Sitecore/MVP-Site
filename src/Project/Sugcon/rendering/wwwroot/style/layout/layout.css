@@ -87,6 +87,15 @@ main #content {
   main h4 {
     font-size: 16px; } }
 
+.agenda .sz-session__card .sz-session__title {
+  color: #ffffff; }
+
+.agenda .sz-session__card .sz-session__speakers li a {
+  color: #cccccc !important; }
+
+.agenda .sz-session__card .sz-session__tags li {
+  color: #ffffff !important; }
+
 @media (min-width: 1400px) {
   .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
     max-width: 1140px; } }

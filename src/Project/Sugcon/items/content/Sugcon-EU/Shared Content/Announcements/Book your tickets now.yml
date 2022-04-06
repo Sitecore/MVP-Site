@@ -17,14 +17,14 @@ Languages:
     - ID: "89288dd4-7723-4262-a906-f67cedca28bb"
       Hint: AnnouncementLink
       Value: |
-        <link text=" Get your tickets now!" linktype="external" url="https://bit.ly/SUGCONEurope2022Hotel" anchor="" target="_blank" />
+        <link text=" Get your tickets now!" linktype="external" url="https://sugcon2022.rentit.hu/" anchor="" target="_blank" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c504cbe1-66bb-423f-b159-8a92c912ec08"
+      Value: "0752ec0a-ae22-447f-a245-036cef57f378"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\sugcon
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211228T184736Z
+      Value: 20220302T194738Z
