@@ -2,7 +2,7 @@
 param (
     [ValidateNotNullOrEmpty()]
     [string] 
-    $ComposeProjectName="sc-mvp",
+    $ComposeProjectName="sc",
     [ValidateNotNullOrEmpty()]
     [string] 
     $LicensePath = "c:\sitecore\license.xml",
@@ -95,7 +95,7 @@ dotnet tool restore
 
 Start-Docker -Build -ComposeFiles $composeFiles
 
-Push-Items -IdHost "https://id.$($HostDomain)" -CmHost "https://cm.$($HostDomain)"
+Push-Items -IdHost "https://mvp-id.$($HostDomain)" -CmHost "https://mvp-cm.$($HostDomain)"
 
 #TODO: this will be generalized when more sugcon sites are added.
 if ($startAll -or $StartMvpSite) {
@@ -111,4 +111,4 @@ if ($startAll -or $StartSugconSites) {
 } 
 
 Write-Host "Opening cm in browser..." -ForegroundColor Green
-Start-Process https://cm.$HostDomain/sitecore/
+Start-Process https://mvp-cm.$HostDomain/sitecore/

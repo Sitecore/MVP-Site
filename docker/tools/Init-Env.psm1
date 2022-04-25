@@ -105,9 +105,9 @@ function Initialize-EnvFile {
     $HostDomain = Read-ValueFromHost -Question "Domain Hostname" -DefaultValue $HostDomain -Required
     Set-EnvFileVariable "HOST_LICENSE_FOLDER" -Value ".\docker\license"
     Set-EnvFileVariable "HOST_DOMAIN"  -Value $HostDomain
-    Set-EnvFileVariable "CM_HOST" -Value "cm.$($HostDomain)"
-    Set-EnvFileVariable "CD_HOST" -Value "cd.$($HostDomain)"
-    Set-EnvFileVariable "ID_HOST" -Value "id.$($HostDomain)"
+    Set-EnvFileVariable "CM_HOST" -Value "mvp-cm.$($HostDomain)"
+    Set-EnvFileVariable "CD_HOST" -Value "mvp-cd.$($HostDomain)"
+    Set-EnvFileVariable "ID_HOST" -Value "mvp-id.$($HostDomain)"
 
     Set-EnvFileVariable "SOLR_CORE_PREFIX_NAME" -Value (Read-ValueFromHost -Question "Solr cores name prefix" -DefaultValue $ComposeProjectName -Required)
     Set-EnvFileVariable "REPORTING_API_KEY" -Value (Get-SitecoreRandomString 128 -DisallowSpecial)
