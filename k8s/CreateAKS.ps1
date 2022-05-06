@@ -5,15 +5,15 @@ param(
 
     [Parameter()]
     [ValidateNotNullOrEmpty()]
-    [string]$ResourceGroup = 'MVP-Site-v2',
+    [string]$ResourceGroup = 'Josl-MVP-Site-v2',
 
     [Parameter()]
     [ValidateNotNullOrEmpty()]
-    [string]$AksName = 'MVP-Site-v2',
+    [string]$AksName = 'Josl-MVP-Site-v2',
 
     [Parameter()]
     [ValidateNotNullOrEmpty()]
-    [string]$AcrName = 'MVPSiteV2',
+    [string]$AcrName = 'JoslMVPSiteV2',
 
     [Parameter(Mandatory = $true)]
     [ValidateNotNullOrEmpty()]
@@ -50,13 +50,13 @@ az aks nodepool add --resource-group $ResourceGroup `
     --os-type Windows `
     --name npwin `
     --node-vm-size Standard_DS2_v2 `
-    --node-count 3
+    --node-count 2
 Write-Host "--- Complete: Windows Server Node Pool Created ---" -ForegroundColor Green
 
 # authenticate AKS instance
 Write-Host "--- Authenticate with AKS ---" -ForegroundColor Blue
 az aks get-credentials -a `
-    --resource-group MVP-Site-v2 `
-    --name MVP-Site-v2 `
+    --resource-group Josl-MVP-Site-v2 `
+    --name Josl-MVP-Site-v2 `
     --overwrite-existing
 Write-Host "--- Complete: Authenticated with AKS ---" -ForegroundColor Green
