@@ -140,6 +140,20 @@ stages:
               namespace: 'mvp-staging'
               manifests: '$(bake_secrets.manifestsBundle)'
           - task: KubernetesManifest@0
+            displayName: Bake Cert-Manager Specifications
+            name: 'bake_cert_manager'
+            inputs:
+              action: 'bake'
+              renderType: 'kustomize'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/cert-manager/'
+          - task: KubernetesManifest@0
+            displayName: Deploy Cert-Manager Specifications
+            inputs:
+              action: 'deploy'
+              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
+              namespace: 'mvp-staging'
+              manifests: '$(bake_cert_manager.manifestsBundle)'
+          - task: KubernetesManifest@0
             displayName: Bake Ingress Specifications
             name: 'bake_ingress'
             inputs:
