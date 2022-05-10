@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: mvp-ingress
@@ -21,37 +21,52 @@ spec:
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: cd
-          servicePort: 80
+         service:
+            name: cd
+            port:
+              number: 80
   - host: $(STAGING_ID_HOST)
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: id
-          servicePort: 80
+         service:
+            name: id
+            port:
+              number: 80
   - host: $(STAGING_HOST)
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: mvp-rendering
-          servicePort: 80
+         service:
+            name: mvp-rendering
+            port:
+              number: 80
   - host: $(STAGING_CM_HOST)
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: cm
-          servicePort: 80
+         service:
+            name: cm
+            port:
+              number: 80
   - host: $(STAGING_SUGCON_EU_HOST)
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: sugcon-eu-rendering
-          servicePort: 80
+         service:
+            name: sugcon-eu-rendering
+            port:
+              number: 80
   tls:
   - secretName: sitecoredemo-tls
     hosts:
