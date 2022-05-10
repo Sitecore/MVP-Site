@@ -24,7 +24,7 @@ namespace Mvp.Foundation.People.Components
             searchParams.Language = GetLanguage();
             searchParams.RootItemId = "{64F31E3A-2040-4E69-B9A7-6830CBE669D2}";
             searchParams.IsInEditingMode = this.HttpContext.GetSitecoreRenderingContext().Response?.Content?.Sitecore?.Context?.IsEditing;
-            searchParams.PageSize = 20;
+            searchParams.PageSize = 21;
             searchParams.CursorValueToGetItemsAfter = GetCursorIndex(searchParams.PageSize);
             searchParams.Facets = GetFacetsFromUrl();
             searchParams.CacheKey = this.HttpContext.Request.GetEncodedPathAndQuery();
