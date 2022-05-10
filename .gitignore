@@ -383,3 +383,4 @@ FodyWeavers.xsd
 .sitecore/package-cache/
 *.itempackage
 /license.xml
+k8s/SetupAKS.ps1
