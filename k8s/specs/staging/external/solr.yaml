@@ -63,5 +63,3 @@ spec:
       volumes:
         - emptyDir: {}
           name: tmp     
-      imagePullSecrets:
-      - name: regcred

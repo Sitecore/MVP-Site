@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+spec:
+  selector:
+    app: redis
+  ports:
+  - protocol: TCP
+    port: 6379
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  labels:
+    app: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      volumes:
+        - emptyDir: {}
+          name: data
+      nodeSelector:
+        kubernetes.io/os: linux
+      containers:
+      - name: sitecore-redis
+        image: redis
+        ports:
+        - containerPort: 6379
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+        resources:
+          requests:
+            memory: 100Mi
+            cpu: 100m
+          limits:
+            memory: 2500Mi
+            cpu: 500m
+        volumeMounts:
+          - mountPath: /data
+            name: data
