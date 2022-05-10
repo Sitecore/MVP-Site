@@ -11,8 +11,9 @@ resources:
 - repo: self
   clean: true
 
-pool:
-  vmImage: 'windows-latest'
+variables:
+  # Agent VM image name
+  vmImageName: 'windows-latest'
 
 stages:
 - stage: Build
@@ -20,7 +21,9 @@ stages:
   jobs:  
   - job: Build
     displayName: Build
-    pool: $(AGENT_POOL_NAME)
+    pool: 
+      name: $(AGENT_POOL_NAME)
+      vmImage: $(vmImageName)
     steps:
     - task: CmdLine@2
       displayName: Create .env file
@@ -80,7 +83,9 @@ stages:
   displayName: Deploy to Staging
   jobs:
   - deployment: 'Deploy_Specs_to_Staging_AKS'
-    pool: $(AGENT_POOL_NAME)
+    pool: 
+      name: $(AGENT_POOL_NAME)
+      vmImage: $(vmImageName)
     environment: Staging
     strategy:
       runOnce:
@@ -193,7 +198,9 @@ stages:
               rolloutStatusTimeout: '1200'
   - deployment: 'Deserialize_Content_to_Staging'
     dependsOn: 'Deploy_Specs_to_Staging_AKS'
-    pool: $(AGENT_POOL_NAME)
+    pool: 
+      name: $(AGENT_POOL_NAME)
+      vmImage: $(vmImageName)
     environment: Staging
     strategy:
       runOnce:
@@ -233,7 +240,9 @@ stages:
 #   displayName: Deploy to Production
 #   jobs:
 #   - deployment: 'Deploy_Specs_to_Production_AKS'
-#     pool: $(AGENT_POOL_NAME)
+#     pool: 
+#        name: $(AGENT_POOL_NAME)
+#        vmImage: $(vmImageName)
 #     environment: Production
 #     strategy:
 #       runOnce:
@@ -318,7 +327,9 @@ stages:
 #               rolloutStatusTimeout: '1200'
 #   - deployment: 'Deserialize_Content_to_Production'
 #     dependsOn: 'Deploy_Specs_to_Production_AKS'
-#     pool: $(AGENT_POOL_NAME)
+#     pool: 
+#        name: $(AGENT_POOL_NAME)
+#        vmImage: $(vmImageName)
 #     environment: Production
 #     strategy:
 #       runOnce:
