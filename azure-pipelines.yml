@@ -11,10 +11,8 @@ resources:
 - repo: self
   clean: true
 
-variables:
-  # Agent VM image name
-  vmImageName: 'windows-latest'
-  #vmImageName: 'windows-2019'
+pool:
+  vmImage: 'windows-latest'
 
 stages:
 - stage: Build
