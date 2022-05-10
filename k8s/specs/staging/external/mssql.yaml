@@ -58,5 +58,3 @@ spec:
       volumes:
         - name: sql
           emptyDir: {}
-      imagePullSecrets:
-      - name: regcred

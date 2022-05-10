@@ -62,6 +62,4 @@ spec:
             cpu: 1500m
       volumes:
         - emptyDir: {}
-          name: tmp     
-      imagePullSecrets:
-      - name: regcred
+          name: tmp

@@ -50,5 +50,3 @@ spec:
         volumeMounts:
           - mountPath: /data
             name: data
-      imagePullSecrets:
-      - name: regcred
