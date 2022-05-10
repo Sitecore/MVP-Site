@@ -13,7 +13,7 @@ resources:
 
 variables:
   # Agent VM image name
-  vmImageName: 'windows-latest'
+  vmImageName: 'windows-2019'
 
 stages:
 - stage: Build
