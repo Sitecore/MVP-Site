@@ -3,19 +3,19 @@ kind: Kustomization
 images:
 - name: sitecore-mvp-cd
   newName: $(ACR_ENDPOINT)/mvp-cd
-  newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
+  newTag: latest
 - name: sitecore-mvp-cm
   newName: $(ACR_ENDPOINT)/mvp-cm
-  newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
+  newTag: latest
 - name: sitecore-mvp-id
   newName: $(ACR_ENDPOINT)/mvp-id6
-  newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
+  newTag: latest
 - name: sitecore-mvp-rendering
   newName: $(ACR_ENDPOINT)/mvp-rendering
-  newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
+  newTag: latest
 - name: sitecore-sugcon-eu-rendering
   newName: $(ACR_ENDPOINT)/sugcon-rendering
-  newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
+  newTag: latest
 resources:
 - cm.yaml
 - cd.yaml
