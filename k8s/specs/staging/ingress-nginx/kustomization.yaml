@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
   - ingress.yaml
+  - ingress-cli.yaml
