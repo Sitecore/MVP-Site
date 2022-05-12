@@ -23,4 +23,4 @@ spec:
   tls:
   - secretName: sitecoredemo-tls
     hosts:
-    - $(STAGING_CLI_HOST)
+    - $(STAGING_ID_HOST)
