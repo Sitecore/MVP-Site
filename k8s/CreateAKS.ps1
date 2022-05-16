@@ -1,7 +1,7 @@
 param(
     [Parameter()]
     [ValidateNotNullOrEmpty()]
-    [string]$Region = 'westus2',
+    [string]$Region = 'uksouth',
 
     [Parameter()]
     [ValidateNotNullOrEmpty()]
@@ -50,7 +50,7 @@ az aks nodepool add --resource-group $ResourceGroup `
     --os-type Windows `
     --name npwin `
     --node-vm-size Standard_DS2_v2 `
-    --node-count 2
+    --node-count 3
 Write-Host "--- Complete: Windows Server Node Pool Created ---" -ForegroundColor Green
 
 # authenticate AKS instance
