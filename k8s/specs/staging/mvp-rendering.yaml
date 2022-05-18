@@ -90,6 +90,8 @@ spec:
               key: application_user_domain.txt
         - name: Application_CMS_URL
           value: http://cm
+        - name: ENTRYPOINT_ASSEMBLY
+          value: Mvp.Project.MvpSite.dll
         livenessProbe:
           httpGet:
             path: /healthz

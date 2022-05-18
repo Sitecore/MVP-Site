@@ -92,6 +92,8 @@ spec:
               key: application_user_domain.txt
         - name: Application_CMS_URL
           value: http://cm
+        - name: ENTRYPOINT_ASSEMBLY
+          value: Mvp.Project.Sugcon.Rendering.dll
         livenessProbe:
           httpGet:
             path: /healthz
