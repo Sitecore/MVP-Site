@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sps
+  spec:
+  template:
+    spec:
+      initContainers:
+      - name: sitecore-sps-init
+        image: sitecore-sps
+        args: ["schema", "upgrade", "--force"]
+        env:
+        - name: Sitecore_License
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-license
+              key: sitecore-license.txt
+        - name: Database_Server
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-database
+              key: sitecore-databaseservername.txt
+        - name: Database_Admin_Username
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-database
+              key: sitecore-databaseusername.txt
+        - name: Database_Admin_Password
+          valueFrom:
+            secretKeyRef:
+              name: sitecore-database
+              key: sitecore-databasepassword.txt
+        - name: SITECORE_Publishing__ConnectionStrings__Core
+          value: Data Source=$(Database_Server);Initial Catalog=Sitecore.Core;User ID=$(Database_Admin_Username);Password=$(Database_Admin_Password);MultipleActiveResultSets=True
+        - name: SITECORE_Publishing__ConnectionStrings__Master
+          value: Data Source=$(Database_Server);Initial Catalog=Sitecore.Master;User ID=$(Database_Admin_Username);Password=$(Database_Admin_Password);MultipleActiveResultSets=True
+        - name: SITECORE_Publishing__ConnectionStrings__Service
+          value: Data Source=$(Database_Server);Initial Catalog=Sitecore.Master;User ID=$(Database_Admin_Username);Password=$(Database_Admin_Password);MultipleActiveResultSets=True
+        - name: SITECORE_Publishing__ConnectionStrings__Web
+          value: Data Source=$(Database_Server);Initial Catalog=Sitecore.Web;User ID=$(Database_Admin_Username);Password=$(Database_Admin_Password);MultipleActiveResultSets=True
