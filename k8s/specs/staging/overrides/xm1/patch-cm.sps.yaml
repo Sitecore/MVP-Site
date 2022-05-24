@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cm
+spec:
+  selector:
+    matchLabels:
+      app: cm
+  template:
+    metadata:
+      labels:
+        app: cm
+    spec:
+      nodeSelector:
+        kubernetes.io/os: windows
+      containers:
+      - name: sitecore-mvp-cm
+        env:
+        - name: Sitecore_Publishing_Service_Url
+          value: http://sps/

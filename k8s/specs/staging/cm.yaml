@@ -188,6 +188,8 @@ spec:
           value: https://$(STAGING_HOST)
         - name: SUGCON_EU_RENDERING_HOST_PUBLIC_URI
           value: https://$(STAGING_SUGCON_EU_HOST)
+        - name: Sitecore_Publishing_Service_Url
+          value: http://sps/
         livenessProbe:
           httpGet:
             path: /healthz/live

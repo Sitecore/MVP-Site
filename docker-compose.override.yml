@@ -117,6 +117,7 @@ services:
         BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-mssql-init:${SITECORE_VERSION}
         HEADLESS_SERVICES_RESOURCES_IMAGE: ${HEADLESS_SERVICES_RESOURCES_IMAGE}
         SPE_RESOURCES_IMAGE: ${SPE_RESOURCES_IMAGE}
+        SPS_RESOURCES_IMAGE: scr.sitecore.com/sxp/modules/sitecore-sps-integration-xm1-assets:10.2.0-1809
 
   solr:
     restart: ${DOCKER_RESTART}
@@ -156,6 +157,7 @@ services:
         SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution:${SITECORE_VERSION}
         TOOLS_RESOURCES_IMAGE: ${TOOLS_RESOURCES_IMAGE}
         HEADLESS_SERVICES_RESOURCES_IMAGE: ${HEADLESS_SERVICES_RESOURCES_IMAGE}
+        SPS_RESOURCES_IMAGE: scr.sitecore.com/sxp/modules/sitecore-sps-integration-xm1-assets:10.2.0-1809
     depends_on:
       solutionBuildOutput:
         condition: service_completed_successfully 
@@ -195,6 +197,7 @@ services:
         DEVEX_RESOURCES_IMAGE: ${DEVEX_RESOURCES_IMAGE}
         HEADLESS_SERVICES_RESOURCES_IMAGE: ${HEADLESS_SERVICES_RESOURCES_IMAGE}
         SPE_RESOURCES_IMAGE: ${SPE_RESOURCES_IMAGE}
+        SPS_RESOURCES_IMAGE: scr.sitecore.com/sxp/modules/sitecore-sps-integration-xm1-assets:10.2.0-1809
     depends_on:
       solutionBuildOutput:
         condition: service_completed_successfully  
@@ -215,8 +218,44 @@ services:
       SSC__AllowAnonymousAccess: "${SSC_AllowAnonymousAccess}"
       SSC__AnonymousUser: "${SSC_AnonymousUser}"
       MVP_RENDERING_HOST_PUBLIC_URI: https://${MVP_RENDERING_HOST}
+      Sitecore_Publishing_Service_Url: "http://sps/"
     mem_limit: ${MEM_LIMIT_CD:-4GB}        
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
+
+  sps-mssql-init:
+    isolation: ${ISOLATION}
+    image: ${SITECORE_DOCKER_REGISTRY}modules/sitecore-sps:6.0-ltsc2019
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      SITECORE_Publishing__ConnectionStrings__Core: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Core;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Publishing__ConnectionStrings__Master: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Publishing__ConnectionStrings__Service: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Publishing__ConnectionStrings__Web: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Web;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+    command: schema upgrade --force
+    depends_on:
+      mssql-init:
+        condition: service_healthy
+  sps:
+    isolation: ${ISOLATION}
+    image: ${SITECORE_DOCKER_REGISTRY}modules/sitecore-sps:6.0-ltsc2019
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      ASPNETCORE_URLS: "http://*:80"
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      SITECORE_Publishing__ConnectionStrings__Core: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Core;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Publishing__ConnectionStrings__Master: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Publishing__ConnectionStrings__Service: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Publishing__ConnectionStrings__Web: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Web;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+    ports:
+      - "80"
+    depends_on:
+      - sps-mssql-init 
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/healthz/live"]
+      timeout: 300s
  
 networks:
   default:
