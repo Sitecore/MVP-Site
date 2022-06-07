@@ -6,6 +6,9 @@
     <SitecoreRoleType>platform</SitecoreRoleType>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Sitecore.Kernel" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectCapability Include="SupportsSystemWeb" />
   </ItemGroup>
 </Project>
