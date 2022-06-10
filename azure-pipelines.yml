@@ -262,9 +262,6 @@ stages:
                 Write-Host "Publish Database"
                 dotnet sitecore publish
               workingDirectory: '$(System.ArtifactsDirectory)/serialization'
-          - task: PowerShell@2
-            inputs:
-              filePath: '$(System.ArtifactsDirectory)/deployment/warmup.ps1'
   - deployment: 'Warmup_Environment'
     dependsOn: 'Deserialize_Content_to_Staging'
     pool: 
