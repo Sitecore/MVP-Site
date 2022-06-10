@@ -4,7 +4,7 @@
         <applicationInitialization xdt:Transform="Insert" doAppInitAfterRestart="true">
             <add initializationPage="/sitecore/custom/appinit.aspx?a=1" />
             <add initializationPage="/" />
-            <add initializationPage="/sitecore/custom/appinit.aspx" />
+            <add initializationPage="/sitecore/custom/appinit.aspx?a=1" />
         </applicationInitialization>
     </system.webServer>
 </configuration>
