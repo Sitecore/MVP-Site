@@ -6,6 +6,9 @@
     <SitecoreRoleType>platform</SitecoreRoleType>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="App_Config\Include\Environment.config" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Sitecore.Kernel" />
   </ItemGroup>
   <ItemGroup>

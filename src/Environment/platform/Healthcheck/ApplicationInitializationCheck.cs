@@ -9,6 +9,7 @@ namespace Mvp.Environment.Sitecore.Healthcheck
     public class ApplicationInitializationCheck : IHealthCheck
     {
         public ApplicationInitializationCheck() { }
+
         public async Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
         {
             var machineName = "ContentDelivery"; /*Environment.GetEnvironmentVariable("Sitecore_InstanceName") ?? Environment.MachineName;*/
@@ -17,6 +18,9 @@ namespace Mvp.Environment.Sitecore.Healthcheck
                 Log.Warn($"Warmup is in progress of {machineName}", this);
                 return HealthCheckResult.Unhealthy($"Warmup is in progress of {machineName}");
             }
+
+            Log.Warn($"Warmup is complete for {machineName}", this);
+
             return HealthCheckResult.Healthy();
         }
     }

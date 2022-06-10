@@ -18,6 +18,9 @@ FROM ${BASE_IMAGE}
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
+# Custom healthcheck
+RUN Enable-WindowsOptionalFeature -Online -FeatureName IIS-ApplicationInit;
+
 WORKDIR C:\inetpub\wwwroot
 
 # Copy developer tools and entrypoint
@@ -46,7 +49,3 @@ COPY .\transforms\ \transforms\role\
 
 # Perform transforms
 RUN C:\tools\scripts\Invoke-XdtTransform.ps1 -Path .\Web.config -XdtPath C:\transforms\role\Web.config.xdt;
-
-# Custom healthcheck
-RUN `
-  Enable-WindowsOptionalFeature -Online -FeatureName IIS-ApplicationInit
