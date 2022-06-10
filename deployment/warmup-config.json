@@ -1,0 +1,47 @@
+{
+    "authenticationDetails":{
+        "url": "/sitecore/login",
+        "userNameField": "UserName",
+        "passwordField": "Password"
+    },
+    "urls": [{
+          "url": "/sitecore"
+        },
+        {
+            "url": "/sitecore/client/Applications/Launchpad"
+        },
+        {
+            "url":"/sitecore/client/Applications/ExperienceEditor/Ribbon.aspx?sc_content=core&ribbonId=%7B570A52B6-6755-461A-8052-5B95EF766F74%7D&itemId=%7BEB362CAE-8524-448E-A89C-0DCD13254EF9%7D&deviceId=%7BFE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3%7D&database=master&mode=edit&url=%2Fnl-BE%3Fsc_mode%3Dedit&lang=nl-BE&pageSite=hub_nl"
+        },
+        {
+            "url":"/sitecore/shell/default.aspx?xmlcontrol=Sitecore.Shell.Applications.Dialogs.SelectRendering&hdl=C16E9218AF5741C89221FA7A4E0A5027&ro=sitecore%3A%2F%2Fmaster%2F%7BEB2E4FFD-2761-4653-B052-26A64D385227%7D%3Flang%3Den%26ver%3D1&ic=SoftwareV2%2F16x16%2Fcomponent_blue.png&txt=Select%20the%20rendering%20that%20you%20want%20to%20use.%20Click%20Select%20to%20continue.&ti=Select%20a%20Rendering&bt=Select&rt=Id&sop=1"
+        },
+        {
+            "url":"/sitecore/shell/Applications/Buckets/MediaBrowser.aspx"
+        },
+        {
+            "url":"/sitecore/shell/Controls/TreeviewEx/TreeviewEx.aspx?treeid=Treeview&id=A2948BFA8C8E4DA6BE2A1852EBDE1AE3&sc_content=master&la=en"
+        },
+        {
+            "url":"/sitecore/client/Applications/ExperienceEditor/Ribbon.aspx?sc_content=core&ribbonId=%7BDC53D062-5672-45C8-8A84-9C8EBE082A0E%7D&itemId=%7BEB362CAE-8524-448E-A89C-0DCD13254EF9%7D&deviceId=%7BFE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3%7D&database=master&mode=preview&url=%2Fnl-BE%3Fsc_mode%3Dpreview%26sc_debug%3D0%26sc_trace%3D0%26sc_prof%3D0%26sc_ri%3D0%26sc_rb%3D0&lang=nl-BE&pageSite=hub_nl"
+        },
+        {
+            "url":"/sitecore/client/Applications/ExperienceEditor/Dialogs/InsertPage/?itemId=%7bEB362CAE-8524-448E-A89C-0DCD13254EF9%7d"
+        },
+        {
+            "url": "/sitecore/shell/Applications/Content%20Editor.aspx?sc_bw=1"
+        },
+        {
+            "url": "/?sc_mode=edit&sc_itemid=%7bE11ECC5F-1BE3-4A66-A598-1C9BB8DD8FF9%7d&sc_version=1&sc_lang=en&sc_site=website"
+        },
+        {
+            "url": "/sitecore/shell/Applications/WebEdit/WebEditRibbon.aspx?sc_content=master&ribbonId=%7B570A52B6-6755-461A-8052-5B95EF766F74%7D&id=%7BE11ECC5F-1BE3-4A66-A598-1C9BB8DD8FF9%7D&dev=%7BFE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3%7D&db=master&mode=edit&url=%2F%3Fsc_mode%3Dedit%26sc_itemid%3D%7BE11ECC5F-1BE3-4A66-A598-1C9BB8DD8FF9%7D%26sc_version%3D1%26sc_lang%3Den%26sc_site%3Dwebsite&la=en&pageSite=website&version=1&sc_speakribbon=1"
+        },        
+        {
+            "url": "/sitecore/shell/Applications/Buckets/Services/Search.ashx?callback=jQuery110209210266095988755_1517400096939&q%5B0%5D%5Btype%5D=location&q%5B0%5D%5Bvalue%5D=353675eb176e4a13b7d31c66d490d0bb&q%5B0%5D%5Boperation%5D=should&q%5B1%5D%5Btype%5D=location&q%5B1%5D%5Bvalue%5D=33560c3811c04c988a41d0e8fccf2482&q%5B1%5D%5Boperation%5D=should&q%5B2%5D%5Btype%5D=template&q%5B2%5D%5Bvalue%5D=1abe4f58e94d4af49bc5af00ad15438a&q%5B2%5D%5Boperation%5D=must&pageNumber=0&type=Query&pageSize=20&version=1&id=&indexName=&db=&_=1517400096940"
+        },        
+        {
+            "url": "/?sc_mode=normal"
+        }
+    ]
+}
