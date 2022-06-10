@@ -264,7 +264,7 @@ stages:
               workingDirectory: '$(System.ArtifactsDirectory)/serialization'
           - task: PowerShell@2
             inputs:
-              filePath: 'deployment/warmup.ps1'
+              filePath: '$(System.ArtifactsDirectory)/deployment/warmup.ps1'
 # - stage: Production
 #   condition:  and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
 #   dependsOn: Staging
