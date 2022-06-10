@@ -11,6 +11,7 @@
     "defaultMaxRelativeItemPathLength": 100,
     "defaultModuleRelativeSerializationPath": "items",
     "removeOrphansForRoles": true,
+    "continueOnItemFailure": false,
     "excludedFields": []
   }
 }

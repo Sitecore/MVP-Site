@@ -12,7 +12,7 @@ namespace Mvp.Environment.Sitecore.Healthcheck
 
         public async Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
         {
-            var machineName = "ContentDelivery"; /*Environment.GetEnvironmentVariable("Sitecore_InstanceName") ?? Environment.MachineName;*/
+            var machineName = "CM"; /*Environment.GetEnvironmentVariable("Sitecore_InstanceName") ?? Environment.MachineName;*/
             if ((string)HttpContext.Current.Cache.Get("APPINIT") == "1")
             {
                 Log.Warn($"Warmup is in progress of {machineName}", this);
