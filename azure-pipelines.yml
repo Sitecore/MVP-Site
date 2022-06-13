@@ -76,7 +76,7 @@ stages:
       displayName: "Copy Deployment assets to staging directory"
       inputs:
         SourceFolder: './'
-        Contents: 'deployment/**'
+        Contents: deployment/**
         TargetFolder: '$(build.artifactstagingdirectory)/'
         CleanTargetFolder: true
     - task: PublishPipelineArtifact@1
