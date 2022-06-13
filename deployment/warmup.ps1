@@ -2,7 +2,7 @@
 param (
     [Parameter(Mandatory=$False, HelpMessage="Base URL to visit pages from.")]    
     [Alias("dn")]
-    [string]$DomainName=$($env:STAGING_CM_HOST),
+    [string]$DomainName="https://$($env:STAGING_CM_HOST)",
 		
     [Parameter(Mandatory=$False, HelpMessage="Username if a login is required.")]
     [Alias("u")]
