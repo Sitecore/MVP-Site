@@ -72,16 +72,17 @@ stages:
           .config/dotnet-tools.json
         TargetFolder: '$(Build.ArtifactStagingDirectory)/serialization'
         CleanTargetFolder: true
-    - task: PublishPipelineArtifact@1
-      inputs:
-        targetPath: '$(System.ArtifactsDirectory)'
-        artifact: 'Sitecore.MVP-$(Build.BuildNumber)'
     - task: CopyFiles@2
+      displayName: "Copy Deployment assets to staging directory"
       inputs:
         SourceFolder: './'
         Contents: 'deployment/**'
         TargetFolder: '$(build.artifactstagingdirectory)/deployment'
         CleanTargetFolder: true
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(System.ArtifactsDirectory)'
+        artifact: 'Sitecore.MVP-$(Build.BuildNumber)'
 
 - stage: Staging
   condition:  and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
