@@ -103,77 +103,77 @@ stages:
             inputs:
               artifact: Sitecore.MVP-$(Build.BuildNumber)
               targetPath: '$(System.ArtifactsDirectory)'
-          - task: Kubernetes@1
-            displayName: Create MVP-Staging Namespace
-            inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
-              command: 'apply'
-              useConfigurationFile: true
-              configuration: '$(System.ArtifactsDirectory)/k8s-specs/staging/namespaces/namespace-staging.yaml'
-              secretType: 'dockerRegistry'
-              containerRegistryType: 'Azure Container Registry'
-              versionSpec: '1.22.2'
-              outputFormat: ''
-          - task: replacetokens@3
-            displayName: "Replace Tokens in Secrets & Specs"
-            inputs:
-              rootDirectory: '$(System.ArtifactsDirectory)/k8s-specs/staging'
-              targetFiles: |
-                **/*.txt
-                **/*.crt
-                **/*.key
-                **/*.yaml
-              encoding: 'auto'
-              writeBOM: true
-              actionOnMissing: 'warn'
-              keepToken: true
-              tokenPrefix: '$('
-              tokenSuffix: ')'
-              useLegacyPattern: false
-              enableTelemetry: false
-          - task: KubernetesManifest@0
-            displayName: Bake Secrets
-            name: 'bake_secrets'
-            inputs:
-              action: 'bake'
-              renderType: 'kustomize'
-              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/secrets/'
-          - task: KubernetesManifest@0
-            displayName: Deploy Secrets
-            inputs:
-              action: 'deploy'
-              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
-              namespace: 'mvp-staging'
-              manifests: '$(bake_secrets.manifestsBundle)'
-          - task: KubernetesManifest@0
-            displayName: Bake Cert-Manager Specifications
-            name: 'bake_cert_manager'
-            inputs:
-              action: 'bake'
-              renderType: 'kustomize'
-              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/cert-manager/'
-          - task: KubernetesManifest@0
-            displayName: Deploy Cert-Manager Specifications
-            inputs:
-              action: 'deploy'
-              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
-              namespace: 'mvp-staging'
-              manifests: '$(bake_cert_manager.manifestsBundle)'
-          - task: KubernetesManifest@0
-            displayName: Bake Ingress Specifications
-            name: 'bake_ingress'
-            inputs:
-              action: 'bake'
-              renderType: 'kustomize'
-              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/ingress-nginx/'
-          - task: KubernetesManifest@0
-            displayName: Deploy Ingress Specifications
-            inputs:
-              action: 'deploy'
-              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
-              namespace: 'mvp-staging'
-              manifests: '$(bake_ingress.manifestsBundle)'
+          # - task: Kubernetes@1
+          #   displayName: Create MVP-Staging Namespace
+          #   inputs:
+          #     connectionType: 'Kubernetes Service Connection'
+          #     kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+          #     command: 'apply'
+          #     useConfigurationFile: true
+          #     configuration: '$(System.ArtifactsDirectory)/k8s-specs/staging/namespaces/namespace-staging.yaml'
+          #     secretType: 'dockerRegistry'
+          #     containerRegistryType: 'Azure Container Registry'
+          #     versionSpec: '1.22.2'
+          #     outputFormat: ''
+          # - task: replacetokens@3
+          #   displayName: "Replace Tokens in Secrets & Specs"
+          #   inputs:
+          #     rootDirectory: '$(System.ArtifactsDirectory)/k8s-specs/staging'
+          #     targetFiles: |
+          #       **/*.txt
+          #       **/*.crt
+          #       **/*.key
+          #       **/*.yaml
+          #     encoding: 'auto'
+          #     writeBOM: true
+          #     actionOnMissing: 'warn'
+          #     keepToken: true
+          #     tokenPrefix: '$('
+          #     tokenSuffix: ')'
+          #     useLegacyPattern: false
+          #     enableTelemetry: false
+          # - task: KubernetesManifest@0
+          #   displayName: Bake Secrets
+          #   name: 'bake_secrets'
+          #   inputs:
+          #     action: 'bake'
+          #     renderType: 'kustomize'
+          #     kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/secrets/'
+          # - task: KubernetesManifest@0
+          #   displayName: Deploy Secrets
+          #   inputs:
+          #     action: 'deploy'
+          #     kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
+          #     namespace: 'mvp-staging'
+          #     manifests: '$(bake_secrets.manifestsBundle)'
+          # - task: KubernetesManifest@0
+          #   displayName: Bake Cert-Manager Specifications
+          #   name: 'bake_cert_manager'
+          #   inputs:
+          #     action: 'bake'
+          #     renderType: 'kustomize'
+          #     kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/cert-manager/'
+          # - task: KubernetesManifest@0
+          #   displayName: Deploy Cert-Manager Specifications
+          #   inputs:
+          #     action: 'deploy'
+          #     kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
+          #     namespace: 'mvp-staging'
+          #     manifests: '$(bake_cert_manager.manifestsBundle)'
+          # - task: KubernetesManifest@0
+          #   displayName: Bake Ingress Specifications
+          #   name: 'bake_ingress'
+          #   inputs:
+          #     action: 'bake'
+          #     renderType: 'kustomize'
+          #     kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/ingress-nginx/'
+          # - task: KubernetesManifest@0
+          #   displayName: Deploy Ingress Specifications
+          #   inputs:
+          #     action: 'deploy'
+          #     kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
+          #     namespace: 'mvp-staging'
+          #     manifests: '$(bake_ingress.manifestsBundle)'
           # - task: KubernetesManifest@0
           #   displayName: Bake External Specifications
           #   name: 'bake_external'
