@@ -30,7 +30,7 @@ stages:
           steps:
           - task: PowerShell@2
             inputs:
-              filePath: 'deployment/warmup.ps1'
+              filePath: '$(Build.SourcesDirectory)/deployment/warmup.ps1'
   - job: Build
     displayName: Build
     pool: 
