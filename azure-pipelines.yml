@@ -77,7 +77,7 @@ stages:
       inputs:
         SourceFolder: './'
         Contents: 'deployment/**'
-        TargetFolder: '$(build.artifactstagingdirectory)/deployment'
+        TargetFolder: '$(build.artifactstagingdirectory)/'
         CleanTargetFolder: true
     - task: PublishPipelineArtifact@1
       inputs:
