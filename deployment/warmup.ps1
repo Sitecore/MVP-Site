@@ -2,15 +2,15 @@
 param (
     [Parameter(Mandatory=$False, HelpMessage="Base URL to visit pages from.")]    
     [Alias("dn")]
-    [string]$domainName=$($STAGING_CM_HOST),
+    [string]$domainName=$($env:STAGING_CM_HOST),
 		
     [Parameter(Mandatory=$False, HelpMessage="Username if a login is required.")]
     [Alias("u")]
-    [string]$username=$($STAGING_APPLICATION_USER_NAME), 
+    [string]$username=$($env:STAGING_APPLICATION_USER_NAME), 
 
     [Parameter(Mandatory=$False, HelpMessage="Password if a login is required.")]
     [Alias("p")]
-    [string]$password=$($STAGING_ADMIN_PASSWORD)
+    [string]$password=$($env:STAGING_ADMIN_PASSWORD)
 )
 
 ##########################################################################
