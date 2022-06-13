@@ -202,13 +202,13 @@ stages:
           #     kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
           #     namespace: 'mvp-staging'
           #     manifests: '$(bake_init.manifestsBundle)'
-  #         - task: KubernetesManifest@0
-  #           displayName: Bake Application Specifications
-  #           name: 'bake_application'
-  #           inputs:
-  #             action: 'bake'
-  #             renderType: 'kustomize'
-  #             kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging'
+          - task: KubernetesManifest@0
+            displayName: Bake Application Specifications
+            name: 'bake_application'
+            inputs:
+              action: 'bake'
+              renderType: 'kustomize'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging'
           - task: KubernetesManifest@0
             displayName: Deploy Application Specifications
             inputs:
