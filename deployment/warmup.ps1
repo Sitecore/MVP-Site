@@ -15,9 +15,9 @@ param (
 
 ##########################################################################
 
-Write-Host "Getting Login Page $domainName"
-Write-Host "Getting username $username"
-Write-Host "Getting password $password"
+Write-Host "Getting Login Page $DomainName"
+Write-Host "Getting username $UserName"
+Write-Host "Getting password $Password"
 $config = Get-Content -Raw -Path "$($PSScriptRoot)\warmup-config.json" | ConvertFrom-Json
 
 ##########################################################################
