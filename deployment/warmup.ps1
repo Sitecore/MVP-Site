@@ -2,15 +2,15 @@
 param (
     [Parameter(Mandatory=$False, HelpMessage="Base URL to visit pages from.")]    
     [Alias("dn")]
-    [string]$domainName=$($env:STAGING_CM_HOST),
+    [string]$DomainName=$($env.STAGING_CM_HOST),
 		
     [Parameter(Mandatory=$False, HelpMessage="Username if a login is required.")]
     [Alias("u")]
-    [string]$username=$($env:STAGING_APPLICATION_USER_NAME), 
+    [string]$UserName=$($env.STAGING_APPLICATION_USER_NAME), 
 
     [Parameter(Mandatory=$False, HelpMessage="Password if a login is required.")]
     [Alias("p")]
-    [string]$password=$($env:STAGING_ADMIN_PASSWORD)
+    [string]$Password=$($env.STAGING_ADMIN_PASSWORD)
 )
 
 ##########################################################################
@@ -18,7 +18,6 @@ param (
 Write-Host "Getting Login Page $domainName"
 Write-Host "Getting username $username"
 Write-Host "Getting password $password"
-
 $config = Get-Content -Raw -Path "$($PSScriptRoot)\warmup-config.json" | ConvertFrom-Json
 
 ##########################################################################
@@ -89,10 +88,10 @@ Function RequestPage {
 
 ##########################################################################
 
-$session = Get-AuthenticatedSession $domainName $config.authenticationDetails $userName $password
+$session = Get-AuthenticatedSession $DomainName $config.authenticationDetails $UserName $Password
 
 foreach ($page in $config.urls) {
-	RequestPage "$domainName$($page.url)" $session
+	RequestPage "$DomainName$($page.url)" $session
 }
 
 ##########################################################################
