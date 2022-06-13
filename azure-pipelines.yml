@@ -19,6 +19,19 @@ stages:
 - stage: Build
   displayName: Build Images + Push to ACR
   jobs:  
+  - deployment: 'Warmup_Environment'
+    dependsOn: 'Deserialize_Content_to_Staging'
+    pool: 
+      name: $(AGENT_POOL_NAME)
+      vmImage: $(vmImageName)
+    environment: Staging
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: PowerShell@2
+            inputs:
+              filePath:  '$(System.DefaultWorkingDirectory)\deployment\warmup.ps1'
   - job: Build
     displayName: Build
     pool: 
@@ -262,19 +275,19 @@ stages:
                 Write-Host "Publish Database"
                 dotnet sitecore publish
               workingDirectory: '$(System.ArtifactsDirectory)/serialization'
-  - deployment: 'Warmup_Environment'
-    dependsOn: 'Deserialize_Content_to_Staging'
-    pool: 
-      name: $(AGENT_POOL_NAME)
-      vmImage: $(vmImageName)
-    environment: Staging
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: PowerShell@2
-            inputs:
-              filePath:  '$(System.DefaultWorkingDirectory)\deployment\warmup.ps1'
+  # - deployment: 'Warmup_Environment'
+  #   dependsOn: 'Deserialize_Content_to_Staging'
+  #   pool: 
+  #     name: $(AGENT_POOL_NAME)
+  #     vmImage: $(vmImageName)
+  #   environment: Staging
+  #   strategy:
+  #     runOnce:
+  #       deploy:
+  #         steps:
+  #         - task: PowerShell@2
+  #           inputs:
+  #             filePath:  '$(System.DefaultWorkingDirectory)\deployment\warmup.ps1'
 # - stage: Production
 #   condition:  and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
 #   dependsOn: Staging
