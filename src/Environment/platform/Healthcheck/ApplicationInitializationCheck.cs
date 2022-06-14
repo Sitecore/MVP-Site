@@ -16,6 +16,7 @@ namespace Mvp.Environment.Sitecore.Healthcheck
             if ((string)HttpContext.Current.Cache.Get("APPINIT") == "1")
             {
                 Log.Warn($"Warmup is in progress of {machineName}", this);
+                
                 return HealthCheckResult.Unhealthy($"Warmup is in progress of {machineName}");
             }
 
