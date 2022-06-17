@@ -19,10 +19,12 @@ namespace Mvp.Environment.Sitecore.Healthcheck
                 
                 return HealthCheckResult.Unhealthy($"Warmup is in progress of {machineName}");
             }
+            else
+            {
+                Log.Info($"Warmup is complete for {machineName}", this);
 
-            Log.Info($"Warmup is complete for {machineName}", this);
-
-            return HealthCheckResult.Healthy();
+                return HealthCheckResult.Healthy();
+            }    
         }
     }
 }
