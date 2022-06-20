@@ -5,11 +5,13 @@
     {
         if (HttpContext.Current.Request.QueryString.Count > 0)
         {
-            HttpContext.Current.Cache.Remove("APPINIT");
+            HttpContext.Current.Cache.Insert("APPINIT", "1", null, DateTime.Now.AddSeconds(600), TimeSpan.Zero);
+            Sitecore.Diagnostics.Log.Info("Warmup adding cache value", this);
         }
         else
         {
-            HttpContext.Current.Cache.Insert("APPINIT", "1", null, DateTime.Now.AddSeconds(600), TimeSpan.Zero);
+            HttpContext.Current.Cache.Remove("APPINIT");
+            Sitecore.Diagnostics.Log.Info("Warmup removing cache value", this);
         }
     }
 </script>
