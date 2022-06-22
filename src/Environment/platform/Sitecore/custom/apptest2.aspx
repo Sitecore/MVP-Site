@@ -5,7 +5,7 @@
     {
         Sitecore.Diagnostics.Log.Info("Warmup URL 2 loaded", this);
 
-        System.Threading.Thread.Sleep(150000); 
+        System.Threading.Thread.Sleep(60000); 
     }
 </script>
 App Test OK
