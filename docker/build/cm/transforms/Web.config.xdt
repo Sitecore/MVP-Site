@@ -2,11 +2,11 @@
 <configuration  xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
     <system.webServer>
         <applicationInitialization xdt:Transform="Insert" doAppInitAfterRestart="true">
-            <add initializationPage="/sitecore/custom/appinit.aspx?a=1" />
+            <add initializationPage="/sitecore/custom/appinit.aspx" />
             <add initializationPage="/" />
             <add initializationPage="/sitecore/custom/apptest.aspx" />
             <add initializationPage="/sitecore/custom/apptest2.aspx" />
-            <add initializationPage="/sitecore/custom/appinit.aspx" />
+            <add initializationPage="/sitecore/custom/appinit.aspx?a=1" />
         </applicationInitialization>
     </system.webServer>
 </configuration>

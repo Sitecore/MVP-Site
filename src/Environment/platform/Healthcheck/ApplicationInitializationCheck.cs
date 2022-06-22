@@ -15,16 +15,14 @@ namespace Mvp.Environment.Sitecore.Healthcheck
             var machineName = "CM"; /*Environment.GetEnvironmentVariable("Sitecore_InstanceName") ?? Environment.MachineName;*/
             if ((string)HttpContext.Current.Cache.Get("APPINIT") == "1")
             {
-                Log.Warn($"Warmup is in progress of {machineName}", this);
-                
-                return HealthCheckResult.Unhealthy($"Warmup is in progress of {machineName}");
-            }
-            else
-            {
                 Log.Info($"Warmup is complete for {machineName}", this);
 
                 return HealthCheckResult.Healthy();
-            }    
+            }
+
+            Log.Warn($"Warmup is in progress of {machineName}", this);
+                
+            return HealthCheckResult.Unhealthy($"Warmup is in progress of {machineName}");
         }
     }
 }
