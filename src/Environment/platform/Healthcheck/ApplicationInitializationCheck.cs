@@ -19,6 +19,12 @@ namespace Mvp.Environment.Sitecore.Healthcheck
                 return HealthCheckResult.Unhealthy($"Warmup is in progress for {machineName}");
             }
             
+            if (HttpContext.Current != null && (HttpContext.Current.Cache["APPINIT"] != null || !string.IsNullOrEmpty(HttpContext.Current.Cache["APPINIT"].ToString())))
+            {
+                 return HealthCheckResult.Unhealthy($"Warmup is in progress for {machineName} (null check)");
+            }
+
+
             return HealthCheckResult.Healthy($"Warmup is complete for {machineName}");
             }
     }
