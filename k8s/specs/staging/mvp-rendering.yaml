@@ -98,7 +98,8 @@ spec:
             port: 80
             httpHeaders:
             - name: X-Kubernetes-Probe
-              value: Liveness           
+              value: Liveness
+          initialDelaySeconds: 60
           timeoutSeconds: 60
           periodSeconds: 30
           failureThreshold: 3
