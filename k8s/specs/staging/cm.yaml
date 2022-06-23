@@ -210,7 +210,6 @@ spec:
           failureThreshold: 100
           initialDelaySeconds: 30
           periodSeconds: 30
-          successThreshold: 1
           timeoutSeconds: 30
         resources:
           requests:

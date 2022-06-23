@@ -14,6 +14,20 @@ namespace Mvp.Environment.Sitecore.Healthcheck
         {
             var machineName = "CM"; /*Environment.GetEnvironmentVariable("Sitecore_InstanceName") ?? Environment.MachineName;*/
 
+            if (HttpContext.Current == null)
+            {
+                Log.Info("Warmup has no HttpContext", this);
+            }
+            else
+            {
+                Log.Info("Warmup has HttpContext", this);
+            }
+
+            if (HttpContext.Current != null && (HttpContext.Current.Cache["APPINIT"] != null && !string.IsNullOrEmpty(HttpContext.Current.Cache["APPINIT"].ToString())))
+            {
+                Log.Info("Warmup has HttpContext.Current.Cache value", this);
+            }
+
             if ((string)HttpContext.Current.Cache.Get("APPINIT") == "1")
             {
                 return HealthCheckResult.Unhealthy($"Warmup is in progress for {machineName}");
