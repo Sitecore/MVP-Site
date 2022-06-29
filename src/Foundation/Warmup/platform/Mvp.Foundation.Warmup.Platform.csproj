@@ -1,17 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
-    <RootNamespace>Mvp.Environment.Sitecore</RootNamespace>
-    <AssemblyName>Mvp.Environment.Sitecore</AssemblyName>
+    <RootNamespace>Mvp.Foundation.Warmup</RootNamespace>
+    <AssemblyName>Mvp.Foundation.Warmup</AssemblyName>
     <SitecoreRoleType>platform</SitecoreRoleType>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="App_Config\Include\Environment.config" />
+    <ProjectCapability Include="SupportsSystemWeb" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Sitecore.Kernel" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectCapability Include="SupportsSystemWeb" />
+    <Folder Include="App_Config\Include\Foundation\" />
+    <Folder Include="Pipelines\" />
   </ItemGroup>
 </Project>

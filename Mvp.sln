@@ -235,6 +235,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Project.Sugcon.Platform
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Project.Sugcon.Rendering", "src\Project\Sugcon\rendering\Mvp.Project.Sugcon.Rendering.csproj", "{72CECEF1-DA07-487B-A1C4-9D4EA8BAA206}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Warmup", "Warmup", "{6201582A-69AF-49BD-80DD-C1402BA6F529}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvp.Foundation.Warmup.Platform", "src\Foundation\Warmup\platform\Mvp.Foundation.Warmup.Platform.csproj", "{49878A7A-E566-41E2-AFD0-C8ED9E76A41E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -329,6 +333,10 @@ Global
 		{72CECEF1-DA07-487B-A1C4-9D4EA8BAA206}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72CECEF1-DA07-487B-A1C4-9D4EA8BAA206}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72CECEF1-DA07-487B-A1C4-9D4EA8BAA206}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49878A7A-E566-41E2-AFD0-C8ED9E76A41E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49878A7A-E566-41E2-AFD0-C8ED9E76A41E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49878A7A-E566-41E2-AFD0-C8ED9E76A41E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49878A7A-E566-41E2-AFD0-C8ED9E76A41E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -384,6 +392,8 @@ Global
 		{AA548973-F076-4C7F-9DE6-4A288212EE4E} = {94C82DDA-FE0D-4EBF-AEAA-81E13CB07FE5}
 		{66B58C57-CDEC-4E95-BB53-ED49E75DE640} = {AA548973-F076-4C7F-9DE6-4A288212EE4E}
 		{72CECEF1-DA07-487B-A1C4-9D4EA8BAA206} = {AA548973-F076-4C7F-9DE6-4A288212EE4E}
+		{6201582A-69AF-49BD-80DD-C1402BA6F529} = {324D4FE7-86EF-43A2-A466-21198CB856AD}
+		{49878A7A-E566-41E2-AFD0-C8ED9E76A41E} = {6201582A-69AF-49BD-80DD-C1402BA6F529}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3377439-FD7A-4F3E-8011-06175E0E3100}

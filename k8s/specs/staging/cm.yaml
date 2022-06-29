@@ -202,7 +202,7 @@ spec:
           failureThreshold: 3
         startupProbe:
           httpGet:
-            path: /healthz/ready
+            path: /healthz/warm
             port: 80
             httpHeaders:
             - name: X-Kubernetes-Probe

@@ -19,12 +19,15 @@ FROM ${BASE_IMAGE}
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 # Custom healthcheck
-RUN Enable-WindowsOptionalFeature -Online -FeatureName IIS-ApplicationInit;
+#RUN Enable-WindowsOptionalFeature -Online -FeatureName IIS-ApplicationInit;
 
 WORKDIR C:\inetpub\wwwroot
 
 # Copy developer tools and entrypoint
 COPY --from=tooling C:\tools C:\tools
+
+# Copy custom healthcheck
+COPY .\Healthchecks\ c:\Healthchecks
 
 # Copy the Sitecore Management Services Module
 COPY --from=devex_resources C:\module\cm\content C:\inetpub\wwwroot
