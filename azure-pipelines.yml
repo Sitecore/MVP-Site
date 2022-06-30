@@ -26,6 +26,11 @@ stages:
       name: $(AGENT_POOL_NAME)
       vmImage: $(vmImageName)
     steps:
+    - task: DockerInstaller@0
+      displayName: Docker Installer
+      inputs:
+        dockerVersion: 17.09.0-ce
+        releaseType: stable
     - task: CmdLine@2
       displayName: Create .env file
       inputs:
