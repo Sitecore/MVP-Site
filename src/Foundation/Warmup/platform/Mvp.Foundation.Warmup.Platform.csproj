@@ -6,6 +6,10 @@
     <SitecoreRoleType>platform</SitecoreRoleType>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Sitecore\Custom\apptest.aspx" />
+    <None Remove="Sitecore\Custom\apptest2.aspx" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectCapability Include="SupportsSystemWeb" />
   </ItemGroup>
   <ItemGroup>
