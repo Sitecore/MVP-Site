@@ -25,16 +25,16 @@ stages:
     pool: 
       name: $(AGENT_POOL_NAME)
       vmImage: $(vmImageName)
-    steps:
+    steps: 
+    - task: CmdLine@2
+      displayName: Create .env file
+      inputs:
+        script: 'ren .env.template .env'
     - task: DockerInstaller@0
       displayName: Docker Installer
       inputs:
         dockerVersion: 17.09.0-ce
         releaseType: stable
-    - task: CmdLine@2
-      displayName: Create .env file
-      inputs:
-        script: 'ren .env.template .env'
     - task: DockerCompose@0
       displayName: "Build Images"
       inputs:
