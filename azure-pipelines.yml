@@ -13,7 +13,7 @@ resources:
 
 variables:
   # Agent VM image name
-  vmImageName: 'windows-2019'
+  # vmImageName: 'windows-2019'
 
 stages:
 - stage: Build
@@ -23,7 +23,7 @@ stages:
     displayName: Build
     pool: 
       name: $(AGENT_POOL_NAME)
-      vmImage: $(vmImageName)
+      #vmImage: $(vmImageName)
     steps:
     - task: CmdLine@2
       displayName: Create .env file
@@ -92,7 +92,7 @@ stages:
   - deployment: 'Deploy_Specs_to_Staging_AKS'
     pool: 
       name: $(AGENT_POOL_NAME)
-      vmImage: $(vmImageName)
+      #vmImage: $(vmImageName)
     environment: Staging
     strategy:
       runOnce:
@@ -236,7 +236,7 @@ stages:
     dependsOn: 'Deploy_Specs_to_Staging_AKS'
     pool: 
       name: $(AGENT_POOL_NAME)
-      vmImage: $(vmImageName)
+      #vmImage: $(vmImageName)
     environment: Staging
     strategy:
       runOnce:
@@ -273,7 +273,7 @@ stages:
     dependsOn: 'Deserialize_Content_to_Staging'
     pool: 
       name: $(AGENT_POOL_NAME)
-      vmImage: $(vmImageName)
+      #vmImage: $(vmImageName)
     environment: Staging
     strategy:
       runOnce:
