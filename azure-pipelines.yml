@@ -217,7 +217,7 @@ stages:
               kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-staging'
               manifests: '$(bake_application.manifestsBundle)'
-              rolloutStatusTimeout: '1200'
+              rolloutStatusTimeout: '2000'
           - task: KubernetesManifest@0
             displayName: Bake SPS Specifications
             name: 'bake_sps'
