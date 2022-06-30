@@ -11,7 +11,7 @@ resources:
 - repo: self
   clean: true
 
-variables:
+#variables:
   # Agent VM image name
   # vmImageName: 'windows-2019'
 
