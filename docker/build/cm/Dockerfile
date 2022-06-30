@@ -48,7 +48,7 @@ COPY --from=sps_resources C:\module\cm\content C:\inetpub\wwwroot
 COPY --from=solution /artifacts/platform/ ./
 
 # Copy role transforms
-COPY .\transforms\ \transforms\role\
+#COPY .\transforms\ \transforms\role\
 
 # Perform transforms
-RUN C:\tools\scripts\Invoke-XdtTransform.ps1 -Path .\Web.config -XdtPath C:\transforms\role\Web.config.xdt;
+#RUN C:\tools\scripts\Invoke-XdtTransform.ps1 -Path .\Web.config -XdtPath C:\transforms\role\Web.config.xdt;
