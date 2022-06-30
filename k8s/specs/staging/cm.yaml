@@ -208,9 +208,9 @@ spec:
             - name: X-Kubernetes-Probe
               value: Startup
           failureThreshold: 100
-          initialDelaySeconds: 30
-          periodSeconds: 30
-          timeoutSeconds: 30
+          initialDelaySeconds: 60
+          periodSeconds: 60
+          timeoutSeconds: 60
         resources:
           requests:
             memory: 800Mi
