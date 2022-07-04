@@ -23,6 +23,7 @@ param(
 # Setup CLI & Parameters for AKS creation
 Write-Host "--- Setting up CLI & Params ---" -ForegroundColor Blue
 az extension add --name aks-preview
+# 1.21.9
 $aksVersion = $(az aks get-versions -l $Region --query 'orchestrators[-1].orchestratorVersion' -o tsv)
 Write-Host "--- Complete: CLI & Params Configured ---" -ForegroundColor Green
 
@@ -30,7 +31,7 @@ Write-Host "--- Complete: CLI & Params Configured ---" -ForegroundColor Green
 Write-Host "--- Creating AKS Instance ---" -ForegroundColor Blue
 az aks create --resource-group $ResourceGroup `
     --name $AksName `
-    --kubernetes-version 1.21.9 `
+    --kubernetes-version $aksVersion `
     --location $Region `
     --windows-admin-password $AzureWindowsPassword `
     --windows-admin-username azureuser `
