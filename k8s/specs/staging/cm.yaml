@@ -207,10 +207,9 @@ spec:
             httpHeaders:
             - name: X-Kubernetes-Probe
               value: Startup
-          failureThreshold: 100
-          initialDelaySeconds: 60
-          periodSeconds: 60
-          timeoutSeconds: 60
+          timeoutSeconds: 300
+          periodSeconds: 30
+          failureThreshold: 10
         resources:
           requests:
             memory: 800Mi
