@@ -99,11 +99,11 @@ stages:
       runOnce:
         deploy:
           steps:
-          # - task: DownloadPipelineArtifact@2
-          #   displayName: "Download Build Artifact"
-          #   inputs:
-          #     artifact: Sitecore.MVP-$(Build.BuildNumber)
-          #     targetPath: '$(System.ArtifactsDirectory)'
+          - task: DownloadPipelineArtifact@2
+            displayName: "Download Build Artifact"
+            inputs:
+              artifact: Sitecore.MVP-$(Build.BuildNumber)
+              targetPath: '$(System.ArtifactsDirectory)'
           # - task: Kubernetes@1
           #   displayName: Create MVP-Staging Namespace
           #   inputs:
@@ -243,11 +243,11 @@ stages:
       runOnce:
         deploy:
           steps:
-          # - task: DownloadPipelineArtifact@2
-          #   displayName: "Download Build Artifact"
-          #   inputs:
-          #     artifact: Sitecore.MVP-$(Build.BuildNumber)
-          #     targetPath: '$(System.ArtifactsDirectory)'
+          - task: DownloadPipelineArtifact@2
+            displayName: "Download Build Artifact"
+            inputs:
+              artifact: Sitecore.MVP-$(Build.BuildNumber)
+              targetPath: '$(System.ArtifactsDirectory)'
           # - task: PowerShell@2
           #   displayName: Deserialize Content
           #   inputs:
