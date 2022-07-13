@@ -17,15 +17,15 @@ variables:
   vmImageName: 'windows-latest'
 
 stages:
-# - stage: Build
-#   displayName: Build Images + Push to ACR
-#   jobs:  
-#   - job: Build
-#     displayName: Build
-#     pool: 
-#       name: $(AGENT_POOL_NAME)
-#       vmImage: $(vmImageName)
-#     steps: 
+- stage: Build
+  displayName: Build Images + Push to ACR
+  jobs:  
+  - job: Build
+    displayName: Build
+    pool: 
+      name: $(AGENT_POOL_NAME)
+      vmImage: $(vmImageName)
+    steps: 
 #     - task: CmdLine@2
 #       displayName: Create .env file
 #       inputs:
@@ -73,17 +73,17 @@ stages:
 #           .config/dotnet-tools.json
 #         TargetFolder: '$(Build.ArtifactStagingDirectory)/serialization'
 #         CleanTargetFolder: true
-#     - task: CopyFiles@2
-#       displayName: "Copy Deployment assets to staging directory"
-#       inputs:
-#         SourceFolder: './deployment'
-#         Contents: '**'
-#         TargetFolder: '$(build.artifactstagingdirectory)/deployment'
-#         CleanTargetFolder: true
-#     - task: PublishPipelineArtifact@1
-#       inputs:
-#         targetPath: '$(System.ArtifactsDirectory)'
-#         artifact: 'Sitecore.MVP-$(Build.BuildNumber)'
+    - task: CopyFiles@2
+      displayName: "Copy Deployment assets to staging directory"
+      inputs:
+        SourceFolder: './deployment'
+        Contents: '**'
+        TargetFolder: '$(build.artifactstagingdirectory)/deployment'
+        CleanTargetFolder: true
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(System.ArtifactsDirectory)'
+        artifact: 'Sitecore.MVP-$(Build.BuildNumber)'
 
 - stage: Staging
   # condition:  and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
@@ -272,6 +272,7 @@ stages:
           #     workingDirectory: '$(System.ArtifactsDirectory)/serialization'
   - deployment: 'Warmup_Environment'
     #dependsOn: 'Deserialize_Content_to_Staging'
+    dependsOn: 'Build'
     pool: 
       name: $(AGENT_POOL_NAME)
       vmImage: $(vmImageName)
