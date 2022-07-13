@@ -16,7 +16,7 @@ variables:
   #vmImageName: 'windows-2019'
   vmImageName: 'windows-latest'
 
-# stages:
+stages:
 # - stage: Build
 #   displayName: Build Images + Push to ACR
 #   jobs:  
