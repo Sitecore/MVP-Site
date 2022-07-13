@@ -1,6 +1,6 @@
 # escape=`
 ARG BASE_IMAGE
 
-FROM $BASE_IMAGE as final
+FROM $BASE_IMAGE
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]

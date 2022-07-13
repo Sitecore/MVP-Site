@@ -226,7 +226,7 @@ services:
     isolation: ${ISOLATION}
     image: ${MVP_DOCKER_REGISTRY}mvp-sps-mssql-init:${SITECORE_VERSION}
     build:
-      context: ./docker/build/sps
+      context: ./docker/build/sps-init
       args:
         BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}modules/sitecore-sps:6.0-ltsc2019
     volumes:
