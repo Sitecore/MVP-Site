@@ -224,11 +224,7 @@ services:
 
   sps-mssql-init:
     isolation: ${ISOLATION}
-    image: ${MVP_DOCKER_REGISTRY}mvp-sps-mssql-init:${SITECORE_VERSION}
-    build:
-      context: ./docker/build/sps-init
-      args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}modules/sitecore-sps:6.0-ltsc2019
+    image: ${SITECORE_DOCKER_REGISTRY}modules/sitecore-sps:6.0-ltsc2019
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
@@ -243,11 +239,7 @@ services:
         condition: service_healthy
   sps:
     isolation: ${ISOLATION}
-    image: ${MVP_DOCKER_REGISTRY}mvp-sps:${SITECORE_VERSION}
-    build:
-      context: ./docker/build/sps
-      args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}modules/sitecore-sps:6.0-ltsc2019
+    image: ${SITECORE_DOCKER_REGISTRY}modules/sitecore-sps:6.0-ltsc2019
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
