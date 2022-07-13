@@ -195,7 +195,7 @@ stages:
             inputs:
               action: 'bake'
               renderType: 'kustomize'
-          #     kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/init/'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/init/'
           - task: KubernetesManifest@0
             displayName: Deploy Init Specifications
             inputs:
