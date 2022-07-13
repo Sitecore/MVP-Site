@@ -42,10 +42,10 @@ Function Get-AuthenticatedSession {
   Write-Host "Getting Login Page $loginPage"
 
   try{
-    $login = Invoke-WebRequest $loginPage -SessionVariable webSession -TimeoutSec 600
+    $login = Invoke-WebRequest $loginPage -SessionVariable webSession -TimeoutSec 600 -UseBasicParsing
   }catch{
     Write-Host "First attempt failed with $($_.Exception.Response.StatusCode.value__) , retrying"
-    $login = Invoke-WebRequest $loginPage -SessionVariable webSession -TimeoutSec 600
+    $login = Invoke-WebRequest $loginPage -SessionVariable webSession -TimeoutSec 600 -UseBasicParsing
   }
   
   Write-Host "Got Login Page, filling out form"
@@ -56,7 +56,7 @@ Function Get-AuthenticatedSession {
    
   Write-Host "logging in"
   
-  $request = Invoke-WebRequest -Uri $loginPage -WebSession $webSession -Method POST -Body $form  -TimeoutSec 600 | Out-Null
+  $request = Invoke-WebRequest -Uri $loginPage -WebSession $webSession -Method POST -Body $form  -TimeoutSec 600 -UseBasicParsing | Out-Null
   
   $webSession
   
@@ -72,7 +72,7 @@ Function RequestPage {
 	)
 	Get-Date
 	Write-Host "requesting $url ..."
-	try { $request = Invoke-WebRequest $url -WebSession $webSession -TimeoutSec 60000 } catch {
+	try { $request = Invoke-WebRequest $url -WebSession $webSession -TimeoutSec 60000 -UseBasicParsing } catch {
       $status = $_.Exception.Response.StatusCode.Value__
 	  if ($status -ne 200){
 		Write-Host "ERROR Something went wrong while requesting $url" -foregroundcolor red
