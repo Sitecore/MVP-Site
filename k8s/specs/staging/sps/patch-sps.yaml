@@ -7,7 +7,7 @@ spec:
     spec:
       initContainers:
       - name: sitecore-sps-init
-        image: sitecore-sps
+        image: sitecore-sps-mssql-init
         args: ["schema", "upgrade", "--force"]
         env:
         - name: Sitecore_License
