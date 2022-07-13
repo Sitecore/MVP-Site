@@ -30,49 +30,49 @@ stages:
       displayName: Create .env file
       inputs:
         script: 'ren .env.template .env'
-    # - task: DockerCompose@0
-    #   displayName: "Build Images"
-    #   inputs:
-    #     containerregistrytype: 'Container Registry'
-    #     dockerRegistryEndpoint: 'Josl-MVP-Site-v2-ACR'
-    #     dockerComposeFile: '**/docker-compose.yml'
-    #     additionalDockerComposeFiles: 'docker-compose.override.yml'
-    #     dockerComposeFileArgs: '$(DOCKER_COMPOSE_ARGS)'
-    #     qualifyImageNames: false
-    #     action: 'Build services'
-    #     additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
-    #     includeLatestTag: true
-    # - task: DockerCompose@0
-    #   displayName: "Push Images with Latest Tag"
-    #   inputs:
-    #     containerregistrytype: 'Azure Container Registry'
-    #     azureSubscription: '$(AZURE_SUBSCRIPTION)'
-    #     azureContainerRegistry: '$(AZURE_CONTAINER_REGISTRY)'
-    #     dockerComposeFile: '**/docker-compose.yml'
-    #     additionalDockerComposeFiles: 'docker-compose.override.yml'
-    #     dockerComposeFileArgs: '$(DOCKER_COMPOSE_ARGS)'
-    #     action: 'Push services'
-    #     additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
-    #     includeLatestTag: true
-    #   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
-    # - task: CopyFiles@2
-    #   displayName: "Copy K8s specifications to staging directory"
-    #   inputs:
-    #     SourceFolder: 'k8s/specs'
-    #     Contents: '**'
-    #     TargetFolder: '$(Build.ArtifactStagingDirectory)/k8s-specs'
-    #     CleanTargetFolder: true
-    # - task: CopyFiles@2
-    #   displayName: "Copy Serialisation assets to staging directory"
-    #   inputs:
-    #     SourceFolder: './'
-    #     Contents: |
-    #       sitecore.json
-    #       src/**/*.module.json
-    #       src/**/items/**
-    #       .config/dotnet-tools.json
-    #     TargetFolder: '$(Build.ArtifactStagingDirectory)/serialization'
-    #     CleanTargetFolder: true
+    - task: DockerCompose@0
+      displayName: "Build Images"
+      inputs:
+        containerregistrytype: 'Container Registry'
+        dockerRegistryEndpoint: 'Josl-MVP-Site-v2-ACR'
+        dockerComposeFile: '**/docker-compose.yml'
+        additionalDockerComposeFiles: 'docker-compose.override.yml'
+        dockerComposeFileArgs: '$(DOCKER_COMPOSE_ARGS)'
+        qualifyImageNames: false
+        action: 'Build services'
+        additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
+        includeLatestTag: true
+    - task: DockerCompose@0
+      displayName: "Push Images with Latest Tag"
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: '$(AZURE_SUBSCRIPTION)'
+        azureContainerRegistry: '$(AZURE_CONTAINER_REGISTRY)'
+        dockerComposeFile: '**/docker-compose.yml'
+        additionalDockerComposeFiles: 'docker-compose.override.yml'
+        dockerComposeFileArgs: '$(DOCKER_COMPOSE_ARGS)'
+        action: 'Push services'
+        additionalImageTags: '$(Build.BuildNumber)-$(Build.SourceBranchName)'
+        includeLatestTag: true
+      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    - task: CopyFiles@2
+      displayName: "Copy K8s specifications to staging directory"
+      inputs:
+        SourceFolder: 'k8s/specs'
+        Contents: '**'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/k8s-specs'
+        CleanTargetFolder: true
+    - task: CopyFiles@2
+      displayName: "Copy Serialisation assets to staging directory"
+      inputs:
+        SourceFolder: './'
+        Contents: |
+          sitecore.json
+          src/**/*.module.json
+          src/**/items/**
+          .config/dotnet-tools.json
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/serialization'
+        CleanTargetFolder: true
     - task: CopyFiles@2
       displayName: "Copy Deployment assets to staging directory"
       inputs:
@@ -104,77 +104,77 @@ stages:
             inputs:
               artifact: Sitecore.MVP-$(Build.BuildNumber)
               targetPath: '$(System.ArtifactsDirectory)'
-          # - task: Kubernetes@1
-          #   displayName: Create MVP-Staging Namespace
-          #   inputs:
-          #     connectionType: 'Kubernetes Service Connection'
-          #     kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
-          #     command: 'apply'
-          #     useConfigurationFile: true
-          #     configuration: '$(System.ArtifactsDirectory)/k8s-specs/staging/namespaces/namespace-staging.yaml'
-          #     secretType: 'dockerRegistry'
-          #     containerRegistryType: 'Azure Container Registry'
-          #     versionSpec: '1.22.2'
-          #     outputFormat: ''
-          # - task: replacetokens@3
-          #   displayName: "Replace Tokens in Secrets & Specs"
-          #   inputs:
-          #     rootDirectory: '$(System.ArtifactsDirectory)/k8s-specs/staging'
-          #     targetFiles: |
-          #       **/*.txt
-          #       **/*.crt
-          #       **/*.key
-          #       **/*.yaml
-          #     encoding: 'auto'
-          #     writeBOM: true
-          #     actionOnMissing: 'warn'
-          #     keepToken: true
-          #     tokenPrefix: '$('
-          #     tokenSuffix: ')'
-          #     useLegacyPattern: false
-          #     enableTelemetry: false
-          # - task: KubernetesManifest@0
-          #   displayName: Bake Secrets
-          #   name: 'bake_secrets'
-          #   inputs:
-          #     action: 'bake'
-          #     renderType: 'kustomize'
-          #     kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/secrets/'
-          # - task: KubernetesManifest@0
-          #   displayName: Deploy Secrets
-          #   inputs:
-          #     action: 'deploy'
-          #     kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
-          #     namespace: 'mvp-staging'
-          #     manifests: '$(bake_secrets.manifestsBundle)'
-          # - task: KubernetesManifest@0
-          #   displayName: Bake Cert-Manager Specifications
-          #   name: 'bake_cert_manager'
-          #   inputs:
-          #     action: 'bake'
-          #     renderType: 'kustomize'
-          #     kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/cert-manager/'
-          # - task: KubernetesManifest@0
-          #   displayName: Deploy Cert-Manager Specifications
-          #   inputs:
-          #     action: 'deploy'
-          #     kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
-          #     namespace: 'mvp-staging'
-          #     manifests: '$(bake_cert_manager.manifestsBundle)'
-          # - task: KubernetesManifest@0
-          #   displayName: Bake Ingress Specifications
-          #   name: 'bake_ingress'
-          #   inputs:
-          #     action: 'bake'
-          #     renderType: 'kustomize'
-          #     kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/ingress-nginx/'
-          # - task: KubernetesManifest@0
-          #   displayName: Deploy Ingress Specifications
-          #   inputs:
-          #     action: 'deploy'
-          #     kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
-          #     namespace: 'mvp-staging'
-          #     manifests: '$(bake_ingress.manifestsBundle)'
+          - task: Kubernetes@1
+            displayName: Create MVP-Staging Namespace
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: '$(AKS_SERVICE_ENDPOINT)'
+              command: 'apply'
+              useConfigurationFile: true
+              configuration: '$(System.ArtifactsDirectory)/k8s-specs/staging/namespaces/namespace-staging.yaml'
+              secretType: 'dockerRegistry'
+              containerRegistryType: 'Azure Container Registry'
+              versionSpec: '1.22.2'
+              outputFormat: ''
+          - task: replacetokens@3
+            displayName: "Replace Tokens in Secrets & Specs"
+            inputs:
+              rootDirectory: '$(System.ArtifactsDirectory)/k8s-specs/staging'
+              targetFiles: |
+                **/*.txt
+                **/*.crt
+                **/*.key
+                **/*.yaml
+              encoding: 'auto'
+              writeBOM: true
+              actionOnMissing: 'warn'
+              keepToken: true
+              tokenPrefix: '$('
+              tokenSuffix: ')'
+              useLegacyPattern: false
+              enableTelemetry: false
+          - task: KubernetesManifest@0
+            displayName: Bake Secrets
+            name: 'bake_secrets'
+            inputs:
+              action: 'bake'
+              renderType: 'kustomize'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/secrets/'
+          - task: KubernetesManifest@0
+            displayName: Deploy Secrets
+            inputs:
+              action: 'deploy'
+              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
+              namespace: 'mvp-staging'
+              manifests: '$(bake_secrets.manifestsBundle)'
+          - task: KubernetesManifest@0
+            displayName: Bake Cert-Manager Specifications
+            name: 'bake_cert_manager'
+            inputs:
+              action: 'bake'
+              renderType: 'kustomize'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/cert-manager/'
+          - task: KubernetesManifest@0
+            displayName: Deploy Cert-Manager Specifications
+            inputs:
+              action: 'deploy'
+              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
+              namespace: 'mvp-staging'
+              manifests: '$(bake_cert_manager.manifestsBundle)'
+          - task: KubernetesManifest@0
+            displayName: Bake Ingress Specifications
+            name: 'bake_ingress'
+            inputs:
+              action: 'bake'
+              renderType: 'kustomize'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/ingress-nginx/'
+          - task: KubernetesManifest@0
+            displayName: Deploy Ingress Specifications
+            inputs:
+              action: 'deploy'
+              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
+              namespace: 'mvp-staging'
+              manifests: '$(bake_ingress.manifestsBundle)'
           # - task: KubernetesManifest@0
           #   displayName: Bake External Specifications
           #   name: 'bake_external'
@@ -203,36 +203,36 @@ stages:
           #     kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
           #     namespace: 'mvp-staging'
           #     manifests: '$(bake_init.manifestsBundle)'
-          # - task: KubernetesManifest@0
-          #   displayName: Bake Application Specifications
-          #   name: 'bake_application'
-          #   inputs:
-          #     action: 'bake'
-          #     renderType: 'kustomize'
-          #     kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging'
-          # - task: KubernetesManifest@0
-          #   displayName: Deploy Application Specifications
-          #   inputs:
-          #     action: 'deploy'
-          #     kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
-          #     namespace: 'mvp-staging'
-          #     manifests: '$(bake_application.manifestsBundle)'
-          #     rolloutStatusTimeout: '1200'
-          # - task: KubernetesManifest@0
-          #   displayName: Bake SPS Specifications
-          #   name: 'bake_sps'
-          #   inputs:
-          #     action: 'bake'
-          #     renderType: 'kustomize'
-          #     kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/sps'
-          # - task: KubernetesManifest@0
-          #   displayName: Deploy SPS Specifications
-          #   inputs:
-          #     action: 'deploy'
-          #     kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
-          #     namespace: 'mvp-staging'
-          #     manifests: '$(bake_sps.manifestsBundle)'
-          #     rolloutStatusTimeout: '1200'
+          - task: KubernetesManifest@0
+            displayName: Bake Application Specifications
+            name: 'bake_application'
+            inputs:
+              action: 'bake'
+              renderType: 'kustomize'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging'
+          - task: KubernetesManifest@0
+            displayName: Deploy Application Specifications
+            inputs:
+              action: 'deploy'
+              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
+              namespace: 'mvp-staging'
+              manifests: '$(bake_application.manifestsBundle)'
+              rolloutStatusTimeout: '1200'
+          - task: KubernetesManifest@0
+            displayName: Bake SPS Specifications
+            name: 'bake_sps'
+            inputs:
+              action: 'bake'
+              renderType: 'kustomize'
+              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/sps'
+          - task: KubernetesManifest@0
+            displayName: Deploy SPS Specifications
+            inputs:
+              action: 'deploy'
+              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
+              namespace: 'mvp-staging'
+              manifests: '$(bake_sps.manifestsBundle)'
+              rolloutStatusTimeout: '1200'
   - deployment: 'Deserialize_Content_to_Staging'
     dependsOn: 'Deploy_Specs_to_Staging_AKS'
     pool: 
@@ -248,28 +248,28 @@ stages:
             inputs:
               artifact: Sitecore.MVP-$(Build.BuildNumber)
               targetPath: '$(System.ArtifactsDirectory)'
-          # - task: PowerShell@2
-          #   displayName: Deserialize Content
-          #   inputs:
-          #     targetType: 'inline'
-          #     script: |
-          #       # Add nuget source & install Sitecore CLI
-          #       Write-Host "Installing Sitecore CLI"
-          #       dotnet nuget add source $(SITECORE_PUBLIC_NUGET_FEED) --name "Sitecore-Public-Nuget-Feed"
-          #       dotnet tool restore
+          - task: PowerShell@2
+            displayName: Deserialize Content
+            inputs:
+              targetType: 'inline'
+              script: |
+                # Add nuget source & install Sitecore CLI
+                Write-Host "Installing Sitecore CLI"
+                dotnet nuget add source $(SITECORE_PUBLIC_NUGET_FEED) --name "Sitecore-Public-Nuget-Feed"
+                dotnet tool restore
                 
-          #       # Login to ID Server
-          #       Write-Host "Logging into ID Server"
-          #       dotnet sitecore login --client-credentials true --auth $(STAGING_ID_SERVER_URL) --cm $(STAGING_CLI_URL) --allow-write true --client-id "MVP_Automation" --client-secret "$(STAGING_IDENTITY_SECRET_MVP)"
+                # Login to ID Server
+                Write-Host "Logging into ID Server"
+                dotnet sitecore login --client-credentials true --auth $(STAGING_ID_SERVER_URL) --cm $(STAGING_CLI_URL) --allow-write true --client-id "MVP_Automation" --client-secret "$(STAGING_IDENTITY_SECRET_MVP)"
                 
-          #       # Deserialize Content
-          #       Write-Host "Push Content"
-          #       dotnet sitecore ser push
+                # Deserialize Content
+                Write-Host "Push Content"
+                dotnet sitecore ser push
                 
-          #       # Publish Database
-          #       Write-Host "Publish Database"
-          #       dotnet sitecore publish
-          #     workingDirectory: '$(System.ArtifactsDirectory)/serialization'
+                # Publish Database
+                Write-Host "Publish Database"
+                dotnet sitecore publish
+              workingDirectory: '$(System.ArtifactsDirectory)/serialization'
   - deployment: 'Warmup_Environment'
     dependsOn: 'Deserialize_Content_to_Staging'
     pool: 
