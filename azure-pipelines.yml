@@ -233,21 +233,21 @@ stages:
   #             namespace: 'mvp-staging'
   #             manifests: '$(bake_sps.manifestsBundle)'
   #             rolloutStatusTimeout: '1200'
-  - deployment: 'Deserialize_Content_to_Staging'
-    dependsOn: 'Deploy_Specs_to_Staging_AKS'
-    pool: 
-      name: $(AGENT_POOL_NAME)
-      vmImage: $(vmImageName)
-    environment: Staging
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: DownloadPipelineArtifact@2
-            displayName: "Download Build Artifact"
-            inputs:
-              artifact: Sitecore.MVP-$(Build.BuildNumber)
-              targetPath: '$(System.ArtifactsDirectory)'
+  # - deployment: 'Deserialize_Content_to_Staging'
+  #   dependsOn: 'Deploy_Specs_to_Staging_AKS'
+  #   pool: 
+  #     name: $(AGENT_POOL_NAME)
+  #     vmImage: $(vmImageName)
+  #   environment: Staging
+  #   strategy:
+  #     runOnce:
+  #       deploy:
+  #         steps:
+  #         - task: DownloadPipelineArtifact@2
+  #           displayName: "Download Build Artifact"
+  #           inputs:
+  #             artifact: Sitecore.MVP-$(Build.BuildNumber)
+  #             targetPath: '$(System.ArtifactsDirectory)'
           # - task: PowerShell@2
           #   displayName: Deserialize Content
           #   inputs:
