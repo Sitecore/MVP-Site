@@ -10,11 +10,11 @@ FROM ${SOLUTION_IMAGE} as solution
 FROM ${DEBUG_BASE_IMAGE} as debug
 ARG ARTIFACTS_FOLDER=/artifacts/rendering/
 
-# COPY ./Development.ps1 ./tools/
-# WORKDIR /app
-# COPY --from=solution ${ARTIFACTS_FOLDER} ./
-# ENV ASPNETCORE_URLS "http://+:80"
-# EXPOSE 80
+COPY ./Development.ps1 ./tools/
+WORKDIR /app
+COPY --from=solution ${ARTIFACTS_FOLDER} ./
+ENV ASPNETCORE_URLS "http://+:80"
+EXPOSE 80
 # ENTRYPOINT ["pwsh", "-File", "c:\\tools\\Development.ps1"]
 
 
