@@ -13,12 +13,12 @@ images:
 - name: sitecore-mvp-rendering
   newName: $(ACR_ENDPOINT)/mvp-rendering
   newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
-#- name: sitecore-sugcon-eu-rendering
-#  newName: $(ACR_ENDPOINT)/sugcon-rendering
-#  newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
+- name: sitecore-sugcon-eu-rendering
+ newName: $(ACR_ENDPOINT)/sugcon-rendering
+ newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
 resources:
 - cm.yaml
 - cd.yaml
 - id.yaml
 - mvp-rendering.yaml
-#- sugcon-eu-rendering.yaml
+- sugcon-eu-rendering.yaml
