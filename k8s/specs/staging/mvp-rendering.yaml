@@ -35,7 +35,7 @@ spec:
         imagePullPolicy: Always
         env:
         - name: ASPNETCORE_ENVIRONMENT
-          value: Release
+          value: Development
         - name: ASPNETCORE_URLS
           value: http://*:80
         - name: Sitecore__InstanceUri
