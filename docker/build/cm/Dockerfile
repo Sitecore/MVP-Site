@@ -6,20 +6,20 @@ ARG TOOLS_RESOURCES_IMAGE
 ARG DEVEX_RESOURCES_IMAGE
 ARG HEADLESS_SERVICES_RESOURCES_IMAGE
 ARG SPE_RESOURCES_IMAGE
-ARG SPS_RESOURCES_IMAGE
+#ARG SPS_RESOURCES_IMAGE
 
 FROM ${SOLUTION_IMAGE} as solution
 FROM ${TOOLS_RESOURCES_IMAGE} as tooling
 FROM ${DEVEX_RESOURCES_IMAGE} AS devex_resources
 FROM ${HEADLESS_SERVICES_RESOURCES_IMAGE} AS headless_services_resources
 FROM ${SPE_RESOURCES_IMAGE} AS spe_resources
-FROM ${SPS_RESOURCES_IMAGE} AS sps_resources
+#FROM ${SPS_RESOURCES_IMAGE} AS sps_resources
 FROM ${BASE_IMAGE}
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 # Custom healthcheck
-RUN Enable-WindowsOptionalFeature -Online -FeatureName IIS-ApplicationInit;
+#RUN Enable-WindowsOptionalFeature -Online -FeatureName IIS-ApplicationInit;
 
 WORKDIR C:\inetpub\wwwroot
 
@@ -42,7 +42,7 @@ RUN C:\module\tools\Initialize-Content.ps1 -TargetPath C:\inetpub\wwwroot; `
 COPY --from=spe_resources C:\module\cm\content C:\inetpub\wwwroot
 
 # Copy SPS assets
-COPY --from=sps_resources C:\module\cm\content C:\inetpub\wwwroot
+#COPY --from=sps_resources C:\module\cm\content C:\inetpub\wwwroot
 
 # Copy solution website files
 COPY --from=solution /artifacts/platform/ ./
