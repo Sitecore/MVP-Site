@@ -9,5 +9,5 @@ images:
 resources:
 - sps.yaml
 
-patchesStrategicMerge:
-- patch-sps.yaml
+# patchesStrategicMerge:
+# - patch-sps.yaml

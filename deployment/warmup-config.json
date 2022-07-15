@@ -11,6 +11,9 @@
             "url": "/sitecore/client/Applications/Launchpad"
         },
         {
+            "url": "identity/login/shell/SitecoreIdentityServer"
+        },
+        {
             "url":"/sitecore/client/Applications/ExperienceEditor/Ribbon.aspx?sc_content=core&ribbonId=%7B570A52B6-6755-461A-8052-5B95EF766F74%7D&itemId=%7BEB362CAE-8524-448E-A89C-0DCD13254EF9%7D&deviceId=%7BFE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3%7D&database=master&mode=edit&url=%2Fnl-BE%3Fsc_mode%3Dedit&lang=nl-BE&pageSite=hub_nl"
         },
         {
