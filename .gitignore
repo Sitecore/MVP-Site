@@ -384,3 +384,4 @@ FodyWeavers.xsd
 *.itempackage
 /license.xml
 k8s/SetupAKS.ps1
+k8s/service-account.yml

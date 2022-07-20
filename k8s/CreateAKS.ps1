@@ -31,7 +31,7 @@ Write-Host "--- Complete: CLI & Params Configured ---" -ForegroundColor Green
 Write-Host "--- Creating AKS Instance ---" -ForegroundColor Blue
 az aks create --resource-group $ResourceGroup `
     --name $AksName `
-    --kubernetes-version 1.21.9 `
+    --kubernetes-version $aksVersion `
     --location $Region `
     --windows-admin-password $AzureWindowsPassword `
     --windows-admin-username azureuser `
