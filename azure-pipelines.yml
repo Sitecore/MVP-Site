@@ -13,8 +13,8 @@ resources:
 
 variables:
   # Agent VM image name
-  vmImageName: 'windows-2019'
-  #vmImageName: 'windows-latest'
+  #vmImageName: 'windows-2019'
+  vmImageName: 'windows-latest'
 
 stages:
 - stage: Build
@@ -175,34 +175,34 @@ stages:
               kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
               namespace: 'mvp-staging'
               manifests: '$(bake_ingress.manifestsBundle)'
-          - task: KubernetesManifest@0
-            displayName: Bake External Specifications
-            name: 'bake_external'
-            inputs:
-              action: 'bake'
-              renderType: 'kustomize'
-              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/external/'
-          - task: KubernetesManifest@0
-            displayName: Deploy External Specifications
-            inputs:
-              action: 'deploy'
-              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
-              namespace: 'mvp-staging'
-              manifests: '$(bake_external.manifestsBundle)'
-          - task: KubernetesManifest@0
-            displayName: Bake Init Specifications
-            name: 'bake_init'
-            inputs:
-              action: 'bake'
-              renderType: 'kustomize'
-              kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/init/'
-          - task: KubernetesManifest@0
-            displayName: Deploy Init Specifications
-            inputs:
-              action: 'deploy'
-              kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
-              namespace: 'mvp-staging'
-              manifests: '$(bake_init.manifestsBundle)'
+          # - task: KubernetesManifest@0
+          #   displayName: Bake External Specifications
+          #   name: 'bake_external'
+          #   inputs:
+          #     action: 'bake'
+          #     renderType: 'kustomize'
+          #     kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/external/'
+          # - task: KubernetesManifest@0
+          #   displayName: Deploy External Specifications
+          #   inputs:
+          #     action: 'deploy'
+          #     kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
+          #     namespace: 'mvp-staging'
+          #     manifests: '$(bake_external.manifestsBundle)'
+          # - task: KubernetesManifest@0
+          #   displayName: Bake Init Specifications
+          #   name: 'bake_init'
+          #   inputs:
+          #     action: 'bake'
+          #     renderType: 'kustomize'
+          #     kustomizationPath: '$(System.ArtifactsDirectory)/k8s-specs/staging/init/'
+          # - task: KubernetesManifest@0
+          #   displayName: Deploy Init Specifications
+          #   inputs:
+          #     action: 'deploy'
+          #     kubernetesServiceConnection: '$(AKS_SERVICE_ENDPOINT)'
+          #     namespace: 'mvp-staging'
+          #     manifests: '$(bake_init.manifestsBundle)'
           - task: KubernetesManifest@0
             displayName: Bake Application Specifications
             name: 'bake_application'
