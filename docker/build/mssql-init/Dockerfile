@@ -9,7 +9,7 @@ FROM ${SPE_RESOURCES_IMAGE} AS spe_resources
 #FROM ${SPS_RESOURCES_IMAGE} AS sps_resources
 FROM $BASE_IMAGE as final
 
-# SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 COPY --from=headless_services_resources C:\module\db c:\resources\headless_services_data
 COPY --from=spe_resources C:\module\db c:\resources\spe_data
