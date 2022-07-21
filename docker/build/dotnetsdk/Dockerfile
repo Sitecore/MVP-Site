@@ -19,13 +19,16 @@ RUN Invoke-WebRequest "https://dist.nuget.org/win-x86-commandline/v$env:NUGET_VE
 # Retrieve .NET Core SDK
 COPY --from=netcore-sdk ["/Program Files/dotnet/", "/Program Files/dotnet/"]
 
-# Enable detection of running in a container
-# Enable correct mode for dotnet watch (only mode supported in a container)
-# Skip extraction of XML docs - generally not useful within an image/container - helps performance
+ENV `
+    # Enable detection of running in a container
+    DOTNET_RUNNING_IN_CONTAINER=true `
+    # Enable correct mode for dotnet watch (only mode supported in a container)
+    DOTNET_USE_POLLING_FILE_WATCHER=true `
+    # Skip extraction of XML docs - generally not useful within an image/container - helps performance
+    NUGET_XMLDOC_MODE=skip 
 
-ENV DOTNET_RUNNING_IN_CONTAINER=true DOTNET_USE_POLLING_FILE_WATCHER=true NUGET_XMLDOC_MODE=skip 
-
-RUN $path = ${Env:PATH} + ';C:\Program Files\dotnet\;'; setx /M PATH $path
+RUN $path = ${Env:PATH} + ';C:\Program Files\dotnet\;'; `
+    setx /M PATH $path
 
 # Trigger first run experience by running arbitrary cmd
 RUN dotnet help | out-null
