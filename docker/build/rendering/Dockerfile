@@ -28,4 +28,6 @@ WORKDIR /app
 COPY --from=solution ${ARTIFACTS_FOLDER} ./
 EXPOSE 80
 EXPOSE 443
-ENTRYPOINT ["dotnet", "Mvp.Project.MvpSite.dll"]
+#ENTRYPOINT dotnet %ENTRYPOINT_ASSEMBLY%
+ENTRYPOINT ["dotnet", "${ENTRYPOINT_ASSEMBLY}"]
+#ENTRYPOINT ["dotnet", "Mvp.Project.MvpSite.dll"]
