@@ -30,7 +30,7 @@ services:
     image: ${MVP_DOCKER_REGISTRY}mvp-rendering:${SITECORE_VERSION}
     restart: ${DOCKER_RESTART}
     build:
-      context: ./docker/build/rendering
+      context: ./docker/build/rendering-mvp
       target: ${BUILD_CONFIGURATION}
       args:
         DEBUG_BASE_IMAGE: ${NETCORE_BUILD_IMAGE}
@@ -76,7 +76,7 @@ services:
     container_name: sugcon-rendering
     image: ${MVP_DOCKER_REGISTRY}sugcon-rendering:${SITECORE_VERSION} 
     build:
-      context: ./docker/build/rendering
+      context: ./docker/build/rendering-sugcon
       target: ${BUILD_CONFIGURATION}
       args:
         DEBUG_BASE_IMAGE: ${NETCORE_BUILD_IMAGE}
