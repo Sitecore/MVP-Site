@@ -31,10 +31,10 @@ spec:
               name: sitecore-database
               key: sitecore-databasepassword.txt
         - name: SITECORE_Publishing__ConnectionStrings__Core
-          value: Data Source=$(Database_Server);Initial Catalog=Sitecore.Core;User ID=$(Core_Database_Username);Password=$(Core_Database_Password);MultipleActiveResultSets=True
+          value: Data Source=$(Database_Server);Initial Catalog=Sitecore.Core;User ID=$(Database_Admin_Username);Password=$(Database_Admin_Password);MultipleActiveResultSets=True
         - name: SITECORE_Publishing__ConnectionStrings__Master
-          value: Data Source=$(Database_Server);Initial Catalog=Sitecore.Master;User ID=$(Master_Database_Username);Password=$(Master_Database_Password);MultipleActiveResultSets=True
+          value: Data Source=$(Database_Server);Initial Catalog=Sitecore.Master;User ID=$(Database_Admin_Username);Password=$(Database_Admin_Password);MultipleActiveResultSets=True
         - name: SITECORE_Publishing__ConnectionStrings__Service
-          value: Data Source=$(Database_Server);Initial Catalog=Sitecore.Master;User ID=$(Master_Database_Username);Password=$(Master_Database_Password);MultipleActiveResultSets=True
+          value: Data Source=$(Database_Server);Initial Catalog=Sitecore.Master;User ID=$(Database_Admin_Username);Password=$(Database_Admin_Password);MultipleActiveResultSets=True
         - name: SITECORE_Publishing__ConnectionStrings__Web
-          value: Data Source=$(Database_Server);Initial Catalog=Sitecore.Web;User ID=$(Web_Database_Username);Password=$(Web_Database_Password);MultipleActiveResultSets=True
+          value: Data Source=$(Database_Server);Initial Catalog=Sitecore.Web;User ID=$(Database_Admin_Username);Password=$(Database_Admin_Password);MultipleActiveResultSets=True
