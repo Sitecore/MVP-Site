@@ -3,8 +3,8 @@ kind: Kustomization
 
 images:
 - name: sitecore-sps
-  newName: scr.sitecore.com/sxp/modules/sitecore-sps
-  newTag: 6.0-ltsc2019
+  newName: $(ACR_ENDPOINT)/mvp-sps
+  newTag: $(Build.BuildNumber)-$(Build.SourceBranchName)
 
 resources:
 - sps.yaml
