@@ -222,46 +222,46 @@ services:
     mem_limit: ${MEM_LIMIT_CD:-4GB}        
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
 
-#   sps-mssql-init:
-#     isolation: ${ISOLATION}
-#     image: ${MVP_DOCKER_REGISTRY}mvp-sps:${SITECORE_VERSION}
-#     build:
-#       context: ./docker/build/sps
-#       args:
-#         BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}modules/sitecore-sps:6.0-ltsc2019
-#     volumes:
-#       - ${HOST_LICENSE_FOLDER}:c:\license
-#     environment:
-#       SITECORE_LICENSE_LOCATION: c:\license\license.xml
-#       SITECORE_Publishing__ConnectionStrings__Core: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Core;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-#       SITECORE_Publishing__ConnectionStrings__Master: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-#       SITECORE_Publishing__ConnectionStrings__Service: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-#       SITECORE_Publishing__ConnectionStrings__Web: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Web;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-#     command: schema upgrade --force
-#     depends_on:
-#       mssql-init:
-#         condition: service_healthy
-#   sps:
-#     isolation: ${ISOLATION}
-#     image: ${MVP_DOCKER_REGISTRY}mvp-sps:${SITECORE_VERSION}
-#     volumes:
-#       - ${HOST_LICENSE_FOLDER}:c:\license
-#     environment:
-#       ASPNETCORE_URLS: "http://*:80"
-#       SITECORE_LICENSE_LOCATION: c:\license\license.xml
-#       SITECORE_Publishing__ConnectionStrings__Core: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Core;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-#       SITECORE_Publishing__ConnectionStrings__Master: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-#       SITECORE_Publishing__ConnectionStrings__Service: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-#       SITECORE_Publishing__ConnectionStrings__Web: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Web;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-#     ports:
-#       - "80"
-#     depends_on:
-#       - sps-mssql-init 
-#     healthcheck:
-#       test: ["CMD", "curl", "-f", "http://localhost/healthz/live"]
-#       timeout: 300s
+  sps-mssql-init:
+    isolation: ${ISOLATION}
+    image: ${MVP_DOCKER_REGISTRY}mvp-sps:${SITECORE_VERSION}
+    build:
+      context: ./docker/build/sps
+      args:
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}modules/sitecore-sps:6.0-ltsc2019
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      SITECORE_Publishing__ConnectionStrings__Core: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Core;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Publishing__ConnectionStrings__Master: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Publishing__ConnectionStrings__Service: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Publishing__ConnectionStrings__Web: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Web;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+    command: schema upgrade --force
+    depends_on:
+      mssql-init:
+        condition: service_healthy
+  sps:
+    isolation: ${ISOLATION}
+    image: ${MVP_DOCKER_REGISTRY}mvp-sps:${SITECORE_VERSION}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      ASPNETCORE_URLS: "http://*:80"
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      SITECORE_Publishing__ConnectionStrings__Core: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Core;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Publishing__ConnectionStrings__Master: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Publishing__ConnectionStrings__Service: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Publishing__ConnectionStrings__Web: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Web;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+    ports:
+      - "80"
+    depends_on:
+      - sps-mssql-init 
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/healthz/live"]
+      timeout: 300s
  
-# networks:
-#   default:
-#     external:
-#       name: nat
+networks:
+  default:
+    external:
+      name: nat
