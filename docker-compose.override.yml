@@ -117,7 +117,7 @@ services:
         BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-mssql-init:${SITECORE_VERSION}
         HEADLESS_SERVICES_RESOURCES_IMAGE: ${HEADLESS_SERVICES_RESOURCES_IMAGE}
         SPE_RESOURCES_IMAGE: ${SPE_RESOURCES_IMAGE}
-        SPS_RESOURCES_IMAGE: scr.sitecore.com/sxp/modules/sitecore-sps-integration-xm1-assets:10.2.0-1809
+        SPS_RESOURCES_IMAGE: scr.sitecore.com/sxp/modules/sitecore-sps-integration-xm1-assets:10.2-1809
 
   solr:
     restart: ${DOCKER_RESTART}
@@ -157,7 +157,7 @@ services:
         SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution:${SITECORE_VERSION}
         TOOLS_RESOURCES_IMAGE: ${TOOLS_RESOURCES_IMAGE}
         HEADLESS_SERVICES_RESOURCES_IMAGE: ${HEADLESS_SERVICES_RESOURCES_IMAGE}
-        SPS_RESOURCES_IMAGE: scr.sitecore.com/sxp/modules/sitecore-sps-integration-xm1-assets:10.2.0-1809
+        SPS_RESOURCES_IMAGE: scr.sitecore.com/sxp/modules/sitecore-sps-integration-xm1-assets:10.2-1809
     depends_on:
       solutionBuildOutput:
         condition: service_completed_successfully 
@@ -197,7 +197,7 @@ services:
         DEVEX_RESOURCES_IMAGE: ${DEVEX_RESOURCES_IMAGE}
         HEADLESS_SERVICES_RESOURCES_IMAGE: ${HEADLESS_SERVICES_RESOURCES_IMAGE}
         SPE_RESOURCES_IMAGE: ${SPE_RESOURCES_IMAGE}
-        SPS_RESOURCES_IMAGE: scr.sitecore.com/sxp/modules/sitecore-sps-integration-xm1-assets:10.2.0-1809
+        SPS_RESOURCES_IMAGE: scr.sitecore.com/sxp/modules/sitecore-sps-integration-xm1-assets:10.2-1809
     depends_on:
       solutionBuildOutput:
         condition: service_completed_successfully  
