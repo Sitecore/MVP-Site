@@ -57,7 +57,7 @@ services:
       Application_User_Password: ${SITECORE_APPLICATION_USER_PASSWORD}
       Application_User_Domain: ${SITECORE_APPLICATION_USER_DOMAIIN}
       Application_CMS_URL: ${SITECORE_Application_CMS_URL}
-    mem_limit: ${MEM_LIMIT_RENDERING:-1GB}           
+    mem_limit: ${MEM_LIMIT_RENDERING:-2GB}           
     depends_on:
       - solutionBuildOutput
       - cm

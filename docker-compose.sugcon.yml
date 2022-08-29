@@ -34,7 +34,7 @@ services:
       Application_CMS_URL: ${SITECORE_Application_CMS_URL}
     ports:
       - "80"      
-    mem_limit: ${MEM_LIMIT_RENDERING:-1GB}           
+    mem_limit: ${MEM_LIMIT_RENDERING:-2GB}           
     depends_on:
       - sugcon-rendering
       - cm
