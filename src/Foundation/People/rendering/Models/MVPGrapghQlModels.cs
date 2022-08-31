@@ -136,6 +136,11 @@ namespace Mvp.Foundation.People.Models
 		public string value { get; set; }
 	}
 
+	public class PreferredSocialMediaUrl
+	{
+		public string value { get; set; }
+	}
+
 	public class TargetItem
 	{
 		public string name { get; set; }
@@ -146,8 +151,15 @@ namespace Mvp.Foundation.People.Models
 		public TargetItem targetItem { get; set; }
 	}
 
+	public class PreferredSocialMedia
+	{
+		public TargetItem targetItem { get; set; }
+	}
+
 	public class Person
 	{
+		public PreferredSocialMediaUrl preferredSocialMediaUrl { get; set; }
+		public PreferredSocialMedia preferredSocialMedia { get; set; }
 		public FirstName firstName { get; set; }
 		public LastName lastName { get; set; }
 		public Email email { get; set; }

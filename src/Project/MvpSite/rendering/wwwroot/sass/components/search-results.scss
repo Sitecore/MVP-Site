@@ -77,14 +77,14 @@ section#mvp-search {
 .mvp-results-entries {
     .card {
         @media screen and (max-height: 425px) {
-            margin-bottom: 20px;    
+            margin-bottom: 20px;
         }
 
         height: 100%;
-        
+
         &--wrapper {
             margin-bottom: 20px;
-        } 
+        }
 
         a {
             &:hover {
@@ -130,8 +130,32 @@ section#mvp-search {
                 background-position: left 50%;
                 background-repeat: no-repeat;
                 color: #fff;
-                -webkit-filter:brightness(0) saturate(100%) invert(8%) sepia(0) saturate(1211%) hue-rotate(166deg) brightness(101%) contrast(87%);
-                filter:brightness(0) saturate(100%) invert(8%) sepia(0) saturate(1211%) hue-rotate(166deg) brightness(101%) contrast(87%)
+                -webkit-filter: brightness(0) saturate(100%) invert(8%) sepia(0) saturate(1211%) hue-rotate(166deg) brightness(101%) contrast(87%);
+                filter: brightness(0) saturate(100%) invert(8%) sepia(0) saturate(1211%) hue-rotate(166deg) brightness(101%) contrast(87%)
+            }
+
+            .linkedin {
+                background-image: url(../images/icon-linkedin.svg);
+                background-position: right 50%;
+                background-repeat: no-repeat;
+                background-position-y: top;
+                background-size: contain;
+            }
+
+            .facebook {
+                background-image: url(../images/icon-facebook.svg);
+                background-position: right 50%;
+                background-repeat: no-repeat;
+                background-position-y: top;
+                background-size: contain;
+            }
+
+            .twitter {
+                background-image: url(../images/icon-twitter.svg);
+                background-position: right 50%;
+                background-repeat: no-repeat;
+                background-position-y: top;
+                background-size: contain;
             }
 
             .card-body {

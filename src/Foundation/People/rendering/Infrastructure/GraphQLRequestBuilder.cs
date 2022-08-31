@@ -75,6 +75,10 @@ namespace Mvp.Foundation.People.Infrastructure
                                                             introduction {
                                                               value
                                                             }
+                                                            preferredSocialMediaUrl{
+                                                              value
+                                                            }
+                                                            preferredSocialMedia{targetItem{name}}
                                                             url
                                                             mvpCategory
                                                             mvpYear

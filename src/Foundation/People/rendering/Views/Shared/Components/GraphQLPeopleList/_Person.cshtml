@@ -1,0 +1,16 @@
+@using Mvp.Foundation.People.Extensions;
+@using Mvp.Foundation.People.Models;
+@model Mvp.Foundation.People.Models.Person
+
+@{ 
+    string classnamesocialmedia = !string.IsNullOrEmpty(Model.preferredSocialMedia?.targetItem?.name) && !string.IsNullOrEmpty(Model.preferredSocialMediaUrl.value) ? Model.preferredSocialMedia?.targetItem?.name?.ToLower() : "";
+}
+<!--Get users latest MVP year-->
+<div class="mvp-year">@Model.mvpYear</div>
+<img class="card-img-top" src="@Model.email.value.ToGravatar(" 253", "https://mvp.sitecore.net/images/mvp-base-user-grey.png" )" alt="@Model.firstName.value @Model.lastName.value Sitecore MVP" />
+<div class="card-body">
+    <div class="mvp-category @classnamesocialmedia">@Model.mvpCategory</div>
+    <h5 class="card-title">@Model.firstName.value @Model.lastName.value </h5>
+    <p class="card-text">@Model.country?.targetItem?.name</p>    
+</div>
+

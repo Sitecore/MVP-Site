@@ -43,6 +43,10 @@
             introduction {
               value
             }
+            preferredSocialMediaUrl {
+              value
+            }
+            preferredSocialMedia{targetItem{name}}          
             url
             country{targetItem{name}}
             
