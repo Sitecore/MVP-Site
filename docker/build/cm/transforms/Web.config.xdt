@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <configuration  xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-    <system.webServer>
-    </system.webServer>
+     <appSettings>
+      <add key="role:define" value="ContentManagement" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+   </appSettings>
+   <system.web>
+    <machineKey xdt:Transform="InsertIfMissing" validation="SHA1" decryption="AES" decryptionKey="AB3D763A246A03D557D16B0779E871A5D89FBAB8EA5FA1CD" 
+      validationKey="6737CF7F8AF790A163CFE7A222BCC97C467CB915EEE9C7C106417FE4BE24BAEFC54C1F01C9B3FF34ACBABAD87EDED772B95A5BE8C29BC69AF41F7E8B8F1826D3" />
+  </system.web>
 </configuration>

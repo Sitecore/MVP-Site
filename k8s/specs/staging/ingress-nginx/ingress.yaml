@@ -57,6 +57,16 @@ spec:
             name: cm
             port:
               number: 80
+  - host: $(STAGING_IDX_HOST)
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+         service:
+            name: cm-idx
+            port:
+              number: 80
   - host: $(STAGING_SUGCON_EU_HOST)
     http:
       paths:

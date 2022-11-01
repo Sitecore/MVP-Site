@@ -142,6 +142,7 @@ services:
         SOLUTION_IMAGE: ${MVP_DOCKER_REGISTRY}mvp-solution:${SITECORE_VERSION}
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      Sitecore_Sitecore__IdentityServer__Clients__DefaultClient__AllowedCorsOrigins__AllowedCorsOriginsGroup1: https://${CM_HOST}|https://${IDX_HOST}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     depends_on:
@@ -221,6 +222,64 @@ services:
       Sitecore_Publishing_Service_Url: "http://sps/"
     mem_limit: ${MEM_LIMIT_CD:-4GB}        
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
+
+  cm-idx:
+    isolation: ${ISOLATION}
+    image: ${MVP_DOCKER_REGISTRY}mvp-cm-idx:${SITECORE_VERSION}
+    restart: ${DOCKER_RESTART}
+    build:
+      context: ./docker/build/cm-idx
+      args:
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}${CM_IMAGE}:${SITECORE_VERSION}
+        TOOLS_RESOURCES_IMAGE: ${TOOLS_RESOURCES_IMAGE}
+        DEVEX_RESOURCES_IMAGE: ${DEVEX_RESOURCES_IMAGE}
+        HEADLESS_SERVICES_RESOURCES_IMAGE: ${HEADLESS_SERVICES_RESOURCES_IMAGE}
+        SPE_RESOURCES_IMAGE: ${SPE_RESOURCES_IMAGE}
+        SPS_RESOURCES_IMAGE: scr.sitecore.com/sxp/modules/sitecore-sps-integration-xm1-assets:10.2-1809
+    depends_on:
+      - cm 
+    volumes:
+      - ${LOCAL_DEPLOY_PATH}\platform:C:\deploy
+      - ${LOCAL_DATA_PATH}\cm:C:\inetpub\wwwroot\App_Data\logs
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      Sitecore_AppSettings_instanceNameMode:define: default
+      Sitecore_ConnectionStrings_Core: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Core;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD}
+      Sitecore_ConnectionStrings_Security: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Core;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD}
+      Sitecore_ConnectionStrings_Master: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD}
+      Sitecore_ConnectionStrings_Web: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Web;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD}
+      Sitecore_ConnectionStrings_ExperienceForms: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.ExperienceForms;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD}
+      Sitecore_ConnectionStrings_Solr.Search: http://solr:8983/solr;solrCloud=true
+      Sitecore_ConnectionStrings_Sitecoreidentity.secret: ${SITECORE_IDSECRET}
+      Sitecore_AppSettings_Telerik.AsyncUpload.ConfigurationEncryptionKey: ${TELERIK_ENCRYPTION_KEY}
+      Sitecore_AppSettings_Telerik.Upload.ConfigurationHashKey: ${TELERIK_ENCRYPTION_KEY}
+      Sitecore_AppSettings_Telerik.Web.UI.DialogParametersEncryptionKey: ${TELERIK_ENCRYPTION_KEY}
+      Sitecore_License: ${SITECORE_LICENSE}
+      Sitecore_Identity_Server_Authority: https://${ID_HOST}
+      Sitecore_Identity_Server_InternalAuthority: http://id
+      Sitecore_Identity_Server_CallbackAuthority: https://${IDX_HOST}
+      Sitecore_Identity_Server_Require_Https: "false"
+      SOLR_CORE_PREFIX_NAME: ${SOLR_CORE_PREFIX_NAME}
+      MEDIA_REQUEST_PROTECTION_SHARED_SECRET: ${MEDIA_REQUEST_PROTECTION_SHARED_SECRET}
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      SITECORE_DEVELOPMENT_PATCHES: CustomErrorsOff
+      Sitecore__ExternalCdUrl: "${CD_HOST}"
+      SSC__AllowAnonymousAccess: "${SSC_AllowAnonymousAccess}"
+      SSC__AnonymousUser: "${SSC_AnonymousUser}"
+      Sitecore_Publishing_Service_Url: "http://sps/"
+    healthcheck:
+      test: ["CMD", "powershell", "-command", "C:/Healthchecks/Healthcheck.ps1"]
+      timeout: 300s
+    mem_limit: ${MEM_LIMIT_CD:-4GB}        
+    entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
+      - "traefik.http.middlewares.force-STS-Header.headers.stsSeconds=31536000"
+      - "traefik.http.routers.cm-idx-secure.entrypoints=websecure"
+      - "traefik.http.routers.cm-idx-secure.rule=Host(`${IDX_HOST}`)"
+      - "traefik.http.routers.cm-idx-secure.tls=true"
+      - "traefik.http.routers.cm-idx-secure.middlewares=force-STS-Header"
 
   sps-mssql-init:
     isolation: ${ISOLATION}

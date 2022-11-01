@@ -5,7 +5,7 @@
 trigger:
   branches:
     include:
-    - main
+    - feature/jl-indexing-cm
 
 resources:
 - repo: self

@@ -78,7 +78,7 @@ spec:
         - name: Sitecore_Sitecore__IdentityServer__AccountOptions__PasswordRecoveryUrl
           value: https://$(STAGING_CM_HOST)/sitecore/login?rc=1
         - name: Sitecore_Sitecore__IdentityServer__Clients__DefaultClient__AllowedCorsOrigins__AllowedCorsOriginsGroup1
-          value: https://$(STAGING_CM_HOST)
+          value: https://$(STAGING_CM_HOST)|https://$(STAGING_IDX_HOST)
         - name: Sitecore_Sitecore__IdentityServer__PublicOrigin
           value: https://$(STAGING_ID_HOST)
         livenessProbe:
