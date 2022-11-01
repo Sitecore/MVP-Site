@@ -44,3 +44,6 @@ COPY .\transforms\ \transforms\role\
 
 # Perform transforms
 RUN C:\tools\scripts\Invoke-XdtTransform.ps1 -Path .\Web.config -XdtPath C:\transforms\role\Web.config.xdt;
+
+# Copy config
+COPY .\Patches\cm-idx.config c:\inetpub\wwwroot\App_Config\Include
