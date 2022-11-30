@@ -1,7 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for this project. For MVP, SUGCON sites create a ticket here [XM-Cloud-Introduction
-](https://github.com/Sitecore/XM-Cloud-Introduction/issues)
+about: Suggest an idea for this project. For MVP, SUGCON sites create a ticket here https://github.com/Sitecore/XM-Cloud-Introduction/issues
 
 ---
 
