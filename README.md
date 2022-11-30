@@ -1,4 +1,4 @@
-# ⚠️⚠️⚠️ Warningxxx
+# ⚠️⚠️⚠️ Warning
 
 This repository is just a demonstration on how to build various things.
 
