@@ -1,7 +1,6 @@
 ---
 name: Bug report
-about: Create a report to help us improve. For MVP, SUGCON sites create a ticket here [XM-Cloud-Introduction
-](https://github.com/Sitecore/XM-Cloud-Introduction/issues)
+about: Create a report to help us improve. For MVP, SUGCON sites create a ticket here https://github.com/Sitecore/XM-Cloud-Introduction/issues
 ---
 
 ## Description
