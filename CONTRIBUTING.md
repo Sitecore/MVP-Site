@@ -1,6 +1,6 @@
-# Contributing to Sitecore MVP Site
+# Contributing to Old Sitecore MVP Site
 
-Thanks for choosing to contributing to the Sitecore MVP site. This document is a set of guidelines to follow when contributing.
+Thanks for choosing to contributing to the Old Sitecore MVP site. This document is a set of guidelines to follow when contributing.
 
 ## Code of Conduct
 Please read the [Code of Conduct](./CODE_OF_CONDUCT.md) before participating, all contributors are expected to uphold this code. Please report unacceptable behavior to
