@@ -1,6 +1,12 @@
-# 🥇 Sitecore MVP Program Site
+# ⚠️⚠️⚠️ Warningxxx
 
-This repository for the [Sitecore MVP site](https://mvp.sitecore.com). It is built using Sitecore 10.2.
+This repository is just a demonstration on how to build various things.
+
+The actual code for the [Sitecore MVP site](https://mvp.sitecore.com), for [SUGCON](https://www.sugcon.events/), for [SUGCON Europe](https://europe.sugcon.events/) and for [SUGCON Australia and New Zealand](https://anz.sugcon.events/) is [here](https://github.com/Sitecore/XM-Cloud-Introduction)
+
+# 🥇 Old Sitecore MVP Program Site
+
+This is the repository for the old [Sitecore MVP site](https://mvp.sitecore.com). It was built using Sitecore 10.2.
 
 # 💗 Contributions
 
