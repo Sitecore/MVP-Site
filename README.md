@@ -1,3 +1,8 @@
+# Repository Archived
+This repository is now marked as 'archived'. All of the sites contained in this repository have now been migrated to XM Cloud. You can find the new repository here: [https://github.com/Sitecore/XM-Cloud-Introduction](https://github.com/Sitecore/XM-Cloud-Introduction).
+
+The repository will remain available as an example of how to use the technologies shown, but will no longer be upgraded as future versions of those technologies are released.
+
 # 🥇 Sitecore MVP Program Site
 
 This repository for the [Sitecore MVP site](https://mvp.sitecore.com). It is built using Sitecore 10.2.
